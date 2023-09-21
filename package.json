@@ -1,0 +1,29 @@
+{
+  "name": "ac-webengine",
+  "version": "0.0.1",
+  "description": "In-House TWS Story Telling Engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/TimeWizardStudios/ac-webengine.git"
+  },
+  "keywords": [
+    "LightNovel",
+    "Incremental",
+    "Story",
+    "Engine"
+  ],
+  "author": "SZOKOZ/EXEKL",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/TimeWizardStudios/ac-webengine/issues"
+  },
+  "homepage": "https://gitlab.com/TimeWizardStudios/ac-webengine#readme",
+  "dependencies": {
+    "pixi.js": "^7.3.0",
+    "typescript": "^5.2.2"
+  }
+}
