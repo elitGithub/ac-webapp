@@ -1,1 +1,1 @@
-export * as Core from "./Core";
+export * as Core from "./core";

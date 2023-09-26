@@ -1,6 +1,6 @@
-import { vec2, vec4, vec4ToArray } from "../../Core/math/models";
-import {IRenderPlatform} from "./models";
-import { ICanvas, IRenderer, autoDetectRenderer } from "pixi.js";
+import { vec2, vec4, vec4ToArray } from "../../core/math/models";
+import {IRenderPlatform, IRenderable} from "./interfaces";
+import { ICanvas, IRenderer, autoDetectRenderer, Ticker, Container, Color } from "pixi.js";
 
 export type PixiRendererOptions = {
     width?: number;
@@ -16,6 +16,10 @@ export class PixiRenderer implements IRenderPlatform {
 
     protected renderer: IRenderer<ICanvas>;
     protected parentElement?: HTMLElement;
+    private mainStage: Container;
+    private animating: boolean;
+    private ticker: Ticker;
+    private gameLoops = [];
 
     constructor(options: PixiRendererOptions) {
         let renderer: IRenderer<ICanvas>; 
@@ -45,6 +49,11 @@ export class PixiRenderer implements IRenderPlatform {
         }
 
         this.renderer = renderer;
+        this.mainStage = new Container();
+        this.ticker = Ticker.shared;
+        this.ticker.stop();
+        this.ticker.autoStart = false;
+        this.animating = false;
     }
 
     getDimensions(): vec2 {
@@ -64,7 +73,7 @@ export class PixiRenderer implements IRenderPlatform {
         return {x: color.red, y: color.green, z: color.blue, w: color.alpha};
     }
     setBackgroundColor(r: number, g?: number | undefined, b?: number | undefined, a?: number | undefined): void {
-        throw new Error("Method not implemented.");
+        this.renderer.background.color = new Color(new Uint8Array([r, g??0, b??0, a??1]));
     }
     getViewElement(): HTMLElement | undefined {
         return this.parentElement;
@@ -73,5 +82,17 @@ export class PixiRenderer implements IRenderPlatform {
         this.parentElement = view;
         this.parentElement.appendChild<any>(this.renderer.view);
     }
-    
+
+    start() {
+        this.animating = true;
+    }
+
+    stop() {
+        this.animating = false;
+    }
+
+    private renderLoop(time: number) {
+        this.ticker.update(time);
+        this.renderer.render(this.mainStage);
+    }
 }

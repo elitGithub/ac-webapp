@@ -1,1 +1,1 @@
-export * as Model from "./Graphics/models";
+export * as Model from "./graphics/interfaces";

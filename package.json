@@ -23,7 +23,11 @@
   },
   "homepage": "https://gitlab.com/TimeWizardStudios/ac-webengine#readme",
   "dependencies": {
+    "pako": "^2.1.0",
     "pixi.js": "^7.3.0",
     "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/pako": "^2.0.1"
   }
 }
