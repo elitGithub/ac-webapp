@@ -1,4 +1,4 @@
-import { vec2, vec4 } from "../../../Core/math/models";
+import { vec2, vec4 } from "../../../core/math/models";
 
 export default interface IRenderPlatform {
     getDimensions(): vec2;

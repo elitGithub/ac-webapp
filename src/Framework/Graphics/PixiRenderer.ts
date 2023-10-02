@@ -1,5 +1,5 @@
 import { vec2, vec4, vec4ToArray } from "../../core/math/models";
-import {IRenderPlatform, IRenderable} from "./interfaces";
+import {IRenderPlatform} from "./interfaces";
 import { ICanvas, IRenderer, autoDetectRenderer, Ticker, Container, Color } from "pixi.js";
 
 export type PixiRendererOptions = {

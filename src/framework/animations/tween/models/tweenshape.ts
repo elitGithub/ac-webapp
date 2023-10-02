@@ -1,4 +1,4 @@
-export default abstract class TweenShape {
+export default class TweenShape {
     private points: number[];
 
     constructor(...points: number[]) {
