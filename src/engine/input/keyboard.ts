@@ -1,7 +1,7 @@
 export class Keyboard {
     public static readonly state: Map<string, boolean>;
 
-    static {
+    public static initialise() {
         document.addEventListener("keydown", Keyboard.keyDown);
         document.addEventListener("keyup", Keyboard.keyUp);
     }

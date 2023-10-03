@@ -1,8 +1,8 @@
-type IEngineEvent = {
+export type IEngineEvent = {
 
 }
 
-interface EngineSystem {
+export interface EngineSystem {
     queue(engineEvent: IEngineEvent): void;
     update(time: number): void;
 }

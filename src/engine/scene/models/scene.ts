@@ -1,23 +1,24 @@
-import { Container, FederatedPointerEvent, Sprite, Texture } from "pixi.js";
-import { LayeredRenderable } from "../../render/models/layeredrenderable";
+import { Container, Sprite, Texture } from "pixi.js";
 import { IRenderableResource } from "../../../framework/graphics/interfaces/irenderableresource";
 import AssetLoader from "../../../framework/loader/AssetLoader";
-import { KeyboardListener } from "../../input/keyboardlistener";
 
-export class Scene extends Container {
-    background: Sprite;
-    sceneChildren: Container[];
+export interface IScene {
 
-    constructor(baseTexture: IRenderableResource) {
+}
+
+export class Scene extends Container implements IScene {
+    name: string;
+    background?: Sprite;
+
+    constructor(name: string, baseTexture?: IRenderableResource) {
         super();
-        this.background = Sprite.from(AssetLoader.load(baseTexture) as Texture);
-        this.background.zIndex = 0;
-        this.addChild(this.background);
+        this.name = name;
+        if (baseTexture) {
+             this.background = Sprite.from(AssetLoader.load(baseTexture) as Texture);
+             this.background.zIndex = 0;
+             this.addChild(this.background);
+        }
 
         this.eventMode = "passive";
-    }
-
-    onClick(click: FederatedPointerEvent) {
-
     }
 }
