@@ -1,4 +1,5 @@
-import mitt from "mitt";
+import mitt, { EventType } from "mitt";
 
-
-export const EventBus = mitt();
+export function createEventBus<T>() {
+    return mitt<Record<EventType, T>>();
+}
