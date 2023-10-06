@@ -1,4 +1,4 @@
-import { EngineBus, EngineSystem, IEngineEvent } from "../enginesys";
+import { EngineBus, EngineSystem, IEngineEvent, createEngineEvent } from "../enginesys";
 import { Keyboard } from "./keyboard";
 import { Keyboard_Press, Keyboard_Release, Keyboard_Click } from "./keyboardevents";
 import { KeyboardListener } from "./keyboardlistener";
@@ -10,15 +10,15 @@ export class InputSystem implements EngineSystem {
     }
 
     onKeyDown(preState: boolean, e: KeyboardEvent) {
-        EngineBus.emit(Keyboard_Press, {});
+        EngineBus.emit(Keyboard_Press, createEngineEvent({}));
     }
 
     onKeyUp(preState: boolean, e: KeyboardEvent) {
         if (preState && Keyboard.isKeyPressed(e.code)) {
-            EngineBus.emit(Keyboard_Click, {});
+            EngineBus.emit(Keyboard_Click, createEngineEvent({}));
         }
         else {
-            EngineBus.emit(Keyboard_Release, {});
+            EngineBus.emit(Keyboard_Release, createEngineEvent({}));
         }
     }
 
