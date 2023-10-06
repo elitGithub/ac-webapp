@@ -1,62 +1,15 @@
 import { Container } from "pixi.js";
-import { IEngineEvent, EngineSystem, EngineBus } from "../enginesys";
+import { EngineSystem, EngineBus } from "../enginesys";
 import { Render_Animate, Render_Clear_Animate } from "./models/events";
 import { vec2 } from "../../core/math/models";
 import TweenShape from "../../framework/animations/tween/models/tweenshape";
 import { Animation } from "./models/animation";
-
-type Animate = IEngineEvent & {
-    /**
-     * name(optional)
-     * Name of a registered animation can be used in place of specifying details of the animation.
-     */
-    name?: string;
-
-    /**
-     * target
-     * Target to apply the animation on.
-     */
-    target: Container;
-
-    /**
-     * property
-     * The property on the target to tween, e.g. rotation, position, alpha
-     */
-    property?: string;
-
-    /**
-     * to
-     * value the property should be at by the end of the animation
-     */
-    to?: number|vec2;
-
-    /**
-     * duration
-     * time the animation should play for in milliseconds
-     */
-    duration?: number;
-
-    /**
-     * easing
-     * The style of tween for the value of the property being animated.
-     */
-    easing?: TweenShape;
-
-    /**
-     * override
-     * can this animation override current animations running on this target and on this property?
-     */
-    override?: boolean;
-
-    /**
-     * overlay
-     * can this animation play concurrently with animations of a different property running on this target?
-     */
-    overlay?: boolean;
-}
+import { Animate } from "./models/animate";
+import { RenderEffectFlags } from "./models/renderop";
 
 type RenderableAnimation = {
-
+    name: string;
+    animation: Animation;
 }
 
 class AnimationSystem implements EngineSystem {
@@ -83,9 +36,65 @@ class AnimationSystem implements EngineSystem {
     }
 
     update(time: number) {
-        let animate;
+        let animate: Animate | undefined;
         while ((animate = this.queuedAnimates.pop()) !== undefined) {
+            if (animate.name) {
+                const registeredAnimation = this.namedAnimations.find(n => n.name === animate!.name);
+                if (registeredAnimation) {
+                    //...
+                    continue;
+                }
+            }
+            
+            if (!animate.property) {
+                console.error(`property undefined for animate event.`);
+                continue;
+            }
 
+            if (!animate.target) {
+                console.error(`target undefined for animate event.`);
+                continue;
+            }
+
+            if (!animate.target[animate.property]) {
+                console.error(`${animate.property} does not exist on target ${animate.target}.`);
+                continue;
+            }
+            
+            const anim = Animation.fromAnimate(animate);
+            anim.setRenderEffectMode(animate.overlay??false, animate.override);
+
+            if (this.canAnimationBeApplied(anim)) {
+                this.animating.push(anim);
+            }
         }
+
+        //..run animations
+    }
+
+    canAnimationBeApplied(animation: Animation): boolean {
+        const conflictingTargets = this.animating.find(anim => {
+            if (anim.target !== animation.target) {
+                return false;
+            }
+
+            const mode = animation.getRenderEffectMode();
+
+            if ((mode & RenderEffectFlags.RE_OVERLAY) && anim.property !== animation.property) {
+                return false;
+            }
+
+            if ((mode & RenderEffectFlags.RE_OVERRIDE) && anim.property === animation.property) {
+                return false;
+            }
+
+            return true;
+        });
+
+        if (conflictingTargets) {
+            return false;
+        }
+        
+        return true;
     }
 }
