@@ -7,34 +7,40 @@ import { vec3 } from "../../../core/math/models";
 
 export class Animation implements IEngineEvent, RenderEffect {
   eventId: string;
+  name?: string;
   target: Container;
   property: string;
   value: number | vec3;
   duration: number;
   easing: TweenShape;
-  onComplete: Function;
   animating: boolean;
   startingTime: number;
   _startingValue?: number | vec3;
   _renderEffect: RenderEffectFlags;
   //_system: IEngineSystem for animationsys context?
 
-  constructor(target: Container, property: string, value: number | vec3, duration: number, easing: TweenShape, onComplete: Function) {
+  constructor(target: Container, property: string, value: number | vec3, duration: number, easing: TweenShape) {
     this.target = target;
     this.property = property;
     this.value = value;
     this.duration = duration;
     this.easing = easing;
-    this.onComplete = onComplete || (() => { });
     this.animating = false;
     this.startingTime = -1;
     this._renderEffect = RenderEffectFlags.RE_NONE;
   }
 
 
+  /**
+   * fromAnimate
+   * Will convert an animate object into an animation one. This will not do any type checking.
+   * @param animate 
+   * @returns Animation
+   */
   static fromAnimate(animate: Animate): Animation {
-
+    return new Animation(animate.target, animate.property!, animate.to!, animate.duration!, animate.easing!);
   }
+    
 
   getAnimationStartValue(): number | vec3 | undefined {
     return this._startingValue;

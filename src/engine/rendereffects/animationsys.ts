@@ -1,31 +1,42 @@
 import { Container } from "pixi.js";
 import { EngineSystem, EngineBus, createEngineEvent } from "../enginesys";
 import { Render_Animate, Render_Animation_Finish, Render_Clear_Animate } from "./models/events";
-import { vec2, vec3 } from "../../core/math/models";
+import { vec3 } from "../../core/math/models";
 import TweenShape from "../../framework/animations/tween/models/tweenshape";
 import { Animation } from "./models/animation";
 import { Animate } from "./models/animate";
-import { RenderEffectFlags } from "./models/renderop";
+import { RenderEffectFlags, RenderEffectProps } from "./models/renderop";
 import { Tween, TweenPosition } from "../../framework/animations/tween/tween";
+import { AnimationListener } from "./models/animationlistener";
 
-type RenderableAnimation = {
+export type NamedAnimation = RenderEffectProps & {
     name: string;
-    animation: Animation;
+    property: string;
+    to: number|vec3;
+    easing: TweenShape;
 }
 
 class AnimationSystem implements EngineSystem {
-    namedAnimations: RenderableAnimation[] = [];
+    namedAnimations: NamedAnimation[] = [];
     queuedAnimates:Animate[] = [];
 
     animating: Animation[] = [];
 
     constructor() {
+        /*
+        Should have this system listen to animate requests.
+         */
         EngineBus.on(Render_Animate, this.queue.bind(this));
         EngineBus.on(Render_Clear_Animate, this.unqueue.bind(this));
     }
 
-    registerAnimation(name: string, type: RenderableAnimation) {
+    registerAnimation(type: NamedAnimation) {
+        if (this.namedAnimations.find(na => na.name === type.name)) {
+            return;
+        }
 
+        //...
+        this.namedAnimations.push(type);
     }
 
     queue(animate: Animate) {
@@ -173,5 +184,9 @@ class AnimationSystem implements EngineSystem {
         }
 
         return true;
+    }
+
+    subscribeToAnimationEvents(listener: AnimationListener) {
+        EngineBus.on(Render_Animation_Finish, listener.onAnimationsFinish.bind(listener));
     }
 }
