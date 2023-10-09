@@ -91,6 +91,10 @@ export class PixiRenderer implements IRenderPlatform {
         this.animating = false;
     }
 
+    uploadToGPU(renderable: Container) {
+        return this.renderer.prepare.upload(renderable);
+    }
+
     private renderLoop(time: number) {
         this.ticker.update(time);
         this.renderer.render(this.mainStage);
