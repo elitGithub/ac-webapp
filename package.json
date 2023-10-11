@@ -23,12 +23,14 @@
   },
   "homepage": "https://gitlab.com/TimeWizardStudios/ac-webengine#readme",
   "dependencies": {
+    "howler": "^2.2.4",
     "mitt": "^3.0.1",
     "pako": "^2.1.0",
     "pixi.js": "^7.3.0",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
+    "@types/howler": "^2.2.9",
     "@types/pako": "^2.0.1"
   }
 }
