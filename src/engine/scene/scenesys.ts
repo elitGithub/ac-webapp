@@ -18,6 +18,8 @@ export class SceneSystem implements EngineSystem, AnimationListener {
         this.transitioning = false;
         this.transitioningTo = "";
         this.transitionType = SceneTransitionFlags.ST_NONE;
+        
+        EngineBus.on()
     }
 
     addScene(scene: Scene) {
@@ -57,6 +59,12 @@ export class SceneSystem implements EngineSystem, AnimationListener {
     }
 
     loadScene(name: string) {
+        const scene = this.scenes.find(s => s.name === name);
+        if (!scene) {
+            throw new Error("SceneSys: Could not find scene: "+name);
+        }
+
+        //Engine.Render.prepareRenderable(scene);
 
     }
 

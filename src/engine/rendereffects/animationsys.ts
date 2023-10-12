@@ -16,7 +16,7 @@ export type NamedAnimation = RenderEffectProps & {
     easing: TweenShape;
 }
 
-class AnimationSystem implements EngineSystem {
+export class AnimationSystem implements EngineSystem {
     namedAnimations: NamedAnimation[] = [];
     queuedAnimates:Animate[] = [];
 

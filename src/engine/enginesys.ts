@@ -45,4 +45,8 @@ export class Engine {
         Engine.Scene = new SceneSystem();
         Engine.Input = new InputSystem();
     }
+
+    static init() {
+        
+    }
 }
