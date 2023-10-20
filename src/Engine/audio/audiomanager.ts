@@ -10,11 +10,24 @@ interface BackgroundMusicOptions {
     loopStart?: number; // Loop start time in seconds
     volume?: number;
     fade?: number; // Fade-in duration in milliseconds
+    position?: {
+        x: number;
+        y: number;
+        z: number;
+    };
 }
 
 export class AudioManager {
     private backgroundMusic: Howl | null = null;
     private soundEffects: SoundEffect = {};
+
+    private defaultOptions: BackgroundMusicOptions = {
+        id: "",
+        loop: false,
+        loopStart: 0,
+        volume: 0.8,
+        fade: 0,
+    };
 
     // Load and play background music
     playBackgroundMusic(src: string, options?: BackgroundMusicOptions): void {
@@ -23,15 +36,7 @@ export class AudioManager {
             this.backgroundMusic.unload();
         }
 
-        const defaultOptions: BackgroundMusicOptions = {
-            loop: false,
-            id: "",
-            loopStart: 0,
-            volume: 0.8,
-            fade: 0, // Default to no fade-in
-        };
-
-        options = { ...defaultOptions, ...options };
+        options = { ...this.defaultOptions, ...options };
 
         this.backgroundMusic = new Howl({
             src: [src],
@@ -97,8 +102,10 @@ export class AudioManager {
         }
     }
 
-    playSoundEffect(src: string, volume: number = 1.0, fade?: number): void {
+    playSoundEffect(src: string, options: BackgroundMusicOptions): void {
         const name = this.getSoundEffectNameFromSrc(src);
+
+        options = { ...this.defaultOptions, ...options };
 
         if (this.soundEffects[name]) {
             this.soundEffects[name].unload();
@@ -106,21 +113,30 @@ export class AudioManager {
 
         this.soundEffects[name] = new Howl({
             src: [src],
-            volume: 0, // Start with volume 0 for fade-in
+            volume: 0,
             onend: () => {
                 // Handle sound effect end
             },
         });
 
-        if (fade && fade > 0) {
+        if (options.fade && options.fade > 0) {
             // Apply fade-in effect if specified
-            this.soundEffects[name].fade(0, volume, fade);
+            this.soundEffects[name].fade(0, options.volume!, options.fade);
         } else {
             // Start playing without fade-in
-            this.soundEffects[name].volume(volume);
+            this.soundEffects[name].volume(options.volume!);
         }
 
-        this.soundEffects[name].play();
+        let id = this.soundEffects[name].play();
+
+        if (options?.position) {
+            this.soundEffects[name].pos(
+                options.position.x,
+                options.position.y,
+                options.position.z,
+                id
+            );
+        }
     }
 
     // Stop a specific sound effect. name is defined as the audio file name.
@@ -142,10 +158,8 @@ export class AudioManager {
     }
 
     private getSoundEffectNameFromSrc(src: string): string {
-        // Extract the file name from the src (assuming file names are unique)
         const fileName = src.split("/").pop() || "";
 
-        // Remove file extension (assuming the extension is .ogg)
         const name = fileName.replace(".ogg", "");
 
         return name;
