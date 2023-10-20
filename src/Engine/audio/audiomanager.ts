@@ -10,6 +10,11 @@ interface BackgroundMusicOptions {
     loopStart?: number; // Loop start time in seconds
     volume?: number;
     fade?: number; // Fade-in duration in milliseconds
+    position?: {
+        x: number;
+        y: number;
+        z: number;
+    };
 }
 
 export class AudioManager {
