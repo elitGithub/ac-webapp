@@ -16,4 +16,8 @@ export default class TweenShape {
     getCurvePoints(): number[] {
         return this.points;
     }
+
+    reverse(): TweenShape {
+        return new TweenShape(...[...this.points].reverse());
+    }
 }

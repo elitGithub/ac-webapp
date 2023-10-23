@@ -1,6 +1,6 @@
 import { Container } from "pixi.js";
-import { EngineSystem, EngineBus, createEngineEvent } from "../enginesys";
-import { Render_Animate, Render_Animation_Finish, Render_Clear_Animate } from "./models/events";
+import { EngineSystem, EngineBus, createEngineEvent, IEngineEvent } from "../enginesys";
+import { Create_Named_Animate, Render_Animate, Render_Animation_Finish, Render_Clear_Animate } from "./models/events";
 import { vec3 } from "../../core/math/models";
 import TweenShape from "../../framework/animations/tween/models/tweenshape";
 import { Animation } from "./models/animation";
@@ -26,8 +26,10 @@ export class AnimationSystem implements EngineSystem {
         /*
         Should have this system listen to animate requests.
          */
+
+        EngineBus.on(Create_Named_Animate, this.queue.bind(this));
         EngineBus.on(Render_Animate, this.queue.bind(this));
-        EngineBus.on(Render_Clear_Animate, this.unqueue.bind(this));
+        EngineBus.on(Render_Clear_Animate, this.queue.bind(this));
     }
 
     registerAnimation(type: NamedAnimation) {
@@ -35,12 +37,27 @@ export class AnimationSystem implements EngineSystem {
             return;
         }
 
-        //...
         this.namedAnimations.push(type);
     }
 
-    queue(animate: Animate) {
-        this.queuedAnimates.unshift(animate);
+    queue(engineEvent: IEngineEvent) {
+        if (engineEvent.event === Create_Named_Animate) {
+            const cna = engineEvent as unknown as NamedAnimation;
+            this.registerAnimation({
+                name: cna.name,
+                property: cna.property,
+                to: cna.to,
+                easing: cna.easing,
+                overlay: cna.overlay,
+                override: cna.override
+            });
+        }
+        else if (engineEvent.event === Render_Animate) {
+            this.queuedAnimates.unshift(engineEvent as Animate);
+        }
+        else if (engineEvent.event === Render_Clear_Animate) {
+            this.unqueue(engineEvent as Animate);
+        }  
     }
 
     unqueue(animate: Animate) {
@@ -53,8 +70,7 @@ export class AnimationSystem implements EngineSystem {
             if (animate.name) {
                 const registeredAnimation = this.namedAnimations.find(n => n.name === animate!.name);
                 if (registeredAnimation) {
-                    //...
-                    continue;
+                    animate = {...animate, ...registeredAnimation};
                 }
             }
             
@@ -68,7 +84,7 @@ export class AnimationSystem implements EngineSystem {
                 continue;
             }
 
-            if (!animate.target[animate.property]) {
+            if (animate.target[animate.property] === undefined) {
                 console.error(`${animate.property} does not exist on target ${animate.target}.`);
                 continue;
             }
@@ -87,7 +103,7 @@ export class AnimationSystem implements EngineSystem {
             const currentTime = time ?? performance.now();
             let starting = false;
             if (animation.startingTime === -1) {
-                animation.startingTime === currentTime;
+                animation.startingTime = currentTime;
                 starting = true;
             }
 
@@ -109,7 +125,7 @@ export class AnimationSystem implements EngineSystem {
                     animation.target[animation.property] = animation.value;
                 }
 
-                EngineBus.emit(Render_Animation_Finish, createEngineEvent(animation));
+                EngineBus.emit(Render_Animation_Finish, createEngineEvent(Render_Animation_Finish, animation));
                 let index = this.animating.findIndex(a => a === animation);
                 if (index === -1) {
                     console.log(`concerning ${animation}`);
@@ -127,8 +143,8 @@ export class AnimationSystem implements EngineSystem {
                 continue;
             }
 
-            const diffTime = endTime - animation.startingTime;
-            const timeFrac = diffTime / animation.duration;
+            const diffTime = endTime - currentTime;
+            const timeFrac = (animation.duration - diffTime) / animation.duration;
             const easing = animation.easing ?? new TweenShape(0, 1);
             if (animation.property === "position") {
                 const x = animation.target.position.x;
@@ -156,6 +172,7 @@ export class AnimationSystem implements EngineSystem {
 
                 const tweenedValue = Tween(timeFrac, animation.getAnimationStartValue() as number, animation.value as number, easing);
                 animation.target[animation.property] = tweenedValue;
+                console.log(`TimeFrac(${timeFrac}): Tween(${tweenedValue})`);
             }
         }
     }

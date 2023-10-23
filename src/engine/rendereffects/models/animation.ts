@@ -7,6 +7,7 @@ import { vec3 } from "../../../core/math/models";
 
 export class Animation implements IEngineEvent, RenderEffect {
   eventId: string;
+  event: Symbol;
   name?: string;
   target: Container;
   property: string;
@@ -38,7 +39,9 @@ export class Animation implements IEngineEvent, RenderEffect {
    * @returns Animation
    */
   static fromAnimate(animate: Animate): Animation {
-    return new Animation(animate.target, animate.property!, animate.to!, animate.duration!, animate.easing!);
+    const anim = new Animation(animate.target, animate.property!, animate.to!, animate.duration!, animate.easing!);
+    anim.name = animate.name;
+    return anim;
   }
     
 

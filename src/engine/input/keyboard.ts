@@ -3,7 +3,7 @@ export type KeyboardCB = {
 };
 
 export class Keyboard {
-    public static readonly state: Map<string, boolean>;
+    public static readonly state: Map<string, boolean> = new Map<string, boolean>();
     static keyDownCb: Function;
     static keyUpCb: Function;
     static firePreState: boolean;

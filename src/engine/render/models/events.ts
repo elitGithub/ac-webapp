@@ -1,1 +1,2 @@
 export const GPU_PREPARE = Symbol("GPU_PREPARE_TEXTURES");
+export const RENDER_STAGE_CHANGE = Symbol("RENDER_STAGE_SCENE_CHANGE");

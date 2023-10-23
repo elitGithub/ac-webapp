@@ -3,7 +3,7 @@ import { vec2, vec3 } from "../../../core/math/models";
 import TweenShape from "../../../framework/animations/tween/models";
 import { EngineBus, IEngineEvent, createEngineEvent } from "../../enginesys";
 import { RenderEffectProps } from "./renderop";
-import { Render_Animate } from "./events";
+import { Create_Named_Animate, Render_Animate } from "./events";
 
 export type Animate = IEngineEvent & RenderEffectProps & {
     /**
@@ -43,12 +43,27 @@ export type Animate = IEngineEvent & RenderEffectProps & {
     easing?: TweenShape;
 }
 
-export function queueNamedAnimate(target: Container, namedAnimation: string) {
+export function createNamedAnimate(name: string, property: string, to: number|vec3, easing?: TweenShape, overlay?: boolean, override?: boolean) {
+    EngineBus.emit(Create_Named_Animate, createEngineEvent(Create_Named_Animate, {
+        name,
+        property,
+        to,
+        easing,
+        overlay,
+        override,
+    }));
+}
 
+export function queueNamedAnimate(target: Container, namedAnimation: string, duration: number) {
+    EngineBus.emit(Render_Animate, createEngineEvent(Render_Animate, {
+        name: namedAnimation,
+        target,
+        duration
+    }));
 }
 
 export function queueAnimate(target: Container, property: string, to: number|vec3, duration: number, easing?: TweenShape, overlay?: boolean, override?: boolean) {
-    EngineBus.emit(Render_Animate, createEngineEvent({
+    EngineBus.emit(Render_Animate, createEngineEvent(Render_Animate, {
         target,
         property,
         to,

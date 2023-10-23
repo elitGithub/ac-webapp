@@ -10,15 +10,15 @@ export class InputSystem implements EngineSystem {
     }
 
     onKeyDown(preState: boolean, e: KeyboardEvent) {
-        EngineBus.emit(Keyboard_Press, createEngineEvent({}));
+        EngineBus.emit(Keyboard_Press, createEngineEvent(Keyboard_Press, {}));
     }
 
     onKeyUp(preState: boolean, e: KeyboardEvent) {
         if (preState && Keyboard.isKeyPressed(e.code)) {
-            EngineBus.emit(Keyboard_Click, createEngineEvent({}));
+            EngineBus.emit(Keyboard_Click, createEngineEvent(Keyboard_Click, {}));
         }
         else {
-            EngineBus.emit(Keyboard_Release, createEngineEvent({}));
+            EngineBus.emit(Keyboard_Release, createEngineEvent(Keyboard_Release, {}));
         }
     }
 
@@ -61,7 +61,7 @@ export class InputSystem implements EngineSystem {
     }
 
     update(time: number): void {
-        throw new Error("Method not implemented.");
+        return;
     }
     
 }

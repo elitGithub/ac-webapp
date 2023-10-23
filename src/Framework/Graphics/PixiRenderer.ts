@@ -1,6 +1,6 @@
 import { vec2, vec4, vec4ToArray } from "../../core/math/models";
 import {IRenderPlatform} from "./interfaces";
-import { ICanvas, IRenderer, autoDetectRenderer, Ticker, Container, Color } from "pixi.js";
+import { ICanvas, IRenderer, autoDetectRenderer, Container, Color } from "pixi.js";
 
 export type PixiRendererOptions = {
     width?: number;
@@ -18,10 +18,9 @@ export class PixiRenderer implements IRenderPlatform {
     protected parentElement?: HTMLElement;
     private mainStage: Container;
     private animating: boolean;
-    private ticker: Ticker;
-    private gameLoops = [];
 
     constructor(options: PixiRendererOptions) {
+        console.log("wow");
         let renderer: IRenderer<ICanvas>; 
         if (options.gpu) {
             renderer = autoDetectRenderer({
@@ -45,14 +44,11 @@ export class PixiRenderer implements IRenderPlatform {
         }
 
         if (options.parent) {
-            this.parentElement = options.parent;
+            this.setViewElement(options.parent);
         }
 
         this.renderer = renderer;
         this.mainStage = new Container();
-        this.ticker = Ticker.shared;
-        this.ticker.stop();
-        this.ticker.autoStart = false;
         this.animating = false;
     }
 
@@ -95,8 +91,24 @@ export class PixiRenderer implements IRenderPlatform {
         return this.renderer.prepare.upload(renderable);
     }
 
-    private renderLoop(time: number) {
-        this.ticker.update(time);
+    setHud(hud: Container) {
+        this.mainStage.removeChildAt(1);
+        this.mainStage.addChildAt(hud, 1);
+    }
+
+    updateStage(stageChild: Container) {
+        if (this.mainStage.children.length > 0)
+        {
+            this.mainStage.removeChildAt(0);
+            this.mainStage.addChildAt(stageChild, 0);
+        }
+        else {
+            this.mainStage.addChild(stageChild);
+        }
+        
+    }
+
+    update(dt: number) {
         this.renderer.render(this.mainStage);
     }
 }
