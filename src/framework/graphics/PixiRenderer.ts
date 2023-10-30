@@ -5,6 +5,7 @@ import { ICanvas, IRenderer, autoDetectRenderer, Container, Color } from "pixi.j
 export type PixiRendererOptions = {
     width?: number;
     height?: number;
+    fullscreen: boolean;
     resolution?: number;
     defaultBackgroundColor?: vec4;
     parent?: HTMLElement;
@@ -18,10 +19,12 @@ export class PixiRenderer implements IRenderPlatform {
     protected parentElement?: HTMLElement;
     private mainStage: Container;
     private animating: boolean;
+    private ratio: number;
 
     constructor(options: PixiRendererOptions) {
         console.log("wow");
-        let renderer: IRenderer<ICanvas>; 
+        this.ratio = (options.width??0)/(options.height??0);
+        let renderer: IRenderer<ICanvas>;
         if (options.gpu) {
             renderer = autoDetectRenderer({
                 width: options.width,
@@ -43,16 +46,21 @@ export class PixiRenderer implements IRenderPlatform {
             });
         }
 
-        if (options.parent) {
-            this.setViewElement(options.parent);
-        }
+        window.addEventListener("resize", this.resize.bind(this));
 
         this.renderer = renderer;
         this.mainStage = new Container();
         this.animating = false;
+        
+        if (options.parent) {
+            this.setViewElement(options.parent);
+        }
+
+        this.resize();
     }
 
     getDimensions(): vec2 {
+        console.log(`${this.renderer.width} ${this.renderer.height}`)
         return {x: this.renderer.width, y: this.renderer.height};
     }
     setDimensions(width: number, height: number): void {
@@ -64,6 +72,21 @@ export class PixiRenderer implements IRenderPlatform {
     setResolution(resolution: number): void {
         throw new Error("Method not implemented.");
     }
+
+    resize() {
+        //this.setDimensions(this.parentElement?.offsetWidth, this.parentElement?.offsetHeight);
+        let w, h;
+        if (window.innerWidth / window.innerHeight >= this.ratio) {
+            w = window.innerHeight * this.ratio;
+            h = window.innerHeight;
+        } else {
+             w = window.innerWidth;
+             h = window.innerWidth / this.ratio;
+        }
+        this.renderer.view.style.width = w + 'px';
+        this.renderer.view.style.height = h + 'px';
+    }
+
     getBackgroundColor(): vec4 {
         const color = this.renderer.background.backgroundColor;
         return {x: color.red, y: color.green, z: color.blue, w: color.alpha};

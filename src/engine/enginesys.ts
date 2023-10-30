@@ -1,8 +1,11 @@
 import { createEventBus } from "../framework/events";
+import { IRenderableResource } from "../framework/graphics";
 import { AssetSystem } from "./assetloader";
+import { BaseInteractable, BaseInteractableAction } from "./coreentities";
 import { InputSystem } from "./input";
 import { RenderSystem } from "./render/rendersys";
 import { AnimationSystem } from "./rendereffects";
+import { Scene } from "./scene/models";
 import { SceneSystem } from "./scene/scenesys";
 import { Ticker, utils } from "pixi.js";
 
@@ -36,8 +39,8 @@ export class Engine {
     static defaultConfig = {
         render: {
             renderer: {
-                width: 720,
-                height: 480,
+                width: 1920,
+                height: 1080,
                 resolution: 1,
                 gpu: true,
                 mobile: utils.isMobile.any,
@@ -72,6 +75,20 @@ export class Engine {
 
         requestAnimationFrame(Engine.loop);
     }
+
+    static async createSimpleInteractable(name: string, action: BaseInteractableAction, texture: IRenderableResource, attach?: Scene) {
+        const asset = await getEngine().getAssets().load(texture);
+        const interactable =  new BaseInteractable(asset?.texture, name, action);
+        if (attach) {
+            attach.addSceneObject(interactable);
+        }
+
+        return interactable;
+    }
+
+    static screenPositionByRatio(xRatio: number, yRatio: number) {
+       return getEngine().getRender().screenPositionByRatio(xRatio, yRatio);
+    }
 }
 
 export function getEngine() {
@@ -80,5 +97,7 @@ export function getEngine() {
         getAssets: () => Engine.Assets as AssetSystem,
         getAnimation: () => Engine.Animation as AnimationSystem,
         getScene: () => Engine.Scene as SceneSystem,
+        createSimpleInteractable: Engine.createSimpleInteractable,
+        SPR: Engine.screenPositionByRatio,
     };
 }
