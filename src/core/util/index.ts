@@ -1,1 +1,1 @@
-export const Unimplemented = null;
+export * from "./genSpriteHitmap";
