@@ -1,5 +1,5 @@
 {
-  "name": "ac-webengine",
+  "name": "@TimeWizardStudios/ac-webengine",
   "version": "0.0.1",
   "description": "In-House TWS Story Telling Engine",
   "main": "index.js",
