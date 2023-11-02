@@ -1,13 +1,15 @@
 import { createEventBus } from "../framework/events";
 import { IRenderableResource } from "../framework/graphics";
+import { BaseGame } from "../gameplay/game";
 import { AssetSystem } from "./assetloader";
 import { BaseInteractable, BaseInteractableAction } from "./coreentities";
+import { HudSystem } from "./gui";
 import { InputSystem } from "./input";
 import { RenderSystem } from "./render/rendersys";
 import { AnimationSystem } from "./rendereffects";
 import { Scene } from "./scene/models";
 import { SceneSystem } from "./scene/scenesys";
-import { Ticker, utils } from "pixi.js";
+import { Sprite, Ticker, utils } from "pixi.js";
 
 export type IEngineEvent = {
     eventId: string;
@@ -33,6 +35,8 @@ export class Engine {
     static Scene: EngineSystem;
     static Input: EngineSystem;
     static Assets: EngineSystem;
+    static Game: EngineSystem;
+    static Hud: EngineSystem;
 
     static ticker: Ticker;
 
@@ -58,9 +62,11 @@ export class Engine {
         Engine.Scene = new SceneSystem();
         Engine.Input = new InputSystem();
         Engine.Assets = new AssetSystem();
+        Engine.Hud = new HudSystem();
     }
 
-    static init() {
+    static init(game: EngineSystem) {
+        Engine.Game = game;
         getEngine().getAnimation().subscribeToAnimationEvents(getEngine().getScene());
         Engine.loop(performance.now());
     }
@@ -72,18 +78,32 @@ export class Engine {
         Engine.Scene.update(dt);
         Engine.Animation.update(dt);
         Engine.Render.update(dt);
+        Engine.Game.update(dt);
+        Engine.Hud.update(dt);
 
         requestAnimationFrame(Engine.loop);
     }
 
-    static async createSimpleInteractable(name: string, action: BaseInteractableAction, texture: IRenderableResource, attach?: Scene) {
+    static async createSimpleInteractable(name: string, action: BaseInteractableAction, texture: IRenderableResource) {
         const asset = await getEngine().getAssets().load(texture);
         const interactable =  new BaseInteractable(asset?.texture, name, action);
+
+        return interactable;
+    }
+
+    static async createSimpleSceneInteractable(name: string, action: BaseInteractableAction, texture: IRenderableResource, attach: Scene) {
+        const interactable = await getEngine().createSimpleInteractable(name, action, texture);
         if (attach) {
             attach.addSceneObject(interactable);
         }
-
         return interactable;
+    }
+
+    static async createSimpleSprite(texture: IRenderableResource) {
+        const asset = await getEngine().getAssets().load(texture);
+        if (asset) {
+            return Sprite.from(asset.texture);
+        }
     }
 
     static screenPositionByRatio(xRatio: number, yRatio: number) {
@@ -97,7 +117,11 @@ export function getEngine() {
         getAssets: () => Engine.Assets as AssetSystem,
         getAnimation: () => Engine.Animation as AnimationSystem,
         getScene: () => Engine.Scene as SceneSystem,
+        getGame: () => Engine.Game as BaseGame,
+        getHud: () => Engine.Hud as HudSystem,
         createSimpleInteractable: Engine.createSimpleInteractable,
+        createSimpleSceneInteractable: Engine.createSimpleSceneInteractable,
+        createSimpleSprite: Engine.createSimpleSprite,
         SPR: Engine.screenPositionByRatio,
     };
 }

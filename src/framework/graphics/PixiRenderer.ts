@@ -18,8 +18,11 @@ export class PixiRenderer implements IRenderPlatform {
     protected renderer: IRenderer<ICanvas>;
     protected parentElement?: HTMLElement;
     private mainStage: Container;
+    private hudStage: Container;
+    private sceneStage: Container;
     private animating: boolean;
     private ratio: number;
+    
 
     constructor(options: PixiRendererOptions) {
         console.log("wow");
@@ -50,6 +53,12 @@ export class PixiRenderer implements IRenderPlatform {
 
         this.renderer = renderer;
         this.mainStage = new Container();
+        this.mainStage.sortableChildren = true;
+        this.sceneStage = new Container();
+        this.mainStage.addChild(this.sceneStage);
+        this.hudStage = new Container();
+        this.hudStage.zIndex = 1;
+        this.mainStage.addChild(this.hudStage);
         this.animating = false;
         
         if (options.parent) {
@@ -114,21 +123,14 @@ export class PixiRenderer implements IRenderPlatform {
         return this.renderer.prepare.upload(renderable);
     }
 
-    setHud(hud: Container) {
-        this.mainStage.removeChildAt(1);
-        this.mainStage.addChildAt(hud, 1);
+    setHud(hudElements: Container[]) {
+        this.hudStage.removeChildren();
+        this.hudStage.addChild(...hudElements);
     }
 
     updateStage(stageChild: Container) {
-        if (this.mainStage.children.length > 0)
-        {
-            this.mainStage.removeChildAt(0);
-            this.mainStage.addChildAt(stageChild, 0);
-        }
-        else {
-            this.mainStage.addChild(stageChild);
-        }
-        
+        this.mainStage.removeChildAt(0);
+        this.mainStage.addChildAt(stageChild, 0);
     }
 
     update(dt: number) {

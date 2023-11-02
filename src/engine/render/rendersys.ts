@@ -1,6 +1,6 @@
 import { Container } from "pixi.js";
 import { EngineBus, EngineSystem, IEngineEvent } from "../enginesys";
-import { GPU_PREPARE, RENDER_STAGE_CHANGE } from "./models";
+import { GPU_PREPARE, RENDER_HUD_CHANGE, RENDER_STAGE_CHANGE } from "./models";
 import { PixiRenderer } from "../../framework/graphics/pixirenderer";
 import { vec2 } from "../../core/math/models";
 
@@ -13,6 +13,7 @@ export class RenderSystem implements EngineSystem {
         this.renderer = new PixiRenderer(opts.render.renderer);
         this.pendingRenderChanges = [];
         EngineBus.on(GPU_PREPARE, this.queue.bind(this));
+        EngineBus.on(RENDER_HUD_CHANGE, this.queue.bind(this));
         EngineBus.on(RENDER_STAGE_CHANGE, this.queue.bind(this));
     }
 
@@ -37,6 +38,9 @@ export class RenderSystem implements EngineSystem {
     queue(engineEvent: IEngineEvent): void {
         if (engineEvent.event === RENDER_STAGE_CHANGE) {
             this.pendingRenderChanges.unshift(() => this.renderer.updateStage((engineEvent as any)["scene"]));
+        }
+        else if (engineEvent.event === RENDER_HUD_CHANGE) {
+            this.pendingRenderChanges.unshift(() => this.renderer.setHud((engineEvent as any)["hudElements"]));
         }
     }
 
