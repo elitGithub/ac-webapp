@@ -1,10 +1,12 @@
 {
-  "name": "ac-webengine",
-  "version": "0.0.1",
+  "name": "@TimeWizardStudios/ac-webengine",
+  "version": "0.0.3",
   "description": "In-House TWS Story Telling Engine",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --build",
+    "clean": "tsc --build --clean"
   },
   "repository": {
     "type": "git",
