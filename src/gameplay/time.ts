@@ -54,7 +54,8 @@ export class Time {
     }
 
     start() {
-        this.time.setHours(0);
+        this.time.setDate(0);
+        this.time.setTime(0);
         if (this.timeProgression === TimeProgression.SIMULATED) {
             this.timeStarted = true;
         }
@@ -99,6 +100,28 @@ export class Time {
         });
     }
 
+    getDay() {
+        if (this.timeProgression === TimeProgression.REAL) {
+            return new Date(Date.now()).getDay();
+        }
+
+        return this.time.getDay();
+    }
+
+    getDayString() {
+        const day = this.getDay();
+        switch (day) {
+            case 0: return "Sunday";
+            case 1: return "Monday";
+            case 2: return "Tuesday";
+            case 3: return "Wednesday";
+            case 4: return "Thursday";
+            case 5: return "Friday";
+            case 6: return "Saturday";
+            default: return "Voiday";
+        }
+    }
+
     getHour() {
         if (this.timeProgression === TimeProgression.REAL) {
             return new Date(Date.now()).getHours();
@@ -106,11 +129,31 @@ export class Time {
         return this.time.getHours();
     }
 
+    getHourString() {
+        const hour = this.getHour();
+        if (hour < 10) {
+            return `0${hour}`;
+        }
+        else {
+            return hour.toString(10);
+        }
+    }
+
     getMinute() {
         if (this.timeProgression === TimeProgression.REAL) {
             return new Date(Date.now()).getMinutes();
         }
         return this.time.getMinutes();
+    }
+
+    getMinuteString() {
+        const minute = this.getMinute();
+        if (minute < 10) {
+            return `0${minute}`;
+        }
+        else {
+            return minute.toString(10);
+        }
     }
 
     simulatedTimeUpdate(delta: DOMHighResTimeStamp) {
