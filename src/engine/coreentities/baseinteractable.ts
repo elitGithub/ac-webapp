@@ -1,6 +1,8 @@
 import { BLEND_MODES, Container, IPointData, Sprite, Texture } from "pixi.js";
 import { BaseEntity } from "./entity";
 import { genHitmap } from "../../core/util";
+import { Popup } from "../gui/popup";
+import { getEngine } from "..";
 
 export interface BaseInteractableAction {
     action: string,
@@ -12,6 +14,8 @@ export class BaseInteractable extends Sprite implements BaseEntity {
     public actions: [BaseInteractableAction];
     public canInteract: boolean = true;
     public hoverHighlight = true;
+    public hoverLabel = true;
+    private label?: Popup;
 
     constructor(baseTexture?: Texture, name?: string, action?: BaseInteractableAction) {
         super(baseTexture);
@@ -76,10 +80,45 @@ export class BaseInteractable extends Sprite implements BaseEntity {
             //Should probably save the state of the blendmode so we can revert back to it in case the blendmode was not normal.
             this.blendMode = BLEND_MODES.SCREEN;
         }
+
+        if (this.hoverLabel && this.label) {
+            this.label.show();
+        }
     }
 
     onPointerHoverEnd(event: any) {
         this.blendMode = BLEND_MODES.NORMAL;
+        if (this.label) {
+            this.label.hide();
+        }
+    }
+
+    setLabel(label: Popup) {
+        this.label = label;
+        let labelX = 0;
+        let labelY = 0;
+        /* if (this.position.x - label.width > 0) {
+            labelX = this.position.x - label.width;
+        }
+        else if (this.position.x + label.width < getEngine().getRender().renderer.getDimensions().x) {
+            labelX = this.position.x + label.width;
+        }
+        else {
+            labelX = this.position.x;
+        }
+
+        if (this.position.y - label.height > 0) {
+            labelY = this.position.y - label.height;
+        }
+        else if (this.position.y + label.height < getEngine().getRender().renderer.getDimensions().y) {
+            labelY = this.position.y + label.height;
+        }
+        else {
+            labelY = this.position.y;
+        } */
+
+        this.label.position.set(labelX, labelY);
+        this.addChild(label);
     }
 
     containsPoint(point: IPointData): boolean {
