@@ -1,8 +1,7 @@
 import { BLEND_MODES, Container, IPointData, Sprite, Texture } from "pixi.js";
 import { BaseEntity } from "./entity";
 import { genHitmap } from "../../core/util";
-import { Popup } from "../gui/popup";
-import { getEngine } from "..";
+import { Popup } from "../gui";
 
 export interface BaseInteractableAction {
     action: string,

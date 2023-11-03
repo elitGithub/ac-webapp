@@ -1,6 +1,6 @@
-import { Container } from "pixi.js";
 import { EngineBus, EngineSystem, IEngineEvent, createEngineEvent } from "..";
 import { RENDER_HUD_CHANGE } from "../render/models";
+import { HudElement } from "./models/hudelement";
 
 export class HudSystem implements EngineSystem {
 
@@ -35,8 +35,4 @@ export class HudSystem implements EngineSystem {
         }
     }
 
-}
-
-export class HudElement extends Container {
-    
 }
