@@ -1,7 +1,8 @@
 import { BLEND_MODES, Container, IPointData, Sprite, Texture } from "pixi.js";
 import { BaseEntity } from "./entity";
-import { genHitmap } from "../../core/util";
+import { genHitmap, onSceneOutChildren } from "../../core/util";
 import { Popup } from "../gui";
+import { Scene } from "../scene/models";
 
 export interface BaseInteractableAction {
     action: string,
@@ -34,6 +35,11 @@ export class BaseInteractable extends Sprite implements BaseEntity {
         this.on("pointerout", this.onPointerHoverEnd.bind(this));
 
         this.eventMode = "dynamic";
+    }
+
+    onSceneOut(scene: Scene): void {
+        this.onPointerHoverEnd(undefined);
+        onSceneOutChildren(this.children, scene);
     }
 
     onPointerPress(event: any) {

@@ -7,6 +7,7 @@ import { AnimationListener } from "../rendereffects/models/animationlistener";
 import { Load_Scene, Prep_Scenes, Reload_Scene, Transition_Scene } from "./models/events";
 import { RENDER_STAGE_CHANGE } from "../render/models";
 import TweenShape from "../../framework/animations/tween/models/tweenshape";
+import { onSceneOutChildren } from "../../core/util";
 
 export class SceneSystem implements EngineSystem, AnimationListener {
 
@@ -63,6 +64,8 @@ export class SceneSystem implements EngineSystem, AnimationListener {
         }
 
         this.transitioning = true;
+        this.currentScene.eventMode = "none";
+        onSceneOutChildren(this.currentScene.children, this.currentScene);
     }
 
     transitionSceneWithCustom(name: string, animation: any) {
@@ -113,6 +116,7 @@ export class SceneSystem implements EngineSystem, AnimationListener {
             throw new Error("SceneSys: Could not find the scene to transition to.");
         }
         this.pendingSceneChange = true;
+        this.currentScene.eventMode = "passive";
         
         if (this.transitionType === SceneTransitionFlags.ST_FADE) {
             this.currentScene.alpha = 0;
