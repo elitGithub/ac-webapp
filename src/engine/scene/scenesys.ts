@@ -4,7 +4,7 @@ import { Scene } from "./models/scene";
 import SceneTransitionFlags from "./models/scenetransitions";
 import { createNamedAnimate, queueNamedAnimate } from "../rendereffects/models/animate";
 import { AnimationListener } from "../rendereffects/models/animationlistener";
-import { Load_Scene, Prep_Scenes, Transition_Scene } from "./models/events";
+import { Load_Scene, Prep_Scenes, Reload_Scene, Transition_Scene } from "./models/events";
 import { RENDER_STAGE_CHANGE } from "../render/models";
 import TweenShape from "../../framework/animations/tween/models/tweenshape";
 
@@ -27,6 +27,7 @@ export class SceneSystem implements EngineSystem, AnimationListener {
         EngineBus.on(Prep_Scenes, this.queue.bind(this));
         EngineBus.on(Load_Scene, this.queue.bind(this));
         EngineBus.on(Transition_Scene, this.queue.bind(this));
+        EngineBus.on(Reload_Scene, this.queue.bind(this));
 
         //There will be a config for scene transitions soon
         const ease = new TweenShape(0, 0.1, 0.15, 1);
@@ -73,7 +74,7 @@ export class SceneSystem implements EngineSystem, AnimationListener {
         .then(() => {
             if (!transitioning) {
                 this.currentScene = scene;
-                this.pendingSceneChange = true;
+                this.pendingSceneChange = transitioning;
             }
         });
     }
@@ -150,6 +151,15 @@ export class SceneSystem implements EngineSystem, AnimationListener {
         else if (engineEvent.event === Transition_Scene) {
             const loadSceneEvent = engineEvent as any;
             this.loadSceneWithTransition(loadSceneEvent["sceneName"], loadSceneEvent["sceneTransition"]);
+        }
+        else if (engineEvent.event === Reload_Scene) {
+            if (this.pendingSceneChange || this.transitioning) {
+                return;
+            }
+
+            if (this.currentScene) {
+                this.loadSceneWithTransition(this.currentScene.name, SceneTransitionFlags.ST_FADE);
+            }
         }
     }
     
