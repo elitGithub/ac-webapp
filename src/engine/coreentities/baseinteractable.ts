@@ -39,6 +39,7 @@ export class BaseInteractable extends Sprite implements BaseEntity {
 
     onSceneOut(scene: Scene): void {
         this.onPointerHoverEnd(undefined);
+        this.eventMode = "none";
         onSceneOutChildren(this.children, scene);
     }
 

@@ -132,7 +132,7 @@ export class SceneSystem implements EngineSystem, AnimationListener {
     }
 
     onAnimationsFinish(animation: Animation) {
-        if (this.transitioning && (animation.name === SceneTransitionFlags[this.transitionType])) {
+        if (this.transitioning && ((animation.name === SceneTransitionFlags[this.transitionType]) || animation.name === SceneTransitionFlags[this.transitionType]+"_REVERSE")) {
             if (animation.target.name === this.transitioningTo) {
                 this.onSceneTransitionEnter();
             }

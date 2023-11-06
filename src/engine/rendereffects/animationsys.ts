@@ -53,6 +53,7 @@ export class AnimationSystem implements EngineSystem {
             });
         }
         else if (engineEvent.event === Render_Animate) {
+            console.log("WEWO");
             this.queuedAnimates.unshift(engineEvent as Animate);
         }
         else if (engineEvent.event === Render_Clear_Animate) {
@@ -172,7 +173,7 @@ export class AnimationSystem implements EngineSystem {
 
                 const tweenedValue = Tween(timeFrac, animation.getAnimationStartValue() as number, animation.value as number, easing);
                 animation.target[animation.property] = tweenedValue;
-                console.log(`TimeFrac(${timeFrac}): Tween(${tweenedValue})`);
+                //console.log(`TimeFrac(${timeFrac}): Tween(${tweenedValue})`);
             }
         }
     }
