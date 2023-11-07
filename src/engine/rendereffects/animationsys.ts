@@ -53,7 +53,6 @@ export class AnimationSystem implements EngineSystem {
             });
         }
         else if (engineEvent.event === Render_Animate) {
-            console.log("WEWO");
             this.queuedAnimates.unshift(engineEvent as Animate);
         }
         else if (engineEvent.event === Render_Clear_Animate) {
