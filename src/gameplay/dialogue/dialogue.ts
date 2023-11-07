@@ -1,4 +1,5 @@
 import { BaseCharacter } from "../../engine/coreentities/basecharacter";
+import { DialogueChoice } from "./dialoguechoice";
 
 /**
  * Dialogue
@@ -11,6 +12,7 @@ export class Dialogue {
     dialogueId: string;
     speaker: BaseCharacter;
     lines: Array<string>;
+    choices: Array<DialogueChoice>;
     private callerDialogue?: string;
 
     constructor(speaker: BaseCharacter, dialogueId?: string, callerDialogue?: string) {
@@ -25,6 +27,7 @@ export class Dialogue {
         this.callerDialogue = callerDialogue;
 
         this.lines = [];
+        this.choices = [];
     }
 
     addDialogueLine(...line: string[]) {
