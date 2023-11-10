@@ -1,5 +1,6 @@
 import { Dialogue } from ".";
-import { EngineBus, EngineSystem, IEngineEvent } from "../../engine";
+import { EngineBus, EngineSystem, IEngineEvent, getEngine } from "../../engine";
+import { DialogueHud } from "./dialoguehud";
 import { ADVANCE_DIALOGUE, SELECT_DIALOGUE_CHOICE, START_DIALOGUE, SelectDialogueChoiceEvent, StartDialogueEvent } from "./model";
 
 export class DialogueCatalog {
@@ -25,6 +26,7 @@ export class DialogueSystem implements EngineSystem {
     private currentDialogue?: Dialogue;
     private currentDialogueLine: number;
     private dialogueCatalogs: Map<string, DialogueCatalog>;
+    private dialogueHud: DialogueHud;
 
     constructor() {
         EngineBus.on(START_DIALOGUE, this.queue.bind(this));
@@ -33,6 +35,8 @@ export class DialogueSystem implements EngineSystem {
 
         this.dialogueCatalogs = new Map<string, DialogueCatalog>();
         this.currentDialogueLine = 0;
+        this.dialogueHud = new DialogueHud();
+        getEngine().getHud().addElementToHud("HUD_DIALOGUE", this.dialogueHud);
     }
 
     addCatalog(category: string) {
@@ -61,6 +65,13 @@ export class DialogueSystem implements EngineSystem {
         cat!.addDialogue(dialogue);
     }
 
+    private beginDialogue(dialogue: Dialogue) {
+        this.currentDialogue = dialogue;
+        this.currentDialogueLine = 0;
+        const hasNext = (this.currentDialogue.lines.length - this.currentDialogueLine) > 1;
+        this.dialogueHud.startDialogue(dialogue.lines[this.currentDialogueLine], dialogue.speaker.name, hasNext, hasNext ? undefined : dialogue.choices.map(c => c.choice));
+    }
+
     startDialogue(dialogueId: string, category?: string) {
         if (category) {
             const cat = this.dialogueCatalogs.get(category);
@@ -75,8 +86,7 @@ export class DialogueSystem implements EngineSystem {
                 return;
             }
 
-            this.currentDialogue = dialogue;
-            this.currentDialogueLine = 0;
+            this.beginDialogue(dialogue);
             return;
         }
 
@@ -84,8 +94,7 @@ export class DialogueSystem implements EngineSystem {
         if (cat) {
             const dialogue = cat.getDialogue(dialogueId);
             if (dialogue) {
-                this.currentDialogue = dialogue;
-                this.currentDialogueLine = 0;
+                this.beginDialogue(dialogue);
                 return;
             }
         }
@@ -93,8 +102,7 @@ export class DialogueSystem implements EngineSystem {
         for (const catalog of this.dialogueCatalogs.values()) {
             const dialogue = catalog.getDialogue(dialogueId);
             if (dialogue) {
-                this.currentDialogue = dialogue;
-                this.currentDialogueLine = 0;
+                this.beginDialogue(dialogue);
                 return;
             }
         }
@@ -103,7 +111,18 @@ export class DialogueSystem implements EngineSystem {
     }
 
     advanceDialogue() {
+        if (!this.currentDialogue) {
+            return;
+        }
+
         this.currentDialogueLine++;
+        if (this.currentDialogueLine >= this.currentDialogue.lines.length) {
+            this.endCurrentDialogue();
+            return;
+        }
+
+        const hasNext = (this.currentDialogue.lines.length - this.currentDialogueLine) > 1;
+        this.dialogueHud.nextDialogueLine(this.currentDialogue.lines[this.currentDialogueLine], hasNext, hasNext ? undefined : this.currentDialogue.choices.map(c => c.choice));
     }
 
     handleDialogueChoice(choiceNum: number) {
@@ -133,6 +152,7 @@ export class DialogueSystem implements EngineSystem {
     endCurrentDialogue() {
         this.currentDialogue = undefined;
         this.currentDialogueLine = 0;
+        this.dialogueHud.endDialogue();
     }
 
     queue(engineEvent: IEngineEvent): void {

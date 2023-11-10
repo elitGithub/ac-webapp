@@ -57,4 +57,44 @@ export class DialogueHud extends HudElement {
         this.dialogueLine = text;
     }
 
+    startDialogue(text: string, speaker: string, next: boolean, choices?: string[]) {
+        if (this.speechBg) {
+            this.speechBg.visible = true;
+        }
+
+        this.setText(text);
+        this.setSpeaker(speaker);
+        
+        if (next && this.nextIndicatorIcon) {
+            this.nextIndicatorIcon.visible = true;
+        }
+    }
+
+    nextDialogueLine(text: string, next: boolean, choices?: string[]) {
+        this.setText(text);
+        if (next && this.nextIndicatorIcon) {
+            this.nextIndicatorIcon.visible = true;
+        }
+        else if (!next && this.nextIndicatorIcon) {
+            this.nextIndicatorIcon.visible = false;
+        }
+    }
+
+    displayChoices(choices: string[]) {
+
+    }
+
+    endDialogue() {
+        if (this.speechBg) {
+            this.speechBg.visible = false;
+        }
+
+        this.setText("");
+        this.setSpeaker("");
+
+        if (this.nextIndicatorIcon) {
+            this.nextIndicatorIcon.visible = false;
+        }
+    }
+
 }
