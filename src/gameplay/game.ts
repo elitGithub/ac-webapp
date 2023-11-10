@@ -2,7 +2,7 @@ import { EngineSystem, IEngineEvent } from "../engine";
 import { FiniteResource } from "./finiteresource";
 import { Time, TimeProgression } from "./time";
 
-export class BaseGame implements EngineSystem{
+export class BaseGame implements EngineSystem {
     finiteResources: Map<string, FiniteResource>;
     clock: Time;
 

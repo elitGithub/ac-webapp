@@ -41,4 +41,20 @@ export class Dialogue {
     setCaller(caller: string) {
         this.callerDialogue = caller;
     }
+
+    getChoiceByIndex(index: number) {
+        if (index >= this.choices.length) {
+            return null;
+        }
+
+        return this.choices[index];
+    }
+
+    addChoice(choice: string, nextDialogue?: string, choiceAction?: Function) {
+        this.choices.push(new DialogueChoice(this.dialogueId, choice, nextDialogue, choiceAction));
+    }
+
+    setChoices(choices: DialogueChoice[]) {
+        this.choices = choices;
+    }
 }

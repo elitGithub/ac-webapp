@@ -25,6 +25,10 @@ export class RenderSystem implements EngineSystem {
         this.renderer.setViewElement(element);
     }
     
+    getDimensions() {
+        return this.renderer.getDimensions();
+    }
+    
     screenPositionByRatio(x: number, y: number): vec2 {
         const size = this.renderer.getDimensions();
         return {x: x * size.x, y: y *size.y};
