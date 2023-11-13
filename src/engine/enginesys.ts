@@ -86,7 +86,7 @@ export class Engine {
 
     static async createSimpleInteractable(name: string, action: BaseInteractableAction, texture: IRenderableResource) {
         const asset = await getEngine().getAssets().load(texture);
-        const interactable =  new BaseInteractable(asset?.texture, name, action);
+        const interactable = new BaseInteractable(asset?.texture, name, action);
 
         return interactable;
     }

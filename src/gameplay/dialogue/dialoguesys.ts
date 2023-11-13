@@ -28,14 +28,19 @@ export class DialogueSystem implements EngineSystem {
     private dialogueCatalogs: Map<string, DialogueCatalog>;
     private dialogueHud: DialogueHud;
 
-    constructor() {
+    constructor(customDialogueHud?: DialogueHud) {
         EngineBus.on(START_DIALOGUE, this.queue.bind(this));
         EngineBus.on(ADVANCE_DIALOGUE, this.queue.bind(this));
         EngineBus.on(SELECT_DIALOGUE_CHOICE, this.queue.bind(this));
 
         this.dialogueCatalogs = new Map<string, DialogueCatalog>();
         this.currentDialogueLine = 0;
-        this.dialogueHud = new DialogueHud();
+        if (customDialogueHud) {
+            this.dialogueHud = customDialogueHud;
+        }
+        else {
+            this.dialogueHud = new DialogueHud();
+        }
         getEngine().getHud().addElementToHud("HUD_DIALOGUE", this.dialogueHud);
     }
 
@@ -155,6 +160,10 @@ export class DialogueSystem implements EngineSystem {
         this.dialogueHud.endDialogue();
     }
 
+    getDialogueHud() {
+        return this.dialogueHud;
+    }
+    
     queue(engineEvent: IEngineEvent): void {
         if (engineEvent.event === START_DIALOGUE) {
             const startDialogueEvent = engineEvent as StartDialogueEvent;
@@ -170,7 +179,6 @@ export class DialogueSystem implements EngineSystem {
     }
 
     update(time: number): void {
-        throw new Error("Method not implemented.");
     }
 
 }
