@@ -1,10 +1,12 @@
 import { Sprite } from "pixi.js";
 import { BaseCharacter } from "../engine/coreentities/basecharacter";
-import { EngineBus, IEngineEvent, getEngine } from "../engine";
+import { EngineBus, IEngineEvent, createEngineEvent, getEngine } from "../engine";
 import { vec2 } from "../core/math/models";
 import { queueNamedAnimate } from "../engine/rendereffects";
 import SceneTransitionFlags from "../engine/scene/models/scenetransitions";
 import { Animation, AnimationListener } from "../engine/rendereffects/models";
+import { START_DIALOGUE } from "./dialogue";
+import { DialogueMode } from "./dialogue/model";
 
 enum BodyPart {
     BODY,
@@ -31,7 +33,8 @@ function getBodyPartOffset(bodyPart: BodyPart): vec2 {
     }
 }
 
-export class NPC extends BaseCharacter implements AnimationListener {
+//add scheduling
+export class NPC extends BaseCharacter implements AnimationListener, DialogueMode {
     assetsBase: string;
     availableExpressions = ["afraid", "angry", "annoyed", "blush", "concerned", "confident", "cringe",
         "displeased", "embarrassed", "excited", "eyeroll", "flirty", "laughing", "neutral", "sad",
@@ -46,15 +49,14 @@ export class NPC extends BaseCharacter implements AnimationListener {
     currentBody: string;
     currentArms: string;
 
+    inDialogueMode: boolean;
+
     constructor(displayName: string) {
         const action = {
             action: "interact",
-            handler: () => {
-                queueNamedAnimate(this, SceneTransitionFlags[SceneTransitionFlags.ST_FADE], 500);
-                this.transitioning = true;
-                this.transitioningTo = this.availableExpressions[Math.round(Math.random() * this.availableExpressions.length) - 1];
-            },
-        };
+            handler:() => this.enterDialogueMode(),
+        }
+
         super(displayName, undefined, action);
         this.assetsBase = "/src/assets/characters";
         this.expressions = new Map<string, Sprite>();
@@ -63,6 +65,8 @@ export class NPC extends BaseCharacter implements AnimationListener {
         this.transitioning = false;
         this.transitioningTo = "";
         this.bodyPartOverrides = new Map<string, any>();
+        this.inDialogueMode = false;
+
         this.parseBaseAssets().then(() => {
             this.currentBody = "body1";
             this.currentExpression = "neutral";
@@ -86,6 +90,22 @@ export class NPC extends BaseCharacter implements AnimationListener {
         });
 
         getEngine().getAnimation().subscribeToAnimationEvents(this);
+    }
+
+    enterDialogueMode(): void {
+        queueNamedAnimate(this, SceneTransitionFlags[SceneTransitionFlags.ST_FADE], 500);
+        this.transitioning = true;
+        this.transitioningTo = this.availableExpressions[Math.round(Math.random() * this.availableExpressions.length) - 1];
+        //EngineBus.emit(START_DIALOGUE, createEngineEvent(START_DIALOGUE, {dialogueId: "test_dialogue"}));
+        this.inDialogueMode = true;
+    }
+
+    exitDialogueMode(): void {
+        this.inDialogueMode = false;
+    }
+
+    setDialogueState() {
+        this.scale.set(1,1);
     }
 
     private async parseBaseAssets() {
@@ -151,6 +171,9 @@ export class NPC extends BaseCharacter implements AnimationListener {
                 this.changeExpression(this.transitioningTo);
                 this.transitioningTo = "";
                 queueNamedAnimate(this, SceneTransitionFlags[SceneTransitionFlags.ST_FADE] + "_REVERSE", 500);
+                if (this.inDialogueMode) {
+                    this.setDialogueState();
+                }
             }
             else {
                 this.transitioning = false;
