@@ -1,5 +1,5 @@
 import { EngineBus, EngineSystem, IEngineEvent, createEngineEvent } from "../../engine";
-import { ADVANCE_QUEST, AdvanceQuestEvent, QUEST_STARTED, QUEST_STEP_STARTED, START_QUEST, StartQuestEvent } from "./model/events";
+import { ADVANCE_QUEST, AdvanceQuestEvent, QUEST_STARTED, QUEST_STEP_STARTED, QUEST_TRACKER_CHANGE, START_QUEST, StartQuestEvent } from "./model/events";
 import { Quest, QuestState } from "./quest";
 
 export class QuestSystem implements EngineSystem {
@@ -9,6 +9,7 @@ export class QuestSystem implements EngineSystem {
     constructor() {
         EngineBus.on(START_QUEST, this.queue.bind(this));
         EngineBus.on(ADVANCE_QUEST, this.queue.bind(this));
+        EngineBus.on(QUEST_TRACKER_CHANGE, this.queue.bind(this));
 
         this.quests = new Map<string, Quest>();
     }
@@ -33,6 +34,12 @@ export class QuestSystem implements EngineSystem {
         }
     }
 
+    beginQuest(quest: Quest) {
+        if (quest.startQuest()) {
+            EngineBus.emit(QUEST_STARTED, createEngineEvent(QUEST_STARTED, {quest}));
+        }
+    }
+
     startQuest(quest: string) {
         const q = this.quests.get(quest) ?? Array.from(this.quests.values()).find(q => q.isQuest(quest));
         if (!q) {
@@ -44,9 +51,7 @@ export class QuestSystem implements EngineSystem {
             return;
         }
 
-        if (q.startQuest()) {
-            EngineBus.emit(QUEST_STARTED, createEngineEvent(QUEST_STARTED, {quest: q}));
-        }
+        this.beginQuest(q);
     }
 
     advanceQuest(quest: string, questStep?: string) {
@@ -83,10 +88,21 @@ export class QuestSystem implements EngineSystem {
             const aq = engineEvent as AdvanceQuestEvent;
             this.advanceQuest(aq.quest, aq.step);
         }
+        else if (engineEvent.event === QUEST_TRACKER_CHANGE) {
+            
+        }
     }
 
     update(time: number): void {
-        
+        for (const q of this.quests.values()) {
+            if (q.state === QuestState.REQ_NOT_MET && q.requirements.every(r => r())) {
+                q.state = QuestState.CAN_START;
+            }
+
+            if (q.state === QuestState.CAN_START && q.enableImmediately) {
+                this.beginQuest(q);
+            }
+        }
     }
     
 }
