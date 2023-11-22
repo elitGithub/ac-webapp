@@ -40,6 +40,10 @@ export class SceneSystem implements EngineSystem, AnimationListener {
         this.scenes.push(scene);
     }
 
+    sceneByName(name: string) {
+        return this.scenes.find(s => s.name === name);
+    }
+
     private _transitionScene(scene: Scene, transition: SceneTransitionFlags) {
         this.transitioningTo = scene.name;
         this.transitionType = transition;
