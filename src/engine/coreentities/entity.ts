@@ -1,5 +1,6 @@
 import { Sprite, Texture } from "pixi.js";
 import { Scene } from "../scene/models";
+import { getEngine } from "..";
 
 export interface BaseEntity {
     name: string;
@@ -22,6 +23,8 @@ export class RenderableEntity extends Sprite implements BaseEntity {
 
         this.on("pointerover", this.onPointerHover.bind(this));
         this.on("pointerout", this.onPointerHoverEnd.bind(this));
+
+        getEngine().getGame().gameEntities.push(this);
     }
 
     onPointerPress(event: any) {

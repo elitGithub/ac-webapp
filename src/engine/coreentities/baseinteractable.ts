@@ -1,5 +1,5 @@
-import { BLEND_MODES, Container, IPointData, Sprite, Texture } from "pixi.js";
-import { BaseEntity, RenderableEntity } from "./entity";
+import { BLEND_MODES, IPointData, Texture } from "pixi.js";
+import { RenderableEntity } from "./entity";
 import { genHitmap, onSceneOutChildren } from "../../core/util";
 import { Popup } from "../gui";
 import { Scene } from "../scene/models";
