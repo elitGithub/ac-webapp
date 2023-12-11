@@ -12,7 +12,7 @@ export class HudSystem implements EngineSystem {
         this.hudElements = new Map<string, HudElement>();
         this.hudChanged = false;
 
-        EngineBus.on(TOGGLE_HUD, this.queue.bind(this));
+        EngineBus.on(TOGGLE_HUD, this.queue);
     }
 
     addElementToHud(name: string, hudElement: HudElement) {

@@ -27,9 +27,9 @@ export class AnimationSystem implements EngineSystem {
         Should have this system listen to animate requests.
          */
 
-        EngineBus.on(Create_Named_Animate, this.queue.bind(this));
-        EngineBus.on(Render_Animate, this.queue.bind(this));
-        EngineBus.on(Render_Clear_Animate, this.queue.bind(this));
+        EngineBus.on(Create_Named_Animate, this.queue);
+        EngineBus.on(Render_Animate, this.queue);
+        EngineBus.on(Render_Clear_Animate, this.queue);
     }
 
     registerAnimation(type: NamedAnimation) {

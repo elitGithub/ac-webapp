@@ -6,7 +6,7 @@ import { KeyboardListener } from "./keyboardlistener";
 export class InputSystem implements EngineSystem {
 
     constructor() {
-        Keyboard.initialise(this.onKeyDown.bind(this), this.onKeyUp.bind(this), true);
+        Keyboard.initialise(this.onKeyDown, this.onKeyUp, true);
     }
 
     onKeyDown(preState: boolean, e: KeyboardEvent) {

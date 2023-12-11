@@ -12,9 +12,9 @@ export class RenderSystem implements EngineSystem {
     constructor(opts: any) {
         this.renderer = new PixiRenderer(opts.render.renderer);
         this.pendingRenderChanges = [];
-        EngineBus.on(GPU_PREPARE, this.queue.bind(this));
-        EngineBus.on(RENDER_HUD_CHANGE, this.queue.bind(this));
-        EngineBus.on(RENDER_STAGE_CHANGE, this.queue.bind(this));
+        EngineBus.on(GPU_PREPARE, this.queue);
+        EngineBus.on(RENDER_HUD_CHANGE, this.queue);
+        EngineBus.on(RENDER_STAGE_CHANGE, this.queue);
     }
 
     prepareRenderable(renderable: Container) {

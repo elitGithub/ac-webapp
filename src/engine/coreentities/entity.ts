@@ -15,14 +15,14 @@ export class RenderableEntity extends Sprite implements BaseEntity {
         super(baseTexture);
         this.name = name ?? "";
 
-        this.on("pointerdown", this.onPointerPress.bind(this));
-        this.on("pointerup", this.onPointerRelease.bind(this));
-        this.on("pointerupoutside", this.onPointerCancel.bind(this));
-        this.on("pointercancel", this.onPointerCancel.bind(this));
-        this.on("pointertap", this.onPointerClick.bind(this));
+        this.on("pointerdown", this.onPointerPress);
+        this.on("pointerup", this.onPointerRelease);
+        this.on("pointerupoutside", this.onPointerCancel);
+        this.on("pointercancel", this.onPointerCancel);
+        this.on("pointertap", this.onPointerClick);
 
-        this.on("pointerover", this.onPointerHover.bind(this));
-        this.on("pointerout", this.onPointerHoverEnd.bind(this));
+        this.on("pointerover", this.onPointerHover);
+        this.on("pointerout", this.onPointerHoverEnd);
 
         getEngine().getGame().gameEntities.push(this);
     }
