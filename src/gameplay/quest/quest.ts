@@ -29,6 +29,8 @@ export class QuestStep {
     description: string;
     nextStep: string;
 
+    targets?: string[];
+
     objectives: QuestObjective[];
     complete: boolean;
 
@@ -46,6 +48,10 @@ export class QuestStep {
 
     setObjectives(objectives: QuestObjective[]) {
         this.objectives = objectives;
+    }
+
+    setTarget(targets: string[]) {
+        this.targets = targets;
     }
 
     completeStep(): boolean {
