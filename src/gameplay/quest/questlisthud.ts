@@ -8,18 +8,24 @@ export class QuestListHud extends HudElement {
     background?: Texture<Resource>;
     listItems: Container[];
 
-    constructor(backgroundTexture: IRenderableResource) {
+    constructor(backgroundTexture?: IRenderableResource) {
         super();
-        getEngine().getAssets().load(backgroundTexture)
+        if (backgroundTexture) {
+            this.setBackground(backgroundTexture);
+        }
+
+        this.listItems = [];
+    }
+
+    setBackground(background: IRenderableResource) {
+        getEngine().getAssets().load(background)
             .then(asset => {
                 if (asset) {
                     this.background = asset.texture;
                 }
             });
-
-        this.listItems = [];
     }
-
+    
     addItemToList(questTitle: string) {
         const t = new Text(questTitle);
         t.anchor.set(0.5);
@@ -40,7 +46,7 @@ export class QuestListHud extends HudElement {
     }
 
     onItemClick(questTitle: string) {
-        EngineBus.emit(QUEST_TRACKER_CHANGE, createEngineEvent(QUEST_TRACKER_CHANGE, {quest: questTitle}));
-        EngineBus.emit(TOGGLE_HUD, createEngineEvent(TOGGLE_HUD, {hudname: "HUD_QUEST_LIST"}));
+        EngineBus.emit(QUEST_TRACKER_CHANGE, createEngineEvent(QUEST_TRACKER_CHANGE, { quest: questTitle }));
+        EngineBus.emit(TOGGLE_HUD, createEngineEvent(TOGGLE_HUD, { hudname: "HUD_QUEST_LIST" }));
     }
 }

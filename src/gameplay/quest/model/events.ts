@@ -20,3 +20,7 @@ export interface AdvanceQuestEvent extends IEngineEvent {
     quest: string;
     step?: string;
 }
+
+export interface QuestTrackerChangeEvent extends IEngineEvent {
+    quest: string;
+}
