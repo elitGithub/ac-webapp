@@ -9,7 +9,8 @@ export class DialogueHud extends HudElement {
     speechBg?: Sprite;
     dialogueLine: string;
     dialogueSpeaker: string;
-    text: Text;
+    dialogueText: Text;
+    speakerText: Text;
 
     constructor(speechBackground?: IRenderableResource, nextIndicator?: IRenderableResource, speakerLabelBackground?: IRenderableResource) {
         super();
@@ -34,15 +35,17 @@ export class DialogueHud extends HudElement {
 
         this.dialogueLine = "";
         this.dialogueSpeaker = "";
-        this.text = new Text();
+        this.dialogueText = new Text();
+        this.speakerText = new Text();
     }
 
     setSpeakerLabelBackground(sprite: Sprite) {
-
+        this.speakerLabelBg = sprite;
+        this.speakerLabelBg.setTransform(0, getEngine().getRender().getDimensions().y - (this.speechBg?.height??0) + 10);
     }
 
     setNextIndicatorIcon(sprite: Sprite) {
-
+        this.nextIndicatorIcon = sprite;
     }
 
     setSpeechBackground(sprite: Sprite) {
@@ -53,15 +56,20 @@ export class DialogueHud extends HudElement {
     }
 
     setSpeaker(speaker: string) {
+        this.dialogueSpeaker = speaker;
+        this.speakerText.text = speaker;
 
+        if (this.speakerLabelBg) {
+            this.speakerText.setTransform(5, getEngine().getRender().getDimensions().y - (this.speechBg?.height??0) + 10);
+        }
     }
 
     setText(text: string) {
         this.dialogueLine = text;
-        this.text.text = text;
+        this.dialogueText.text = text;
 
         if (this.speechBg) {
-            this.text.setTransform(0, getEngine().getRender().getDimensions().y-this.speechBg.height);
+            this.dialogueText.setTransform(0, getEngine().getRender().getDimensions().y-this.speechBg.height);
         }
     }
 
@@ -89,7 +97,7 @@ export class DialogueHud extends HudElement {
     }
 
     displayChoices(choices: string[]) {
-
+        
     }
 
     endDialogue() {
