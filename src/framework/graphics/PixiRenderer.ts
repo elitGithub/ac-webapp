@@ -49,7 +49,7 @@ export class PixiRenderer implements IRenderPlatform {
             });
         }
 
-        window.addEventListener("resize", this.resize);
+        window.addEventListener("resize", this.resize.bind(this));
 
         this.renderer = renderer;
         this.mainStage = new Container();

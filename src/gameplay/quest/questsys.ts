@@ -13,9 +13,9 @@ export class QuestSystem implements EngineSystem {
     questListHud: QuestListHud;
 
     constructor(customTrackerHud?: QuestTrackerHud, customListHud?: QuestListHud) {
-        EngineBus.on(START_QUEST, this.queue);
-        EngineBus.on(ADVANCE_QUEST, this.queue);
-        EngineBus.on(QUEST_TRACKER_CHANGE, this.queue);
+        EngineBus.on(START_QUEST, this.queue.bind(this));
+        EngineBus.on(ADVANCE_QUEST, this.queue.bind(this));
+        EngineBus.on(QUEST_TRACKER_CHANGE, this.queue.bind(this));
 
         this.quests = new Map<string, Quest>();
         this.questHints = new Map<string, QuestHint[]>();

@@ -12,7 +12,7 @@ export class HudSystem implements EngineSystem {
         this.hudElements = new Map<string, HudElement>();
         this.hudChanged = false;
 
-        EngineBus.on(TOGGLE_HUD, this.queue);
+        EngineBus.on(TOGGLE_HUD, this.queue.bind(this));
     }
 
     addElementToHud(name: string, hudElement: HudElement) {
@@ -50,7 +50,7 @@ export class HudSystem implements EngineSystem {
 
     update(time: number): void {
         if (this.hudChanged) {
-            EngineBus.emit(RENDER_HUD_CHANGE, createEngineEvent(RENDER_HUD_CHANGE, {hudElements: this.activeElements}));
+            EngineBus.emit(RENDER_HUD_CHANGE, createEngineEvent(RENDER_HUD_CHANGE, {hudElements: this.activeElements()}));
             this.hudChanged = false;
         }
     }

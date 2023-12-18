@@ -29,9 +29,9 @@ export class DialogueSystem implements EngineSystem {
     private dialogueHud: DialogueHud;
 
     constructor(customDialogueHud?: DialogueHud) {
-        EngineBus.on(START_DIALOGUE, this.queue);
-        EngineBus.on(ADVANCE_DIALOGUE, this.queue);
-        EngineBus.on(SELECT_DIALOGUE_CHOICE, this.queue);
+        EngineBus.on(START_DIALOGUE, this.queue.bind(this));
+        EngineBus.on(ADVANCE_DIALOGUE, this.queue.bind(this));
+        EngineBus.on(SELECT_DIALOGUE_CHOICE, this.queue.bind(this));
 
         this.dialogueCatalogs = new Map<string, DialogueCatalog>();
         this.currentDialogueLine = 0;

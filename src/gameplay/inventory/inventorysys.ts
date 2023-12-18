@@ -9,8 +9,8 @@ export class InventorySystem implements EngineSystem {
     constructor() {
         this.inventories = new Map<string, Inventory>();
 
-        EngineBus.on(INVENTORY_ADD_ITEM, this.queue);
-        EngineBus.on(INVENTORY_REMOVE_ITEM, this.queue);
+        EngineBus.on(INVENTORY_ADD_ITEM, this.queue.bind(this));
+        EngineBus.on(INVENTORY_REMOVE_ITEM, this.queue.bind(this));
     }
 
     addInventoryItem(owner: string, item: string, quantity: number) {

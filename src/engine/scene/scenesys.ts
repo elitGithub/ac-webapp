@@ -25,10 +25,10 @@ export class SceneSystem implements EngineSystem, AnimationListener {
         this.transitioningTo = "";
         this.transitionType = SceneTransitionFlags.ST_NONE;
         
-        EngineBus.on(Prep_Scenes, this.queue);
-        EngineBus.on(Load_Scene, this.queue);
-        EngineBus.on(Transition_Scene, this.queue);
-        EngineBus.on(Reload_Scene, this.queue);
+        EngineBus.on(Prep_Scenes, this.queue.bind(this));
+        EngineBus.on(Load_Scene, this.queue.bind(this));
+        EngineBus.on(Transition_Scene, this.queue.bind(this));
+        EngineBus.on(Reload_Scene, this.queue.bind(this));
 
         //There will be a config for scene transitions soon
         const ease = new TweenShape(0, 0.1, 0.15, 1);
