@@ -42,7 +42,19 @@ export class QuestListHud extends HudElement {
     }
 
     removeItemFromList(questTitle: string) {
-        this.listItems = this.listItems.filter(item => item.name?.toUpperCase() !== questTitle.toUpperCase());
+        let removeChild = (item: Container) => {
+            this.removeChild(item);
+        }
+        removeChild = removeChild.bind(this);
+
+        this.listItems = this.listItems.filter(item => {
+            if (item.name?.toUpperCase() !== questTitle.toUpperCase()) {
+                return true;
+            }
+
+            removeChild(item);
+            return false;
+        });
     }
 
     onItemClick(questTitle: string) {
