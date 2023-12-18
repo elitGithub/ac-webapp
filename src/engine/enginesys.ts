@@ -3,6 +3,7 @@ import { IRenderableResource } from "../framework/graphics";
 import { BaseGame } from "../gameplay/game";
 import { AssetSystem } from "./assetloader";
 import { BaseInteractable, BaseInteractableAction } from "./coreentities";
+import { Location } from "./coreentities/location";
 import { HudSystem } from "./gui";
 import { InputSystem } from "./input";
 import { RenderSystem } from "./render/rendersys";
@@ -109,6 +110,25 @@ export class Engine {
     static screenPositionByRatio(xRatio: number, yRatio: number) {
        return getEngine().getRender().screenPositionByRatio(xRatio, yRatio);
     }
+
+    static resolve(resolvable: string) {
+        const parts = resolvable.split(":");
+        if (parts.length === 0) {
+            return;
+        }
+
+        switch(parts[0]) {
+            case "HUD": {
+                return (Engine.Hud as HudSystem).activeElements().find(e => e.name === parts[1]);
+            }
+            case "ENTITY": {
+                return (Engine.Game as BaseGame).gameEntities.find(e => e.name === parts[1]);
+            }
+            case "LOCATION": {
+                return (Engine.Scene as SceneSystem).sceneByName(parts[1]) as Location;
+            }
+        }
+    }
 }
 
 export function getEngine() {
@@ -123,5 +143,6 @@ export function getEngine() {
         createSimpleSceneInteractable: Engine.createSimpleSceneInteractable,
         createSimpleSprite: Engine.createSimpleSprite,
         SPR: Engine.screenPositionByRatio,
+        resolve: Engine.resolve,
     };
 }
