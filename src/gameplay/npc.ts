@@ -58,7 +58,7 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
         }
 
         super(displayName, undefined, action);
-        this.assetsBase = "/src/assets/characters";
+        this.assetsBase = "/assets/characters";
         this.expressions = new Map<string, Sprite>();
         this.body = new Map<string, Sprite>();
         this.arms = new Map<string, Sprite>();
