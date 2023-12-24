@@ -18,7 +18,7 @@ export class QuestListHud extends HudElement {
     }
 
     setBackground(background: IRenderableResource) {
-        getEngine().getAssets().load(background)
+        getEngine().getAssets().loadTexture(background)
             .then(asset => {
                 if (asset) {
                     this.background = asset.texture;

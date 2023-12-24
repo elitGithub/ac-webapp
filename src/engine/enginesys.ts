@@ -86,7 +86,7 @@ export class Engine {
     }
 
     static async createSimpleInteractable(name: string, action: BaseInteractableAction, texture: IRenderableResource) {
-        const asset = await getEngine().getAssets().load(texture);
+        const asset = await getEngine().getAssets().loadTexture(texture);
         const interactable = new BaseInteractable(asset?.texture, name, action);
 
         return interactable;
@@ -101,7 +101,7 @@ export class Engine {
     }
 
     static async createSimpleSprite(texture: IRenderableResource) {
-        const asset = await getEngine().getAssets().load(texture);
+        const asset = await getEngine().getAssets().loadTexture(texture);
         if (asset) {
             return Sprite.from(asset.texture);
         }

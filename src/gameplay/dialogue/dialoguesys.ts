@@ -75,6 +75,7 @@ export class DialogueSystem implements EngineSystem {
         this.currentDialogueLine = 0;
         const hasNext = (this.currentDialogue.lines.length - this.currentDialogueLine) > 1;
         this.dialogueHud.startDialogue(dialogue.lines[this.currentDialogueLine], dialogue.speaker.name, hasNext, hasNext ? undefined : dialogue.choices.map(c => c.choice));
+        dialogue.speaker.setSpeaking(true);
     }
 
     startDialogue(dialogueId: string, category?: string) {
@@ -155,6 +156,7 @@ export class DialogueSystem implements EngineSystem {
     }
 
     endCurrentDialogue() {
+        this.currentDialogue?.speaker.setSpeaking(false);
         this.currentDialogue = undefined;
         this.currentDialogueLine = 0;
         this.dialogueHud.endDialogue();

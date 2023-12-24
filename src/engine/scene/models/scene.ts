@@ -1,7 +1,7 @@
 import { Container, Sprite, Texture } from "pixi.js";
 import { IRenderableResource } from "../../../framework/graphics/interfaces/irenderableresource";
 import { getEngine } from "../..";
-import { LoadedAsset } from "../../assetloader";
+import { LoadedTextureAsset } from "../../assetloader";
 
 export interface IScene {
 
@@ -16,8 +16,8 @@ export class Scene extends Container implements IScene {
         this.name = name;
         this.sortableChildren = true;
         if (baseTexture) {
-            getEngine().getAssets().load(baseTexture)
-            .then((texture: LoadedAsset|void) => {
+            getEngine().getAssets().loadTexture(baseTexture)
+            .then((texture: LoadedTextureAsset|void) => {
                 if (texture) {
                     this.background = Sprite.from(texture.texture);
                     this.background.zIndex = 0;
