@@ -14,6 +14,7 @@ export class DialogueHud extends HudElement {
     speakerText: Text;
     choiceBg?: Sprite;
     preppedChoices: Container[];
+    choiceDisplaying: boolean;
 
     constructor(speechBackground?: IRenderableResource, nextIndicator?: IRenderableResource, speakerLabelBackground?: IRenderableResource) {
         super();
@@ -41,11 +42,16 @@ export class DialogueHud extends HudElement {
         this.dialogueText = new Text();
         this.speakerText = new Text();
         this.preppedChoices = [];
+        this.choiceDisplaying = false;
+
+        this.addChild(this.dialogueText);
     }
 
     setSpeakerLabelBackground(sprite: Sprite) {
         this.speakerLabelBg = sprite;
         this.speakerLabelBg.setTransform(0, getEngine().getRender().getDimensions().y - (this.speechBg?.height??0) + 10);
+        this.addChild(this.speakerLabelBg);
+        this.addChild(this.speakerText);
     }
 
     setNextIndicatorIcon(sprite: Sprite) {
@@ -64,7 +70,7 @@ export class DialogueHud extends HudElement {
         this.speakerText.text = speaker;
 
         if (this.speakerLabelBg) {
-            this.speakerText.setTransform(5, getEngine().getRender().getDimensions().y - (this.speechBg?.height??0) + 10);
+            this.speakerText.setTransform(10, getEngine().getRender().getDimensions().y - (this.speechBg?.height??0) + 10);
         }
     }
 
@@ -73,7 +79,7 @@ export class DialogueHud extends HudElement {
         this.dialogueText.text = text;
 
         if (this.speechBg) {
-            this.dialogueText.setTransform(0, getEngine().getRender().getDimensions().y-this.speechBg.height);
+            this.dialogueText.setTransform(40, getEngine().getRender().getDimensions().y-this.speechBg.height);
         }
     }
 
@@ -81,45 +87,37 @@ export class DialogueHud extends HudElement {
         const t = new Text(choice);
         t.anchor.set(0.5);
         const textMetric = TextMetrics.measureText(choice, t.style);
-        t.setTransform((textMetric.width + t.width) / 4, 10);
-        const bg = this.choiceBg ?? this.speakerLabelBg;
+        const bg = new Sprite(this.choiceBg?.texture);
         const item = new Container();
-        if (bg) {
-            item.addChild(bg, t);
-            item.setTransform(getEngine().getRender().getDimensions().x/2, (this.preppedChoices.length * bg.height) + 5);
-        }
-        else {
-            console.log("dialogue choice background missing");
-            return;
-        }
+        t.setTransform(bg.width / 2, bg.height / 2);
+        item.addChild(bg, t);
+        item.setTransform(getEngine().getRender().getDimensions().x/2, (this.preppedChoices.length * bg.height) + 200);
+        item.pivot.set(item.width/2, 0);
         this.preppedChoices.push(item);
+        item.eventMode = "dynamic";
         item.on("pointertap", this.onItemClick.bind(this, order));
     }
 
     clearChoices() {
+        this.removeChild(...this.preppedChoices);
         this.preppedChoices = [];
-        this.removeChildren();
+        this.choiceDisplaying = false;
     }
 
-    startDialogue(text: string, speaker: string, next: boolean, choices?: string[]) {
+    startDialogue(text: string, speaker: string, next: boolean) {
         if (this.speechBg) {
             this.speechBg.visible = true;
         }
 
         this.setText(text);
         this.setSpeaker(speaker);
-        
-        if (choices && choices.length > 0) {
-            this.clearChoices();
-            this.prepChoices(choices);
-        }
 
         if (next && this.nextIndicatorIcon) {
             this.nextIndicatorIcon.visible = true;
         }
     }
 
-    nextDialogueLine(text: string, next: boolean/*, choices?: string[]*/) {
+    nextDialogueLine(text: string, next: boolean) {
         this.setText(text);
         
         if (next && this.nextIndicatorIcon) {
@@ -128,11 +126,6 @@ export class DialogueHud extends HudElement {
         else if (!next && this.nextIndicatorIcon) {
             this.nextIndicatorIcon.visible = false;
         }
-
-        /*if (choices && choices.length > 0) {
-            this.clearChoices();
-            this.prepChoices(choices);
-        }*/
     }
 
     prepChoices(choices: string[]) {
@@ -142,9 +135,15 @@ export class DialogueHud extends HudElement {
     }
 
     displayChoices() {
+        if (this.choiceDisplaying) {
+            return;
+        }
+
         for (let i = 0; i < this.preppedChoices.length; i++) {
             this.addChild(this.preppedChoices[i]);
         }
+
+        this.choiceDisplaying = true;
     }
 
     endDialogue() {
@@ -154,6 +153,7 @@ export class DialogueHud extends HudElement {
 
         this.setText("");
         this.setSpeaker("");
+        this.clearChoices();
 
         if (this.nextIndicatorIcon) {
             this.nextIndicatorIcon.visible = false;
@@ -161,10 +161,13 @@ export class DialogueHud extends HudElement {
     }
 
     onPointerClick(event: any): void {
-        EngineBus.emit(ADVANCE_DIALOGUE, createEngineEvent(ADVANCE_DIALOGUE, {}));
+        super.onPointerClick(event);
+        if (!this.choiceDisplaying) {
+            EngineBus.emit(ADVANCE_DIALOGUE, createEngineEvent(ADVANCE_DIALOGUE, {}));
+        }   
     }
 
     onItemClick(choiceNum: number) {
-        EngineBus.emit(SELECT_DIALOGUE_CHOICE, createEngineEvent(SELECT_DIALOGUE_CHOICE, {choiceNum}));
+        EngineBus.emit(SELECT_DIALOGUE_CHOICE, createEngineEvent(SELECT_DIALOGUE_CHOICE, {choice: choiceNum}));
     }
 }
