@@ -1,3 +1,4 @@
+import TweenShape from "../framework/animations/tween/models";
 import { createEventBus } from "../framework/events";
 import { IRenderableResource } from "../framework/graphics";
 import { BaseGame } from "../gameplay/game";
@@ -7,7 +8,7 @@ import { Location } from "./coreentities/location";
 import { HudSystem } from "./gui";
 import { InputSystem } from "./input";
 import { RenderSystem } from "./render/rendersys";
-import { AnimationSystem } from "./rendereffects";
+import { AnimationSystem, PremadeAnimations, createNamedAnimate } from "./rendereffects";
 import { Scene } from "./scene/models";
 import { SceneSystem } from "./scene/scenesys";
 import { Sprite, Ticker, utils } from "pixi.js";
@@ -70,6 +71,12 @@ export class Engine {
         Engine.Game = game;
         getEngine().getAnimation().subscribeToAnimationEvents(getEngine().getScene());
         Engine.loop(performance.now());
+    }
+
+    static createPremades() {
+        const ease = new TweenShape(0, 0.33, 0.67, 1);
+        createNamedAnimate(PremadeAnimations.FADE_OUT, "alpha", 0, ease);
+        createNamedAnimate(PremadeAnimations.FADE_IN, "alpha", 1, ease);
     }
 
     static loop(dt: DOMHighResTimeStamp) {
