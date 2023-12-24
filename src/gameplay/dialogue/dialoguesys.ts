@@ -128,7 +128,12 @@ export class DialogueSystem implements EngineSystem {
         }
 
         const hasNext = (this.currentDialogue.lines.length - this.currentDialogueLine) > 1;
-        this.dialogueHud.nextDialogueLine(this.currentDialogue.lines[this.currentDialogueLine], hasNext, hasNext ? undefined : this.currentDialogue.choices.map(c => c.choice));
+        if (hasNext) {
+            this.dialogueHud.nextDialogueLine(this.currentDialogue.lines[this.currentDialogueLine], hasNext/*, hasNext ? undefined : this.currentDialogue.choices.map(c => c.choice)*/);
+        }
+        else {
+            this.dialogueHud.displayChoices();
+        }
     }
 
     handleDialogueChoice(choiceNum: number) {
