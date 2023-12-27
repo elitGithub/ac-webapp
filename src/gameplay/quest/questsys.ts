@@ -61,6 +61,9 @@ export class QuestSystem implements EngineSystem {
     beginQuest(quest: Quest) {
         if (quest.startQuest()) {
             EngineBus.emit(QUEST_STARTED, createEngineEvent(QUEST_STARTED, { quest }));
+            this.updateQuestHints(quest.questId);
+            this.questTrackerHud.setFocusedQuest(quest.title);
+            this.questListHud.addItemToList(quest.title);
         }
     }
 
@@ -76,7 +79,6 @@ export class QuestSystem implements EngineSystem {
         }
 
         this.beginQuest(q);
-        this.updateQuestHints(quest);
     }
 
     advanceQuest(quest: string, questStep?: string) {
@@ -90,6 +92,7 @@ export class QuestSystem implements EngineSystem {
 
         if (!nextStep) {
             q.completeQuest();
+            this.questListHud.removeItemFromList(q.title);
             return;
         }
 
@@ -110,6 +113,10 @@ export class QuestSystem implements EngineSystem {
 
     getOngoingQuests() {
         return Array.from(this.quests.entries()).filter(([, q]) => this.isQuestOngoing(q));
+    }
+    
+    findByTitle(title: string) {
+        return Array.from(this.quests.values()).find(q => q.title === title);
     }
 
     updateQuestHints(quest: string) {
@@ -160,6 +167,14 @@ export class QuestSystem implements EngineSystem {
         }
     }
 
+    getQuestTrackerHud() {
+        return this.questTrackerHud;
+    }
+
+    getQuestListHud() {
+        return this.questListHud;
+    }
+    
     queue(engineEvent: IEngineEvent): void {
         if (engineEvent.event === START_QUEST) {
             const sq = engineEvent as StartQuestEvent;
@@ -171,7 +186,11 @@ export class QuestSystem implements EngineSystem {
         }
         else if (engineEvent.event === QUEST_TRACKER_CHANGE) {
             const qt = engineEvent as QuestTrackerChangeEvent;
-            this.updateQuestHints(qt.quest);
+            const quest = this.findByTitle(qt.quest);
+            if (quest) {
+                this.questTrackerHud.setFocusedQuest(quest.title);
+                this.updateQuestHints(quest.questId);
+            }
         }
     }
 

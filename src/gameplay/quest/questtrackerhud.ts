@@ -32,13 +32,9 @@ export class QuestTrackerHud extends HudElement {
     }
 
     setText(text: string) {
-        const textMetric = TextMetrics.measureText(text, this.text.style);
         this.text.text = text;
         if (this.background) {
-            this.text.setTransform((textMetric.width + this.background.width) / 4, 10);
-        }
-        else {
-            this.setTransform(textMetric.width / 2, 10);
+            this.text.setTransform(this.background.width / 2, this.background.height / 2);
         }
     }
 
@@ -48,6 +44,7 @@ export class QuestTrackerHud extends HudElement {
     }
 
     onPointerClick(event: any): void {
-        EngineBus.emit(TOGGLE_HUD, createEngineEvent(TOGGLE_HUD, { hudname: "HUD_QUEST_LIST" }));
+        super.onPointerClick(event);
+        EngineBus.emit(TOGGLE_HUD, createEngineEvent(TOGGLE_HUD, { hudname: "HUD_QUESTLIST" }));
     }
 }

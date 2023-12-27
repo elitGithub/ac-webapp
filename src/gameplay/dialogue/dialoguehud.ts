@@ -86,7 +86,6 @@ export class DialogueHud extends HudElement {
     addChoice(choice: string, order: number) {
         const t = new Text(choice);
         t.anchor.set(0.5);
-        const textMetric = TextMetrics.measureText(choice, t.style);
         const bg = new Sprite(this.choiceBg?.texture);
         const item = new Container();
         t.setTransform(bg.width / 2, bg.height / 2);

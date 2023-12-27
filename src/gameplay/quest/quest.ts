@@ -8,7 +8,7 @@ export enum QuestState {
     FAILED,
 }
 
-export type QuestConditional = (...args: any[]) => boolean;
+export type QuestConditional = (...args: any[]) => boolean | undefined;
 
 export class QuestObjective {
     mandatory: boolean;
@@ -95,7 +95,7 @@ export class Quest {
 
     constructor (title: string, description: string, questId?: string, priority?: number) {
         if (!questId) {
-            questId = `${typeof this}_${title}`;
+            questId = `${this.constructor.name}_${title}`;
         }
 
         this.questId = questId;
