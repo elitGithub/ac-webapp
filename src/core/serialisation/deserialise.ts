@@ -1,9 +1,10 @@
 import { DeserialisedObjectStack } from "./objectstack";
 
+export type ClassDeserialiserTransform = (enumerable: Object) => any;
 export interface ClassDeserialiser {
     serialisedClassAlias: string;
     class: Object;
-    transform: Function;
+    transform: ClassDeserialiserTransform;
 }
 
 export class Deserialise {
@@ -17,19 +18,19 @@ export class Deserialise {
         const arrayDeserialiser: ClassDeserialiser = {
             serialisedClassAlias: Array.name,
             class: Array,
-            transform: (enumerable: Object) => {return Array.from(Object.values(enumerable))},
+            transform: (enumerable: Object) => { return Array.from(Object.values(enumerable)) },
         };
 
         const mapDeserialiser: ClassDeserialiser = {
             serialisedClassAlias: Map.name,
             class: Map,
-            transform: (enumerable: Object) => {return new Map(Object.entries(enumerable))},
+            transform: (enumerable: Object) => { return new Map(Object.entries(enumerable)) },
         }
 
         const defaultDeserialiser: ClassDeserialiser = {
             serialisedClassAlias: Object.name,
             class: Object,
-            transform: (a: any) => {return a},
+            transform: (a: any) => { return a },
         }
 
         this.classDeserialiseMap.set(Array.name, arrayDeserialiser);
@@ -50,7 +51,7 @@ export class Deserialise {
         this.reconstructData(data);
 
         deserialised = this.deserialiseValue(value);
-        
+
         return deserialised;
     }
 
@@ -64,13 +65,13 @@ export class Deserialise {
             return undefined;
         }
 
-        switch(matches[1]) {
+        switch (matches[1]) {
             case "REF": {
                 const ref = matches[2];
                 return this.objectStack.getObject(ref);
             }
             case "STRING": {
-                return matches[2];   
+                return matches[2];
             }
             case "NUMBER": {
                 if (matches[2].includes(".")) {
@@ -93,25 +94,42 @@ export class Deserialise {
         const dataObject = JSON.parse(data);
         console.log(dataObject);
         for (const [k, v] of Object.entries(dataObject)) {
-            const serialisedObject = JSON.parse(v);
+            let isFunction = false;
+            let isClass = false;
+            const methodMatch = v.match(/^[A-z]\w*\s*\((\w*)\)\s*\{\s*((.*)\s*)*\}$/);
             let object;
-            if (serialisedObject === undefined) {
-                if (v.startsWith("function")) {
-                    object = new Function("return "+v);
+            if (methodMatch) {
+                isFunction = true;
+                if (!methodMatch[2].includes("[native code]")) {
+                    object = new Function(methodMatch[2]);
                 }
             }
-            else {
-                const deserialiser = this.getDeserialiser(serialisedObject.constructorClass);
-                delete serialisedObject.constructorClass;
-                object = deserialiser.transform(serialisedObject);
-                if (object) {
-                    for (const [p, q] of Object.entries(object)) {
-                        const val = this.deserialiseValue(q as string);
-                        if (val) {
-                            Object.defineProperty(object, p, {value: val, enumerable: true});
+            else if (v.startsWith("function")) {
+                isFunction = true;
+                if (!v.includes("[native code]")) {
+                    object = new Function("return " + v);
+                }
+            }
+            else if (v.startsWith("class")) {
+                isFunction = true;
+                object = {};
+            }
+
+            if (!isFunction) {
+                const serialisedObject = JSON.parse(v);
+                if (serialisedObject) {
+                    const deserialiser = this.getDeserialiser(serialisedObject.constructorClass);
+                    delete serialisedObject.constructorClass;
+                    object = deserialiser.transform(serialisedObject);
+                    if (object) {
+                        for (const [p, q] of Object.entries(object)) {
+                            const val = this.deserialiseValue(q as string);
+                            if (val) {
+                                Object.defineProperty(object, p, { value: val, enumerable: true });
+                            }
                         }
+
                     }
-    
                 }
             }
 
