@@ -8,7 +8,7 @@ export enum QuestState {
     FAILED,
 }
 
-export type QuestConditional = (...args: any[]) => boolean;
+export type QuestConditional = (...args: any[]) => boolean | undefined;
 
 export class QuestObjective {
     mandatory: boolean;
@@ -29,6 +29,8 @@ export class QuestStep {
     description: string;
     nextStep: string;
 
+    targets?: string[];
+
     objectives: QuestObjective[];
     complete: boolean;
 
@@ -46,6 +48,10 @@ export class QuestStep {
 
     setObjectives(objectives: QuestObjective[]) {
         this.objectives = objectives;
+    }
+
+    setTarget(targets: string[]) {
+        this.targets = targets;
     }
 
     completeStep(): boolean {
@@ -89,7 +95,7 @@ export class Quest {
 
     constructor (title: string, description: string, questId?: string, priority?: number) {
         if (!questId) {
-            questId = `${typeof this}_${title}`;
+            questId = `${this.constructor.name}_${title}`;
         }
 
         this.questId = questId;

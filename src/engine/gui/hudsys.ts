@@ -50,7 +50,7 @@ export class HudSystem implements EngineSystem {
 
     update(time: number): void {
         if (this.hudChanged) {
-            EngineBus.emit(RENDER_HUD_CHANGE, createEngineEvent(RENDER_HUD_CHANGE, {hudElements: this.activeElements}));
+            EngineBus.emit(RENDER_HUD_CHANGE, createEngineEvent(RENDER_HUD_CHANGE, {hudElements: this.activeElements()}));
             this.hudChanged = false;
         }
     }

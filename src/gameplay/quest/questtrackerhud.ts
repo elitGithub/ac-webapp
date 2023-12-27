@@ -4,31 +4,38 @@ import { HudElement, TOGGLE_HUD } from "../../engine/gui";
 import { IRenderableResource } from "../../framework/graphics";
 
 export class QuestTrackerHud extends HudElement {
-    background: Sprite;
+    background?: Sprite;
     text: Text;
     focusedQuest: string;
 
-    constructor(backgroundTexture: IRenderableResource) {
+    constructor(backgroundTexture?: IRenderableResource) {
         super();
-        getEngine().createSimpleSprite(backgroundTexture)
-        .then(sprite => {
-            if (sprite) {
-                this.background = sprite;
-                this.addChild(this.background);
-                this.addChild(this.text);
-            }
-        });
+        if (backgroundTexture) {
+            this.setBackground(backgroundTexture);
+        }
 
         this.text = new Text();
         this.text.anchor.set(0.5);
-
+        
+        this.addChild(this.text);
         this.focusedQuest = "";
     }
 
+    setBackground(background: IRenderableResource) {
+        getEngine().createSimpleSprite(background)
+            .then(sprite => {
+                if (sprite) {
+                    this.background = sprite;
+                    this.addChildAt(this.background, 0);
+                }
+            });
+    }
+
     setText(text: string) {
-        const textMetric = TextMetrics.measureText(text, this.text.style);
         this.text.text = text;
-        this.text.setTransform((textMetric.width+this.background.width)/4, 10);
+        if (this.background) {
+            this.text.setTransform(this.background.width / 2, this.background.height / 2);
+        }
     }
 
     setFocusedQuest(quest: string) {
@@ -37,6 +44,7 @@ export class QuestTrackerHud extends HudElement {
     }
 
     onPointerClick(event: any): void {
-        EngineBus.emit(TOGGLE_HUD, createEngineEvent(TOGGLE_HUD, {hudname: "HUD_QUEST_LIST"}));
+        super.onPointerClick(event);
+        EngineBus.emit(TOGGLE_HUD, createEngineEvent(TOGGLE_HUD, { hudname: "HUD_QUESTLIST" }));
     }
 }

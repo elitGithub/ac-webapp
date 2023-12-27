@@ -4,6 +4,11 @@ import { IRenderableResource } from "../../framework/graphics";
 import AssetLoader from "../../framework/loader/AssetLoader";
 
 export interface LoadedAsset {
+    data: any,
+    pixiId: string,
+}
+
+export interface LoadedTextureAsset {
     texture: Texture,
     pixiId: string,
 }
@@ -16,17 +21,22 @@ export class AssetSystem implements EngineSystem {
         this.assetLoader = new AssetLoader();
     }
 
+    async loadTexture(resource: IRenderableResource) {
+        const texture = await this.load(resource);
+        return {texture: texture?.data, pixiId: texture?.pixiId} as LoadedTextureAsset;
+    }
+
     async load(resource: IRenderableResource) {
         if (resource.source instanceof URL) {
             const asset = await this.assetLoader.load([resource.source.href]);
             if (asset) {
-                return { texture: asset[resource.source.href], pixiId: asset["_pixiId"] } as LoadedAsset;
+                return { data: asset[resource.source.href], pixiId: asset["_pixiId"] } as LoadedAsset;
             }
         }
         else if ( typeof resource.source === "string") {
             const asset = await this.assetLoader.load([resource.source]);
             if (asset) {
-                return { texture: asset[resource.source], pixiId: asset["_pixiId"] } as LoadedAsset;
+                return { data: asset[resource.source], pixiId: asset["_pixiId"] } as LoadedAsset;
             }
         }
     }

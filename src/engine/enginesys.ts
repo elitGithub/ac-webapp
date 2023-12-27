@@ -1,12 +1,14 @@
+import TweenShape from "../framework/animations/tween/models";
 import { createEventBus } from "../framework/events";
 import { IRenderableResource } from "../framework/graphics";
 import { BaseGame } from "../gameplay/game";
 import { AssetSystem } from "./assetloader";
 import { BaseInteractable, BaseInteractableAction } from "./coreentities";
+import { Location } from "./coreentities/location";
 import { HudSystem } from "./gui";
 import { InputSystem } from "./input";
 import { RenderSystem } from "./render/rendersys";
-import { AnimationSystem } from "./rendereffects";
+import { AnimationSystem, PremadeAnimations, createNamedAnimate } from "./rendereffects";
 import { Scene } from "./scene/models";
 import { SceneSystem } from "./scene/scenesys";
 import { Sprite, Ticker, utils } from "pixi.js";
@@ -71,6 +73,12 @@ export class Engine {
         Engine.loop(performance.now());
     }
 
+    static createPremades() {
+        const ease = new TweenShape(0, 0.33, 0.67, 1);
+        createNamedAnimate(PremadeAnimations.FADE_OUT, "alpha", 0, ease);
+        createNamedAnimate(PremadeAnimations.FADE_IN, "alpha", 1, ease);
+    }
+
     static loop(dt: DOMHighResTimeStamp) {
         Engine.ticker.update(dt);
        
@@ -85,7 +93,7 @@ export class Engine {
     }
 
     static async createSimpleInteractable(name: string, action: BaseInteractableAction, texture: IRenderableResource) {
-        const asset = await getEngine().getAssets().load(texture);
+        const asset = await getEngine().getAssets().loadTexture(texture);
         const interactable = new BaseInteractable(asset?.texture, name, action);
 
         return interactable;
@@ -100,7 +108,7 @@ export class Engine {
     }
 
     static async createSimpleSprite(texture: IRenderableResource) {
-        const asset = await getEngine().getAssets().load(texture);
+        const asset = await getEngine().getAssets().loadTexture(texture);
         if (asset) {
             return Sprite.from(asset.texture);
         }
@@ -108,6 +116,25 @@ export class Engine {
 
     static screenPositionByRatio(xRatio: number, yRatio: number) {
        return getEngine().getRender().screenPositionByRatio(xRatio, yRatio);
+    }
+
+    static resolve(resolvable: string) {
+        const parts = resolvable.split(":");
+        if (parts.length === 0) {
+            return;
+        }
+
+        switch(parts[0]) {
+            case "HUD": {
+                return (Engine.Hud as HudSystem).activeElements().find(e => e.name === parts[1]);
+            }
+            case "ENTITY": {
+                return (Engine.Game as BaseGame).gameEntities.find(e => e.name === parts[1]);
+            }
+            case "LOCATION": {
+                return (Engine.Scene as SceneSystem).sceneByName(parts[1]) as Location;
+            }
+        }
     }
 }
 
@@ -123,5 +150,6 @@ export function getEngine() {
         createSimpleSceneInteractable: Engine.createSimpleSceneInteractable,
         createSimpleSprite: Engine.createSimpleSprite,
         SPR: Engine.screenPositionByRatio,
+        resolve: Engine.resolve,
     };
 }

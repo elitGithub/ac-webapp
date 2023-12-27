@@ -7,12 +7,13 @@ export class HudElement extends Container {
     constructor() {
         super();
         this.draw = false;
+        this.eventMode = "dynamic";
         this.on("pointertap", this.onPointerClick.bind(this));
         this.on("pointerupoutside", this.onPointerClickOutside.bind(this));
     }
 
     onPointerClick(event: any) {
-
+        console.log(this.name+" clicked");
     }
 
     onPointerClickOutside(event: any) {

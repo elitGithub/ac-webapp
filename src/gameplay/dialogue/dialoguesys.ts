@@ -74,7 +74,10 @@ export class DialogueSystem implements EngineSystem {
         this.currentDialogue = dialogue;
         this.currentDialogueLine = 0;
         const hasNext = (this.currentDialogue.lines.length - this.currentDialogueLine) > 1;
-        this.dialogueHud.startDialogue(dialogue.lines[this.currentDialogueLine], dialogue.speaker.name, hasNext, hasNext ? undefined : dialogue.choices.map(c => c.choice));
+        this.dialogueHud.startDialogue(dialogue.lines[this.currentDialogueLine], dialogue.speaker.name, hasNext);
+        this.dialogueHud.clearChoices();
+        this.dialogueHud.prepChoices(dialogue.choices.map(c => c.choice));
+        dialogue.speaker.setSpeaking(true);
     }
 
     startDialogue(dialogueId: string, category?: string) {
@@ -121,13 +124,17 @@ export class DialogueSystem implements EngineSystem {
         }
 
         this.currentDialogueLine++;
-        if (this.currentDialogueLine >= this.currentDialogue.lines.length) {
-            this.endCurrentDialogue();
-            return;
-        }
 
         const hasNext = (this.currentDialogue.lines.length - this.currentDialogueLine) > 1;
-        this.dialogueHud.nextDialogueLine(this.currentDialogue.lines[this.currentDialogueLine], hasNext, hasNext ? undefined : this.currentDialogue.choices.map(c => c.choice));
+        if (hasNext) {
+            this.dialogueHud.nextDialogueLine(this.currentDialogue.lines[this.currentDialogueLine], hasNext);
+        }
+        else if (!hasNext && this.currentDialogue.choices.length > 0) {
+            this.dialogueHud.displayChoices();
+        }
+        else {
+            this.endCurrentDialogue();
+        }
     }
 
     handleDialogueChoice(choiceNum: number) {
@@ -155,6 +162,7 @@ export class DialogueSystem implements EngineSystem {
     }
 
     endCurrentDialogue() {
+        this.currentDialogue?.speaker.setSpeaking(false);
         this.currentDialogue = undefined;
         this.currentDialogueLine = 0;
         this.dialogueHud.endDialogue();
