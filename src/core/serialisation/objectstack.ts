@@ -18,7 +18,7 @@ export class SerialisedObjectStack {
         if (value === null) {
             return null;
         }
-        
+
         let ref = this.getRef(value);
         if (ref) {
             return ref;
@@ -58,23 +58,40 @@ export class DeserialisedObjectStack {
     }
 
     push(value: Object, ref: string) {
-        if (value === null) {
+        if (!value) {
+            this.stack.set(ref, null);
             return;
         }
 
         this.stack.set(ref, value);
-
-        return;
     }
 
     resolveRefs() {
         for (const [key, object] of this.stack) {
-            for (const [prop, value] of Object.entries(object)) {
+            if (!object) {
+                continue;
+            }
+
+            let entries;
+            if (object.entries) {
+                entries = object.entries();
+            }
+            else {
+                entries = Object.entries(object);
+            }
+
+            for (const [prop, value] of entries) {
                 if (typeof value !== "string" || !isRef(value)) {
                     continue;
                 }
 
-                Object.defineProperty(this.stack.get(key)!, prop, {value: this.stack.get(getRef(value)!), enumerable: true});
+                if (object instanceof Map) {
+                    this.stack.get(key)!.set(prop, this.stack.get(getRef(value)!));
+                }
+                else {
+                    Object.defineProperty(this.stack.get(key)!, prop, { value: this.stack.get(getRef(value)!), enumerable: true });
+                }
+                
             }
         }
     }

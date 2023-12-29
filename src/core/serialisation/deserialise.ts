@@ -81,6 +81,14 @@ export class Deserialise {
                     return Number.parseInt(matches[2], 10);
                 }
             }
+            case "BOOLEAN": {
+                if (matches[2] === "false") {
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
             case "BIGINT": {
                 return BigInt(matches[2]);
             }
@@ -96,12 +104,14 @@ export class Deserialise {
         for (const [k, v] of Object.entries(dataObject)) {
             let isFunction = false;
             let isClass = false;
-            const methodMatch = v.match(/^[A-z]\w*\s*\((\w*)\)\s*\{\s*((.*)\s*)*\}$/);
+            const methodMatch = v.match(/^[A-z]\w*\s*\(([A-z]\w*,?\s?)*\)\s*\{(\s*((.*)\s*)*)\}$/);
+            const anonymousMatch = v.match(/^\((\w*)\)\s*=>\s*\{(\s*((.*)\s*)*)\}$/);
             let object;
-            if (methodMatch) {
+            if (methodMatch || anonymousMatch) {
                 isFunction = true;
-                if (!methodMatch[2].includes("[native code]")) {
-                    object = new Function(methodMatch[2]);
+                const match = methodMatch ?? anonymousMatch;
+                if (!match[2].includes("[native code]")) {
+                    object = new Function(match[2]);
                 }
             }
             else if (v.startsWith("function")) {
@@ -122,13 +132,19 @@ export class Deserialise {
                     delete serialisedObject.constructorClass;
                     object = deserialiser.transform(serialisedObject);
                     if (object) {
-                        for (const [p, q] of Object.entries(object)) {
+                        let entries;
+                        if (object.entries) {
+                            entries = object.entries();
+                        }
+                        else {
+                            entries = Object.entries(object);
+                        }
+                        for (const [p, q] of entries) {
                             const val = this.deserialiseValue(q as string);
-                            if (val) {
+                            if (val !== undefined) {
                                 Object.defineProperty(object, p, { value: val, enumerable: true });
                             }
                         }
-
                     }
                 }
             }
