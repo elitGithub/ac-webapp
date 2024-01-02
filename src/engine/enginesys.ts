@@ -75,8 +75,8 @@ export class Engine {
 
     static createPremades() {
         const ease = new TweenShape(0, 0.33, 0.67, 1);
-        createNamedAnimate(PremadeAnimations.FADE_OUT, "alpha", 0, ease);
-        createNamedAnimate(PremadeAnimations.FADE_IN, "alpha", 1, ease);
+        createNamedAnimate(PremadeAnimations.FADE_OUT, "alpha", false, 0, ease);
+        createNamedAnimate(PremadeAnimations.FADE_IN, "alpha", false, 1, ease);
     }
 
     static loop(dt: DOMHighResTimeStamp) {

@@ -19,6 +19,13 @@ export type Animate = IEngineEvent & RenderEffectProps & {
     target: Container;
 
     /**
+     * yoyo
+     * Let's the animation system know that this is specifically a yoyo animation and to skip setting the to property as the final value on the last frame,
+     * thus only using the TweenShape to guide the value.
+     */
+    yoyo: boolean;
+
+    /**
      * property
      * The property on the target to tween, e.g. rotation, position, alpha
      */
@@ -43,10 +50,11 @@ export type Animate = IEngineEvent & RenderEffectProps & {
     easing?: TweenShape;
 }
 
-export function createNamedAnimate(name: string, property: string, to: number|vec3, easing?: TweenShape, overlay?: boolean, override?: boolean) {
+export function createNamedAnimate(name: string, property: string, yoyo: boolean, to: number|vec3, easing?: TweenShape, overlay?: boolean, override?: boolean) {
     EngineBus.emit(Create_Named_Animate, createEngineEvent(Create_Named_Animate, {
         name,
         property,
+        yoyo,
         to,
         easing,
         overlay,
@@ -62,10 +70,11 @@ export function queueNamedAnimate(target: Container, namedAnimation: string, dur
     }));
 }
 
-export function queueAnimate(target: Container, property: string, to: number|vec3, duration: number, easing?: TweenShape, overlay?: boolean, override?: boolean) {
+export function queueAnimate(target: Container, property: string, yoyo: boolean, to: number|vec3, duration: number, easing?: TweenShape, overlay?: boolean, override?: boolean) {
     EngineBus.emit(Render_Animate, createEngineEvent(Render_Animate, {
         target,
         property,
+        yoyo,
         to,
         duration,
         easing,

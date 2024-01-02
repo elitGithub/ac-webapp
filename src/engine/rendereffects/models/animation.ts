@@ -14,18 +14,20 @@ export class Animation implements IEngineEvent, RenderEffect {
   value: number | vec3;
   duration: number;
   easing: TweenShape;
+  yoyo: boolean;
   animating: boolean;
   startingTime: number;
   _startingValue?: number | vec3;
   _renderEffect: RenderEffectFlags;
   //_system: IEngineSystem for animationsys context?
 
-  constructor(target: Container, property: string, value: number | vec3, duration: number, easing: TweenShape) {
+  constructor(target: Container, property: string, yoyo: boolean, value: number | vec3, duration: number, easing: TweenShape) {
     this.target = target;
     this.property = property;
     this.value = value;
     this.duration = duration;
     this.easing = easing;
+    this.yoyo = yoyo;
     this.animating = false;
     this.startingTime = -1;
     this._renderEffect = RenderEffectFlags.RE_NONE;
@@ -39,7 +41,7 @@ export class Animation implements IEngineEvent, RenderEffect {
    * @returns Animation
    */
   static fromAnimate(animate: Animate): Animation {
-    const anim = new Animation(animate.target, animate.property!, animate.to!, animate.duration!, animate.easing!);
+    const anim = new Animation(animate.target, animate.property!, animate.yoyo, animate.to!, animate.duration!, animate.easing!);
     anim.name = animate.name;
     return anim;
   }

@@ -191,7 +191,7 @@ export class DialogueSystem implements EngineSystem {
             }
 
             const cmd = matches[1];
-            const arglist = line.split("%")[1].trim();
+            const arglist = line.split("%"+cmd+"%")[1].trim();
             const args = arglist.split(" ");
 
             switch (cmd.toUpperCase()) {

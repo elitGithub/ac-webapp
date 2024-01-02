@@ -32,8 +32,8 @@ export class SceneSystem implements EngineSystem, AnimationListener {
 
         //There will be a config for scene transitions soon
         const ease = new TweenShape(0, 0.1, 0.15, 1);
-        createNamedAnimate(SceneTransitionFlags[SceneTransitionFlags.ST_FADE], "alpha", 0, ease);
-        createNamedAnimate(SceneTransitionFlags[SceneTransitionFlags.ST_FADE]+"_REVERSE", "alpha", 1, ease);
+        createNamedAnimate(SceneTransitionFlags[SceneTransitionFlags.ST_FADE], "alpha", false, 0, ease);
+        createNamedAnimate(SceneTransitionFlags[SceneTransitionFlags.ST_FADE]+"_REVERSE", "alpha", false, 1, ease);
     }
 
     addScene(scene: Scene) {
