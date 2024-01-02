@@ -1,4 +1,4 @@
-import { Container, Sprite, Text, TextMetrics } from "pixi.js";
+import { Container, FederatedEvent, Sprite, Text, TextMetrics } from "pixi.js";
 import { HudElement } from "../../engine/gui";
 import { IRenderableResource } from "../../framework/graphics";
 import { EngineBus, createEngineEvent, getEngine } from "../../engine";
@@ -159,8 +159,12 @@ export class DialogueHud extends HudElement {
         }
     }
 
-    onPointerClick(event: any): void {
+    onPointerClick(event: FederatedEvent): void {
         super.onPointerClick(event);
+        if (event.target !== this) {
+            event.stopImmediatePropagation();
+            return;
+        }
         if (!this.choiceDisplaying) {
             EngineBus.emit(ADVANCE_DIALOGUE, createEngineEvent(ADVANCE_DIALOGUE, {}));
         }   
