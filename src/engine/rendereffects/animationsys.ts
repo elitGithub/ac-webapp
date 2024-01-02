@@ -128,6 +128,22 @@ export class AnimationSystem implements EngineSystem {
                         animation.target[animation.property] = animation.value;
                     }
                 }
+                else {
+                    if (animation.property === "position") {
+                        if (typeof animation._startingValue === "number") {
+                            animation.target.position.x = animation._startingValue;
+                            animation.target.position.y = animation._startingValue;
+                        }
+                        else {
+                            animation.target.position.x = (animation._startingValue as vec3).x;
+                            animation.target.position.y = (animation._startingValue as vec3).y;
+                        }
+
+                    }
+                    else {
+                        animation.target[animation.property] = animation._startingValue;
+                    }
+                }
 
 
                 EngineBus.emit(Render_Animation_Finish, createEngineEvent(Render_Animation_Finish, animation));
