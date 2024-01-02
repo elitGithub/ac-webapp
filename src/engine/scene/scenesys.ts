@@ -44,6 +44,12 @@ export class SceneSystem implements EngineSystem, AnimationListener {
         return this.scenes.find(s => s.name === name);
     }
 
+    toggleSceneInteractivity(toggle: boolean) {
+        if (this.currentScene) {
+            this.currentScene.eventMode = toggle ? "passive" : "none";
+        }
+    }
+    
     private _transitionScene(scene: Scene, transition: SceneTransitionFlags) {
         this.transitioningTo = scene.name;
         this.transitionType = transition;

@@ -68,6 +68,8 @@ export class Animation implements IEngineEvent, RenderEffect {
     if (override) {
       flag |= RenderEffectFlags.RE_OVERRIDE;
     }
+
+    this.setRenderEffectFlags(flag);
   }
 
   setRenderEffectFlags(flags: RenderEffectFlags): void {

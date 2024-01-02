@@ -13,6 +13,8 @@ import { Scene } from "./scene/models";
 import { SceneSystem } from "./scene/scenesys";
 import { Sprite, Ticker, utils } from "pixi.js";
 
+let DEBUG = false;
+
 export type IEngineEvent = {
     eventId: string;
     event: Symbol;
@@ -140,6 +142,7 @@ export class Engine {
 
 export function getEngine() {
     return {
+        DEBUG,
         getRender: () => Engine.Render as RenderSystem,
         getAssets: () => Engine.Assets as AssetSystem,
         getAnimation: () => Engine.Animation as AnimationSystem,
