@@ -184,7 +184,7 @@ export class DialogueSystem implements EngineSystem {
     }
 
     handleDialogueCommand(line: string) {
-        if (line.startsWith("%")) {
+        if (line && line.startsWith("%")) {
             const matches = line.match(/%(\w*)%/);
             if (!matches) {
                 return false;
