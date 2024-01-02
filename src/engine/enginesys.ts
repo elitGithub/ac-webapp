@@ -57,11 +57,10 @@ export class Engine {
         }
     };
 
-    static init(game: EngineSystem) {
-
-        this.ticker = Ticker.shared;
-        this.ticker.stop();
-        this.ticker.autoStart = false;
+    static init(game?: EngineSystem) {
+        Engine.ticker = Ticker.shared;
+        Engine.ticker.stop();
+        Engine.ticker.autoStart = false;
 
         Engine.Render = new RenderSystem(Engine.defaultConfig);
         Engine.Animation = new AnimationSystem();
@@ -69,10 +68,16 @@ export class Engine {
         Engine.Input = new InputSystem();
         Engine.Assets = new AssetSystem();
         Engine.Hud = new HudSystem();
-        
-        Engine.Game = game;
+
+        if (game) {
+            Engine.Game = game;
+        }
         getEngine().getAnimation().subscribeToAnimationEvents(getEngine().getScene());
         Engine.loop(performance.now());
+    }
+
+    static setGame(game: EngineSystem) {
+        Engine.Game = game;
     }
 
     static createPremades() {
@@ -88,9 +93,10 @@ export class Engine {
         Engine.Scene.update(dt);
         Engine.Animation.update(dt);
         Engine.Render.update(dt);
-        Engine.Game.update(dt);
         Engine.Hud.update(dt);
-
+        if (Engine.Game) {
+            Engine.Game.update(dt);
+        }
         requestAnimationFrame(Engine.loop);
     }
 

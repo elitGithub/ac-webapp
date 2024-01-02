@@ -11,6 +11,7 @@ export type PixiRendererOptions = {
     parent?: HTMLElement;
     gpu: boolean;
     mobile: boolean;
+    debug: boolean;
 }
 
 export class PixiRenderer implements IRenderPlatform {
@@ -22,11 +23,12 @@ export class PixiRenderer implements IRenderPlatform {
     private sceneStage: Container;
     private animating: boolean;
     private ratio: number;
+    private debug: boolean;
     
 
     constructor(options: PixiRendererOptions) {
-        console.log("wow");
         this.ratio = (options.width??0)/(options.height??0);
+        this.debug = options.debug ?? false;
         let renderer: IRenderer<ICanvas>;
         if (options.gpu) {
             renderer = autoDetectRenderer({
@@ -34,7 +36,7 @@ export class PixiRenderer implements IRenderPlatform {
                 height: options.height,
                 resolution: options.resolution,
                 powerPreference: options.mobile ? "low-power" : "default",
-                hello: true, // To change depending on debug mode
+                hello: this.debug, // To change depending on debug mode
                 backgroundColor: options.defaultBackgroundColor ? vec4ToArray(options.defaultBackgroundColor) : undefined,
             });
         }
@@ -43,7 +45,7 @@ export class PixiRenderer implements IRenderPlatform {
                 width: options.width,
                 height: options.height,
                 resolution: options.resolution,
-                hello: true, // To change depending on debug mode
+                hello: this.debug, // To change depending on debug mode
                 backgroundColor: options.defaultBackgroundColor ? vec4ToArray(options.defaultBackgroundColor) : undefined,
                 forceCanvas: true,
             });
@@ -69,7 +71,9 @@ export class PixiRenderer implements IRenderPlatform {
     }
 
     getDimensions(): vec2 {
+        if (this.debug)
         console.log(`${this.renderer.width} ${this.renderer.height}`)
+
         return {x: this.renderer.width, y: this.renderer.height};
     }
     setDimensions(width: number, height: number): void {
