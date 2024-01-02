@@ -1,3 +1,4 @@
+import { randomUUID } from "../core/util";
 import TweenShape from "../framework/animations/tween/models";
 import { createEventBus } from "../framework/events";
 import { IRenderableResource } from "../framework/graphics";
@@ -23,7 +24,7 @@ export type IEngineEvent = {
 export function createEngineEvent(event: Symbol, eventData: Object): IEngineEvent {
     /* eventData["eventId"] = crypto.randomUUID();
     eventData["event"] = event; */
-    return {event, eventId: crypto.randomUUID(), ...eventData} as IEngineEvent;
+    return {event, eventId: randomUUID(), ...eventData} as IEngineEvent;
 }
 
 export interface EngineSystem {

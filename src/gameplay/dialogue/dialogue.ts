@@ -1,3 +1,4 @@
+import { randomUUID } from "../../core/util";
 import { BaseCharacter } from "../../engine/coreentities/basecharacter";
 import { DialogueChoice } from "./dialoguechoice";
 
@@ -20,7 +21,7 @@ export class Dialogue {
             this.dialogueId = dialogueId;
         }
         else {
-            this.dialogueId = `dialogue_${speaker.name}_${crypto.randomUUID()}`;
+            this.dialogueId = `dialogue_${speaker.name}_${randomUUID()}`;
         }
 
         this.speaker = speaker;
