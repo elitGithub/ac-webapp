@@ -57,7 +57,8 @@ export class Engine {
         }
     };
 
-    static {
+    static init(game: EngineSystem) {
+
         this.ticker = Ticker.shared;
         this.ticker.stop();
         this.ticker.autoStart = false;
@@ -68,9 +69,7 @@ export class Engine {
         Engine.Input = new InputSystem();
         Engine.Assets = new AssetSystem();
         Engine.Hud = new HudSystem();
-    }
-
-    static init(game: EngineSystem) {
+        
         Engine.Game = game;
         getEngine().getAnimation().subscribeToAnimationEvents(getEngine().getScene());
         Engine.loop(performance.now());
