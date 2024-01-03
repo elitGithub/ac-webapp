@@ -22,8 +22,18 @@ export class BaseGame implements EngineSystem {
         }
     }
     
-    getFiniteResource(name: string): FiniteResource|undefined {
+    getFiniteResource<T>(name: string): FiniteResource|T|undefined {
         return this.finiteResources.get(name);
+    }
+
+    registerGameSystem(name: string, system: EngineSystem) {
+        if (!this.gameSystems.has(name)) {
+            this.gameSystems.set(name, system);
+        }
+    }
+
+    getGameSystem<T>(name: string): EngineSystem|T|undefined {
+        return this.gameSystems.get(name);
     }
 
     queue(engineEvent: IEngineEvent): void {
