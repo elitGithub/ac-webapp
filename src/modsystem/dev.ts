@@ -64,6 +64,14 @@ class DevModGameInterface {
             }
         });
     }
+
+    get ENT(): DevModGameEntityInterface {
+        return new Proxy(new DevModGameEntityInterface(), {
+            get(target: Object, property: string | symbol, receiver: any) {
+                return getEngine().getGame().gameEntities.find(e => e.name === property.toString());
+            }
+        });
+    }
 }
 
 export class DevModGameTimeInterface {
@@ -180,5 +188,9 @@ export class DevModGameQuestInterface {
 }
 
 export class DevModGameCharacterInterface {
+
+}
+
+export class DevModGameEntityInterface {
 
 }

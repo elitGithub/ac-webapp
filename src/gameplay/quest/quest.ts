@@ -41,15 +41,18 @@ export class QuestStep {
 
     targets?: string[];
 
+    silence: boolean;
+
     outcomes: QuestStepOutcome[];
     finishedOutcome?: QuestStepOutcome;
     finished: boolean;
 
-    constructor(questStepId: string, description: string) {
+    constructor(questStepId: string, description: string, silence?: boolean) {
         this.questStepId = questStepId;
         this.description = description;
         this.outcomes = [];
         this.finished = false;
+        this.silence = silence ?? true;
     }
 
     addOutcome(outcome: QuestStepOutcome) {
