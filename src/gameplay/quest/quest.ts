@@ -8,71 +8,109 @@ export enum QuestState {
     FAILED,
 }
 
+/**
+ * QuestConditional
+ * A function that will return true or false based on the condition inside.
+ */
 export type QuestConditional = (...args: any[]) => boolean | undefined;
 
-export class QuestObjective {
-    mandatory: boolean;
-    isObjectiveComplete: QuestConditional;
-    
-    constructor(mandatory: boolean, objectiveCondition: QuestConditional) {
-        this.mandatory = mandatory;
-        this.isObjectiveComplete = objectiveCondition;
-    }
+export class QuestStepOutcome {
+    description?: string;
+    outcomeCondition: QuestConditional;
+    onOutcome?: Function;
+    nextStep: string;
 
-    isMandatory() {
-        return this.mandatory;
+    /**
+     * 
+     * @param outcomeCondition The condition which will determine that this outcome has been reached.
+     * @param nextStep The next step in the quest to be progressed to when this outcome has been reached.
+     * @param description 
+     * @param postOutcome A function to be executed when this outcome has been reached.
+     */
+    constructor(outcomeCondition: QuestConditional, nextStep: string, description?: string, postOutcome?: Function) {
+        this.outcomeCondition = outcomeCondition;
+        this.onOutcome = postOutcome;
+        this.nextStep = nextStep;
+        this.description = description;
     }
 }
 
 export class QuestStep {
     questStepId: string;
     description: string;
-    nextStep: string;
 
     targets?: string[];
 
-    objectives: QuestObjective[];
-    complete: boolean;
+    outcomes: QuestStepOutcome[];
+    finishedOutcome?: QuestStepOutcome;
+    finished: boolean;
 
     constructor(questStepId: string, description: string) {
         this.questStepId = questStepId;
         this.description = description;
-        this.nextStep = "";
-        this.objectives = [];
-        this.complete = false;
+        this.outcomes = [];
+        this.finished = false;
     }
 
-    addObjective(...objective: QuestObjective[]) {
-        this.objectives.push(...objective);
+    addOutcome(outcome: QuestStepOutcome) {
+        this.outcomes.push(outcome);
     }
 
-    setObjectives(objectives: QuestObjective[]) {
-        this.objectives = objectives;
+    createOutcome(condition: QuestConditional, nextStep: string, description?: string) {
+        this.outcomes.push(new QuestStepOutcome(condition, nextStep, description));
+    }
+
+    removeOutcome(description: string) {
+        this.outcomes = this.outcomes.filter(outcome => outcome.description !== description);
+    }
+
+    getOutcomes() {
+        return this.outcomes;
+    }
+
+    getOutcome(description: string) {
+        return this.outcomes.find(outcome => outcome.description === description);
+    }
+
+    finishStep(outcome: QuestStepOutcome) {
+        this.finishedOutcome = outcome;
+        this.finished = true;
+        if (outcome.onOutcome) {
+            outcome.onOutcome();
+        }
     }
 
     setTarget(targets: string[]) {
         this.targets = targets;
     }
 
-    completeStep(): boolean {
-        let mandatoryMet = true;
-        for (let i = 0; i < this.objectives.length; i++) {
-            if (this.objectives[i].isMandatory() && !this.objectives[i].isObjectiveComplete()) {
-                mandatoryMet = false;
-                break;
-            }
+    tryFinish(): boolean {
+        if (this.finished) {
+            return true;
         }
 
-        if (mandatoryMet) {
-            this.complete = true;
+        if (this.outcomes.length === 0) {
             return true;
+        }
+
+        for (let i = 0; i < this.outcomes.length; i++) {
+            if (this.outcomes[i].outcomeCondition()) {
+                this.finishStep(this.outcomes[i]);
+                return true;
+            }
         }
 
         return false;
     }
+}
 
-    setNextStep(nextStepId: string) {
-        this.nextStep = nextStepId;
+export class QuestRequirement {
+    requirement: QuestConditional;
+    description: string;
+
+    constructor(description: string, requirement: QuestConditional) {
+        this.requirement = requirement;
+        this.description = description;
     }
 }
 
@@ -88,7 +126,7 @@ export class Quest {
 
     state: QuestState;
 
-    requirements: QuestConditional[];
+    requirements: QuestRequirement[];
     questSteps: QuestStep[];
     currentQuestStep: string;
     rewards: [];
@@ -129,7 +167,7 @@ export class Quest {
         return started;
     }
 
-    advanceQuestStep(step?: string): boolean {
+    advanceQuestStep(force?: boolean, step?: string): boolean {
         const currentStep = this.getCurrentQuestStep();
         if (!currentStep) {
             if (step) {
@@ -139,12 +177,28 @@ export class Quest {
             return false;
         }
 
-        if (currentStep.completeStep()) {
-            this.currentQuestStep = step ?? currentStep.nextStep;
-            return true;
+        if (force || currentStep.tryFinish()) {
+            let nextStep = step ?? currentStep.finishedOutcome?.nextStep;
+            if (!nextStep) {
+                nextStep = currentStep.outcomes[0].nextStep;
+            }
+            
+            if (nextStep) {
+                this.currentQuestStep = nextStep;
+                return true;
+            }
         }
 
+        console.error(`advanceQuestStep(${force}, ${step}): No available next step`);
         return false;
+    }
+
+    tryFinishCurrentStep() {
+        if (this.state !== QuestState.IN_PROGRESS) {
+            return false;
+        }
+
+        return this.getCurrentQuestStep()?.tryFinish();
     }
 
     completeQuest() {
@@ -156,12 +210,16 @@ export class Quest {
         this.state = QuestState.FAILED;
     }
 
-    addRequirement(...requirement: QuestConditional[]) {
+    addRequirement(...requirement: QuestRequirement[]) {
         this.requirements.push(...requirement);
     }
 
-    setRequirements(requirements: QuestConditional[]) {
+    setRequirements(requirements: QuestRequirement[]) {
         this.requirements = requirements;
+    }
+
+    getFailingRequirement() {
+        return this.requirements.find(req => !req.requirement());
     }
 
     addStep(...step: QuestStep[]) {
@@ -181,7 +239,7 @@ export class Quest {
     }
 
     canStartQuest() {
-        return this.requirements.every(req => req());
+        return this.requirements.every(req => req.requirement());
     }
 
     getQuestStep(questStep: string): QuestStep | undefined {

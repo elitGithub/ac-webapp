@@ -22,8 +22,8 @@ export class BaseGame implements EngineSystem {
         }
     }
     
-    getFiniteResource<T>(name: string): FiniteResource|T|undefined {
-        return this.finiteResources.get(name);
+    getFiniteResource<T extends FiniteResource = FiniteResource>(name: string): T|undefined {
+        return this.finiteResources.get(name) as T;
     }
 
     registerGameSystem(name: string, system: EngineSystem) {
@@ -32,8 +32,12 @@ export class BaseGame implements EngineSystem {
         }
     }
 
-    getGameSystem<T>(name: string): EngineSystem|T|undefined {
-        return this.gameSystems.get(name);
+    getGameSystem<T extends EngineSystem = EngineSystem>(name: string): T|undefined {
+        return this.gameSystems.get(name) as T;
+    }
+
+    getClock() {
+        return this.clock;
     }
 
     queue(engineEvent: IEngineEvent): void {

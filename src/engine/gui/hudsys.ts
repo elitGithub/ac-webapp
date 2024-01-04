@@ -23,13 +23,24 @@ export class HudSystem implements EngineSystem {
         }
     }
 
-    toggleElement(name: string) {
+    toggleElement(name: string, force?: boolean) {
         if (!this.hudElements.has(name)) {
             return;
         }
 
         const element = this.hudElements.get(name)!;
-        element.visible = !element.visible;
+
+        if (force !== undefined) {
+            if (element.visible === force) {
+                return;
+            }
+
+            element.visible = force;
+        }
+        else {
+            element.visible = !element.visible;
+        }
+        
         this.hudChanged = true;
     }
 
@@ -44,7 +55,7 @@ export class HudSystem implements EngineSystem {
 
     queue(engineEvent: IEngineEvent): void {
         if (engineEvent.event === TOGGLE_HUD) {
-            this.toggleElement((engineEvent as HudElementToggleEvent).hudname);
+            this.toggleElement((engineEvent as HudElementToggleEvent).hudname, (engineEvent as HudElementToggleEvent).force);
         }
     }
 

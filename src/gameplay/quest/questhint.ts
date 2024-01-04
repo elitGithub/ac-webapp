@@ -50,6 +50,13 @@ export class QuestHint {
         }
     }
 
+    setHintEnabled(enabled: boolean) {
+        this.hintEnabled = enabled;
+        if (this.hintSprite) {
+            this.hintSprite.visible = enabled;
+        }
+    }
+
     positionHintSprite() {
         if (!this.hintSprite) {
             return;

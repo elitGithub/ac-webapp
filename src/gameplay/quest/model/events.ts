@@ -1,4 +1,5 @@
-import { IEngineEvent } from "../../../engine";
+import { Quest } from "..";
+import { EngineBus, IEngineEvent } from "../../../engine";
 
 export const START_QUEST = Symbol("QUEST_REQ_START_EVENT");
 export const ADVANCE_QUEST = Symbol("QUEST_REQ_ADVANCE_EVENT");
@@ -19,8 +20,25 @@ export interface StartQuestEvent extends IEngineEvent {
 export interface AdvanceQuestEvent extends IEngineEvent {
     quest: string;
     step?: string;
+    force?: boolean;
 }
 
 export interface QuestTrackerChangeEvent extends IEngineEvent {
     quest: string;
+}
+
+export interface QuestUpdateEvent extends IEngineEvent {
+    quest: Quest;
+}
+
+export interface QuestListener {
+    onQuestUpdate(event: IEngineEvent): void;
+}
+
+export function subscribeToQuestEvents(listener: QuestListener) {
+    EngineBus.on(QUEST_STARTED, listener.onQuestUpdate.bind(listener));
+    EngineBus.on(QUEST_STEP_STARTED, listener.onQuestUpdate.bind(listener));
+    EngineBus.on(QUEST_COMPLETED, listener.onQuestUpdate.bind(listener));
+    EngineBus.on(QUEST_FAILED, listener.onQuestUpdate.bind(listener));
+    EngineBus.on(QUEST_TRACKER_CHANGE, listener.onQuestUpdate.bind(listener));
 }
