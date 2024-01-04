@@ -72,6 +72,7 @@ export class Engine {
         if (game) {
             Engine.Game = game;
         }
+        Engine.createPremades();
         getEngine().getAnimation().subscribeToAnimationEvents(getEngine().getScene());
         Engine.loop(performance.now());
     }

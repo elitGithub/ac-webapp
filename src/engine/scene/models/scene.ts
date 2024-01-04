@@ -36,4 +36,8 @@ export class Scene extends Container implements IScene {
         sceneObject.zIndex = 1;
         this.addChild(sceneObject);
     }
+
+    removeSceneObject(sceneObject: Container) {
+        this.removeChild(sceneObject);
+    }
 }

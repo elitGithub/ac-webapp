@@ -8,11 +8,11 @@ import { Animation, AnimationListener, PremadeAnimations } from "../engine/rende
 import { START_DIALOGUE } from "./dialogue";
 import { DialogueMode } from "./dialogue/model";
 import { BaseInteractable } from "../engine/coreentities";
+import { IRenderableResource } from "../framework/graphics";
 
 enum BodyPart {
     BODY,
     FACE,
-    TORSO,
     ARMS,
     LEGS
 }
@@ -23,8 +23,6 @@ function getBodyPartOffset(bodyPart: BodyPart): vec2 {
             return { x: 0, y: 0 };
         case BodyPart.FACE:
             return getEngine().SPR(0.06, 0.11);
-        case BodyPart.TORSO:
-            return { x: 0, y: 0 };
         case BodyPart.ARMS:
             return getEngine().SPR(-0.04, 0.265);
         case BodyPart.LEGS:
@@ -50,12 +48,13 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
     currentExpression: string;
     currentBody: string;
     currentArms: string;
+    speakerLabel: Sprite;
 
     inDialogueMode: boolean;
 
     worldRepresentatives: BaseInteractable[];
 
-    constructor(displayName: string, assetsBase: string ="/src/assets/characters") {
+    constructor(displayName: string, assetsBase: string ="/src/assets") {
         super(displayName);
         this.assetsBase = assetsBase;
         this.manifest = new Object();
@@ -93,6 +92,12 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
             }
         });
 
+        getEngine().createSimpleSprite({source: `${this.assetsBase}/ui/dialog/frame_name_${this.name.toLowerCase()}.webp`})
+        .then(sprite => {
+            if (sprite) {
+                this.speakerLabel = sprite;
+            }
+        })
         getEngine().getAnimation().subscribeToAnimationEvents(this);
     }
 
@@ -108,10 +113,10 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
         for (const rep of this.worldRepresentatives) {
             queueNamedAnimate(rep, PremadeAnimations.FADE_OUT, 250);
         }
+        getEngine().getScene().currentScene?.addSceneObject(this);
         queueNamedAnimate(this, PremadeAnimations.FADE_IN, 500);
         this.transitioning = true;
         this.transitioningTo = this.availableExpressions[Math.round(Math.random() * this.availableExpressions.length) - 1];
-        //EngineBus.emit(START_DIALOGUE, createEngineEvent(START_DIALOGUE, {dialogueId: "test_dialogue"}));
         this.inDialogueMode = true;
     }
 
@@ -120,6 +125,8 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
         for (const rep of this.worldRepresentatives) {
             queueNamedAnimate(rep, PremadeAnimations.FADE_IN, 250);
         }
+
+        getEngine().getScene().currentScene?.removeSceneObject(this);
     }
 
     setDialogueState() {
@@ -152,12 +159,12 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
     }
 
     private async parseBaseAssets() {
-        const manifest = await getEngine().getAssets().load({source: `${this.assetsBase}/${this.name.toLowerCase()}/manifest.json`});
+        const manifest = await getEngine().getAssets().load({source: `${this.assetsBase}/characters/${this.name.toLowerCase()}/manifest.json`});
         this.manifest = manifest?.data;
         const armRegex = /b(\d)arm(\d)|_(\w*)/;
         const possibleArms = this.findAssets(armRegex, this.manifest);
         for (const arm of possibleArms) {
-            const armResource = await getEngine().getAssets().loadTexture({ source: `${this.assetsBase}/${this.name.toLowerCase()}${arm.path}` });
+            const armResource = await getEngine().getAssets().loadTexture({ source: `${this.assetsBase}/characters/${this.name.toLowerCase()}${arm.path}` });
             const armSprite = new Sprite(armResource?.texture);
             armSprite.name = arm.name;
             this.arms.set(arm.name, armSprite);
@@ -166,14 +173,14 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
         const bodyRegex = /body(\d)/;
         const possibleBodies = this.findAssets(bodyRegex, this.manifest);
         for (const body of possibleBodies) {
-            const bodyResource = await getEngine().getAssets().loadTexture({ source: `${this.assetsBase}/${this.name.toLowerCase()}${body.path}` });
+            const bodyResource = await getEngine().getAssets().loadTexture({ source: `${this.assetsBase}/characters/${this.name.toLowerCase()}${body.path}` });
             const bodySprite = new Sprite(bodyResource?.texture);
             bodySprite.name = body.name;
             this.body.set(body.name, bodySprite);
         }
 
         for (const e of this.availableExpressions) {
-            const faceResource = await getEngine().getAssets().loadTexture({ source: `${this.assetsBase}/${this.name.toLowerCase()}/avatar/face_${e}.webp` });
+            const faceResource = await getEngine().getAssets().loadTexture({ source: `${this.assetsBase}/characters/${this.name.toLowerCase()}/avatar/face_${e}.webp` });
             const expressionSprite = new Sprite(faceResource?.texture);
             expressionSprite.name = e;
             this.expressions.set(e, expressionSprite);
@@ -194,7 +201,6 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
                 }
                 break;
             case BodyPart.BODY:
-            case BodyPart.TORSO:
             case BodyPart.ARMS:
             case BodyPart.LEGS:
                 if (sprite.name && this.bodyPartOverrides.has(sprite.name)) {
@@ -237,7 +243,7 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
                 return;
             }
             
-            getEngine().getAssets().loadTexture({ source: `${this.assetsBase}/${this.name.toLowerCase()}${matches[0].path}` })
+            getEngine().getAssets().loadTexture({ source: `${this.assetsBase}/characters/${this.name.toLowerCase()}${matches[0].path}` })
             .then(asset => {
                 const body = new Sprite(asset.texture);
                 this.body.set(matches[0].name, body);
@@ -256,7 +262,7 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
                 return;
             }
             
-            getEngine().getAssets().loadTexture({ source: `${this.assetsBase}/${this.name.toLowerCase()}${matches[0].path}` })
+            getEngine().getAssets().loadTexture({ source: `${this.assetsBase}/characters/${this.name.toLowerCase()}${matches[0].path}` })
             .then(asset => {
                 const arm = new Sprite(asset.texture);
                 this.arms.set(matches[0].name, arm);
@@ -293,12 +299,20 @@ export class WorldNPC extends BaseInteractable {
 
     npc?: NPC;
     npcName: string;
-    constructor(displayName: string, npc?: NPC) {
+    displayedSprite?: Sprite;
+    sprites: Map<string, Sprite>;
+    constructor(displayName: string, defaultSprite: IRenderableResource, npc?: NPC) {
         super(undefined, "world_"+displayName);
         this.addAction({action: "interact", handler: this.enterDialogue.bind(this)});
         this.npcName = displayName;
         this.npc = npc;
         this.npc?.addWorldRep(this);
+        this.sprites = new Map<string, Sprite>();
+        this.createSprite("default", defaultSprite)
+        .then(_ => {
+           this.setDisplaySprite("default"); 
+        });
+        
     }
 
     enterDialogue() {
@@ -316,4 +330,18 @@ export class WorldNPC extends BaseInteractable {
         }
     }
 
+    async createSprite(name: string, resource: IRenderableResource) {
+        const sprite = await getEngine().createSimpleSprite(resource);
+        if (sprite) {
+            this.sprites.set(name, sprite);
+        }
+    }
+
+    setDisplaySprite(name: string) {
+        this.displayedSprite = this.sprites.get(name);
+        if (this.displayedSprite) {
+            this.removeChildren();
+            this.addChildAt(this.displayedSprite, 0);
+        }
+    }
 }
