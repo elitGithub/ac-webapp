@@ -114,6 +114,7 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
             queueNamedAnimate(rep, PremadeAnimations.FADE_OUT, 250);
         }
         getEngine().getScene().currentScene?.addSceneObject(this);
+        this.alpha = 0;
         queueNamedAnimate(this, PremadeAnimations.FADE_IN, 500);
         this.transitioning = true;
         this.transitioningTo = this.availableExpressions[Math.round(Math.random() * this.availableExpressions.length) - 1];

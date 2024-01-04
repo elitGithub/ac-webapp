@@ -13,8 +13,12 @@ export class DevModInterface {
         });
     }
 
-    static loadModResource(resource: any) {
-        (resource as ModResource).default();
+    static loadModResource(resources: any) {
+        for (const resource of Object.values(resources)) {
+            if (typeof resource === "function") {
+                resource();
+            }
+        }
     }
 }
 
