@@ -36,9 +36,7 @@ function getBodyPartOffset(bodyPart: BodyPart): vec2 {
 export class NPC extends BaseCharacter implements AnimationListener, DialogueMode {
     assetsBase: string;
     manifest: Object;
-    availableExpressions = ["afraid", "angry", "annoyed", "blush", "concerned", "confident", "cringe",
-        "displeased", "embarrassed", "excited", "eyeroll", "flirty", "laughing", "neutral", "sad",
-        "sarcastic", "skeptical", "smile", "thinking", "worried"];
+    availableExpressions: string[];
     expressions: Map<string, Sprite>;
     body: Map<string, Sprite>;
     arms: Map<string, Sprite>;
@@ -58,6 +56,7 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
         super(displayName);
         this.assetsBase = assetsBase;
         this.manifest = new Object();
+        this.availableExpressions = [];
         this.expressions = new Map<string, Sprite>();
         this.body = new Map<string, Sprite>();
         this.arms = new Map<string, Sprite>();
@@ -72,7 +71,7 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
 
         this.parseBaseAssets().then(() => {
             this.currentBody = "body1";
-            this.currentExpression = "neutral";
+            this.currentExpression = "face_neutral";
             this.currentArms = "b1arm1_n";
             const defaultBody = this.body.get(this.currentBody);
             const defaultExpression = this.expressions.get(this.currentExpression);
@@ -180,13 +179,15 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
             this.body.set(body.name, bodySprite);
         }
 
-        for (const e of this.availableExpressions) {
-            const faceResource = await getEngine().getAssets().loadTexture({ source: `${this.assetsBase}/characters/${this.name.toLowerCase()}/avatar/face_${e}.webp` });
+        const faceRegex = /face_(\w*)/;
+        const possibleFaces = this.findAssets(faceRegex, this.manifest);
+        for (const face of possibleFaces) {
+            const faceResource = await getEngine().getAssets().loadTexture({ source: `${this.assetsBase}/characters/${this.name.toLowerCase()}${face.path}` });
             const expressionSprite = new Sprite(faceResource?.texture);
-            expressionSprite.name = e;
-            this.expressions.set(e, expressionSprite);
+            expressionSprite.name = face.name;
+            this.expressions.set(face.name, expressionSprite);
+            this.availableExpressions.push(face.name);
         }
-
     }
 
     private setBodyPart(sprite: Sprite, part: BodyPart) {
