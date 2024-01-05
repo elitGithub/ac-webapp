@@ -211,8 +211,8 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
         this.addChildAt(sprite, part);
         switch(part) {
             case BodyPart.FACE:
-                if (sprite.name && this.bodyPartOverrides.has("face_"+sprite.name)) {
-                    const override = this.bodyPartOverrides.get("face_"+sprite.name);
+                if (sprite.name && this.bodyPartOverrides.has(sprite.name)) {
+                    const override = this.bodyPartOverrides.get(sprite.name);
                     if (override && override.position) {
                         sprite.setTransform(override.position.x, override.position.y);
                     }
