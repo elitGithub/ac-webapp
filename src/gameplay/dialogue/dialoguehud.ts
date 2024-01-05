@@ -120,7 +120,7 @@ export class DialogueHud extends HudElement {
             this.nextIndicatorIcon.visible = true;
         }
 
-        EngineBus.emit(TOGGLE_HUD, createEngineEvent(TOGGLE_HUD, {hudname: "HUD_DIALOGUE"}));
+        EngineBus.emit(TOGGLE_HUD, createEngineEvent(TOGGLE_HUD, {hudname: "HUD_DIALOGUE", force: true}));
     }
 
     nextDialogueLine(text: string, next: boolean) {
@@ -161,7 +161,7 @@ export class DialogueHud extends HudElement {
             this.nextIndicatorIcon.visible = false;
         }
 
-        EngineBus.emit(TOGGLE_HUD, createEngineEvent(TOGGLE_HUD, {hudname: "HUD_DIALOGUE"}));
+        EngineBus.emit(TOGGLE_HUD, createEngineEvent(TOGGLE_HUD, {hudname: "HUD_DIALOGUE", force: false}));
     }
 
     onPointerClick(event: FederatedEvent): void {
