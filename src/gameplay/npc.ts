@@ -43,7 +43,7 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
     body: Map<string, Sprite>;
     arms: Map<string, Sprite>;
     bodyPartOverrides: Map<string, {position: vec2|undefined}>;
-    runPoses: Map<string, Function>;
+    runPoses: Map<string, RunPose>;
     transitioning: boolean;
     transitioningTo: string;
     currentExpression: string;
@@ -64,7 +64,7 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
         this.expressions = new Map<string, Sprite>();
         this.body = new Map<string, Sprite>();
         this.arms = new Map<string, Sprite>();
-        this.runPoses = new Map<string, Function>();
+        this.runPoses = new Map<string, RunPose>();
         this.transitioning = false;
         this.transitioningTo = "";
         this.bodyPartOverrides = new Map<string, any>();
@@ -303,7 +303,7 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
     setPose(name: string) {
         const pose = this.runPoses.get(name);
         if (pose) {
-            pose();
+            pose(this);
         }
     }
 
