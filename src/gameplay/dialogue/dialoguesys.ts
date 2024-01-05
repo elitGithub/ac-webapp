@@ -207,7 +207,40 @@ export class DialogueSystem implements EngineSystem {
                 }
                 case "EXPRESSION": {
                     const npc = this.currentDialogue?.speaker as NPC;
-                    npc.changeExpression(args[0]);
+                    const name = args[0];
+                    const flip = args[1];
+                    npc.changeExpression(name);
+                    let x,y = false;
+                    if (flip && flip.toUpperCase() === "FLIPXY") {
+                        x = true;
+                        y = true;
+                    }
+                    else if (flip && flip.toUpperCase() === "FLIPX") {
+                        x = true;
+                    }
+                    else if (flip && flip.toUpperCase() === "FLIPY") {
+                        y = true;
+                    }
+                    npc.flipBodyPart(1, x, y);
+                    break;
+                }
+                case "POSE": {
+                    const npc = this.currentDialogue?.speaker as NPC;
+                    const poseName = args[0];
+                    const flip = args[1];
+                    npc.setPose(poseName);
+                    let x,y = false;
+                    if (flip && flip.toUpperCase() === "FLIPXY") {
+                        x = true;
+                        y = true;
+                    }
+                    else if (flip && flip.toUpperCase() === "FLIPX") {
+                        x = true;
+                    }
+                    else if (flip && flip.toUpperCase() === "FLIPY") {
+                        y = true;
+                    }
+                    npc.flip(x, y);
                     break;
                 }
                 default: {

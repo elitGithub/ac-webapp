@@ -17,12 +17,14 @@ enum BodyPart {
     LEGS
 }
 
+export type RunPose = (npc: NPC) => void;
+
 function getBodyPartOffset(bodyPart: BodyPart): vec2 {
     switch (bodyPart) {
         case BodyPart.BODY:
             return { x: 0, y: 0 };
         case BodyPart.FACE:
-            return getEngine().SPR(0.06, 0.11);
+            return getEngine().SPR(0.10, 0.16);
         case BodyPart.ARMS:
             return getEngine().SPR(-0.04, 0.265);
         case BodyPart.LEGS:
@@ -41,13 +43,15 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
     body: Map<string, Sprite>;
     arms: Map<string, Sprite>;
     bodyPartOverrides: Map<string, {position: vec2|undefined}>;
+    runPoses: Map<string, Function>;
     transitioning: boolean;
     transitioningTo: string;
     currentExpression: string;
     currentBody: string;
     currentArms: string;
-    speakerLabel: Sprite;
+    speakerLabel?: Sprite;
 
+    defaultPosition: vec2;
     inDialogueMode: boolean;
 
     worldRepresentatives: BaseInteractable[];
@@ -60,9 +64,11 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
         this.expressions = new Map<string, Sprite>();
         this.body = new Map<string, Sprite>();
         this.arms = new Map<string, Sprite>();
+        this.runPoses = new Map<string, Function>();
         this.transitioning = false;
         this.transitioningTo = "";
         this.bodyPartOverrides = new Map<string, any>();
+        this.defaultPosition = {x: 0, y: 0};
         this.inDialogueMode = false;
         this.currentExpression = "";
         this.currentBody = "";
@@ -108,11 +114,19 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
         this.speaking = speaking;
     }
     
+    setDefaultPosition(x: number, y: number) {
+        this.defaultPosition = {x, y};
+    }
+
     enterDialogueMode(): void {
         for (const rep of this.worldRepresentatives) {
             queueNamedAnimate(rep, PremadeAnimations.FADE_OUT, 250);
+            rep.canInteract = false;
         }
         getEngine().getScene().currentScene?.addSceneObject(this);
+        this.position.set(this.defaultPosition.x, this.defaultPosition.y);
+        this.resetOrientation();
+        this.changeExpression("face_neutral");
         this.alpha = 0;
         queueNamedAnimate(this, PremadeAnimations.FADE_IN, 500);
         this.transitioning = true;
@@ -124,6 +138,7 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
         this.inDialogueMode = false;
         for (const rep of this.worldRepresentatives) {
             queueNamedAnimate(rep, PremadeAnimations.FADE_IN, 250);
+            rep.canInteract = true;
         }
 
         getEngine().getScene().currentScene?.removeSceneObject(this);
@@ -184,6 +199,7 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
         for (const face of possibleFaces) {
             const faceResource = await getEngine().getAssets().loadTexture({ source: `${this.assetsBase}/characters/${this.name.toLowerCase()}${face.path}` });
             const expressionSprite = new Sprite(faceResource?.texture);
+            expressionSprite.anchor.set(0.5);
             expressionSprite.name = face.name;
             this.expressions.set(face.name, expressionSprite);
             this.availableExpressions.push(face.name);
@@ -278,6 +294,45 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
 
     addBodyPartOverride(bodyPart: string, offset?: vec2) {
         this.bodyPartOverrides.set(bodyPart, {position: offset});
+    }
+
+    addPose(name: string, runPose: RunPose) {
+        this.runPoses.set(name, runPose);
+    }
+
+    setPose(name: string) {
+        const pose = this.runPoses.get(name);
+        if (pose) {
+            pose();
+        }
+    }
+
+    flip(x?: boolean, y?: boolean) {
+        if (x) {
+            this.scale.x *= -1;
+        }
+
+        if (y) {
+            this.scale.y *= -1;
+        }
+    }
+
+    flipBodyPart(part: BodyPart, x?: boolean, y?: boolean) {
+        const child = this.getChildAt(part);
+        if (x) {
+            child.scale.x *= -1;
+        }
+
+        if (y) {
+            child.scale.y *= -1;
+        }
+    }
+
+    resetOrientation() {
+        this.scale.set(Math.abs(this.scale._x), Math.abs(this.scale._y));
+        for (const c of this.children) {
+            c.scale.set(Math.abs(c.scale._x), Math.abs(c.scale._y));
+        }
     }
 
     onAnimationsFinish(animation: Animation) {
