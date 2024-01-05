@@ -1,4 +1,4 @@
-import { Container } from "pixi.js";
+import { Container, ObservablePoint } from "pixi.js";
 import { EngineSystem, EngineBus, createEngineEvent, IEngineEvent } from "../enginesys";
 import { Create_Named_Animate, Render_Animate, Render_Animation_Finish, Render_Clear_Animate } from "./models/events";
 import { vec3 } from "../../core/math/models";
@@ -167,9 +167,9 @@ export class AnimationSystem implements EngineSystem {
             const diffTime = endTime - currentTime;
             const timeFrac = (animation.duration - diffTime) / animation.duration;
             const easing = animation.easing ?? new TweenShape(0, 1);
-            if (animation.property === "position") {
-                const x = animation.target.position.x;
-                const y = animation.target.position.y;
+            if (animation.target[animation.property] instanceof ObservablePoint) {
+                const x = animation.target[animation.property].x;
+                const y = animation.target[animation.property].y;
                 if (starting) {
                     animation.setAnimationStartValue({ x, y, z: 0 });
                 }
@@ -182,8 +182,8 @@ export class AnimationSystem implements EngineSystem {
                     tweenedPosition = TweenPosition(timeFrac, animation.getAnimationStartValue() as vec3, { x: animation.value.x, y: animation.value.y, z: 0 }, easing);
                 }
 
-                animation.target.position.x = tweenedPosition.x;
-                animation.target.position.y = tweenedPosition.y;
+                animation.target[animation.property].x = tweenedPosition.x;
+                animation.target[animation.property].y = tweenedPosition.y;
                 console.log(`TimeFrac(${timeFrac}): Tweenx(${tweenedPosition.x})`);
                 console.log(`TimeFrac(${timeFrac}): Tweeny(${tweenedPosition.y})`);
             }
