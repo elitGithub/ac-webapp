@@ -244,7 +244,7 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
     changeBody(type: number) {
         if (type <= 4 && type > 0) {
             this.currentBody = `body${type}`;
-            this.currentArms = `body${type}-arm1`;
+            this.currentArms = `b${type}-arm1`;
             const body = this.body.get(this.currentBody)!;
             const arms = this.arms.get(this.currentArms)!;
             const pos = getBodyPartOffset(BodyPart.ARMS);
