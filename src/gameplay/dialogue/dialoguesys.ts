@@ -147,7 +147,7 @@ export class DialogueSystem implements EngineSystem {
             line = this.currentDialogue.lines[this.currentDialogueLine];
         }
 
-        const hasNext = (this.currentDialogue.lines.length - this.currentDialogueLine) > 1;
+        const hasNext = (this.currentDialogue.lines.length - this.currentDialogueLine) >= 1;
         if (hasNext) {
             this.dialogueHud.nextDialogueLine(line, hasNext);
         }
