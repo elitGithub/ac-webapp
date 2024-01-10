@@ -1,8 +1,9 @@
-import { Container, Sprite, Text, TextMetrics } from "pixi.js";
-import { HudElement } from "../../engine/gui";
+import { Container, FederatedEvent, Sprite, Text, TextMetrics } from "pixi.js";
+import { HudElement, TOGGLE_HUD } from "../../engine/gui";
 import { IRenderableResource } from "../../framework/graphics";
 import { EngineBus, createEngineEvent, getEngine } from "../../engine";
 import { ADVANCE_DIALOGUE, SELECT_DIALOGUE_CHOICE } from ".";
+import { NPC } from "../npc";
 
 export class DialogueHud extends HudElement {
     speakerLabelBg?: Sprite;
@@ -45,13 +46,20 @@ export class DialogueHud extends HudElement {
         this.choiceDisplaying = false;
 
         this.addChild(this.dialogueText);
+        this.visible = false;
     }
 
     setSpeakerLabelBackground(sprite: Sprite) {
+        if (this.speakerLabelBg) {
+            this.speakerLabelBg.removeChild(this.speakerText);
+            this.removeChild(this.speakerLabelBg);
+        }
         this.speakerLabelBg = sprite;
         this.speakerLabelBg.setTransform(0, getEngine().getRender().getDimensions().y - (this.speechBg?.height??0) + 10);
         this.addChild(this.speakerLabelBg);
-        this.addChild(this.speakerText);
+        this.speakerLabelBg.addChild(this.speakerText);
+        this.speakerText.anchor.set(0.5);
+        this.speakerText.position.set(this.speakerLabelBg.width/2, this.speakerLabelBg.height/2);
     }
 
     setNextIndicatorIcon(sprite: Sprite) {
@@ -61,16 +69,17 @@ export class DialogueHud extends HudElement {
     setSpeechBackground(sprite: Sprite) {
         this.speechBg = sprite;
         this.speechBg.setTransform(0, getEngine().getRender().getDimensions().y-this.speechBg.height);
-        this.speechBg.visible = false;
         this.addChildAt(this.speechBg, 0);
     }
 
     setSpeaker(speaker: string) {
         this.dialogueSpeaker = speaker;
         this.speakerText.text = speaker;
-
-        if (this.speakerLabelBg) {
-            this.speakerText.setTransform(10, getEngine().getRender().getDimensions().y - (this.speechBg?.height??0) + 10);
+        const character = getEngine().getGame().gameEntities.find(ent => ent.name === speaker);
+        if (character) {
+            if ((character as NPC).speakerLabel) {
+                this.setSpeakerLabelBackground((character as NPC).speakerLabel);
+            }
         }
     }
 
@@ -79,7 +88,7 @@ export class DialogueHud extends HudElement {
         this.dialogueText.text = text;
 
         if (this.speechBg) {
-            this.dialogueText.setTransform(40, getEngine().getRender().getDimensions().y-this.speechBg.height);
+            this.dialogueText.setTransform(400, getEngine().getRender().getDimensions().y-this.speechBg.height + 20);
         }
     }
 
@@ -104,16 +113,14 @@ export class DialogueHud extends HudElement {
     }
 
     startDialogue(text: string, speaker: string, next: boolean) {
-        if (this.speechBg) {
-            this.speechBg.visible = true;
-        }
-
         this.setText(text);
         this.setSpeaker(speaker);
 
         if (next && this.nextIndicatorIcon) {
             this.nextIndicatorIcon.visible = true;
         }
+
+        EngineBus.emit(TOGGLE_HUD, createEngineEvent(TOGGLE_HUD, {hudname: "HUD_DIALOGUE", force: true}));
     }
 
     nextDialogueLine(text: string, next: boolean) {
@@ -146,10 +153,6 @@ export class DialogueHud extends HudElement {
     }
 
     endDialogue() {
-        if (this.speechBg) {
-            this.speechBg.visible = false;
-        }
-
         this.setText("");
         this.setSpeaker("");
         this.clearChoices();
@@ -157,10 +160,16 @@ export class DialogueHud extends HudElement {
         if (this.nextIndicatorIcon) {
             this.nextIndicatorIcon.visible = false;
         }
+
+        EngineBus.emit(TOGGLE_HUD, createEngineEvent(TOGGLE_HUD, {hudname: "HUD_DIALOGUE", force: false}));
     }
 
-    onPointerClick(event: any): void {
+    onPointerClick(event: FederatedEvent): void {
         super.onPointerClick(event);
+        if (event.target !== this) {
+            event.stopImmediatePropagation();
+            return;
+        }
         if (!this.choiceDisplaying) {
             EngineBus.emit(ADVANCE_DIALOGUE, createEngineEvent(ADVANCE_DIALOGUE, {}));
         }   

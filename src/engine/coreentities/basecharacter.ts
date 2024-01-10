@@ -1,5 +1,6 @@
 import { Texture } from "pixi.js";
 import { BaseInteractable, BaseInteractableAction } from ".";
+import { getEngine } from "..";
 
 export class BaseCharacter extends BaseInteractable {
     speaking: boolean;
@@ -10,5 +11,11 @@ export class BaseCharacter extends BaseInteractable {
 
     setSpeaking(speaking: boolean) {
         this.speaking = speaking;
+        if (speaking) {
+            getEngine().getScene().toggleSceneInteractivity(false);
+        }
+        else {
+            getEngine().getScene().toggleSceneInteractivity(true);
+        }
     }
 }

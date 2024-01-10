@@ -1,6 +1,7 @@
 export interface InventoryItem {
     item: string;
     quantity: number;
+    hidden?: boolean;
 }
 
 export class Inventory {
@@ -12,8 +13,16 @@ export class Inventory {
         this.inventoryItems = new Map<string, InventoryItem>();
     }
 
-    getAll() {
-        return this.inventoryItems;
+    getAll(includeHidden: boolean = false) {
+        if (!includeHidden) {
+            return Array.from(this.inventoryItems.values()).filter(item => !item.hidden);
+        }
+
+        return Array.from(this.inventoryItems.values());
+    }
+
+    getItem(item: string) {
+        return this.inventoryItems.get(item);
     }
 
     getItemQuantity(item: string) {
@@ -44,6 +53,13 @@ export class Inventory {
         }
         else {
             this.inventoryItems.get(item)!.quantity -= quantity;
+        }
+    }
+
+    hideItem(item: string, hidden: boolean) {
+        const invItem = this.inventoryItems.get(item);
+        if (invItem) {
+             invItem.hidden = hidden;
         }
     }
 }

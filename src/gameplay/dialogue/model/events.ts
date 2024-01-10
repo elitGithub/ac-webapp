@@ -6,6 +6,11 @@ export const SELECT_DIALOGUE_CHOICE = Symbol("DIALOGUE_CHOICE_SELECTED");
 
 export interface StartDialogueEvent extends IEngineEvent {
     dialogueId: string;
+    category?: string;
+}
+
+export interface AdvanceDialogueEvent extends IEngineEvent {
+    choice?: number;
 }
 
 export interface SelectDialogueChoiceEvent extends IEngineEvent {

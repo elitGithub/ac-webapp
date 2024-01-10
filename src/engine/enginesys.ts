@@ -1,3 +1,4 @@
+import { randomUUID } from "../core/util";
 import TweenShape from "../framework/animations/tween/models";
 import { createEventBus } from "../framework/events";
 import { IRenderableResource } from "../framework/graphics";
@@ -13,6 +14,8 @@ import { Scene } from "./scene/models";
 import { SceneSystem } from "./scene/scenesys";
 import { Sprite, Ticker, utils } from "pixi.js";
 
+let DEBUG = false;
+
 export type IEngineEvent = {
     eventId: string;
     event: Symbol;
@@ -21,7 +24,7 @@ export type IEngineEvent = {
 export function createEngineEvent(event: Symbol, eventData: Object): IEngineEvent {
     /* eventData["eventId"] = crypto.randomUUID();
     eventData["event"] = event; */
-    return {event, eventId: crypto.randomUUID(), ...eventData} as IEngineEvent;
+    return {event, eventId: randomUUID(), ...eventData} as IEngineEvent;
 }
 
 export interface EngineSystem {
@@ -54,10 +57,10 @@ export class Engine {
         }
     };
 
-    static {
-        this.ticker = Ticker.shared;
-        this.ticker.stop();
-        this.ticker.autoStart = false;
+    static init(game?: EngineSystem) {
+        Engine.ticker = Ticker.shared;
+        Engine.ticker.stop();
+        Engine.ticker.autoStart = false;
 
         Engine.Render = new RenderSystem(Engine.defaultConfig);
         Engine.Animation = new AnimationSystem();
@@ -65,18 +68,23 @@ export class Engine {
         Engine.Input = new InputSystem();
         Engine.Assets = new AssetSystem();
         Engine.Hud = new HudSystem();
-    }
 
-    static init(game: EngineSystem) {
-        Engine.Game = game;
+        if (game) {
+            Engine.Game = game;
+        }
+        Engine.createPremades();
         getEngine().getAnimation().subscribeToAnimationEvents(getEngine().getScene());
         Engine.loop(performance.now());
     }
 
+    static setGame(game: EngineSystem) {
+        Engine.Game = game;
+    }
+
     static createPremades() {
         const ease = new TweenShape(0, 0.33, 0.67, 1);
-        createNamedAnimate(PremadeAnimations.FADE_OUT, "alpha", 0, ease);
-        createNamedAnimate(PremadeAnimations.FADE_IN, "alpha", 1, ease);
+        createNamedAnimate(PremadeAnimations.FADE_OUT, "alpha", false, 0, ease);
+        createNamedAnimate(PremadeAnimations.FADE_IN, "alpha", false, 1, ease);
     }
 
     static loop(dt: DOMHighResTimeStamp) {
@@ -86,9 +94,10 @@ export class Engine {
         Engine.Scene.update(dt);
         Engine.Animation.update(dt);
         Engine.Render.update(dt);
-        Engine.Game.update(dt);
         Engine.Hud.update(dt);
-
+        if (Engine.Game) {
+            Engine.Game.update(dt);
+        }
         requestAnimationFrame(Engine.loop);
     }
 
@@ -140,6 +149,7 @@ export class Engine {
 
 export function getEngine() {
     return {
+        DEBUG,
         getRender: () => Engine.Render as RenderSystem,
         getAssets: () => Engine.Assets as AssetSystem,
         getAnimation: () => Engine.Animation as AnimationSystem,

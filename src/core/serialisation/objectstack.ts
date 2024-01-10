@@ -1,3 +1,4 @@
+import { randomUUID } from "../util";
 import { getRef, isRef } from "./util";
 
 export class SerialisedObjectStack {
@@ -32,7 +33,7 @@ export class SerialisedObjectStack {
     }
 
     private stackSet(value: Object) {
-        const ref = crypto.randomUUID();
+        const ref = randomUUID();
         this.stack.set(ref, value);
         return ref;
     }

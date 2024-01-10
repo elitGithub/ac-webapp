@@ -1,4 +1,4 @@
-import { Container } from "pixi.js";
+import { Container, ObservablePoint } from "pixi.js";
 import { EngineSystem, EngineBus, createEngineEvent, IEngineEvent } from "../enginesys";
 import { Create_Named_Animate, Render_Animate, Render_Animation_Finish, Render_Clear_Animate } from "./models/events";
 import { vec3 } from "../../core/math/models";
@@ -12,13 +12,14 @@ import { AnimationListener } from "./models/animationlistener";
 export type NamedAnimation = RenderEffectProps & {
     name: string;
     property: string;
-    to: number|vec3;
+    yoyo: boolean;
+    to: number | vec3;
     easing: TweenShape;
 }
 
 export class AnimationSystem implements EngineSystem {
     namedAnimations: NamedAnimation[] = [];
-    queuedAnimates:Animate[] = [];
+    queuedAnimates: Animate[] = [];
 
     animating: Animation[] = [];
 
@@ -46,6 +47,7 @@ export class AnimationSystem implements EngineSystem {
             this.registerAnimation({
                 name: cna.name,
                 property: cna.property,
+                yoyo: cna.yoyo,
                 to: cna.to,
                 easing: cna.easing,
                 overlay: cna.overlay,
@@ -57,11 +59,11 @@ export class AnimationSystem implements EngineSystem {
         }
         else if (engineEvent.event === Render_Clear_Animate) {
             this.unqueue(engineEvent as Animate);
-        }  
+        }
     }
 
     unqueue(animate: Animate) {
-        
+
     }
 
     update(time: number) {
@@ -70,10 +72,10 @@ export class AnimationSystem implements EngineSystem {
             if (animate.name) {
                 const registeredAnimation = this.namedAnimations.find(n => n.name === animate!.name);
                 if (registeredAnimation) {
-                    animate = {...animate, ...registeredAnimation};
+                    animate = { ...animate, ...registeredAnimation };
                 }
             }
-            
+
             if (!animate.property) {
                 console.error(`property undefined for animate event.`);
                 continue;
@@ -88,9 +90,9 @@ export class AnimationSystem implements EngineSystem {
                 console.error(`${animate.property} does not exist on target ${animate.target}.`);
                 continue;
             }
-            
+
             const anim = Animation.fromAnimate(animate);
-            anim.setRenderEffectMode(animate.overlay??false, animate.override);
+            anim.setRenderEffectMode(animate.overlay ?? false, animate.override);
 
             if (this.canAnimationBeApplied(anim)) {
                 this.animating.push(anim);
@@ -110,20 +112,39 @@ export class AnimationSystem implements EngineSystem {
             const endTime = animation.startingTime + animation.duration;
             if (endTime <= currentTime) {
                 //finalise the end of the animation...
-                if (animation.property === "position") {
-                    if (typeof animation.value === "number") {
-                        animation.target.position.x = animation.value;
-                        animation.target.position.y = animation.value;
+                if (!animation.yoyo) {
+                    if (animation.property === "position") {
+                        if (typeof animation.value === "number") {
+                            animation.target.position.x = animation.value;
+                            animation.target.position.y = animation.value;
+                        }
+                        else {
+                            animation.target.position.x = animation.value.x;
+                            animation.target.position.y = animation.value.y;
+                        }
+
                     }
                     else {
-                        animation.target.position.x = animation.value.x;
-                        animation.target.position.y = animation.value.y;
+                        animation.target[animation.property] = animation.value;
                     }
-                    
                 }
                 else {
-                    animation.target[animation.property] = animation.value;
+                    if (animation.property === "position") {
+                        if (typeof animation._startingValue === "number") {
+                            animation.target.position.x = animation._startingValue;
+                            animation.target.position.y = animation._startingValue;
+                        }
+                        else {
+                            animation.target.position.x = (animation._startingValue as vec3).x;
+                            animation.target.position.y = (animation._startingValue as vec3).y;
+                        }
+
+                    }
+                    else {
+                        animation.target[animation.property] = animation._startingValue;
+                    }
                 }
+
 
                 EngineBus.emit(Render_Animation_Finish, createEngineEvent(Render_Animation_Finish, animation));
                 let index = this.animating.findIndex(a => a === animation);
@@ -146,23 +167,25 @@ export class AnimationSystem implements EngineSystem {
             const diffTime = endTime - currentTime;
             const timeFrac = (animation.duration - diffTime) / animation.duration;
             const easing = animation.easing ?? new TweenShape(0, 1);
-            if (animation.property === "position") {
-                const x = animation.target.position.x;
-                const y = animation.target.position.y;
+            if (animation.target[animation.property] instanceof ObservablePoint) {
+                const x = animation.target[animation.property].x;
+                const y = animation.target[animation.property].y;
                 if (starting) {
-                    animation.setAnimationStartValue({x, y, z: 0});
+                    animation.setAnimationStartValue({ x, y, z: 0 });
                 }
 
                 let tweenedPosition;
                 if (typeof animation.value === "number") {
-                    tweenedPosition = TweenPosition(timeFrac, animation.getAnimationStartValue() as vec3, {x: animation.value, y: animation.value, z: 0}, easing);
+                    tweenedPosition = TweenPosition(timeFrac, animation.getAnimationStartValue() as vec3, { x: animation.value, y: animation.value, z: 0 }, easing);
                 }
                 else {
-                    tweenedPosition = TweenPosition(timeFrac, animation.getAnimationStartValue() as vec3, {x: animation.value.x, y: animation.value.y, z: 0}, easing);
+                    tweenedPosition = TweenPosition(timeFrac, animation.getAnimationStartValue() as vec3, { x: animation.value.x, y: animation.value.y, z: 0 }, easing);
                 }
 
-                animation.target.position.x = tweenedPosition.x;
-                animation.target.position.y = tweenedPosition.y;
+                animation.target[animation.property].x = tweenedPosition.x;
+                animation.target[animation.property].y = tweenedPosition.y;
+                console.log(`TimeFrac(${timeFrac}): Tweenx(${tweenedPosition.x})`);
+                console.log(`TimeFrac(${timeFrac}): Tweeny(${tweenedPosition.y})`);
             }
             else {
                 const value = animation.target[animation.property];

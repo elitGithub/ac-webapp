@@ -1,7 +1,11 @@
+import { Container } from "pixi.js";
 import { Dialogue } from ".";
-import { EngineBus, EngineSystem, IEngineEvent, getEngine } from "../../engine";
+import { EngineBus, IEngineEvent, getEngine } from "../../engine";
+import { queueNamedAnimate } from "../../engine/rendereffects";
 import { DialogueHud } from "./dialoguehud";
 import { ADVANCE_DIALOGUE, SELECT_DIALOGUE_CHOICE, START_DIALOGUE, SelectDialogueChoiceEvent, StartDialogueEvent } from "./model";
+import { NPC } from "../npc";
+import { GameplaySystem } from "../gameplaysys";
 
 export class DialogueCatalog {
     category: string;
@@ -21,7 +25,7 @@ export class DialogueCatalog {
     }
 }
 
-export class DialogueSystem implements EngineSystem {
+export class DialogueSystem extends GameplaySystem {
 
     private currentDialogue?: Dialogue;
     private currentDialogueLine: number;
@@ -29,6 +33,7 @@ export class DialogueSystem implements EngineSystem {
     private dialogueHud: DialogueHud;
 
     constructor(customDialogueHud?: DialogueHud) {
+        super();
         EngineBus.on(START_DIALOGUE, this.queue.bind(this));
         EngineBus.on(ADVANCE_DIALOGUE, this.queue.bind(this));
         EngineBus.on(SELECT_DIALOGUE_CHOICE, this.queue.bind(this));
@@ -73,8 +78,17 @@ export class DialogueSystem implements EngineSystem {
     private beginDialogue(dialogue: Dialogue) {
         this.currentDialogue = dialogue;
         this.currentDialogueLine = 0;
+        let line = dialogue.lines[this.currentDialogueLine];
+        while (this.handleDialogueCommand(this.currentDialogue.lines[this.currentDialogueLine])) {
+            this.currentDialogueLine++;
+            if (this.currentDialogueLine >= this.currentDialogue.lines.length) {
+                line = "";
+                break;
+            }
+            line = this.currentDialogue.lines[this.currentDialogueLine];
+        }
         const hasNext = (this.currentDialogue.lines.length - this.currentDialogueLine) > 1;
-        this.dialogueHud.startDialogue(dialogue.lines[this.currentDialogueLine], dialogue.speaker.name, hasNext);
+        this.dialogueHud.startDialogue(line, dialogue.speaker.name, hasNext);
         this.dialogueHud.clearChoices();
         this.dialogueHud.prepChoices(dialogue.choices.map(c => c.choice));
         dialogue.speaker.setSpeaking(true);
@@ -84,7 +98,7 @@ export class DialogueSystem implements EngineSystem {
         if (category) {
             const cat = this.dialogueCatalogs.get(category);
             if (!cat) {
-                console.error("Could not find category "+category);
+                console.error("Could not find category " + category);
                 return;
             }
 
@@ -125,9 +139,19 @@ export class DialogueSystem implements EngineSystem {
 
         this.currentDialogueLine++;
 
-        const hasNext = (this.currentDialogue.lines.length - this.currentDialogueLine) > 1;
+        let line = this.currentDialogue.lines[this.currentDialogueLine];
+        while (this.handleDialogueCommand(this.currentDialogue.lines[this.currentDialogueLine])) {
+            this.currentDialogueLine++;
+            if (this.currentDialogueLine >= this.currentDialogue.lines.length) {
+                line = "";
+                break;
+            }
+            line = this.currentDialogue.lines[this.currentDialogueLine];
+        }
+
+        const hasNext = (this.currentDialogue.lines.length - this.currentDialogueLine) >= 1;
         if (hasNext) {
-            this.dialogueHud.nextDialogueLine(this.currentDialogue.lines[this.currentDialogueLine], hasNext);
+            this.dialogueHud.nextDialogueLine(line, hasNext);
         }
         else if (!hasNext && this.currentDialogue.choices.length > 0) {
             this.dialogueHud.displayChoices();
@@ -161,6 +185,77 @@ export class DialogueSystem implements EngineSystem {
         }
     }
 
+    handleDialogueCommand(line: string) {
+        if (line && line.startsWith("%")) {
+            const matches = line.match(/%(\w*)%/);
+            if (!matches) {
+                return false;
+            }
+
+            const cmd = matches[1];
+            const arglist = line.split("%"+cmd+"%")[1].trim();
+            const args = arglist.split(" ");
+
+            switch (cmd.toUpperCase()) {
+                case "ANIMATE": {
+                    const name = args[0];
+                    const t = args[1];
+                    const duration = args[2];
+                    const target = getEngine().resolve(t);
+                    if (target && target instanceof Container) {
+                        queueNamedAnimate(target, name, Number.parseFloat(duration));
+                    }
+                    break;
+                }
+                case "EXPRESSION": {
+                    const npc = this.currentDialogue?.speaker as NPC;
+                    const name = args[0];
+                    const flip = args[1];
+                    npc.changeExpression(name);
+                    let x,y = false;
+                    if (flip && flip.toUpperCase() === "FLIPXY") {
+                        x = true;
+                        y = true;
+                    }
+                    else if (flip && flip.toUpperCase() === "FLIPX") {
+                        x = true;
+                    }
+                    else if (flip && flip.toUpperCase() === "FLIPY") {
+                        y = true;
+                    }
+                    npc.flipBodyPart(1, x, y);
+                    break;
+                }
+                case "POSE": {
+                    const npc = this.currentDialogue?.speaker as NPC;
+                    const poseName = args[0];
+                    const flip = args[1];
+                    npc.setPose(poseName);
+                    let x,y = false;
+                    if (flip && flip.toUpperCase() === "FLIPXY") {
+                        x = true;
+                        y = true;
+                    }
+                    else if (flip && flip.toUpperCase() === "FLIPX") {
+                        x = true;
+                    }
+                    else if (flip && flip.toUpperCase() === "FLIPY") {
+                        y = true;
+                    }
+                    npc.flip(x, y);
+                    break;
+                }
+                default: {
+                    console.log("Unknown dialogue command");
+                }
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
     endCurrentDialogue() {
         this.currentDialogue?.speaker.setSpeaking(false);
         this.currentDialogue = undefined;
@@ -171,11 +266,16 @@ export class DialogueSystem implements EngineSystem {
     getDialogueHud() {
         return this.dialogueHud;
     }
-    
+
+    getCurrentDialogue() { 
+        return this.currentDialogue;
+    }
+
     queue(engineEvent: IEngineEvent): void {
+        super.queue(engineEvent);
         if (engineEvent.event === START_DIALOGUE) {
             const startDialogueEvent = engineEvent as StartDialogueEvent;
-            this.startDialogue(startDialogueEvent.dialogueId);
+            this.startDialogue(startDialogueEvent.dialogueId, startDialogueEvent.category);
         }
         else if (engineEvent.event === ADVANCE_DIALOGUE) {
             this.advanceDialogue();
@@ -185,8 +285,4 @@ export class DialogueSystem implements EngineSystem {
             this.handleDialogueChoice(choiceEvent.choice);
         }
     }
-
-    update(time: number): void {
-    }
-
 }
