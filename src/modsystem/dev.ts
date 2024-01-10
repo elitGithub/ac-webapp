@@ -2,6 +2,7 @@ import { EngineBus, createEngineEvent, getEngine } from "../engine";
 import { Quest, QuestSystem, START_QUEST } from "../gameplay/quest";
 import { BaseCharacter } from "../engine/coreentities/basecharacter";
 import { Location } from "../engine/coreentities/location";
+import { ADVANCE_DIALOGUE, Dialogue, DialogueSystem, START_DIALOGUE } from "../gameplay/dialogue";
 
 export type ModResource = {
     default: () => {}
@@ -52,6 +53,12 @@ class DevModGameInterface {
 
     get QUEST(): DevModGameQuestInterface {
         return new Proxy(new DevModGameQuestInterface(), {
+
+        });
+    }
+
+    get DIALOGUE(): DevModGameDialogueInterface {
+        return new Proxy(new DevModGameDialogueInterface(), {
 
         });
     }
@@ -184,6 +191,66 @@ export class DevModGameQuestInterface {
             step,
             force
         }));
+    }
+}
+
+export class DevModGameDialogueInterface {
+    get CURRENT() {
+        const dialogueSystem = getEngine().getGame().getGameSystem<DialogueSystem>("SYS_DIALOGUE");
+        return dialogueSystem?.getCurrentDialogue();
+    }
+
+    /**
+     * createDialogue
+     * Creates a bare dialogue object and loads it into the dialogue system if it is available.
+     * @param speaker The speaker of this dialogue
+     * @param dialogueId The unique id/title of this dialogue
+     * @param category The category this dialogue is loaded into. If left empty, it falls into general.
+     * @returns Dialogue
+     */
+    createDialogue(speaker: BaseCharacter, dialogueId?: string, category?: string) {
+        const dialogue = new Dialogue(speaker, dialogueId);
+        this.loadDialogue(dialogue, category);
+        return dialogue;
+    }
+
+    /**
+     * loadDialogue
+     * Loads a dialogue into the dialogue system.
+     * @param dialogue The dialogue to be loaded
+     * @param category The category to load the dialogue into
+     * @returns 
+     */
+    loadDialogue(dialogue: Dialogue, category?: string): boolean {
+        const dialogueSystem = getEngine().getGame().getGameSystem<DialogueSystem>("SYS_DIALOGUE");
+        if (!dialogueSystem) {
+            return false;
+        }
+        dialogueSystem.addDialogue(dialogue, category);
+        return true
+    }
+
+    /**
+     * startDialogue
+     * Starts the dialogue associated with the dialogue id.
+     * 
+     * @param dialogueId The unique id/title of the dialogue
+     * @param category The category to look into when attempting to start the dialogue.
+     */
+    startDialogue(dialogueId: string, category?: string) {
+        EngineBus.emit(START_DIALOGUE, createEngineEvent(START_DIALOGUE, {
+            dialogueId,
+            category,
+        }));
+    }
+
+    /**
+     * advanceDialogue
+     * Advances the dialogue to the next line. 
+     * @param choice If the dialogue is currently on a choice, it will use the provided number or fallback to a random one.
+     */
+    advanceDialogue(choice?: number) {
+        EngineBus.emit(ADVANCE_DIALOGUE, createEngineEvent(ADVANCE_DIALOGUE, {choice}));
     }
 }
 

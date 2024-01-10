@@ -1,10 +1,11 @@
 import { Container } from "pixi.js";
 import { Dialogue } from ".";
-import { EngineBus, EngineSystem, IEngineEvent, getEngine } from "../../engine";
+import { EngineBus, IEngineEvent, getEngine } from "../../engine";
 import { queueNamedAnimate } from "../../engine/rendereffects";
 import { DialogueHud } from "./dialoguehud";
 import { ADVANCE_DIALOGUE, SELECT_DIALOGUE_CHOICE, START_DIALOGUE, SelectDialogueChoiceEvent, StartDialogueEvent } from "./model";
 import { NPC } from "../npc";
+import { GameplaySystem } from "../gameplaysys";
 
 export class DialogueCatalog {
     category: string;
@@ -24,7 +25,7 @@ export class DialogueCatalog {
     }
 }
 
-export class DialogueSystem implements EngineSystem {
+export class DialogueSystem extends GameplaySystem {
 
     private currentDialogue?: Dialogue;
     private currentDialogueLine: number;
@@ -32,6 +33,7 @@ export class DialogueSystem implements EngineSystem {
     private dialogueHud: DialogueHud;
 
     constructor(customDialogueHud?: DialogueHud) {
+        super();
         EngineBus.on(START_DIALOGUE, this.queue.bind(this));
         EngineBus.on(ADVANCE_DIALOGUE, this.queue.bind(this));
         EngineBus.on(SELECT_DIALOGUE_CHOICE, this.queue.bind(this));
@@ -265,10 +267,15 @@ export class DialogueSystem implements EngineSystem {
         return this.dialogueHud;
     }
 
+    getCurrentDialogue() { 
+        return this.currentDialogue;
+    }
+
     queue(engineEvent: IEngineEvent): void {
+        super.queue(engineEvent);
         if (engineEvent.event === START_DIALOGUE) {
             const startDialogueEvent = engineEvent as StartDialogueEvent;
-            this.startDialogue(startDialogueEvent.dialogueId);
+            this.startDialogue(startDialogueEvent.dialogueId, startDialogueEvent.category);
         }
         else if (engineEvent.event === ADVANCE_DIALOGUE) {
             this.advanceDialogue();
@@ -278,8 +285,4 @@ export class DialogueSystem implements EngineSystem {
             this.handleDialogueChoice(choiceEvent.choice);
         }
     }
-
-    update(time: number): void {
-    }
-
 }

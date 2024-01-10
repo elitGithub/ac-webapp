@@ -1,11 +1,12 @@
-import { EngineBus, EngineSystem, IEngineEvent, createEngineEvent, getEngine } from "../../engine";
+import { EngineBus, IEngineEvent, createEngineEvent, getEngine } from "../../engine";
+import { GameplaySystem } from "../gameplaysys";
 import { ADVANCE_QUEST, AdvanceQuestEvent, QUEST_COMPLETED, QUEST_FAILED, QUEST_STARTED, QUEST_STEP_STARTED, QUEST_TRACKER_CHANGE, QuestTrackerChangeEvent, START_QUEST, StartQuestEvent } from "./model/events";
 import { Quest, QuestState } from "./quest";
 import { QuestHint } from "./questhint";
 import { QuestListHud } from "./questlisthud";
 import { QuestTrackerHud } from "./questtrackerhud";
 
-export class QuestSystem implements EngineSystem {
+export class QuestSystem extends GameplaySystem {
 
     quests: Map<string, Quest>;
     focusedQuest?: Quest;
@@ -14,6 +15,7 @@ export class QuestSystem implements EngineSystem {
     questListHud: QuestListHud;
 
     constructor(customTrackerHud?: QuestTrackerHud, customListHud?: QuestListHud) {
+        super();
         EngineBus.on(START_QUEST, this.queue.bind(this));
         EngineBus.on(ADVANCE_QUEST, this.queue.bind(this));
         EngineBus.on(QUEST_TRACKER_CHANGE, this.queue.bind(this));
