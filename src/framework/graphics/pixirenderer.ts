@@ -1,6 +1,6 @@
 import { vec2, vec4, vec4ToArray } from "../../core/math/models";
 import {IRenderPlatform} from "./interfaces";
-import { ICanvas, IRenderer, autoDetectRenderer, Container, Color } from "pixi.js";
+import { ICanvas, IRenderer, autoDetectRenderer, Container, Color, IRenderableObject, IRendererRenderOptions } from "pixi.js";
 
 export type PixiRendererOptions = {
     width?: number;
@@ -135,6 +135,10 @@ export class PixiRenderer implements IRenderPlatform {
     updateStage(stageChild: Container) {
         this.mainStage.removeChildAt(0);
         this.mainStage.addChildAt(stageChild, 0);
+    }
+
+    render(display: IRenderableObject, options?: IRendererRenderOptions) {
+        this.renderer.render(display, options);
     }
 
     update(dt: number) {

@@ -1,11 +1,9 @@
-import { Sprite } from "pixi.js";
+import { BaseTexture, Sprite, Texture, settings } from "pixi.js";
 import { BaseCharacter } from "../engine/coreentities/basecharacter";
-import { EngineBus, IEngineEvent, createEngineEvent, getEngine } from "../engine";
+import { getEngine } from "../engine";
 import { vec2 } from "../core/math/models";
 import { queueNamedAnimate } from "../engine/rendereffects";
-import SceneTransitionFlags from "../engine/scene/models/scenetransitions";
 import { Animation, AnimationListener, PremadeAnimations } from "../engine/rendereffects/models";
-import { START_DIALOGUE } from "./dialogue";
 import { DialogueMode } from "./dialogue/model";
 import { BaseInteractable } from "../engine/coreentities";
 import { IRenderableResource } from "../framework/graphics";
@@ -22,11 +20,11 @@ export type RunPose = (npc: NPC) => void;
 function getBodyPartOffset(bodyPart: BodyPart): vec2 {
     switch (bodyPart) {
         case BodyPart.BODY:
-            return { x: 0, y: 0 };
+            return { x: 110, y: 124 };
         case BodyPart.FACE:
-            return getEngine().SPR(0.10, 0.16);
+            return {x: 226, y: 239};
         case BodyPart.ARMS:
-            return getEngine().SPR(-0.04, 0.265);
+            return {x: 34,y: 245};
         case BodyPart.LEGS:
             return { x: 0, y: 0 };
         default:
@@ -51,7 +49,11 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
     currentArms: string;
     speakerLabel?: Sprite;
 
+    buildMode: boolean;
+    buildCache: Map<string, Sprite>;
+
     defaultPosition: vec2;
+    defaultSize: vec2;
     inDialogueMode: boolean;
 
     worldRepresentatives: BaseInteractable[];
@@ -68,11 +70,15 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
         this.transitioning = false;
         this.transitioningTo = "";
         this.bodyPartOverrides = new Map<string, any>();
-        this.defaultPosition = {x: 0, y: 0};
+        const pos = getEngine().getRender().getDimensions();
+        this.defaultPosition = {x: pos.x/2, y: 0};
+        this.defaultSize = {x: 0, y: 0};
         this.inDialogueMode = false;
         this.currentExpression = "";
         this.currentBody = "";
         this.currentArms = "";
+        this.buildMode = false;
+        this.buildCache = new Map<string, Sprite>();
         this.worldRepresentatives = [];
 
         this.parseBaseAssets().then(() => {
@@ -83,17 +89,14 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
             const defaultExpression = this.expressions.get(this.currentExpression);
             const defaultArms = this.arms.get(this.currentArms);
             if (defaultBody) {
-                this.addChildAt(defaultBody, BodyPart.BODY);
+                this.setBodyPart(defaultBody, BodyPart.BODY);
+                this.setDefaultSize(defaultBody.width, defaultBody.height);
             }
             if (defaultExpression) {
-                const pos = getBodyPartOffset(BodyPart.FACE);
-                defaultExpression.setTransform(pos.x, pos.y);
-                this.addChildAt(defaultExpression, BodyPart.FACE);
+                this.setBodyPart(defaultExpression, BodyPart.FACE);
             }
             if (defaultArms) {
-                const pos = getBodyPartOffset(BodyPart.ARMS);
-                defaultArms.setTransform(pos.x, pos.y);
-                this.addChildAt(defaultArms, BodyPart.ARMS);
+                this.setBodyPart(defaultArms, BodyPart.ARMS);
             }
         });
 
@@ -116,6 +119,26 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
     
     setDefaultPosition(x: number, y: number) {
         this.defaultPosition = {x, y};
+    }
+
+    setDefaultSize(x: number, y: number) {
+       const canvas = settings.ADAPTER.createCanvas(x, y);
+       const context = canvas.getContext('2d');
+
+       canvas.width = x;
+       canvas.height = y;
+       context!.fillStyle = `rgba(
+        0,
+        0,
+        0,
+        0)`;
+       context!.fillRect(0, 0, x, y);
+       this.texture = new Texture(BaseTexture.from(canvas));
+    }
+
+    setSize(x: number, y: number) {
+        this.width = x;
+        this.height = y;
     }
 
     enterDialogueMode(): void {
@@ -199,7 +222,6 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
         for (const face of possibleFaces) {
             const faceResource = await getEngine().getAssets().loadTexture({ source: `${this.assetsBase}/characters/${this.name.toLowerCase()}${face.path}` });
             const expressionSprite = new Sprite(faceResource?.texture);
-            expressionSprite.anchor.set(0.5);
             expressionSprite.name = face.name;
             this.expressions.set(face.name, expressionSprite);
             this.availableExpressions.push(face.name);
@@ -207,24 +229,25 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
     }
 
     private setBodyPart(sprite: Sprite, part: BodyPart) {
-        this.removeChildAt(part);
+        if (this.children[part]) {
+            this.removeChildAt(part);
+        }
         this.addChildAt(sprite, part);
         switch(part) {
             case BodyPart.FACE:
-                if (sprite.name && this.bodyPartOverrides.has(sprite.name)) {
-                    const override = this.bodyPartOverrides.get(sprite.name);
-                    if (override && override.position) {
-                        sprite.setTransform(override.position.x, override.position.y);
-                    }
-                }
-                break;
             case BodyPart.BODY:
             case BodyPart.ARMS:
             case BodyPart.LEGS:
                 if (sprite.name && this.bodyPartOverrides.has(sprite.name)) {
                     const override = this.bodyPartOverrides.get(sprite.name);
                     if (override && override.position) {
-                        sprite.setTransform(override.position.x, override.position.y);
+                        sprite.position.set(override.position.x, override.position.y);
+                    }
+                }
+                else if (this.bodyPartOverrides.has(BodyPart[part])) {
+                    const override = this.bodyPartOverrides.get(BodyPart[part]);
+                    if (override && override.position) {
+                        sprite.position.set(override.position.x, override.position.y);
                     }
                 }
                 break;
@@ -236,7 +259,7 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
             this.currentExpression = expression;
             const pos = getBodyPartOffset(BodyPart.FACE);
             const face = this.expressions.get(this.currentExpression)!;
-            face.setTransform(pos.x, pos.y);
+            face.position.set(pos.x, pos.y);
             this.setBodyPart(face, BodyPart.FACE);
         }
     }
@@ -292,8 +315,12 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
         }
     }
 
-    addBodyPartOverride(bodyPart: string, offset?: vec2) {
+    addNamedBodyPartOverride(bodyPart: string, offset?: vec2) {
         this.bodyPartOverrides.set(bodyPart, {position: offset});
+    }
+
+    addBodyPartOverride(bodyPart: BodyPart, offset?: vec2) {
+        this.bodyPartOverrides.set(BodyPart[bodyPart], {position: offset});
     }
 
     addPose(name: string, runPose: RunPose) {
@@ -305,6 +332,66 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
         if (pose) {
             pose(this);
         }
+    }
+
+    startBuild() {
+        if (this.buildMode) {
+            throw new Error("startBuild was called already.");
+        }
+        this.buildMode = true;
+        this.removeChildren();
+    }
+
+    build(assetName: string, x: number, y: number) {
+        if (!this.buildMode) {
+            throw new Error("build was used before startBuild was called.");
+        }
+
+        if (this.buildCache.has(assetName)) {
+            const part = this.buildCache.get(assetName)!;
+            part.position.set(x, y);
+            this.addChild(part);
+        }
+        else if (this.body.has(assetName)) {
+            const part = this.body.get(assetName)!;
+            part.position.set(x, y);
+            this.addChild(part);
+        }
+        else if (this.arms.has(assetName)) {
+            const part = this.arms.get(assetName)!;
+            part.position.set(x, y);
+            this.addChild(part);
+        }
+        else if (this.expressions.has(assetName)) {
+            const part = this.expressions.get(assetName)!;
+            part.position.set(x, y);
+            this.addChild(part);
+        }
+        else {
+            const matches = this.findAssets(assetName, this.manifest);
+            if (matches.length === 0) {
+                return;
+            }
+            
+            getEngine().getAssets().loadTexture({ source: `${this.assetsBase}/characters/${this.name.toLowerCase()}${matches[0].path}` })
+            .then(asset => {
+                const part = new Sprite(asset.texture);
+                this.buildCache.set(matches[0].name, part);
+                part.position.set(x, y);
+                this.addChild(part);
+            });
+        }
+    }
+
+    endBuild() {
+        if (!this.buildMode) {
+            throw new Error("endBuild was called but build has not started.");
+        }
+        this.buildMode = false;
+    }
+
+    clearBuildCache() {
+        this.buildCache.clear();
     }
 
     flip(x?: boolean, y?: boolean) {
