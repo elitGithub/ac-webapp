@@ -19,6 +19,7 @@ export class Animation implements IEngineEvent, RenderEffect {
   startingTime: number;
   _startingValue?: number | vec3;
   _renderEffect: RenderEffectFlags;
+  _clear: boolean;
   //_system: IEngineSystem for animationsys context?
 
   constructor(target: Container, property: string, yoyo: boolean, value: number | vec3, duration: number, easing: TweenShape) {
@@ -31,8 +32,16 @@ export class Animation implements IEngineEvent, RenderEffect {
     this.animating = false;
     this.startingTime = -1;
     this._renderEffect = RenderEffectFlags.RE_NONE;
+    this._clear = false;
   }
 
+  get clear(): boolean {
+    return this._clear;
+  }
+
+  set clear(clear: boolean) {
+    this._clear = clear;
+  }
 
   /**
    * fromAnimate

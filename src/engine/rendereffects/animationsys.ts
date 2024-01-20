@@ -63,7 +63,29 @@ export class AnimationSystem implements EngineSystem {
     }
 
     unqueue(animate: Animate) {
+        this.queuedAnimates = this.queuedAnimates.filter(anim => {
+            if (anim.target === animate.target) {
+                if (animate.name && animate.name === anim.name) {
+                    return false;
+                }
+                
+                if (animate.property && animate.property === anim.property) {
+                    return false;
+                }
 
+            }
+
+            return true;
+        });
+
+        for (let i = 0; i < this.animating.length; i++) {
+            const anim = this.animating[i];
+            if (anim.target === animate.target) {
+                if ((anim.name && anim.name === animate.name) || (anim.property && anim.property === animate.property)) {
+                    anim.clear = true;
+                }
+            }
+        }
     }
 
     update(time: number) {
@@ -86,6 +108,7 @@ export class AnimationSystem implements EngineSystem {
                 continue;
             }
 
+            //@ts-ignore
             if (animate.target[animate.property] === undefined) {
                 console.error(`${animate.property} does not exist on target ${animate.target}.`);
                 continue;
@@ -110,37 +133,49 @@ export class AnimationSystem implements EngineSystem {
             }
 
             const endTime = animation.startingTime + animation.duration;
-            if (endTime <= currentTime) {
+            if ((endTime <= currentTime) || animation.clear) {
                 //finalise the end of the animation...
-                if (!animation.yoyo) {
-                    if (animation.property === "position") {
+                if (!animation.yoyo && !animation.clear) {
+                    //@ts-ignore
+                    if (animation.target[animation.property] instanceof ObservablePoint) {
                         if (typeof animation.value === "number") {
-                            animation.target.position.x = animation.value;
-                            animation.target.position.y = animation.value;
+                            //@ts-ignore
+                            animation.target[animation.property].x = animation.value;
+                            //@ts-ignore
+                            animation.target[animation.property].y = animation.value;
                         }
                         else {
-                            animation.target.position.x = animation.value.x;
-                            animation.target.position.y = animation.value.y;
+                            //@ts-ignore
+                            animation.target[animation.property].x = animation.value.x;
+                            //@ts-ignore
+                            animation.target[animation.property].y = animation.value.y;
                         }
 
                     }
                     else {
+                        //@ts-ignore
                         animation.target[animation.property] = animation.value;
                     }
                 }
                 else {
-                    if (animation.property === "position") {
+                    //@ts-ignore
+                    if (animation.target[animation.property] instanceof ObservablePoint) {
                         if (typeof animation._startingValue === "number") {
-                            animation.target.position.x = animation._startingValue;
-                            animation.target.position.y = animation._startingValue;
+                            //@ts-ignore
+                            animation.target[animation.property].x = animation._startingValue;
+                            //@ts-ignore
+                            animation.target[animation.property].y = animation._startingValue;
                         }
                         else {
-                            animation.target.position.x = (animation._startingValue as vec3).x;
-                            animation.target.position.y = (animation._startingValue as vec3).y;
+                            //@ts-ignore
+                            animation.target[animation.property].x = (animation._startingValue as vec3).x;
+                            //@ts-ignore
+                            animation.target[animation.property].y = (animation._startingValue as vec3).y;
                         }
 
                     }
                     else {
+                        //@ts-ignore
                         animation.target[animation.property] = animation._startingValue;
                     }
                 }
@@ -167,8 +202,11 @@ export class AnimationSystem implements EngineSystem {
             const diffTime = endTime - currentTime;
             const timeFrac = (animation.duration - diffTime) / animation.duration;
             const easing = animation.easing ?? new TweenShape(0, 1);
+            //@ts-ignore
             if (animation.target[animation.property] instanceof ObservablePoint) {
+                //@ts-ignore
                 const x = animation.target[animation.property].x;
+                //@ts-ignore
                 const y = animation.target[animation.property].y;
                 if (starting) {
                     animation.setAnimationStartValue({ x, y, z: 0 });
@@ -182,18 +220,22 @@ export class AnimationSystem implements EngineSystem {
                     tweenedPosition = TweenPosition(timeFrac, animation.getAnimationStartValue() as vec3, { x: animation.value.x, y: animation.value.y, z: 0 }, easing);
                 }
 
+                //@ts-ignore
                 animation.target[animation.property].x = tweenedPosition.x;
+                //@ts-ignore
                 animation.target[animation.property].y = tweenedPosition.y;
                 console.log(`TimeFrac(${timeFrac}): Tweenx(${tweenedPosition.x})`);
                 console.log(`TimeFrac(${timeFrac}): Tweeny(${tweenedPosition.y})`);
             }
             else {
+                //@ts-ignore
                 const value = animation.target[animation.property];
                 if (starting) {
                     animation.setAnimationStartValue(value);
                 }
 
                 const tweenedValue = Tween(timeFrac, animation.getAnimationStartValue() as number, animation.value as number, easing);
+                //@ts-ignore
                 animation.target[animation.property] = tweenedValue;
                 //console.log(`TimeFrac(${timeFrac}): Tween(${tweenedValue})`);
             }
