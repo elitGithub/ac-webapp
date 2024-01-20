@@ -4,7 +4,7 @@ export type ClassDeserialiserTransform = (enumerable: Object) => any;
 export interface ClassDeserialiser {
     serialisedClassAlias: string;
     class: Object;
-    transform: ClassDeserialiserTransform;
+    transform?: ClassDeserialiserTransform;
 }
 
 export class Deserialise {
@@ -27,6 +27,78 @@ export class Deserialise {
             transform: (enumerable: Object) => { return new Map(Object.entries(enumerable)) },
         }
 
+        const uint8ArrayDeserialiser: ClassDeserialiser = {
+            serialisedClassAlias: Uint8Array.name,
+            class: Uint8Array,
+            transform: (enumerable: Object) => {
+                return new Uint8Array(Array.from(Object.values(enumerable)).map(val => this.deserialiseValue(val) as number));
+            }
+        }
+
+        const uint16ArrayDeserialiser: ClassDeserialiser = {
+            serialisedClassAlias: Uint16Array.name,
+            class: Uint16Array,
+            transform: (enumerable: Object) => {
+                return new Uint16Array(Array.from(Object.values(enumerable)).map(val => this.deserialiseValue(val) as number));
+            }
+        }
+
+        const uint32ArrayDeserialiser: ClassDeserialiser = {
+            serialisedClassAlias: Uint32Array.name,
+            class: Uint32Array,
+            transform: (enumerable: Object) => {
+                return new Uint32Array(Array.from(Object.values(enumerable)).map(val => this.deserialiseValue(val) as number));
+            }
+        }
+
+        const uint8ClampedArrayDeserialiser: ClassDeserialiser = {
+            serialisedClassAlias: Uint8ClampedArray.name,
+            class: Uint8ClampedArray,
+            transform: (enumerable: Object) => {
+                return new Uint8ClampedArray(Array.from(Object.values(enumerable)).map(val => this.deserialiseValue(val) as number));
+            }
+        }
+
+        const int8ArrayDeserialiser: ClassDeserialiser = {
+            serialisedClassAlias: Int8Array.name,
+            class: Int8Array,
+            transform: (enumerable: Object) => {
+                return new Int8Array(Array.from(Object.values(enumerable)).map(val => this.deserialiseValue(val) as number));
+            }
+        }
+
+        const int16ArrayDeserialiser: ClassDeserialiser = {
+            serialisedClassAlias: Int16Array.name,
+            class: Int16Array,
+            transform: (enumerable: Object) => {
+                return new Int16Array(Array.from(Object.values(enumerable)).map(val => this.deserialiseValue(val) as number));
+            }
+        }
+
+        const int32ArrayDeserialiser: ClassDeserialiser = {
+            serialisedClassAlias: Int32Array.name,
+            class: Int32Array,
+            transform: (enumerable: Object) => {
+                return new Int32Array(Array.from(Object.values(enumerable)).map(val => this.deserialiseValue(val) as number));
+            }
+        }
+
+        const float32ArrayDeserialiser: ClassDeserialiser = {
+            serialisedClassAlias: Float32Array.name,
+            class: Float32Array,
+            transform: (enumerable: Object) => {
+                return new Float32Array(Array.from(Object.values(enumerable)).map(val => this.deserialiseValue(val) as number));
+            }
+        }
+
+        const float64ArrayDeserialiser: ClassDeserialiser = {
+            serialisedClassAlias: Float64Array.name,
+            class: Float64Array,
+            transform: (enumerable: Object) => {
+                return new Float64Array(Array.from(Object.values(enumerable)).map(val => this.deserialiseValue(val) as number));
+            }
+        }
+
         const defaultDeserialiser: ClassDeserialiser = {
             serialisedClassAlias: Object.name,
             class: Object,
@@ -36,6 +108,15 @@ export class Deserialise {
         this.classDeserialiseMap.set(Array.name, arrayDeserialiser);
         this.classDeserialiseMap.set(Map.name, mapDeserialiser);
         this.classDeserialiseMap.set(Object.name, defaultDeserialiser);
+        this.classDeserialiseMap.set(Uint8Array.name, uint8ArrayDeserialiser);
+        this.classDeserialiseMap.set(Uint16Array.name, uint16ArrayDeserialiser);
+        this.classDeserialiseMap.set(Uint32Array.name, uint32ArrayDeserialiser);
+        this.classDeserialiseMap.set(Uint8ClampedArray.name, uint8ClampedArrayDeserialiser);
+        this.classDeserialiseMap.set(Int8Array.name, int8ArrayDeserialiser);
+        this.classDeserialiseMap.set(Int16Array.name, int16ArrayDeserialiser);
+        this.classDeserialiseMap.set(Int32Array.name, int32ArrayDeserialiser);
+        this.classDeserialiseMap.set(Float32Array.name, float32ArrayDeserialiser);
+        this.classDeserialiseMap.set(Float64Array.name, float64ArrayDeserialiser);
 
         for (const cd of classDeserialisers) {
             this.classDeserialiseMap.set(cd.serialisedClassAlias, cd);
@@ -130,7 +211,12 @@ export class Deserialise {
                 if (serialisedObject) {
                     const deserialiser = this.getDeserialiser(serialisedObject.constructorClass);
                     delete serialisedObject.constructorClass;
-                    object = deserialiser.transform(serialisedObject);
+                    if (deserialiser.transform) {
+                        object = deserialiser.transform(serialisedObject);
+                    }
+                    else if (deserialiser.class) {
+                        Object.setPrototypeOf(object, deserialiser.class.prototype);
+                    }
                     if (object) {
                         let entries;
                         if (object.entries) {
