@@ -1,13 +1,23 @@
 import { Container } from "pixi.js";
-import { EngineBus, EngineSystem, IEngineEvent } from "../enginesys";
+import { EngineBus, EngineSystem, IEngineEvent, getEngine } from "../enginesys";
 import { GPU_PREPARE, RENDER_HUD_CHANGE, RENDER_STAGE_CHANGE } from "./models";
 import { PixiRenderer } from "../../framework/graphics/pixirenderer";
 import { vec2 } from "../../core/math/models";
 
+enum RenderUpdateType {
+    STAGE,
+    HUD,
+}
+
+interface RenderUpdate {
+    type: RenderUpdateType;
+    data: any;
+}
+
 export class RenderSystem implements EngineSystem {
 
     renderer: PixiRenderer;
-    pendingRenderChanges: Function[];
+    pendingRenderChanges: RenderUpdate[];
 
     constructor(opts: any) {
         this.renderer = new PixiRenderer(opts.render.renderer);
@@ -41,17 +51,30 @@ export class RenderSystem implements EngineSystem {
 
     queue(engineEvent: IEngineEvent): void {
         if (engineEvent.event === RENDER_STAGE_CHANGE) {
-            this.pendingRenderChanges.unshift(() => this.renderer.updateStage((engineEvent as any)["scene"]));
+            this.pendingRenderChanges.unshift({type: RenderUpdateType.STAGE, data: (engineEvent as any)["scene"]});
         }
         else if (engineEvent.event === RENDER_HUD_CHANGE) {
-            this.pendingRenderChanges.unshift(() => this.renderer.setHud((engineEvent as any)["hudElements"]));
+            this.pendingRenderChanges.unshift({type: RenderUpdateType.HUD, data: (engineEvent as any)["hudElements"]});
         }
     }
 
     update(time: number): void {
+        const requeue = [];
         while (this.pendingRenderChanges.length > 0) {
-            this.pendingRenderChanges.pop()!();
+            const update = this.pendingRenderChanges.pop()!;
+            if (update.type === RenderUpdateType.STAGE) {
+                this.renderer.updateStage(update.data);
+            }
+            else if (update.type === RenderUpdateType.HUD) {
+                if (getEngine().getScene().isSceneReady()) {
+                    this.renderer.setHud(update.data);
+                }
+                else {
+                    requeue.unshift(update);
+                }
+            }
         }
+        this.pendingRenderChanges.unshift(...requeue);
         this.renderer.update(time);
     }
     
