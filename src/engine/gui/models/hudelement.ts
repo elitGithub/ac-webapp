@@ -4,8 +4,9 @@ import { TOGGLE_HUD } from ".";
 export class HudElement extends Container {
     draw: boolean;
 
-    constructor() {
+    constructor(name?: string) {
         super();
+        this.name = name ?? "";
         this.draw = false;
         this.eventMode = "dynamic";
         this.on("pointertap", this.onPointerClick.bind(this));

@@ -14,6 +14,7 @@ export class Dialogue {
     speaker: BaseCharacter;
     lines: Array<string>;
     choices: Array<DialogueChoice>;
+    private category?: string;
     private callerDialogue?: string;
 
     constructor(speaker: BaseCharacter, dialogueId?: string, callerDialogue?: string) {
@@ -37,6 +38,14 @@ export class Dialogue {
 
     setDialogueLines(lines: string[]) {
         this.lines = lines;
+    }
+
+    getCategory() {
+        return this.category;
+    }
+    
+    setCategory(category: string) {
+        this.category = category;
     }
 
     setCaller(caller: string) {

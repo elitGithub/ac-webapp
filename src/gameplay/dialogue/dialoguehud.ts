@@ -75,7 +75,7 @@ export class DialogueHud extends HudElement {
     setSpeaker(speaker: string) {
         this.dialogueSpeaker = speaker;
         this.speakerText.text = speaker;
-        const character = getEngine().getGame().gameEntities.find(ent => ent.name === speaker);
+        const character = getEngine().getEnt().findEntityByName(speaker);
         if (character) {
             if ((character as NPC).speakerLabel) {
                 this.setSpeakerLabelBackground((character as NPC).speakerLabel);

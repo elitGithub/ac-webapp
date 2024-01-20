@@ -1,5 +1,5 @@
 import { Container } from "pixi.js";
-import { Dialogue } from ".";
+import { DIALOGUE_ADVANCED, DIALOGUE_ENDED, DIALOGUE_STARTED, Dialogue, createDialogueUpdateEvent } from ".";
 import { EngineBus, IEngineEvent, getEngine } from "../../engine";
 import { queueNamedAnimate } from "../../engine/rendereffects";
 import { DialogueHud } from "./dialoguehud";
@@ -92,6 +92,7 @@ export class DialogueSystem extends GameplaySystem {
         this.dialogueHud.clearChoices();
         this.dialogueHud.prepChoices(dialogue.choices.map(c => c.choice));
         dialogue.speaker.setSpeaking(true);
+        EngineBus.emit(DIALOGUE_STARTED, createDialogueUpdateEvent(DIALOGUE_STARTED, this.currentDialogue.dialogueId, false, this.currentDialogueLine));
     }
 
     startDialogue(dialogueId: string, category?: string) {
@@ -152,9 +153,11 @@ export class DialogueSystem extends GameplaySystem {
         const hasNext = (this.currentDialogue.lines.length - this.currentDialogueLine) >= 1;
         if (hasNext) {
             this.dialogueHud.nextDialogueLine(line, hasNext);
+            EngineBus.emit(DIALOGUE_ADVANCED, createDialogueUpdateEvent(DIALOGUE_ADVANCED, this.currentDialogue.dialogueId, false, this.currentDialogueLine));
         }
         else if (!hasNext && this.currentDialogue.choices.length > 0) {
             this.dialogueHud.displayChoices();
+            EngineBus.emit(DIALOGUE_ADVANCED, createDialogueUpdateEvent(DIALOGUE_ADVANCED, this.currentDialogue.dialogueId, false, this.currentDialogueLine, true));
         }
         else {
             this.endCurrentDialogue();
@@ -257,10 +260,16 @@ export class DialogueSystem extends GameplaySystem {
     }
 
     endCurrentDialogue() {
-        this.currentDialogue?.speaker.setSpeaking(false);
+        let dId = "";
+        if (this.currentDialogue) {
+            dId = this.currentDialogue.dialogueId;
+            this.currentDialogue.speaker.setSpeaking(false);
+        }
+        
         this.currentDialogue = undefined;
         this.currentDialogueLine = 0;
         this.dialogueHud.endDialogue();
+        EngineBus.emit(DIALOGUE_ENDED, createDialogueUpdateEvent(DIALOGUE_ENDED, dId, true, this.currentDialogueLine));
     }
 
     getDialogueHud() {
