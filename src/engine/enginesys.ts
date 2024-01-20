@@ -1,4 +1,6 @@
 import { randomUUID } from "../core/util";
+import { Serialisation } from "../core";
+import { ClassDeserialiser } from "../core/serialisation";
 import TweenShape from "../framework/animations/tween/models";
 import { createEventBus } from "../framework/events";
 import { IRenderableResource } from "../framework/graphics";
@@ -13,6 +15,7 @@ import { AnimationSystem, PremadeAnimations, createNamedAnimate } from "./render
 import { Scene } from "./scene/models";
 import { SceneSystem } from "./scene/scenesys";
 import { Sprite, Ticker, utils } from "pixi.js";
+import { EntitySystem } from "./engineents";
 
 let DEBUG = false;
 
@@ -27,7 +30,20 @@ export function createEngineEvent(event: Symbol, eventData: Object): IEngineEven
     return {event, eventId: randomUUID(), ...eventData} as IEngineEvent;
 }
 
-export interface EngineSystem {
+interface EngineSave {
+    game: Object;
+    ent: Object;
+    animation: Object;
+    scene: Object;
+    hud: Object;
+    render: Object;
+}
+
+export interface RestoreState {
+    loadState?(data: Object): void;
+}
+
+export interface EngineSystem extends RestoreState {
     queue(engineEvent: IEngineEvent): void;
     update(time: number): void;
 }
@@ -42,6 +58,7 @@ export class Engine {
     static Assets: EngineSystem;
     static Game: EngineSystem;
     static Hud: EngineSystem;
+    static Ent: EngineSystem;
 
     static ticker: Ticker;
 
@@ -68,6 +85,7 @@ export class Engine {
         Engine.Input = new InputSystem();
         Engine.Assets = new AssetSystem();
         Engine.Hud = new HudSystem();
+        Engine.Ent = new EntitySystem();
 
         if (game) {
             Engine.Game = game;
@@ -91,10 +109,12 @@ export class Engine {
         Engine.ticker.update(dt);
        
         Engine.Input.update(dt);
+        Engine.Ent.update(dt);
         Engine.Scene.update(dt);
         Engine.Animation.update(dt);
         Engine.Render.update(dt);
         Engine.Hud.update(dt);
+        
         if (Engine.Game) {
             Engine.Game.update(dt);
         }
@@ -138,12 +158,56 @@ export class Engine {
                 return (Engine.Hud as HudSystem).activeElements().find(e => e.name === parts[1]);
             }
             case "ENTITY": {
-                return (Engine.Game as BaseGame).gameEntities.find(e => e.name === parts[1]);
+                return (Engine.Ent as EntitySystem).findEntityByName(parts[1]);
             }
             case "LOCATION": {
                 return (Engine.Scene as SceneSystem).sceneByName(parts[1]) as Location;
             }
         }
+    }
+
+    static save() {
+        const serial = new Serialisation.Serialise();
+        const save = serial.serialise({
+            game: Engine.Game,
+            ent: Engine.Ent,
+            animation: Engine.Animation,
+            scene: Engine.Scene,
+            hud: Engine.Hud,
+        });
+        console.log(save);
+        return save;
+    }
+
+    static load(data: string) {
+        const deserial = new Serialisation.Deserialise();
+        const save = deserial.deserialise(data) as EngineSave;
+        if (!save) {
+            console.error(`${data} could not be deserialised or is empty.`);
+            return;
+        }
+
+        if (save.game) {
+            Engine.Game.loadState?.(save.game);
+        }
+        
+        if (save.ent) {
+            Engine.Ent.loadState?.(save.ent);
+        }
+        
+        if (save.animation) {
+            Engine.Animation.loadState?.(save.animation);
+        }
+
+        if (save.scene) {
+            Engine.Scene.loadState?.(save.scene);
+        }
+
+        if (save.hud) {
+            Engine.Hud.loadState?.(save.hud);
+        }
+
+        console.log(save);
     }
 }
 
@@ -156,10 +220,13 @@ export function getEngine() {
         getScene: () => Engine.Scene as SceneSystem,
         getGame: () => Engine.Game as BaseGame,
         getHud: () => Engine.Hud as HudSystem,
+        getEnt: () => Engine.Ent as EntitySystem,
         createSimpleInteractable: Engine.createSimpleInteractable,
         createSimpleSceneInteractable: Engine.createSimpleSceneInteractable,
         createSimpleSprite: Engine.createSimpleSprite,
         SPR: Engine.screenPositionByRatio,
         resolve: Engine.resolve,
+        save: Engine.save,
+        load: Engine.load,
     };
 }

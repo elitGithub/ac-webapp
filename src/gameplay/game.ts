@@ -1,18 +1,17 @@
+import { controlledObjectMerge } from "../core/util/object";
 import { EngineSystem, IEngineEvent } from "../engine";
-import { BaseEntity } from "../engine/coreentities";
 import { FiniteResource } from "./finiteresource";
+import { GameplaySystem } from "./gameplaysys";
 import { Time, TimeProgression } from "./time";
 
 export class BaseGame implements EngineSystem {
     finiteResources: Map<string, FiniteResource>;
     clock: Time;
-    gameSystems: Map<string, EngineSystem>;
-    gameEntities: BaseEntity[];
+    gameSystems: Map<string, GameplaySystem>;
 
     constructor(opts: any) {
         this.finiteResources = new Map<string, FiniteResource>;
-        this.gameSystems = new Map<string, EngineSystem>;
-        this.gameEntities = [];
+        this.gameSystems = new Map<string, GameplaySystem>;
         this.clock = new Time(opts?.clockType??TimeProgression.MANUAL, opts?.clockSens);
     }
 
@@ -26,7 +25,7 @@ export class BaseGame implements EngineSystem {
         return this.finiteResources.get(name) as T;
     }
 
-    registerGameSystem(name: string, system: EngineSystem) {
+    registerGameSystem(name: string, system: GameplaySystem) {
         if (!this.gameSystems.has(name)) {
             this.gameSystems.set(name, system);
         }
@@ -46,5 +45,27 @@ export class BaseGame implements EngineSystem {
 
     update(time: number): void {
         this.clock.simulatedTimeUpdate(time);
+    }
+
+    loadState(data: BaseGame): void {
+        if (data.finiteResources) {
+            for (const key of data.finiteResources.keys()) {
+                if (this.finiteResources.has(key)) {
+                    controlledObjectMerge(this.finiteResources.get(key)!, data.finiteResources.get(key)!, ["currentValue", "maxValue"]);
+                }
+            }
+        }
+
+        if (data.clock) {
+            controlledObjectMerge(this.clock, data.clock, ["timeStarted, time, timeHooks"]);
+        }
+
+        if (data.gameSystems) {
+            for (const key of data.gameSystems.keys()) {
+                if (this.gameSystems.has(key)) {
+                    this.gameSystems.get(key)!.loadState?.(data.gameSystems.get(key)!);
+                }
+            }
+        }
     }
 }

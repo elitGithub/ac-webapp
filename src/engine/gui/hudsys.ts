@@ -66,4 +66,15 @@ export class HudSystem implements EngineSystem {
         }
     }
 
+    loadState(data: HudSystem): void {
+        if (data.hudElements) {
+            for (const [key, h]of data.hudElements.entries()) {
+                if (this.hudElements.has(key)) {
+                    const hud = this.hudElements.get(key)!;
+                    hud.visible = h.visible;
+                    this.hudChanged = true;
+                }
+            }
+        }
+    }
 }
