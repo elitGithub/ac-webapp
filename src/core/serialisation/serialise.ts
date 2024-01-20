@@ -40,18 +40,18 @@ export class Serialise {
 
     private serialiseDataRegion() {
         const serialised = {};
-        for (const ent of this.objectStack.stack.entries()) {
-            if (ent[1] instanceof Array) {
-                Object.defineProperty(serialised, ent[0], { value: this.serialiseArray(ent[1]), enumerable: true });
+        for (const [key, ref] of this.objectStack.stack.entries()) {
+            if (key instanceof Array) {
+                Object.defineProperty(serialised, ref, { value: this.serialiseArray(key), enumerable: true });
             }
-            else if (ent[1] instanceof Map) {
-                Object.defineProperty(serialised, ent[0], { value: this.serialiseMap(ent[1]), enumerable: true });
+            else if (key instanceof Map) {
+                Object.defineProperty(serialised, ref, { value: this.serialiseMap(key), enumerable: true });
             }
-            else if (typeof ent[1] === `function`) {
-                Object.defineProperty(serialised, ent[0], { value: this.serialiseFunction(ent[1]), enumerable: true });
+            else if (typeof key === `function`) {
+                Object.defineProperty(serialised, ref, { value: this.serialiseFunction(key), enumerable: true });
             }
-            else if (typeof ent[1] === 'object') {
-                Object.defineProperty(serialised, ent[0], { value: this.serialiseObject(ent[1]), enumerable: true });
+            else if (typeof key === 'object') {
+                Object.defineProperty(serialised, ref, { value: this.serialiseObject(key), enumerable: true });
             }
         }
 

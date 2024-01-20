@@ -2,17 +2,13 @@ import { randomUUID } from "../util";
 import { getRef, isRef } from "./util";
 
 export class SerialisedObjectStack {
-    stack: Map<string, Object>;
+    stack: Map<Object, string>;
     constructor(start?: any) {
-        this.stack = new Map<string, Object>();
+        this.stack = new Map<Object, string>();
     }
 
     getRef(object: Object) {
-        for (const e of this.stack.entries()) {
-            if (object === e[1]) {
-                return e[0];
-            }
-        }
+        return this.stack.get(object);
     }
 
     push(value: Object) {
@@ -34,7 +30,7 @@ export class SerialisedObjectStack {
 
     private stackSet(value: Object) {
         const ref = randomUUID();
-        this.stack.set(ref, value);
+        this.stack.set(value, ref);
         return ref;
     }
 
@@ -44,9 +40,9 @@ export class SerialisedObjectStack {
         }
 
         //add deep objects to stack provided they are not already in there
-        for (const ent of Object.entries(obj)) {
-            if (typeof ent[1] === 'object') {
-                this.push(ent[1]);
+        for (const key of Object.keys(obj)) {
+            if (typeof key === 'object') {
+                this.push(key);
             }
         }
     }
