@@ -1,4 +1,4 @@
-import { EngineBus, createEngineEvent, getEngine } from "../engine";
+import { ContextFunction, EngineBus, createEngineEvent, getEngine } from "../engine";
 import { Quest, QuestSystem, START_QUEST } from "../gameplay/quest";
 import { BaseCharacter } from "../engine/coreentities/basecharacter";
 import { Location } from "../engine/coreentities/location";
@@ -23,7 +23,7 @@ export class DevModInterface {
     }
 }
 
-class DevModGameInterface {
+export class DevModGameInterface {
     get TIME(): DevModGameTimeInterface {
         return new Proxy(new DevModGameTimeInterface(), {
 
@@ -66,7 +66,7 @@ class DevModGameInterface {
     get CHARACTER(): DevModGameCharacterInterface {
         return new Proxy(new DevModGameCharacterInterface(), {
             get(target: Object, property: string | symbol, receiver: any) {
-                const characters = getEngine().getGame().gameEntities.filter(ent => ent instanceof BaseCharacter);
+                const characters = getEngine().getEnt().findEntitiesByType<BaseCharacter>(BaseCharacter);
                 return characters.find(c => c.name === property.toString());
             }
         });
@@ -75,7 +75,7 @@ class DevModGameInterface {
     get ENT(): DevModGameEntityInterface {
         return new Proxy(new DevModGameEntityInterface(), {
             get(target: Object, property: string | symbol, receiver: any) {
-                return getEngine().getGame().gameEntities.find(e => e.name === property.toString());
+                return getEngine().getEnt().findEntityByName(property.toString());
             }
         });
     }
@@ -113,7 +113,7 @@ export class DevModGameResourceInterface {
 
 export class DevModGameLocationInterface {
     get CURRENT() {
-        const current = getEngine().getScene().currentScene;
+        const current = getEngine().getScene().getCurrentScene();
                 if (!current) {
                     return undefined;
                 }
@@ -261,3 +261,5 @@ export class DevModGameCharacterInterface {
 export class DevModGameEntityInterface {
 
 }
+
+export type DevModGameInterfaceContextFunction = ContextFunction<DevModGameInterface>;

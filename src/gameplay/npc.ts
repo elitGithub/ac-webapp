@@ -146,7 +146,7 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
             queueNamedAnimate(rep, PremadeAnimations.FADE_OUT, 250);
             rep.canInteract = false;
         }
-        getEngine().getScene().currentScene?.addSceneObject(this);
+        getEngine().getScene().getCurrentScene()?.addSceneObject(this);
         this.position.set(this.defaultPosition.x, this.defaultPosition.y);
         this.resetOrientation();
         this.changeExpression("face_neutral");
@@ -164,7 +164,7 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
             rep.canInteract = true;
         }
 
-        getEngine().getScene().currentScene?.removeSceneObject(this);
+        getEngine().getScene().getCurrentScene()?.removeSceneObject(this);
     }
 
     setDialogueState() {
@@ -461,7 +461,7 @@ export class WorldNPC extends BaseInteractable {
 
     enterDialogue() {
         if (!this.npc) {
-            const npc: NPC|undefined = getEngine().getGame().gameEntities.find(ent => ent.name === this.npcName) as NPC;
+            const npc: NPC|undefined = getEngine().getEnt().findEntityByName(this.npcName) as NPC;
             if (!npc) {
                 return;
             }
