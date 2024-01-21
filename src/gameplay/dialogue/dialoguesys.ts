@@ -92,6 +92,7 @@ export class DialogueSystem extends GameplaySystem {
         this.dialogueHud.clearChoices();
         this.dialogueHud.prepChoices(dialogue.choices.map(c => c.choice));
         dialogue.speaker.setSpeaking(true);
+        dialogue.onDialoguePre.runHandlers(dialogue, dialogue.speaker);
         EngineBus.emit(DIALOGUE_STARTED, createDialogueUpdateEvent(DIALOGUE_STARTED, this.currentDialogue.dialogueId, false, this.currentDialogueLine));
     }
 
@@ -248,6 +249,15 @@ export class DialogueSystem extends GameplaySystem {
                     npc.flip(x, y);
                     break;
                 }
+                case "ACTION": {
+                    if (!this.currentDialogue) {
+                        break;
+                    }
+                    const speaker = this.currentDialogue.speaker;
+                    const action = args[0];
+                    this.currentDialogue.namedActions.runNamedHandler(action, this.currentDialogue, speaker);
+                    break;
+                }
                 default: {
                     console.log("Unknown dialogue command");
                 }
@@ -264,6 +274,7 @@ export class DialogueSystem extends GameplaySystem {
         if (this.currentDialogue) {
             dId = this.currentDialogue.dialogueId;
             this.currentDialogue.speaker.setSpeaking(false);
+            this.currentDialogue.onDialoguePost.runHandlers(this.currentDialogue, this.currentDialogue.speaker);
         }
         
         this.currentDialogue = undefined;

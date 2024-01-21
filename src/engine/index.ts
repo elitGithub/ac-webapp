@@ -1,3 +1,3 @@
 export * from "./enginesys";
 
-export type ContextFunction<T extends Function> = (context: T, ...args: any) => any;
+export type ContextFunction<T> = (context: T, ...args: any) => any;

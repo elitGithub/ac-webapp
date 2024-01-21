@@ -1,5 +1,7 @@
 import { randomUUID } from "../../core/util";
+import { InvokeContextHandlers } from "../../core/util/function";
 import { BaseCharacter } from "../../engine/coreentities/basecharacter";
+import { DevModGameInterfaceContextFunction } from "../../modsystem";
 import { DialogueChoice } from "./dialoguechoice";
 
 /**
@@ -14,6 +16,9 @@ export class Dialogue {
     speaker: BaseCharacter;
     lines: Array<string>;
     choices: Array<DialogueChoice>;
+    readonly onDialoguePre: InvokeContextHandlers;
+    readonly onDialoguePost: InvokeContextHandlers;
+    readonly namedActions: InvokeContextHandlers;
     private category?: string;
     private callerDialogue?: string;
 
@@ -30,6 +35,10 @@ export class Dialogue {
 
         this.lines = [];
         this.choices = [];
+
+        this.onDialoguePre = new InvokeContextHandlers();
+        this.onDialoguePost = new InvokeContextHandlers();
+        this.namedActions = new InvokeContextHandlers();
     }
 
     addDialogueLine(...line: string[]) {
@@ -66,5 +75,35 @@ export class Dialogue {
 
     setChoices(choices: DialogueChoice[]) {
         this.choices = choices;
+    }
+
+    addDialogueEventAction(action: DevModGameInterfaceContextFunction, pre?: boolean) {
+        if (pre) {
+            this.onDialoguePre.addHandler(action);
+        }
+        else {
+            this.onDialoguePost.addHandler(action);
+        }
+    }
+
+    removeDialogueEventAction(action: DevModGameInterfaceContextFunction, pre?: boolean) {
+        if (pre) {
+            this.onDialoguePre.removeHandler(action);
+        }
+        else {
+            this.onDialoguePost.removeHandler(action);
+        }
+    }
+
+    addNamedAction(action: DevModGameInterfaceContextFunction, name?: string) {
+        if (name) {
+            Object.defineProperty(action, "name", {...Object.getOwnPropertyDescriptor(action, "name"), value: name});
+        }
+
+        this.namedActions.addHandler(action);
+    }
+
+    removeNamedAction(name: string) {
+        this.namedActions.removeHandler(undefined, name);
     }
 }
