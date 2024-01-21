@@ -111,6 +111,10 @@ export class QuestNotifHud extends NotificationHud implements QuestListener {
             });
         }
         else if (event.event === QUEST_COMPLETED) {
+            if (questEvent.quest.getCurrentQuestStep()?.silence) {
+                return;
+            }
+
             this.queueNotification({
                 Status: "Quest Completed!", 
                 Title: questEvent.quest.title, 
@@ -118,6 +122,10 @@ export class QuestNotifHud extends NotificationHud implements QuestListener {
             });
         }
         else if (event.event === QUEST_FAILED) {
+            if (questEvent.quest.getCurrentQuestStep()?.silence) {
+                return;
+            }
+            
             this.queueNotification({
                 Status: "Quest Failed!", 
                 Title: questEvent.quest.title, 
