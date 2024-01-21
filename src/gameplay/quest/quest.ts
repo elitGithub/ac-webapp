@@ -233,6 +233,12 @@ export class Quest {
         this.questSteps = steps;
     }
 
+    createStep(stepId: string, description: string, silent: boolean) {
+        const step = new QuestStep(stepId, description, silent);
+        this.addStep(step);
+        return step;
+    }
+
     isQuest(questIdOrTitle: string) {
         if (this.questId === questIdOrTitle || this.title === questIdOrTitle) {
             return true;
