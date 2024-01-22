@@ -277,4 +277,4 @@ export class DevModGameEntityInterface {
 
 }
 
-export type DevModGameInterfaceContextFunction = ContextFunction<DevModGameInterface>;
+export type DevModGameInterfaceContextFunction = ContextFunction<typeof DevModGameInterface>;
