@@ -1,18 +1,30 @@
+import { InvokeContextHandlers } from "../core/util/function";
 import { controlledObjectMerge } from "../core/util/object";
-import { EngineSystem, IEngineEvent } from "../engine";
+import { EngineSystem, IEngineEvent, getEngine } from "../engine";
+import { SceneListener, subscribeToSceneEvents, SceneChangeEvent } from "../engine/scene";
+import { DevModGameInterfaceContextFunction } from "../modsystem";
 import { FiniteResource } from "./finiteresource";
 import { GameplaySystem } from "./gameplaysys";
+import { QuestListener, subscribeToQuestEvents, QuestUpdateEvent } from "./quest";
 import { Time, TimeProgression } from "./time";
 
-export class BaseGame implements EngineSystem {
+export class BaseGame implements EngineSystem, SceneListener, QuestListener {
     finiteResources: Map<string, FiniteResource>;
     clock: Time;
     gameSystems: Map<string, GameplaySystem>;
+    onScenePre: InvokeContextHandlers<DevModGameInterfaceContextFunction>;
+    onScenePost: InvokeContextHandlers<DevModGameInterfaceContextFunction>;
 
     constructor(opts: any) {
         this.finiteResources = new Map<string, FiniteResource>;
         this.gameSystems = new Map<string, GameplaySystem>;
         this.clock = new Time(opts?.clockType??TimeProgression.MANUAL, opts?.clockSens);
+
+        this.onScenePre = new InvokeContextHandlers();
+        this.onScenePost = new InvokeContextHandlers();
+
+        subscribeToQuestEvents(this);
+        subscribeToSceneEvents(this);
     }
 
     createFiniteResource(name: string, maxValue: number): void {
@@ -31,16 +43,32 @@ export class BaseGame implements EngineSystem {
         }
     }
 
-    getGameSystem<T extends EngineSystem = EngineSystem>(name: string): T|undefined {
-        return this.gameSystems.get(name) as T;
+    getGameSystem<T extends GameplaySystem>(name: string): T|undefined {
+        const gs = this.gameSystems.get(name);
+        if (gs) {
+            return gs as T;
+        } 
     }
 
     getClock() {
         return this.clock;
     }
 
+    onSceneChanged(sceneChange: SceneChangeEvent): void {
+        this.onScenePre.runHandlers(
+            sceneChange.previousScene ? getEngine().getScene().sceneByName(sceneChange.previousScene): undefined, 
+            getEngine().getScene().sceneByName(sceneChange.scene)
+        );
+    }
+
+    onSceneTransitioned(sceneChange: SceneChangeEvent): void {
+        this.onScenePost.runHandlers(getEngine().getScene().sceneByName(sceneChange.scene));
+    }
+
+    onQuestUpdate(event: QuestUpdateEvent): void {
+    }
+
     queue(engineEvent: IEngineEvent): void {
-        throw new Error("Method not implemented.");
     }
 
     update(time: number): void {

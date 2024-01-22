@@ -1,6 +1,7 @@
-import { EngineSystem, IEngineEvent, RestoreState } from "../engine";
+import { EngineSystem, IEngineEvent, RestoreState} from "../engine";
 
 export class GameplaySystem implements EngineSystem, RestoreState {
+
     queue(engineEvent: IEngineEvent): void {
 
     }

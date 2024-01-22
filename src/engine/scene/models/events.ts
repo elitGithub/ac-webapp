@@ -9,7 +9,8 @@ export const SCENE_CHANGED = Symbol("SCENE_CHANGED");
 export const SCENE_TRANSITIONED = Symbol("SCENE_TRANSITIONED");
 
 export interface SceneChangeEvent extends IEngineEvent {
-    sceneName: string;
+    scene: string;
+    previousScene?: string;
 }
 
 export interface SceneListener {

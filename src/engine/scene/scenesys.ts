@@ -17,6 +17,7 @@ export class SceneSystem implements EngineSystem, AnimationListener {
     scenes: Scene[];
     pendingSceneChange: boolean;
     transitioning: boolean;
+    transitioningFrom: string;
     transitioningTo: string;
     transitionType: SceneTransitionFlags;
 
@@ -25,6 +26,7 @@ export class SceneSystem implements EngineSystem, AnimationListener {
         this.scenes = [];
         this.pendingSceneChange = false;
         this.transitioning = false;
+        this.transitioningFrom = "";
         this.transitioningTo = "";
         this.transitionType = SceneTransitionFlags.ST_NONE;
         
@@ -89,6 +91,7 @@ export class SceneSystem implements EngineSystem, AnimationListener {
             queueNamedAnimate(this.currentScene, SceneTransitionFlags[SceneTransitionFlags.ST_ZOOM], 1000);
         }
 
+        this.transitioningFrom = this.currentScene.name;
         this.transitioning = true;
         this.toggleSceneInteractivity(false);
     }
@@ -101,6 +104,9 @@ export class SceneSystem implements EngineSystem, AnimationListener {
         getEngine().getRender().prepareRenderable(scene)
         .then(() => {
             if (!transitioning) {
+                if (this.currentScene) {
+                    this.transitioningFrom = this.currentScene.name;
+                }
                 this.currentScene = scene;
                 this.toggleSceneInteractivity(true);
                 this.pendingSceneChange = true;
@@ -154,6 +160,7 @@ export class SceneSystem implements EngineSystem, AnimationListener {
 
     protected onSceneTransitionEnter() {
         this.transitioning = false;
+        this.transitioningFrom = "";
         this.transitioningTo = "";
         this.transitionType = SceneTransitionFlags.ST_NONE;
         
@@ -167,7 +174,7 @@ export class SceneSystem implements EngineSystem, AnimationListener {
             if (animation.target.name === this.transitioningTo) {
                 this.onSceneTransitionEnter();
                 this.sceneReady = true;
-                EngineBus.emit(SCENE_TRANSITIONED, createEngineEvent(SCENE_TRANSITIONED, {sceneName: this.currentScene?.name}));
+                EngineBus.emit(SCENE_TRANSITIONED, createEngineEvent(SCENE_TRANSITIONED, {scene: this.currentScene?.name}));
             }
             else {
                 this.onSceneTransitionExit();
@@ -209,7 +216,12 @@ export class SceneSystem implements EngineSystem, AnimationListener {
             if (!this.transitioning) {
                 this.sceneReady = true;
             }
-            EngineBus.emit(SCENE_CHANGED, createEngineEvent(SCENE_CHANGED, {sceneName: this.currentScene?.name}));
+            EngineBus.emit(SCENE_CHANGED, createEngineEvent(SCENE_CHANGED, {previousScene: this.transitioningFrom, scene: this.currentScene?.name}));
+
+            if (!this.transitioning) {
+                //If it is a non transiitioning scene change, need to fire this so transition listeners know the scene has fully loaded.
+                EngineBus.emit(SCENE_TRANSITIONED, createEngineEvent(SCENE_TRANSITIONED, {scene: this.currentScene?.name}));
+            }
         }
     }
 

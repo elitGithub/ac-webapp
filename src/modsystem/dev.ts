@@ -1,14 +1,20 @@
-import { ContextFunction, EngineBus, createEngineEvent, getEngine } from "../engine";
+import { EngineBus, createEngineEvent, getEngine } from "../engine";
 import { Quest, QuestSystem, START_QUEST } from "../gameplay/quest";
 import { BaseCharacter } from "../engine/coreentities/basecharacter";
 import { Location } from "../engine/coreentities/location";
 import { ADVANCE_DIALOGUE, Dialogue, DialogueSystem, START_DIALOGUE } from "../gameplay/dialogue";
+import { ContextFunction } from "../core/util/function";
 
 export type ModResource = {
     default: () => {}
 };
 
 export class DevModInterface {
+    static {
+        globalThis.DevModInterface = DevModInterface;
+        globalThis.DefaultInvokeContext = DevModInterface;
+    }
+
     static get GAME(): DevModGameInterface {
         return new Proxy(new DevModGameInterface(), {
         });
@@ -78,6 +84,15 @@ export class DevModGameInterface {
                 return getEngine().getEnt().findEntityByName(property.toString());
             }
         });
+    }
+
+    runOnSceneChange(handler: DevModGameInterfaceContextFunction, runOnce: boolean = true, pre: boolean = false) {
+        if (pre) {
+            getEngine().getGame().onScenePre.addHandler(handler, runOnce);
+        }
+        else {
+            getEngine().getGame().onScenePost.addHandler(handler, runOnce);
+        }
     }
 }
 

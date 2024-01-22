@@ -16,9 +16,9 @@ export class Dialogue {
     speaker: BaseCharacter;
     lines: Array<string>;
     choices: Array<DialogueChoice>;
-    readonly onDialoguePre: InvokeContextHandlers;
-    readonly onDialoguePost: InvokeContextHandlers;
-    readonly namedActions: InvokeContextHandlers;
+    readonly onDialoguePre: InvokeContextHandlers<DevModGameInterfaceContextFunction>;
+    readonly onDialoguePost: InvokeContextHandlers<DevModGameInterfaceContextFunction>;
+    readonly namedActions: InvokeContextHandlers<DevModGameInterfaceContextFunction>;
     private category?: string;
     private callerDialogue?: string;
 
@@ -79,10 +79,10 @@ export class Dialogue {
 
     addDialogueEventAction(action: DevModGameInterfaceContextFunction, pre?: boolean) {
         if (pre) {
-            this.onDialoguePre.addHandler(action);
+            this.onDialoguePre.addHandler(action, false);
         }
         else {
-            this.onDialoguePost.addHandler(action);
+            this.onDialoguePost.addHandler(action, false);
         }
     }
 
@@ -100,7 +100,7 @@ export class Dialogue {
             Object.defineProperty(action, "name", {...Object.getOwnPropertyDescriptor(action, "name"), value: name});
         }
 
-        this.namedActions.addHandler(action);
+        this.namedActions.addHandler(action, false);
     }
 
     removeNamedAction(name: string) {
