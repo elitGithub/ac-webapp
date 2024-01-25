@@ -161,7 +161,11 @@ export class DialogueSystem extends GameplaySystem {
             EngineBus.emit(DIALOGUE_ADVANCED, createDialogueUpdateEvent(DIALOGUE_ADVANCED, this.currentDialogue.dialogueId, false, this.currentDialogueLine, true));
         }
         else {
+            const nextDialogue = this.currentDialogue.defaultNextDialogueId;
             this.endCurrentDialogue();
+            if (nextDialogue) {
+                this.startDialogue(nextDialogue);
+            }
         }
     }
 
@@ -202,7 +206,7 @@ export class DialogueSystem extends GameplaySystem {
             }
 
             const cmd = matches[1];
-            const arglist = line.split("%"+cmd+"%")[1].trim();
+            const arglist = line.split("%" + cmd + "%")[1].trim();
             const args = arglist.split(" ");
 
             switch (cmd.toUpperCase()) {
@@ -221,7 +225,7 @@ export class DialogueSystem extends GameplaySystem {
                     const name = args[0];
                     const flip = args[1];
                     npc.changeExpression(name);
-                    let x,y = false;
+                    let x, y = false;
                     if (flip && flip.toUpperCase() === "FLIPXY") {
                         x = true;
                         y = true;
@@ -240,7 +244,7 @@ export class DialogueSystem extends GameplaySystem {
                     const poseName = args[0];
                     const flip = args[1];
                     npc.setPose(poseName);
-                    let x,y = false;
+                    let x, y = false;
                     if (flip && flip.toUpperCase() === "FLIPXY") {
                         x = true;
                         y = true;
@@ -281,7 +285,7 @@ export class DialogueSystem extends GameplaySystem {
             this.currentDialogue.speaker.setSpeaking(false);
             this.currentDialogue.onDialoguePost.runHandlers(this.currentDialogue, this.currentDialogue.speaker);
         }
-        
+
         this.currentDialogue = undefined;
         this.currentDialogueLine = 0;
         this.dialogueHud.endDialogue();
@@ -292,7 +296,7 @@ export class DialogueSystem extends GameplaySystem {
         return this.dialogueHud;
     }
 
-    getCurrentDialogue() { 
+    getCurrentDialogue() {
         return this.currentDialogue;
     }
 
