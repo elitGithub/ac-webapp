@@ -186,7 +186,11 @@ export class DialogueSystem extends GameplaySystem {
             this.startDialogue(choice.nextDialogueId);
         }
         else {
+            const nextDialogue = this.currentDialogue.defaultNextDialogueId;
             this.endCurrentDialogue();
+            if (nextDialogue) {
+                this.startDialogue(nextDialogue);
+            }
         }
     }
 
