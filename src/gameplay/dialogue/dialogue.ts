@@ -16,13 +16,14 @@ export class Dialogue {
     speaker: BaseCharacter;
     lines: Array<string>;
     choices: Array<DialogueChoice>;
+    defaultNextDialogueId?: string;
     readonly onDialoguePre: InvokeContextHandlers<DevModGameInterfaceContextFunction>;
     readonly onDialoguePost: InvokeContextHandlers<DevModGameInterfaceContextFunction>;
     readonly namedActions: InvokeContextHandlers<DevModGameInterfaceContextFunction>;
     private category?: string;
     private callerDialogue?: string;
 
-    constructor(speaker: BaseCharacter, dialogueId?: string, callerDialogue?: string) {
+    constructor(speaker: BaseCharacter, dialogueId?: string, defaultNextDialogueId?: string, callerDialogue?: string) {
         if (dialogueId) {
             this.dialogueId = dialogueId;
         }
@@ -31,6 +32,7 @@ export class Dialogue {
         }
 
         this.speaker = speaker;
+        this.defaultNextDialogueId = defaultNextDialogueId;
         this.callerDialogue = callerDialogue;
 
         this.lines = [];
