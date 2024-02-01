@@ -71,8 +71,10 @@ export class Dialogue {
         return this.choices[index];
     }
 
-    addChoice(choice: string, nextDialogue?: string, choiceAction?: Function) {
-        this.choices.push(new DialogueChoice(this.dialogueId, choice, nextDialogue, choiceAction));
+    addChoice(choice: string, isEnabled?: boolean | (() => boolean), nextDialogue?: string, choiceAction?: Function) {
+        const dialogueChoice = new DialogueChoice(this.dialogueId, choice, isEnabled, nextDialogue, choiceAction)
+        this.choices.push(dialogueChoice);
+        return dialogueChoice;
     }
 
     setChoices(choices: DialogueChoice[]) {

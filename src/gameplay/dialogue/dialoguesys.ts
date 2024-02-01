@@ -90,7 +90,7 @@ export class DialogueSystem extends GameplaySystem {
         const hasNext = (this.currentDialogue.lines.length - this.currentDialogueLine) > 1;
         this.dialogueHud.startDialogue(line, dialogue.speaker.name, hasNext);
         this.dialogueHud.clearChoices();
-        this.dialogueHud.prepChoices(dialogue.choices.map(c => c.choice));
+        this.dialogueHud.prepChoices(dialogue.choices);
         dialogue.speaker.setSpeaking(true);
         dialogue.onDialoguePre.runHandlers(dialogue, dialogue.speaker);
         EngineBus.emit(DIALOGUE_STARTED, createDialogueUpdateEvent(DIALOGUE_STARTED, this.currentDialogue.dialogueId, false, this.currentDialogueLine));

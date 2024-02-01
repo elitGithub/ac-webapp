@@ -1,8 +1,8 @@
-import { Container, FederatedEvent, Sprite, Text, TextMetrics } from "pixi.js";
-import { HudElement, TOGGLE_HUD } from "../../engine/gui";
+import { ColorMatrixFilter, Container, FederatedEvent, Sprite, Text, TextMetrics } from "pixi.js";
+import { Hoverable, HudElement, TOGGLE_HUD } from "../../engine/gui";
 import { IRenderableResource } from "../../framework/graphics";
 import { EngineBus, createEngineEvent, getEngine } from "../../engine";
-import { ADVANCE_DIALOGUE, SELECT_DIALOGUE_CHOICE } from ".";
+import { ADVANCE_DIALOGUE, DialogueChoice, SELECT_DIALOGUE_CHOICE } from ".";
 import { NPC } from "../npc";
 
 export class DialogueHud extends HudElement {
@@ -13,7 +13,7 @@ export class DialogueHud extends HudElement {
     dialogueSpeaker: string;
     dialogueText: Text;
     speakerText: Text;
-    choiceBg?: Sprite;
+    choiceBg?: Hoverable;
     preppedChoices: Container[];
     choiceDisplaying: boolean;
 
@@ -21,21 +21,21 @@ export class DialogueHud extends HudElement {
         super();
         if (speechBackground) {
             getEngine().createSimpleSprite(speechBackground)
-            .then(sprite => {
-                if (sprite) {
-                    this.setSpeechBackground(sprite);
-                }
-            });
+                .then(sprite => {
+                    if (sprite) {
+                        this.setSpeechBackground(sprite);
+                    }
+                });
         }
 
         if (nextIndicator) {
             getEngine().createSimpleSprite(nextIndicator)
-            .then(sprite => this.nextIndicatorIcon = sprite);
+                .then(sprite => this.nextIndicatorIcon = sprite);
         }
 
         if (speakerLabelBackground) {
             getEngine().createSimpleSprite(speakerLabelBackground)
-            .then(sprite => this.speakerLabelBg = sprite);
+                .then(sprite => this.speakerLabelBg = sprite);
         }
 
         this.dialogueLine = "";
@@ -55,11 +55,11 @@ export class DialogueHud extends HudElement {
             this.removeChild(this.speakerLabelBg);
         }
         this.speakerLabelBg = sprite;
-        this.speakerLabelBg.setTransform(0, getEngine().getRender().getDimensions().y - (this.speechBg?.height??0) + 10);
+        this.speakerLabelBg.setTransform(0, getEngine().getRender().getDimensions().y - (this.speechBg?.height ?? 0) + 10);
         this.addChild(this.speakerLabelBg);
         this.speakerLabelBg.addChild(this.speakerText);
         this.speakerText.anchor.set(0.5);
-        this.speakerText.position.set(this.speakerLabelBg.width/2, this.speakerLabelBg.height/2);
+        this.speakerText.position.set(this.speakerLabelBg.width / 2, this.speakerLabelBg.height / 2);
     }
 
     setNextIndicatorIcon(sprite: Sprite) {
@@ -68,7 +68,7 @@ export class DialogueHud extends HudElement {
 
     setSpeechBackground(sprite: Sprite) {
         this.speechBg = sprite;
-        this.speechBg.setTransform(0, getEngine().getRender().getDimensions().y-this.speechBg.height);
+        this.speechBg.setTransform(0, getEngine().getRender().getDimensions().y - this.speechBg.height);
         this.addChildAt(this.speechBg, 0);
     }
 
@@ -88,22 +88,54 @@ export class DialogueHud extends HudElement {
         this.dialogueText.text = text;
 
         if (this.speechBg) {
-            this.dialogueText.setTransform(400, getEngine().getRender().getDimensions().y-this.speechBg.height + 20);
+            this.dialogueText.setTransform(400, getEngine().getRender().getDimensions().y - this.speechBg.height + 20);
         }
     }
 
-    addChoice(choice: string, order: number) {
-        const t = new Text(choice);
+    setChoiceBg(choiceBg: Hoverable) {
+        this.choiceBg = choiceBg;
+    }
+
+    addChoice(choice: DialogueChoice, order: number) {
+        const t = new Text(choice.choice);
         t.anchor.set(0.5);
-        const bg = new Sprite(this.choiceBg?.texture);
+        const bg = this.choiceBg?.clone();
         const item = new Container();
-        t.setTransform(bg.width / 2, bg.height / 2);
-        item.addChild(bg, t);
-        item.setTransform(getEngine().getRender().getDimensions().x/2, (this.preppedChoices.length * bg.height) + 200);
-        item.pivot.set(item.width/2, 0);
+        if (!choice.enabled()) {
+            let colorMatrix = new ColorMatrixFilter();
+            colorMatrix.greyscale(0.2, true);
+            item.filters = [colorMatrix];
+            item.eventMode = "none";
+        }
+        else {
+            item.eventMode = "dynamic";
+            item.on("pointertap", this.onItemClick.bind(this, order));
+        }
+
+        if (bg) {
+            item.addChild(bg);
+            t.setTransform(bg.width / 2, bg.height / 2);
+            if (choice.icon) {
+                item.addChild(choice.icon);
+                t.setTransform((bg.width / 6) * 3, bg.height / 2);
+                choice.icon.pivot.set(choice.icon.width / 2, choice.icon.height / 2);
+                choice.icon.position.set((bg.width / 6) * 2, bg.height / 2);
+            }
+            item.addChild(t);
+            item.setTransform(getEngine().getRender().getDimensions().x / 2, (this.preppedChoices.length * bg.height) + 200);
+        }
+        else {
+            if (choice.icon) {
+                item.addChild(choice.icon);
+                choice.icon.pivot.set(choice.icon.width / 2, choice.icon.height / 2);
+            }
+            item.addChild(t);
+            item.setTransform(getEngine().getRender().getDimensions().x / 2, (this.preppedChoices.length * t.height) + 200);
+        }
+
+        item.pivot.set(item.width / 2, 0);
         this.preppedChoices.push(item);
-        item.eventMode = "dynamic";
-        item.on("pointertap", this.onItemClick.bind(this, order));
+
     }
 
     clearChoices() {
@@ -120,12 +152,12 @@ export class DialogueHud extends HudElement {
             this.nextIndicatorIcon.visible = true;
         }
 
-        EngineBus.emit(TOGGLE_HUD, createEngineEvent(TOGGLE_HUD, {hudname: "HUD_DIALOGUE", force: true}));
+        EngineBus.emit(TOGGLE_HUD, createEngineEvent(TOGGLE_HUD, { hudname: "HUD_DIALOGUE", force: true }));
     }
 
     nextDialogueLine(text: string, next: boolean) {
         this.setText(text);
-        
+
         if (next && this.nextIndicatorIcon) {
             this.nextIndicatorIcon.visible = true;
         }
@@ -134,7 +166,7 @@ export class DialogueHud extends HudElement {
         }
     }
 
-    prepChoices(choices: string[]) {
+    prepChoices(choices: DialogueChoice[]) {
         for (let i = 0; i < choices.length; i++) {
             this.addChoice(choices[i], i);
         }
@@ -161,7 +193,7 @@ export class DialogueHud extends HudElement {
             this.nextIndicatorIcon.visible = false;
         }
 
-        EngineBus.emit(TOGGLE_HUD, createEngineEvent(TOGGLE_HUD, {hudname: "HUD_DIALOGUE", force: false}));
+        EngineBus.emit(TOGGLE_HUD, createEngineEvent(TOGGLE_HUD, { hudname: "HUD_DIALOGUE", force: false }));
     }
 
     onPointerClick(event: FederatedEvent): void {
@@ -172,10 +204,10 @@ export class DialogueHud extends HudElement {
         }
         if (!this.choiceDisplaying) {
             EngineBus.emit(ADVANCE_DIALOGUE, createEngineEvent(ADVANCE_DIALOGUE, {}));
-        }   
+        }
     }
 
     onItemClick(choiceNum: number) {
-        EngineBus.emit(SELECT_DIALOGUE_CHOICE, createEngineEvent(SELECT_DIALOGUE_CHOICE, {choice: choiceNum}));
+        EngineBus.emit(SELECT_DIALOGUE_CHOICE, createEngineEvent(SELECT_DIALOGUE_CHOICE, { choice: choiceNum }));
     }
 }
