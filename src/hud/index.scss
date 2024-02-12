@@ -1,0 +1,22 @@
+.top-ui-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: var(--spacing-m);
+    padding-right: var(--spacing-m);
+    position: absolute;
+    top: 2%;
+    width: 100%;
+  }
+  
+  .ui {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    // position: absolute;
+    z-index: 100;
+    transition: all 300ms ease-in-out;
+    // .time-display {
+    //   margin: 0 var(--spacing-m) 0 0;
+    // }
+  }

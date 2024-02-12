@@ -1,0 +1,57 @@
+.energy-bar {
+  // height: 2.81vw;
+  position: relative;
+  // width: 13vw;
+
+  &__bar {
+    border-radius: 8px;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    transform: skewX(20deg);
+
+    .background {
+      background: linear-gradient(
+        to bottom,
+        #ccc 0%,
+        #ccc 50%,
+        #999 50%,
+        #999 100%
+      );
+      border-radius: 5px;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+
+    .current {
+      background: linear-gradient(
+        to bottom,
+        #c2e440 0%,
+        #c2e440 50%,
+        #88b731 50%,
+        #88b731 100%
+      );
+      border-radius: 3px;
+      top: 0;
+      position: absolute;
+      height: 100%;
+      transition: width 300ms ease-in-out;
+    }
+  }
+
+  &__label {
+    color: #442200;
+    font-family: 'Fresca', sans-serif;
+    font-size: 1.15vw;
+    left: calc(50% - 1.825vw);
+    line-height: 0;
+    position: absolute;
+    text-align: center;
+    top: calc(50% + 1px);
+    user-select: none;
+    width: 3.65vw;
+    z-index: 2;
+  }
+}

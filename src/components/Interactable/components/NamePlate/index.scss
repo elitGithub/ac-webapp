@@ -1,0 +1,58 @@
+.name-plate {
+  bottom: calc(100% + 1rem);
+  display: flex;
+  flex-direction: column;
+  left: calc(50% - 13vw);
+  opacity: 0;
+  position: absolute;
+  transition: opacity 200ms ease-in-out;
+  width: 26vw;
+  z-index: 500;
+
+  &.visible {
+    opacity: 1;
+  }
+
+  .title {
+    align-self: center;
+    background: linear-gradient(
+      to bottom,
+      #736652 0%,
+      #92794f 30%,
+      #92794f 60%,
+      #78582f
+    );
+    border: 3px solid #62462f;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.67vw;
+    margin: 0 0 -10px 0;
+    min-width: 50%;
+    padding: var(--spacing-xs) var(--spacing-m);
+    text-align: center;
+    z-index: 10;
+
+    &.padding {
+      margin-bottom: var(--spacing-xs);
+    }
+    
+  }
+
+  .description {
+    background: linear-gradient(to bottom, #f8ede1, #d6b67d);
+    border: 3px solid #ab8357;
+    border-radius: 5px;
+    font-size: 1.2vw;
+    padding: 1.5rem var(--spacing-s) var(--spacing-s) var(--spacing-s);
+    color: #6a431e;
+
+    p {
+      line-height: 1.56vw;
+      margin: 0 0 var(--spacing-s) 0;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}

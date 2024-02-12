@@ -1,0 +1,21 @@
+.inventory-wrapper {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  z-index: 300;
+  transition: top 700ms ease;
+
+  .inventory-bg {
+    position: relative;
+    .inventory-items {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 2;
+      background-color: black;
+    }
+  }
+}
+

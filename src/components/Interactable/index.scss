@@ -1,0 +1,39 @@
+.interactable {
+  display: flex;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 200ms ease-in-out;
+
+  &.visible {
+    opacity: 1;
+  }
+
+  &.hover {
+    cursor: pointer;
+  }
+
+  .inner {
+    position: relative;
+  }
+
+  canvas {
+    display: block;
+    transition: filter 200ms ease-in-out;
+  }
+
+  .overlay {
+    background-color: #fff;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: opacity 200ms ease-in-out;
+    width: 100%;
+
+    &.hover {
+      opacity: 0.2;
+    }
+  }
+}

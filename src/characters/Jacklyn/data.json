@@ -1,0 +1,52 @@
+{
+  "body1": {
+    "body1": { "x": 36, "y": 133, "z": 0 },
+    "face_angry": { "x": 190, "y": 243, "z": 1 },
+    "b1panty": { "x": 189, "y": 710, "z": 2 },
+    "b1bra": { "x": 137, "y": 421, "z": 3 },
+    "b1fishnet": { "x": 119, "y": 936, "z": 4 },
+    "b1skirt": { "x": 144, "y": 762, "z": 5 },
+    "b1top": { "x": 86, "y": 387, "z": 6 },
+    "b1arm1_n": { "x": 324, "y": 432, "z": 7 },
+    "b1blazer": { "x": 63, "y": 403, "z": 8 },
+    "b1topblazer": { "x": 63, "y": 387, "z": 9 },
+    "b1arm1_c": { "x": 322, "y": 429, "z": 10 },
+    "b1choker": { "x": 192, "y": 387, "z": 11 },
+    "b1badge": { "x": 328, "y": 497, "z": 11 },
+    "face_neutral": { "x": 191, "y": 245, "z": 1 },
+    "b1gasmask": { "x": 180, "y": 246, "z": 13 },
+    "face_smile_right": { "x": 191, "y": 245, "z": 14 },
+    "b1arm2_n": { "x": 304, "y": 283, "z": 15 },
+    "b1arm2_c": { "x": 304, "y": 266, "z": 16 },
+    "face_smile": { "x": 191, "y": 245, "z": 1 },
+    "face_thinking": { "x": 191, "y": 244, "z": 1 }
+  },
+  "body2": {
+    "body2": { "x": 93, "y": 136, "z": 0 },
+    "face_annoyed": { "x": 226, "y": 262, "z": 1 },
+    "b2panty": { "x": 155, "y": 730, "z": 2 },
+    "b2bra": { "x": 168, "y": 419, "z": 3 },
+    "b2fishnet": { "x": 94, "y": 930, "z": 4 },
+    "b2skirt": { "x": 89, "y": 768, "z": 5 },
+    "b2top": { "x": 139, "y": 396, "z": 6 },
+    "b2arm1_n": { "x": 115, "y": 573, "z": 7 },
+    "b2blazer": { "x": 98, "y": 400, "z": 8 },
+    "b2topblazer": { "x": 98, "y": 396, "z": 9 },
+    "b2arm1_c": { "x": 115, "y": 437, "z": 10 },
+    "b2choker": { "x": 262, "y": 403, "z": 11 },
+    "b2badge": { "x": 374, "y": 515, "z": 12 },
+    "face_cringe": { "x": 226, "y": 261, "z": 12 },
+    "b2arm2_n": { "x": 118, "y": 411, "z": 13 },
+    "b2arm2_c": { "x": 118, "y": 411, "z": 14 },
+    "face_excited": { "x": 226, "y": 258, "z": 1 },
+    "face_excited_right": { "x": 226, "y": 258, "z": 1 },
+    "face_laughing": { "x": 228, "y": 260, "z": 1 },
+    "b2gasmask": { "x": 204, "y": 272, "z": 18 }
+  },
+  "jacklynpose01": {
+    "events/upskirt/JacklynUpskirt_n": { "x": 1, "y": 0, "z": 0 },
+    "events/upskirt/JacklynUpskirt_panty": { "x": 688, "y": 96, "z": 1 },
+    "events/upskirt/JacklynUpskirt_bra": { "x": 1034, "y": 117, "z": 1 },
+    "events/upskirt/JacklynUpskirt_c": { "x": 447, "y": 60, "z": 2 }
+  }
+}

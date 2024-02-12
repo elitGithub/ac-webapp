@@ -1,0 +1,64 @@
+
+.phone-header-wrapper {
+  position: absolute;
+  width: 100%;
+  padding-left: var(--spacing-s);
+  padding-right: var(--spacing-s);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 5px 3px 0px rgba(0,0,0,0.58);
+  -webkit-box-shadow: 0px 5px 3px 0px rgba(0,0,0,0.58);
+  -moz-box-shadow: 0px 5px 3px 0px rgba(0,0,0,0.58);
+
+  .phone-header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    
+    .phone-header-title {
+      color: black;
+      font-weight: 600;
+      letter-spacing: 1px;
+      font-size: 1.15vw;
+      padding: 0;
+      margin: 0;
+      text-transform: capitalize;
+    }
+
+
+    .contact-details {
+      text-align: right;
+
+      .contact-name {
+        color: black;
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-size: 1vw;
+        padding: 0;
+        margin: 0;
+      }
+
+      .contact-number {
+        color: black;
+        letter-spacing: 1px;
+        font-size: 0.8vw;
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    .contact-image-missing {
+      font-weight: bold;
+      padding-left: var(--spacing-xs);
+      padding-right: var(--spacing-xs);
+    }
+  }
+}
+
+.phone-header-shadow {
+  width: 100%;
+  padding: 2px;
+  background: rgba(0, 0, 0, 0.8);
+}

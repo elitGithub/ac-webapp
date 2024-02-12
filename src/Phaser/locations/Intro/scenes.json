@@ -1,0 +1,93 @@
+{
+    "sceneName": "intro",
+    "background": "mainRoom.webp",
+    "npcs": [],
+    "itemsInScene": [],
+    "interactible": [],
+    "npcDialog": [],
+    "mcAnswers": [],
+    "hud": [
+        "skip_into_button",
+        "hide_hud",
+        "mobile_menu_texts",
+        "mc_name_input"
+    ],
+    "rollingText": [
+        {
+            "speaker": "",
+            "text": "Who the hell is this"
+        },
+        {
+            "speaker": "",
+            "text": "Hmm... hidden number"
+        },
+        {
+            "speaker": "",
+            "text": "It's probably some idiot claiming to have a webcam recording of me mastrubating."
+        },
+        {
+            "speaker": "",
+            "text": "Sorry, man. No money. No friends. No one who cares."
+        },
+        {
+            "speaker": "",
+            "text": "All I have is a need for human interaction and this UNO reverse card..."
+        },
+        {
+            "speaker": "",
+            "text": "Shit. That's odd, but I did tweet that. Always through my three followers were bots."
+        },
+        {
+            "speaker": "",
+            "text": "It's probably a scammer, but what do I have to lose?"
+        },
+        {
+            "speaker": "",
+            "text": "Most people ghost me after I send them a picture. Ghosted after a name... that's a first"
+        },
+        {
+            "speaker": "",
+            "text": "Oh well, what's the point of staying awake, anyway?"
+        }
+    ],
+    "0": {
+        "sceneName": "intro",
+        "background": "mainRoom.webp",
+        "npcs": [],
+        "itemsInScene": [],
+        "interactible": [],
+        "npcDialog": [],
+        "mcAnswers": {
+            "question_id": 1,
+            "ans_1": "And what was that?",
+            "ans_2": "Budget horror much?",
+            "ans_3": "I've already repressed it."
+        },
+        "0": {
+            "question_id": 2,
+            "ans_1": "Who is this? Also, that's not true!"
+        },
+        "1": {
+            "question_id": 3,
+            "ans_1": "How do you know this?",
+            "ans_2": "Who the hell are you?",
+            "ans_3": "It was a pretty good origami cat, though. Right?"
+        },
+        "2": {
+            "question_id": 4,
+            "ans_1": "Jo, is that you?",
+            "ans_2": "Is this the NSA? I can explain the browser history...",
+            "ans_3": "And all those choices have led me to you. Are you the woman I've been waiting for all my life?"
+        },
+        "3": {
+            "question_id": 5,
+            "ans_1": "I asked first!",
+            "ans_2": "Are you also after my credit card number? You're going to be disappointed.",
+            "ans_3": "Hold up. Are you a Nigerian price, by any chance?"
+        },
+        "4": {
+            "question_id": 6,
+            "ans_1": "My name is {{name_from_input}}"
+        }
+    }
+}

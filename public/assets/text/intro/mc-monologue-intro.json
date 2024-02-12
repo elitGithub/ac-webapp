@@ -1,0 +1,470 @@
+[
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "Newfall is the perfect town, but if you think you can have any of it, you're an idiot.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "Not the girls with sun-kissed legs, rollerblading down the streets.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "Not the million-dollar yachts, bobbing lazily in the bright-blue harbor.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "Not the cheerful laughter of the families, picnicking in the park.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "None of it will ever be yours.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "And who's to blame? Society and shitty genetics?",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "To have winners, you need losers. And in life's zero-sum game... sorry, kid - snake eyes.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "...",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "The days all bleed together in a diarrhea of misery and self-loathing.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "Every morning, you sleep in like a bum. Get yelled at for being a disappointment.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "You work a pointless job, earning a few pointless bucks that you spend on pointless pizzas that taste like pepperoni and ballsack.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "Every night, you eat alone, trying not to cry.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "And then you cry. What else is there?",
+    "choices": [],
+    "sound": "train_passing",
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "Train-smashed tomato sauce is the only way out... but not if you're a pussy.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "...",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "Growing up, you expect life to be a fairytale.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "You'll make it through school, get a good job, meet the girl of your dreams.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "That's what you tell yourself as you stuff your promposal into the garbage because you're too much of a wimp to ask.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "There's more fish in the sea. More opportunities.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "That's what goes through your head as you stay home and play video games instead of going to that party...",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "There's always another chance!",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "...",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "Then you're suddenly halfway to thirty, and your Cinderella story has turned to ash.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "You're forced to bit life's poisoned apple and realize that you have nothing. You're nobody.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "You're all alone.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "All your friends have long since moved on, and the only girl who wants to talk to you is called Alexa.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "All those chances you thought you had - gone.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "You're stuck in a pool with no ladder, hoping you drown before...",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "Before life hooks its marionette strings into your flesh once more, and you pray that one of the will catch your neck in a tight noose.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "...",
+    "choices": [],
+    "sound": "phone_vibrate",
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "There my phone goes again, taunting me with a flicker of hope.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "Well... better check the latest promotional message from my dear mobile carrier...",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "hidden_number",
+      "name": "Unknown",
+    "content": "I know what you did last weekend.",
+    "choices": [],
+    "dialogMode": "phoneMessage"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "Who the hell is this?",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "Hmm... hidden number.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "It's probably some idiot claiming to have a webcam recording of me masturbating.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "Sorry, man. No money. No friends. No one who cares.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "All I have is a need for human interaction and this UNO reverse card...",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "hidden_number",
+      "name": "Unknown",
+    "content": "",
+    "choices": [
+      {
+        "id": 1,
+        "content": "And what was that?"
+      },
+      {
+        "id": 2,
+        "content": "Budget horror much?"
+      },
+      {
+        "id": 3,
+        "content": "I've already repressed it."
+      }
+    ],
+    "dialogMode": "phoneMessage"
+  },
+  {
+    "speaker": "hidden_number",
+      "name": "Unknown",
+    "content": "The answer is... absolutely nothing.",
+    "choices": [],
+    "dialogMode": "phoneMessage"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "Who is this? Also, that's not true!",
+    "choices": [],
+    "dialogMode": "phoneMessage"
+  },
+  {
+    "speaker": "hidden_number",
+      "name": "Unknown",
+    "content": "Completing Castlevania for the 167th time and attempting to make an origami cat out of an old pizza box doesn't count.",
+    "choices": [],
+    "dialogMode": "phoneMessage"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "Shit. That's odd, but I did tweet that. Always thought my three followers were bots.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "hidden_number",
+      "name": "Unknown",
+    "content": "",
+    "choices": [
+      {
+        "id": 1,
+        "content": "How do you know this?"
+      },
+      {
+        "id": 2,
+        "content": "Who the hell are you?"
+      },
+      {
+        "id": 3,
+        "content": "It was a pretty good origami cat, though. Right?"
+      }
+    ],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "hidden_number",
+      "name": "Unknown",
+    "content": "Doesn't matter. You're lazy and self-destructive.",
+    "choices": [],
+    "dialogMode": "phoneMessage"
+  },
+  {
+    "speaker": "hidden_number",
+      "name": "Unknown",
+    "content": "That's why you're here now, contemplating your failures.",
+    "choices": [],
+    "dialogMode": "phoneMessage"
+  },
+  {
+    "speaker": "hidden_number",
+      "name": "Unknown",
+    "content": "You've had no significant impact on anyone's life. [flora] hates you. You have no special talents. You've never even had an interesting science fair project!",
+    "choices": [],
+    "dialogMode": "phoneMessage"
+  },
+  {
+    "speaker": "hidden_number",
+      "name": "Unknown",
+    "content": "Some of it is bad luck. Most of it is your own doing.",
+    "choices": [],
+    "dialogMode": "phoneMessage"
+  },
+  {
+    "speaker": "hidden_number",
+      "name": "Unknown",
+    "content": "I've never seen anyone make so many poor choices in life. It saddens me.",
+    "choices": [],
+    "dialogMode": "phoneMessage"
+  },
+  {
+    "speaker": "hidden_number",
+      "name": "Unknown",
+    "content": "I've never seen anyone make so many poor choices in life. It saddens me.",
+    "choices": [],
+    "dialogMode": "phoneMessage"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "",
+    "choices": [
+      {
+        "id": 1,
+        "content": "[jo], is that you?",
+        "response": "No, I'm not. But I have something to tell you about those choices. Something life-changing!"
+      },
+      {
+        "id": 2,
+        "content": "Is this the NSA? I can explain the browser history...",
+        "response": "No. But I have something to tell you about those choices. Something life-changing!"
+      },
+      {
+        "id": 3,
+        "content": "And all those choices have led me to you. Are you the woman I've been waiting for all my life?",
+        "response": "No, I'm not. But I have something to tell you about those choices. Something life-changing!"
+      }
+    ],
+    "dialogMode": "phoneMessage"
+  },
+  {
+    "speaker": "hidden_number",
+      "name": "Unknown",
+    "content": "All you need to do is tell me your name.",
+    "choices": [
+      {
+        "id": 1,
+        "content": "I asked first!",
+        "response": "My name isn't important. If you want to know what I have to say, tell me yours."
+      },
+      {
+        "id": 2,
+        "content": "Are you also after my credit card number? You're going to be disappointed.",
+        "response": "What? No! If you want to know what I have to say, tell me your name."
+      },
+      {
+        "id": 3,
+        "content": "Hold up. Are you a Nigerian prince, by any chance?",
+        "response": "What? No! If you want to know what I have to say, tell me your name."
+      }
+    ],
+    "dialogMode": "phoneMessage"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "It's probably a scammer, but what do I have to lose?",
+    "choices": [],
+    "dialogMode": "scrollingText",
+    "action": "call askName"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "My name is [mc]. There you go! Now tell me!",
+    "choices": [],
+    "dialogMode": "phoneMessage"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "Hello?",
+    "choices": [],
+    "dialogMode": "phoneMessage"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "That's really funny...",
+    "choices": [],
+    "dialogMode": "phoneMessage"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "Most people ghost me after I send them a picture. Ghosted after a name... that's a first.",
+    "choices": [],
+    "dialogMode": "scrollingText"
+  },
+  {
+    "speaker": "",
+      "name": "{{name}}",
+    "content": "Oh well, what's the point of staying awake, anyway?",
+    "choices": [],
+    "dialogMode": "scrollingText",
+    "action": "call startGame"
+  }
+]

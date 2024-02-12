@@ -1,0 +1,16 @@
+.expression {
+  cursor: none;
+  position: absolute;
+  transform-origin: top left;
+  transition: margin-left 300ms ease-in-out;
+  z-index: 5;
+
+  .asset {
+    position: absolute;
+
+    img {
+      mask-repeat: no-repeat;
+      -webkit-mask-repeat: no-repeat;
+    }
+  }
+}
