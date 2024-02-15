@@ -5,7 +5,6 @@ import ArtDoor from "./artdoor";
 import EnglishDoor from "./englishdoor";
 import HallWestExit from "./exit";
 
-
 const FirstHallWest = new Scene("Arts Wing", {
     source: Bg,
 });
@@ -18,7 +17,7 @@ EngineBus.emit(
     Prep_Scenes,
     createEngineEvent(Prep_Scenes, {
         scenes: [FirstHallWest],
-    })
+    }),
 );
 
 export default FirstHallWest;
