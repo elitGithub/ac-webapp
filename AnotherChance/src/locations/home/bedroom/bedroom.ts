@@ -1,5 +1,5 @@
 import { EngineBus, createEngineEvent } from "../../../../../src/engine";
-import { Prep_Scenes, Scene } from "../../../../../src/engine/scene/models";
+import { Prep_Scenes, Scene } from "../../../../../src/engine/scene";
 import Bedroom from "../../../../assets/locations/home/bedroom/bedroom.webp";
 import BedroomAlarmInt from "./alarm";
 import BedroomBedInt from "./bed";

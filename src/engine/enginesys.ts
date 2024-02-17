@@ -1,6 +1,5 @@
 import { randomUUID } from "../core/util";
 import { Serialisation } from "../core";
-import { ClassDeserialiser } from "../core/serialisation";
 import TweenShape from "../framework/animations/tween/models";
 import { createEventBus } from "../framework/events";
 import { IRenderableResource } from "../framework/graphics";
@@ -12,8 +11,8 @@ import { HudSystem } from "./gui";
 import { InputSystem } from "./input";
 import { RenderSystem } from "./render/rendersys";
 import { AnimationSystem, PremadeAnimations, createNamedAnimate } from "./rendereffects";
-import { Scene } from "./scene/models";
-import { SceneSystem } from "./scene/scenesys";
+import { Scene } from "./scene";
+import { SceneSystem } from "./scene";
 import { Sprite, Ticker, utils } from "pixi.js";
 import { EntitySystem } from "./engineents";
 

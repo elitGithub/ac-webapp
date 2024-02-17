@@ -12,9 +12,8 @@ import {
     Prep_Scenes,
     Reload_Scene,
     Transition_Scene,
-} from "../../src/engine/scene/models";
+} from "../../src/engine/scene";
 import { QuestSystem } from "../../src/gameplay/quest";
-import SceneTransitionFlags from "../../src/engine/scene/models";
 import { HudElement, Popup } from "../../src/engine/gui";
 import { BaseGame } from "../../src/gameplay/game";
 import { DialogueSystem } from "../../src/gameplay/dialogue";

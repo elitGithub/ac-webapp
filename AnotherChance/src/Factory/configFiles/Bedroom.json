@@ -1,0 +1,77 @@
+{
+  "title": "Bedroom",
+  "background": "assets/locations/home/bedroom/bedroom.webp",
+  "stateVariables": {
+    "alarm": "beeping",
+    "flash_drive_taken": false,
+    "clean": false,
+    "poster_removed": false,
+    "king_of_sweets": false,
+    "night": false,
+    "small_pc": null,
+    "dollar1_spawned_today": false,
+    "dollar1_taken_today": false,
+    "dollar2_spawned_today": false,
+    "dollar2_taken_today": false,
+    "dollar3_spawned_today": false,
+    "dollar3_taken_today": false,
+    "book_taken": false
+  },
+  "dynamicAssets": [
+    {
+      "name": "colored_walls",
+      "conditions": "clean === true",
+      "src": "assets/locations/home/bedroom/colored_walls.webp"
+    },
+    {
+      "name": "king_of_sweets_wall",
+      "conditions": "not clean and poster_removed",
+      "src": "assets/locations/home/bedroom/king_of_sweets_wall.webp"
+    },
+    {
+      "name": "king_of_sweets",
+      "conditions": "not clean and king_of_sweets",
+      "src": "assets/locations/home/bedroom/king_of_sweets.webp"
+    },
+    {
+      "name": "closet",
+      "conditions": "clean",
+      "src": "assets/locations/home/bedroom/closet_clean.webp"
+    },
+    {
+      "name": "flash_drive",
+      "conditions": "not flash_drive_taken",
+      "src": "assets/locations/home/bedroom/flash_drive.webp"
+    },
+    {
+      "name": "dollar1",
+      "conditions": "dollar1_spawned_today and not dollar1_taken_today",
+      "src": "assets/locations/home/bedroom/dollar1.webp"
+    },
+    {
+      "name": "dollar2",
+      "conditions": "dollar2_spawned_today and not dollar2_taken_today",
+      "src": "assets/locations/home/bedroom/dollar2.webp"
+    },
+    {
+      "name": "dollar3",
+      "conditions": "dollar3_spawned_today and not dollar3_taken_today",
+      "src": "assets/locations/home/bedroom/dollar3.webp"
+    },
+    {
+      "name": "book",
+      "conditions": "not book_taken",
+      "src": "assets/locations/home/bedroom/book.webp"
+    },
+    {
+      "name": "small_pc_google",
+      "conditions": "small_pc === 'google'",
+      "src": "assets/locations/home/bedroom/small_pc_google.webp"
+    },
+    {
+      "name": "small_pc_wikipedia",
+      "conditions": "small_pc === 'wikipedia'",
+      "src": "assets/locations/home/bedroom/small_pc_wikipedia.webp"
+    }
+  ]
+}

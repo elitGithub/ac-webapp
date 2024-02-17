@@ -1,13 +1,13 @@
-import { Container, ObservablePoint } from "pixi.js";
+import { ObservablePoint } from "pixi.js";
 import { EngineSystem, EngineBus, createEngineEvent, IEngineEvent } from "../enginesys";
-import { Create_Named_Animate, Render_Animate, Render_Animation_Finish, Render_Clear_Animate } from "./models/events";
+import { Create_Named_Animate, Render_Animate, Render_Animation_Finish, Render_Clear_Animate } from "./models";
 import { vec3 } from "../../core/math/models";
 import TweenShape from "../../framework/animations/tween/models/tweenshape";
-import { Animation } from "./models/animation";
-import { Animate } from "./models/animate";
-import { RenderEffectFlags, RenderEffectProps } from "./models/renderop";
+import { Animation } from "./models";
+import { Animate } from "./models";
+import { RenderEffectFlags, RenderEffectProps } from "./models";
 import { Tween, TweenPosition } from "../../framework/animations/tween/tween";
-import { AnimationListener } from "./models/animationlistener";
+import { AnimationListener } from "./models";
 
 export type NamedAnimation = RenderEffectProps & {
     name: string;

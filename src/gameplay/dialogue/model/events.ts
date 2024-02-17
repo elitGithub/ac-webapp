@@ -1,4 +1,3 @@
-import { Dialogue } from "..";
 import { EngineBus, IEngineEvent, createEngineEvent } from "../../../engine";
 
 export const START_DIALOGUE = Symbol("DIALOGUE_START_EVENT");
