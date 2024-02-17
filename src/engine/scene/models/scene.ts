@@ -1,5 +1,5 @@
-import { Container, Sprite } from "pixi.js";
-import { IRenderableResource } from "../../../framework/graphics";
+import { Container, Sprite, Texture } from "pixi.js";
+import { IRenderableResource } from "../../../framework/graphics/interfaces/irenderableresource";
 import { getEngine } from "../..";
 import { LoadedTextureAsset } from "../../assetloader";
 

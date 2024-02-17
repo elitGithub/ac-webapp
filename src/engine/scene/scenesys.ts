@@ -1,15 +1,14 @@
 import { EngineBus, EngineSystem, IEngineEvent, createEngineEvent, getEngine } from "../enginesys";
-import { Animation } from "../rendereffects";
-import { Scene } from "./models";
+import { Animation } from "../rendereffects/models/animation";
+import { Scene } from "./models/scene";
 import SceneTransitionFlags from "./models/scenetransitions";
-import { createNamedAnimate, queueNamedAnimate } from "../rendereffects";
-import { AnimationListener } from "../rendereffects";
-import { Load_Scene, Prep_Scenes, Reload_Scene, SCENE_CHANGED, SCENE_TRANSITIONED, Transition_Scene } from "./models";
+import { createNamedAnimate, queueNamedAnimate } from "../rendereffects/models/animate";
+import { AnimationListener } from "../rendereffects/models/animationlistener";
+import { Load_Scene, Prep_Scenes, Reload_Scene, SCENE_CHANGED, SCENE_TRANSITIONED, SceneListener, Transition_Scene } from "./models/events";
 import { RENDER_STAGE_CHANGE } from "../render/models";
 import TweenShape from "../../framework/animations/tween/models/tweenshape";
 import { onSceneOutChildren } from "../../core/util";
 import { Render_Clear_Animate } from "../rendereffects";
-import { DynamicSceneLoader } from "../../../AnotherChance/src/Factory/SceneFactory.ts";
 
 export class SceneSystem implements EngineSystem, AnimationListener {
 
@@ -242,5 +241,5 @@ export class SceneSystem implements EngineSystem, AnimationListener {
             }
         }
     }
-
+    
 }
