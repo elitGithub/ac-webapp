@@ -1,4 +1,4 @@
-{
+export const configuration = {
   "title": "Bedroom",
   "background": "assets/locations/home/bedroom/bedroom.webp",
   "stateVariables": {
@@ -75,3 +75,4 @@
     }
   ]
 }
+

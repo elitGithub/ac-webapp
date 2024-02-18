@@ -7,11 +7,7 @@ import {
     createEngineEvent,
 } from "../../src/engine";
 import {
-    Scene,
-    Load_Scene,
-    Prep_Scenes,
     Reload_Scene,
-    Transition_Scene,
 } from "../../src/engine/scene";
 import { QuestSystem } from "../../src/gameplay/quest";
 import { HudElement, Popup } from "../../src/engine/gui";
@@ -400,6 +396,7 @@ import { createNamedAnimate } from "../../src/engine/rendereffects";
 import TweenShape from "../../src/framework/animations/tween/models/tweenshape";
 import { DevModInterface } from "../../src/modsystem";
 import { QuestNotifHud } from "./huds/questnotifhud";
+import { DynamicSceneLoader } from "./Factory/SceneFactory.ts";
 
 DevModInterface.loadModResource(await import("./characters/index"));
 DevModInterface.loadModResource(await import("./quests/SmashOrPass"));
@@ -417,9 +414,10 @@ DevModInterface.loadModResource(await import("./quests/thekey"));
 DevModInterface.loadModResource(await import("./quests/kateoverisabelle"));
 DevModInterface.loadModResource(await import("./quests/isabelleoverkate"));
 
-
+const loader = new DynamicSceneLoader();
+loader.loadScenes(['Bedroom']);
 // Home
-await import("./locations/home/bedroom/bedroom");
+// await import("./locations/home/bedroom/bedroom");
 await import("./locations/home/bathroom/bathroom");
 await import("./locations/home/hall/hall");
 await import("./locations/home/kitchen/kitchen");
