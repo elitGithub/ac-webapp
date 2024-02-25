@@ -1,11 +1,11 @@
 import ExitArrow from "../../../../assets/locations/school/ground_floor/arrow_down.webp";
-import SceneTransitionFlags from "../../../../../src/engine/scene/models/scenetransitions";
+import SceneTransitionFlags from "../../../Engine/engine/scene/models/scenetransitions";
 import {
     EngineBus,
     createEngineEvent,
     getEngine,
-} from "../../../../../src/engine";
-import { Transition_Scene } from "../../../../../src/engine/scene/models";
+} from "../../../Engine/engine";
+import { Transition_Scene } from "../../../Engine/engine/scene";
 
 const HallWestExit = await getEngine().createSimpleInteractable(
     "west_hall_exit",

@@ -1,14 +1,13 @@
 import Door from "../../../../assets/locations/school/ground_floor/homeroom.webp";
-import SceneTransitionFlags from "../../../../../src/engine/scene/models/scenetransitions";
+import SceneTransitionFlags from "../../../Engine/engine/scene/models/scenetransitions";
 import {
     EngineBus,
     createEngineEvent,
     getEngine,
-} from "../../../../../src/engine";
-import { Transition_Scene } from "../../../../../src/engine/scene/models";
-import { START_DIALOGUE } from "../../../../../src/gameplay/dialogue";
-import { DevModInterface } from "../../../../../src/modsystem";
-import { QuestState } from "../../../../../src/gameplay/quest";
+} from "../../../Engine/engine";
+import { Transition_Scene } from "../../../Engine/engine/scene";
+import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
+import { DevModInterface } from "../../../Engine/modsystem";
 
 const HomeroomDoor = await getEngine().createSimpleInteractable(
     "homeroom_door",
@@ -29,7 +28,7 @@ const HomeroomDoor = await getEngine().createSimpleInteractable(
                     sceneTransition: SceneTransitionFlags.ST_FADE,
                 }))
             }
-           
+
         },
     },
     { source: Door }

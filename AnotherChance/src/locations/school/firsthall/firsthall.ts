@@ -1,5 +1,5 @@
-import { EngineBus, createEngineEvent } from "../../../../../src/engine";
-import { Prep_Scenes, Scene } from "../../../../../src/engine/scene/models";
+import { EngineBus, createEngineEvent } from "../../../Engine/engine";
+import { Prep_Scenes, Scene } from "../../../Engine/engine/scene";
 import Bg from "../../../../assets/locations/school/first_hall/background.webp";
 import WalkToLeft from "./fineartswing";
 import Isabelle from "./isabelle";

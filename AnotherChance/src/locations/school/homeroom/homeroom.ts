@@ -1,5 +1,5 @@
-import { EngineBus, createEngineEvent } from "../../../../../src/engine";
-import { Prep_Scenes, Scene } from "../../../../../src/engine/scene/models";
+import { EngineBus, createEngineEvent } from "../../../Engine/engine";
+import { Prep_Scenes, Scene } from "../../../Engine/engine/scene";
 import Sky from "../../../../assets/locations/school/homeroom/sky.webp";
 import HomeroomDoor from "./door";
 import Mrsl from "./mrsl";

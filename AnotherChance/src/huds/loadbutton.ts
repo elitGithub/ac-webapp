@@ -1,5 +1,5 @@
-import { getEngine } from "../../../src/engine";
-import { HudElement } from "../../../src/engine/gui";
+import { getEngine } from "../Engine/engine";
+import { HudElement } from "../Engine/engine/gui";
 import { Text } from "pixi.js";
 import bg from "./../assets/ui/notification/message_bg.webp"
 
@@ -22,6 +22,7 @@ export class LoadButton extends HudElement {
 
     onPointerClick(event: any): void {
         super.onPointerClick(event);
+        // @ts-ignore
         getEngine().load(globalThis.twssave);
     }
 }

@@ -1,14 +1,14 @@
 import { Graphics, Sprite, Text } from "pixi.js";
-import { EngineBus, IEngineEvent, createEngineEvent, getEngine } from "../../../src/engine";
-import { TOGGLE_HUD } from "../../../src/engine/gui";
-import { IRenderableResource } from "../../../src/framework/graphics";
 import ModalTitleBg from "../assets/ui/notification/modal_frame_title.webp";
 import QuestModalBg from "../assets/ui/notification/modal_frame_quest.webp";
-import { QUEST_COMPLETED, QUEST_FAILED, QUEST_STARTED, QUEST_STEP_STARTED, QuestListener, QuestUpdateEvent, subscribeToQuestEvents } from "../../../src/gameplay/quest";
-import { NotificationHud } from "../../../src/gameplay/misc/notifhud";
+import { NotificationHud } from "../Engine/gameplay/misc/notifhud.ts";
+import { QUEST_COMPLETED,
+    QUEST_FAILED, QUEST_STARTED, QUEST_STEP_STARTED, QuestListener, QuestUpdateEvent, subscribeToQuestEvents } from "../Engine/gameplay/quest";
+import { getEngine, IEngineEvent } from "../Engine/engine";
+import { IRenderableResource } from "../Engine/framework/graphics";
 
 export class QuestNotifHud extends NotificationHud implements QuestListener {
-    
+
     statusBackground?: Sprite;
     descriptionBackground?: Sprite;
     statusText: Text;
@@ -16,11 +16,11 @@ export class QuestNotifHud extends NotificationHud implements QuestListener {
     descriptionText: Text;
     dim: Graphics;
 
-    constructor(name: string) {
+    constructor(name: string = '') {
         super(name);
 
-        this.setStatusBackground({source: ModalTitleBg});
-        this.setDescriptionBackground({source: QuestModalBg});
+        this.setStatusBackground({ source: ModalTitleBg });
+        this.setDescriptionBackground({ source: QuestModalBg });
 
         this.statusText = new Text();
         this.titleText = new Text();
@@ -35,7 +35,7 @@ export class QuestNotifHud extends NotificationHud implements QuestListener {
         this.addChild(this.dim);
         subscribeToQuestEvents(this);
     }
-    
+
 
     setStatusBackground(background: IRenderableResource) {
         getEngine().createSimpleSprite(background)
@@ -45,7 +45,7 @@ export class QuestNotifHud extends NotificationHud implements QuestListener {
                     this.statusBackground.anchor.set(0.5);
                     this.addChild(this.statusBackground);
                     this.statusBackground.addChild(this.statusText);
-                    this.statusBackground.position.set(getEngine().getRender().getDimensions().x/2, 200);
+                    this.statusBackground.position.set(getEngine().getRender().getDimensions().x / 2, 200);
                     this.Status = "";
                 }
             });
@@ -60,7 +60,7 @@ export class QuestNotifHud extends NotificationHud implements QuestListener {
                     this.addChild(this.descriptionBackground);
                     this.descriptionBackground.addChild(this.titleText);
                     this.descriptionBackground.addChild(this.descriptionText);
-                    this.descriptionBackground.position.set(getEngine().getRender().getDimensions().x/2, 450);
+                    this.descriptionBackground.position.set(getEngine().getRender().getDimensions().x / 2, 450);
                     this.Title = "";
                     this.Description = "";
 
@@ -69,7 +69,8 @@ export class QuestNotifHud extends NotificationHud implements QuestListener {
     }
 
     set Status(text: string) {
-        }
+        console.log(text);
+    }
 
     set Title(text: string) {
         this.titleText.text = text;
@@ -86,45 +87,42 @@ export class QuestNotifHud extends NotificationHud implements QuestListener {
             this.descriptionText.position.set(0, -50);
         }
     }
-    
+
     onQuestUpdate(event: IEngineEvent): void {
         const questEvent = event as QuestUpdateEvent;
         if (event.event === QUEST_STARTED) {
             this.queueNotification({
-                Status: "Quest Started!", 
-                Title: questEvent.quest.title, 
+                Status: "Quest Started!",
+                Title: questEvent.quest.title,
                 Description: questEvent.quest.description
             });
-        }
-        else if (event.event === QUEST_STEP_STARTED) {
+        } else if (event.event === QUEST_STEP_STARTED) {
             if (questEvent.quest.getCurrentQuestStep()?.silence) {
                 return;
             }
             this.queueNotification({
-                Status: "Quest Phase Started!", 
-                Title: questEvent.quest.title, 
+                Status: "Quest Phase Started!",
+                Title: questEvent.quest.title,
                 Description: questEvent.quest.getCurrentQuestStep()?.description ?? ""
             });
-        }
-        else if (event.event === QUEST_COMPLETED) {
+        } else if (event.event === QUEST_COMPLETED) {
             if (questEvent.quest.getCurrentQuestStep()?.silence) {
                 return;
             }
 
             this.queueNotification({
-                Status: "Quest Completed!", 
-                Title: questEvent.quest.title, 
+                Status: "Quest Completed!",
+                Title: questEvent.quest.title,
                 Description: questEvent.quest.getCurrentQuestStep()?.description ?? ""
             });
-        }
-        else if (event.event === QUEST_FAILED) {
+        } else if (event.event === QUEST_FAILED) {
             if (questEvent.quest.getCurrentQuestStep()?.silence) {
                 return;
             }
-            
+
             this.queueNotification({
-                Status: "Quest Failed!", 
-                Title: questEvent.quest.title, 
+                Status: "Quest Failed!",
+                Title: questEvent.quest.title,
                 Description: questEvent.quest.getCurrentQuestStep()?.description ?? ""
             });
         }

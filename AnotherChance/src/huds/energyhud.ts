@@ -1,6 +1,6 @@
 import { Sprite, Graphics, Container, Text } from "pixi.js";
-import { HudElement } from "../../../src/engine/gui";
-import { getEngine } from "../../../src/engine";
+import { HudElement } from "../Engine/engine/gui";
+import { getEngine } from "../Engine/engine";
 import EnergyBarBorder from "./../assets/ui/hud/bar_border_energy.webp";
 import EnergyBarBack from "./../assets/ui/hud/bar_back_energy.webp";
 import EnergyBarFront from "./../assets/ui/hud/bar_front_energy.webp";

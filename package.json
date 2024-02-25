@@ -1,38 +1,38 @@
 {
-  "name": "@TimeWizardStudios/ac-webengine",
-  "version": "0.0.3",
-  "description": "In-House TWS Story Telling Engine",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc --build",
-    "clean": "tsc --build --clean"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/TimeWizardStudios/ac-webengine.git"
-  },
-  "keywords": [
-    "LightNovel",
-    "Incremental",
-    "Story",
-    "Engine"
-  ],
-  "author": "SZOKOZ/EXEKL",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://gitlab.com/TimeWizardStudios/ac-webengine/issues"
-  },
-  "homepage": "https://gitlab.com/TimeWizardStudios/ac-webengine#readme",
-  "dependencies": {
-    "howler": "^2.2.4",
-    "mitt": "^3.0.1",
-    "pako": "^2.1.0",
-    "pixi.js": "^7.3.0",
-    "typescript": "^5.2.2"
-  },
-  "devDependencies": {
-    "@types/howler": "^2.2.9",
-    "@types/pako": "^2.0.1"
-  }
+    "name": "test",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview"
+    },
+    "devDependencies": {
+        "@types/eslint": "^8",
+        "@types/fontfaceobserver": "^2",
+        "@types/howler": "^2",
+        "@types/luxon": "^3",
+        "@types/node": "^20.11.17",
+        "eslint": "^8.56.0",
+        "eslint-config-prettier": "^9.1.0",
+        "prettier": "^3.2.5",
+        "typescript": "^5.2.2",
+        "vite": "^5.0.8"
+    },
+    "dependencies": {
+        "@pixi/core": "^7.4.0",
+        "@pixi/display": "^7.4.0",
+        "@pixi/math": "^7.4.0",
+        "@pixi/ticker": "^7.4.0",
+        "@pixi/utils": "^7.4.0",
+        "fontfaceobserver": "^2.3.0",
+        "howler": "^2.2.4",
+        "luxon": "^3.4.4",
+        "mitt": "^3.0.1",
+        "pako": "^2.1.0",
+        "pixi.js": "^7.4.0",
+        "rxjs": "^7.8.1",
+        "tweedle.js": "^2.1.0"
+    }
 }

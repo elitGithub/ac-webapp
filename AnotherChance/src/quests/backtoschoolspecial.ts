@@ -1,8 +1,7 @@
-import { EngineBus, createEngineEvent, getEngine } from "../../../src/engine";
-import { BaseCharacter } from "../../../src/engine/coreentities/basecharacter";
-import { Dialogue, START_DIALOGUE } from "../../../src/gameplay/dialogue";
-import { QuestStep } from "../../../src/gameplay/quest";
-import { DevModInterface } from "../../../src/modsystem";
+import { EngineBus, createEngineEvent, getEngine } from "../Engine/engine";
+import { Dialogue, START_DIALOGUE } from "../Engine/gameplay/dialogue";
+import { QuestStep } from "../Engine/gameplay/quest";
+import { DevModInterface } from "../Engine/modsystem";
 import { mc } from "../characters";
 
 export default function Quest() {

@@ -2,10 +2,8 @@ import {
     EngineBus,
     createEngineEvent,
     getEngine,
-} from "../../../../../src/engine";
-import { Transition_Scene } from "../../../../../src/engine/scene/models";
-import SceneTransitionFlags from "../../../../../src/engine/scene/models/scenetransitions";
-import { START_DIALOGUE } from "../../../../../src/gameplay/dialogue";
+} from "../../../Engine/engine";
+import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
 import BathroomToilet from "../../../../assets/locations/home/bathroom/toilet.webp";
 
 const bathroomToilet = await getEngine().createSimpleInteractable(

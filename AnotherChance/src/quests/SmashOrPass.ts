@@ -1,9 +1,8 @@
-import { EngineBus, createEngineEvent, getEngine } from "../../../src/engine";
-import { BaseCharacter } from "../../../src/engine/coreentities/basecharacter";
-import { Dialogue, DialogueChoice, START_DIALOGUE } from "../../../src/gameplay/dialogue";
-import { ADVANCE_QUEST, QuestStep } from "../../../src/gameplay/quest";
-import { DevModInterface } from "../../../src/modsystem";
 import { mc } from "../characters";
+import { DevModInterface } from "../Engine/modsystem";
+import { QuestStep } from "../Engine/gameplay/quest";
+import { EngineBus, getEngine } from "../Engine/engine";
+import { Dialogue, DialogueChoice } from "../Engine/gameplay/dialogue";
 
 export default function SmashorPassQuest() {
     const quest = DevModInterface.GAME.QUEST.createQuest(

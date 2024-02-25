@@ -1,12 +1,9 @@
 import Asset from "../../../assets/locations/school/ground_floor/isabelle.webp";
 
 import {
-    EngineBus,
-    createEngineEvent,
     getEngine,
-} from "../../../../../src/engine";
-import { Transition_Scene } from "../../../../../src/engine/scene/models";
-import { DevModInterface } from "../../../../../src/modsystem";
+} from "../../../Engine/engine";
+import { DevModInterface } from "../../../Engine/modsystem";
 
 const Isabelle = await getEngine().createSimpleInteractable(
     "school_isabelle",

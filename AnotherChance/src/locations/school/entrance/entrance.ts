@@ -1,10 +1,8 @@
-import { EngineBus, createEngineEvent } from "../../../../../src/engine";
-import { Prep_Scenes, Scene } from "../../../../../src/engine/scene/models";
+import { EngineBus, createEngineEvent } from "../../../Engine/engine";
+import { Prep_Scenes, Scene } from "../../../Engine/engine/scene";
 import School from "../../../../assets/locations/school/entrance/school.webp";
-import SchoolSky from "./sky";
 import SchoolEntranceDoor from "./door";
 import SchoolBus from "./bus";
-import SkyNight from "./nightsky";
 
 const SchoolEntranceScene = new Scene("Entrance", {
     source: School,

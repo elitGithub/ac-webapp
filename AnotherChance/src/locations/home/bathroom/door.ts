@@ -2,11 +2,11 @@ import {
     EngineBus,
     createEngineEvent,
     getEngine,
-} from "../../../../../src/engine";
-import { Transition_Scene } from "../../../../../src/engine/scene/models";
-import SceneTransitionFlags from "../../../../../src/engine/scene/models/scenetransitions";
-import { START_DIALOGUE } from "../../../../../src/gameplay/dialogue";
-import { QuestState } from "../../../../../src/gameplay/quest";
+} from "../../../Engine/engine";
+import { Transition_Scene } from "../../../Engine/engine/scene";
+import SceneTransitionFlags from "../../../Engine/engine/scene/models/scenetransitions";
+import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
+import { QuestState } from "../../../Engine/gameplay/quest";
 import BathRoomDoor from "../../../../assets/locations/home/bathroom/door.webp";
 
 const bathroomToHallDoor = await getEngine().createSimpleInteractable(
@@ -16,7 +16,7 @@ const bathroomToHallDoor = await getEngine().createSimpleInteractable(
         handler: () => {
             if (
                 getEngine().getGame().questSys.findByTitle("Dress to the Nine")
-                    .state === QuestState.IN_PROGRESS
+                    ?.state === QuestState.IN_PROGRESS
             ) {
                 EngineBus.emit(
                     Transition_Scene,

@@ -1,11 +1,9 @@
 import {
     EngineBus,
     createEngineEvent,
-    getEngine,
-} from "../../../../../src/engine";
-import { START_DIALOGUE } from "../../../../../src/gameplay/dialogue";
-import { WorldNPC } from "../../../../../src/gameplay/npc";
-import { DevModInterface } from "../../../../../src/modsystem";
+} from "../../../Engine/engine";
+import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
+import { WorldNPC } from "../../../Engine/gameplay/npc";
 import Jo from "../../../../assets/locations/home/kitchen/jo_newspaper.webp";
 
 const joreading = new WorldNPC("Jo", {

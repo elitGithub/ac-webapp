@@ -1,14 +1,14 @@
 import { Sprite, Text} from "pixi.js";
-import { getEngine } from "../../../src/engine";
-import { Popup } from "../../../src/engine/gui";
+import { getEngine } from "../Engine/engine";
+import { Popup } from "../Engine/engine/gui";
 import LabelTitleBg from "./../assets/ui/frame_objname_gold.webp";
 import LabelBodyBg from "./../assets/ui/frame_popup.webp";
 
 export class InteractableDescription extends Popup {
     displayName: string;
     description: string;
-    titleBg: Sprite;
-    bodyBg: Sprite;
+    titleBg: Sprite | undefined;
+    bodyBg: Sprite | undefined;
     titleText: Text;
     bodyText: Text;
 
@@ -53,7 +53,7 @@ export class InteractableDescription extends Popup {
         if (this.description) {
             this.bodyText.visible = true;
         }
-        
+
         if (this.titleBg) {
             this.titleBg.visible = true;
         }

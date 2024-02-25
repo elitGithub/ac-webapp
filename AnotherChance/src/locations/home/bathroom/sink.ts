@@ -2,8 +2,8 @@ import {
     EngineBus,
     createEngineEvent,
     getEngine,
-} from "../../../../../src/engine";
-import { START_DIALOGUE } from "../../../../../src/gameplay/dialogue";
+} from "../../../Engine/engine";
+import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
 import Sink from "../../../../assets/locations/home/bathroom/sink.webp";
 
 const sink = await getEngine().createSimpleInteractable(

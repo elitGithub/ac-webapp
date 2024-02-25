@@ -1,11 +1,9 @@
 import {
-    EngineBus,
-    createEngineEvent,
     getEngine,
-} from "../../../../../src/engine";
-import { Dialogue, DialogueSystem, START_DIALOGUE } from "../../../../../src/gameplay/dialogue";
-import { WorldNPC } from "../../../../../src/gameplay/npc";
-import { DevModInterface } from "../../../../../src/modsystem";
+} from "../../../Engine/engine";
+import { Dialogue, DialogueSystem } from "../../../Engine/gameplay/dialogue";
+import { WorldNPC } from "../../../Engine/gameplay/npc";
+import { DevModInterface } from "../../../Engine/modsystem";
 import MrslAsset from "../../../../assets/locations/school/homeroom/mrsl.webp";
 import { mc } from "../../../characters";
 

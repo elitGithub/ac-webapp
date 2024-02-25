@@ -1,14 +1,14 @@
 import Door from "../../../../assets/locations/school/homeroom/door.webp";
-import SceneTransitionFlags from "../../../../../src/engine/scene/models/scenetransitions";
+import SceneTransitionFlags from "../../../Engine/engine/scene/models/scenetransitions";
 import {
     EngineBus,
     createEngineEvent,
     getEngine,
-} from "../../../../../src/engine";
-import { Transition_Scene } from "../../../../../src/engine/scene/models";
-import { Dialogue, DialogueSystem } from "../../../../../src/gameplay/dialogue";
+} from "../../../Engine/engine";
+import { Transition_Scene } from "../../../Engine/engine/scene";
+import { Dialogue, DialogueSystem } from "../../../Engine/gameplay/dialogue";
 import { mc } from "../../../characters";
-import { DevModInterface } from "../../../../../src/modsystem";
+import { DevModInterface } from "../../../Engine/modsystem";
 
 const HomeroomDoor = await getEngine().createSimpleInteractable(
     "homeroom_exit",

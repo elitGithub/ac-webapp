@@ -1,11 +1,11 @@
 import HomeHallStair from "../../../../assets/locations/home/kitchen/stairs.webp";
-import SceneTransitionFlags from "../../../../../src/engine/scene/models/scenetransitions";
+import SceneTransitionFlags from "../../../Engine/engine/scene/models/scenetransitions";
 import {
     EngineBus,
     createEngineEvent,
     getEngine,
-} from "../../../../../src/engine";
-import { Transition_Scene } from "../../../../../src/engine/scene/models";
+} from "../../../Engine/engine";
+import { Transition_Scene } from "../../../Engine/engine/scene";
 
 const StairsToHall = await getEngine().createSimpleInteractable(
     "kitchen_staurs",

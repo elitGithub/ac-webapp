@@ -1,11 +1,10 @@
 import Door from "../../../../assets/locations/school/entrance/door.webp";
-import SceneTransitionFlags from "../../../../../src/engine/scene/models/scenetransitions";
 import {
     EngineBus,
     createEngineEvent,
     getEngine,
-} from "../../../../../src/engine";
-import { START_DIALOGUE } from "../../../../../src/gameplay/dialogue";
+} from "../../../Engine/engine";
+import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
 
 const SchoolEntranceDoor = await getEngine().createSimpleInteractable(
     "entrance_door",

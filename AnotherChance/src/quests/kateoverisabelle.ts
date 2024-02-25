@@ -1,11 +1,9 @@
-import { getEngine } from "../../../src/engine";
-import { Dialogue, DialogueSystem } from "../../../src/gameplay/dialogue";
-import { QuestState, QuestStep } from "../../../src/gameplay/quest";
-import {DevModInterface} from "../../../src/modsystem";
+import { QuestStep } from "../Engine/gameplay/quest";
+import {DevModInterface} from "../Engine/modsystem";
 
 export default function Quest() {
     const quest = DevModInterface.GAME.QUEST.createQuest("Kate Over Isabelle", "It's always about playing it smart. Picking the winning team. Kissing up to [kate].");
-  
+
     const step1 = new QuestStep("winning_team", "It's always about playing it smart. Picking the winning team. Kissing up to [kate].", true);
     const step2 = new QuestStep("talking_to_kate", "", true);
     const step3 = new QuestStep("spy_focus","A spy. A covert operative. An undercover agent. Someone who sort of... learns [isabelle]'s schedule. Yeah, very badass.", true);

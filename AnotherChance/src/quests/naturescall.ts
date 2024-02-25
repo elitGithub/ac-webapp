@@ -1,8 +1,7 @@
-import { getEngine } from "../../../src/engine";
-import { BaseCharacter } from "../../../src/engine/coreentities/basecharacter";
-import { Dialogue, DialogueChoice } from "../../../src/gameplay/dialogue";
-import { QuestState, QuestStep } from "../../../src/gameplay/quest";
-import { DevModInterface } from "../../../src/modsystem";
+import { getEngine } from "../Engine/engine";
+import { Dialogue, DialogueChoice } from "../Engine/gameplay/dialogue";
+import { QuestStep } from "../Engine/gameplay/quest";
+import { DevModInterface } from "../Engine/modsystem";
 import { mc } from "../characters";
 
 const naturescall = async () => {

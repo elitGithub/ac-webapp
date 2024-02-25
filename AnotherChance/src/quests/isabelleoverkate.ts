@@ -1,11 +1,9 @@
-import { getEngine } from "../../../src/engine";
-import { Dialogue, DialogueSystem } from "../../../src/gameplay/dialogue";
-import { QuestState, QuestStep } from "../../../src/gameplay/quest";
-import {DevModInterface} from "../../../src/modsystem";
+import { QuestStep } from "../Engine/gameplay/quest";
+import {DevModInterface} from "../Engine/modsystem";
 
 export default function Quest() {
     const quest = DevModInterface.GAME.QUEST.createQuest("Isabelle Over Kate", "[kate]'s reign of terror must be stopped. The new girl said so. I don't even work here.");
-  
+
     const step1 = new QuestStep("choosing_isabelle", "[kate]'s reign of terror must be stopped. The new girl said so. I don't even work here.", true);
     const step2 = new QuestStep("meeting", "", true);
     const step3 = new QuestStep("search_and_schedule","A spy. A covert operative. An undercover agent. Someone who sort of... learns [isabelle]'s schedule. Yeah, very badass.", true);

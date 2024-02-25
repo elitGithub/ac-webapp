@@ -1,14 +1,9 @@
 import Asset from "../../../../assets/locations/school/ground_floor/guard_booth.webp";
-import SceneTransitionFlags from "../../../../../src/engine/scene/models/scenetransitions";
 import {
-    EngineBus,
-    createEngineEvent,
     getEngine,
-} from "../../../../../src/engine";
-import { Transition_Scene } from "../../../../../src/engine/scene/models";
-import { Dialogue, DialogueSystem, START_DIALOGUE } from "../../../../../src/gameplay/dialogue";
-import { DevModInterface } from "../../../../../src/modsystem";
-import { QuestState } from "../../../../../src/gameplay/quest";
+} from "../../../Engine/engine";
+import { Dialogue, DialogueSystem } from "../../../Engine/gameplay/dialogue";
+import { DevModInterface } from "../../../Engine/modsystem";
 import { mc } from "../../../characters";
 
 const GuardBoot = await getEngine().createSimpleInteractable(

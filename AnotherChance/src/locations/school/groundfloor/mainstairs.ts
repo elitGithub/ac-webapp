@@ -1,14 +1,9 @@
-import Asset from "../../../../assets/locations/school/ground_floor/main_stairs.webp";
-import SceneTransitionFlags from "../../../../../src/engine/scene/models/scenetransitions";
+import Asset from "../../../assets/locations/school/ground_floor/main_stairs.webp";
 import {
-    EngineBus,
-    createEngineEvent,
     getEngine,
-} from "../../../../../src/engine";
-import { Transition_Scene } from "../../../../../src/engine/scene/models";
-import { START_DIALOGUE } from "../../../../../src/gameplay/dialogue";
-import { DevModInterface } from "../../../../../src/modsystem";
-import { QuestState } from "../../../../../src/gameplay/quest";
+} from "../../../Engine/engine";
+// import { DevModInterface } from "../../../Engine/modsystem";
+// import { QuestState } from "../../../Engine/gameplay/quest";
 
 const MainStairs = await getEngine().createSimpleInteractable(
     "main_stairs",
@@ -16,11 +11,11 @@ const MainStairs = await getEngine().createSimpleInteractable(
         action: "interact",
         handler: () => {
             // lindseyfallingdialogue
-            if (DevModInterface.GAME.QUEST.getQuest("Day_1,_Take_2")?.getCurrentQuestStep()?.questStepId === "lindsey_fall" &&
-                DevModInterface.GAME.QUEST.getQuest("Tour de School")?.getCurrentQuestStep()?.questStepId === "upstairs" &&
-                DevModInterface.GAME.QUEST.getQuest("The Key")?.state === QuestState.COMPLETED) {
-                DevModInterface.GAME.DIALOGUE.startDialogue("lindseyfallingdialogue")
-            }
+            // if (DevModInterface.GAME.QUEST.getQuest("Day_1,_Take_2")?.getCurrentQuestStep()?.questStepId === "lindsey_fall" &&
+            //     DevModInterface.GAME.QUEST.getQuest("Tour de School")?.getCurrentQuestStep()?.questStepId === "upstairs" &&
+            //     DevModInterface.GAME.QUEST.getQuest("The Key")?.state === QuestState.COMPLETED) {
+            //     DevModInterface.GAME.DIALOGUE.startDialogue("lindseyfallingdialogue")
+            // }
 
 
             // if (DevModInterface.GAME.QUEST.getQuest("The Key")?.state === QuestState.COMPLETED) {

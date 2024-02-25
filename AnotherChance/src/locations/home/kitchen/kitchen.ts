@@ -1,5 +1,5 @@
-import { EngineBus, createEngineEvent } from "../../../../../src/engine";
-import { Prep_Scenes, Scene } from "../../../../../src/engine/scene/models";
+import { EngineBus, createEngineEvent } from "../../../Engine/engine";
+import { Prep_Scenes, Scene } from "../../../Engine/engine/scene";
 import HomeKitchen from "../../../../assets/locations/home/kitchen/kitchen.webp";
 import kitchenJo from "./jo";
 import StairsToHall from "./stairs";

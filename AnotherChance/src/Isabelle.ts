@@ -1,7 +1,7 @@
-import { getEngine } from "../../src/engine";
-import { Dialogue } from "../../src/gameplay/dialogue";
-import { NPC } from "../../src/gameplay/npc";
-import { DevModInterface } from "../../src/modsystem";
+import { getEngine } from "./Engine/engine";
+import { Dialogue } from "./Engine/gameplay/dialogue";
+import { NPC } from "./Engine/gameplay/npc";
+import { DevModInterface } from "./Engine/modsystem";
 
 export default function SmashorPassQuest() {
 
@@ -23,12 +23,12 @@ const IsabelleBedroomBeforeQuest = new Dialogue(
 
 
 IsabelleBedroomBeforeQuest.addDialogueLine(
-    "%POSE% confident", 
+    "%POSE% confident",
     "Isabelle Bedroom Before Quest line 1",
-    "%EXPRESSION% face_skeptical", 
+    "%EXPRESSION% face_skeptical",
     "Isabelle Bedroom Before Quest line 2",
     "%ANIMATE% slide_1250 ENTITY:Isabelle 500" ,
-    "%EXPRESSION% face_skeptical_left", 
+    "%EXPRESSION% face_skeptical_left",
     "Isabelle Bedroom Before Quest line 3"
 );
 

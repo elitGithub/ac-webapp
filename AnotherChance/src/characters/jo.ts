@@ -1,9 +1,7 @@
-import { getEngine } from "../../../src/engine";
-import { Dialogue, DialogueSystem } from "../../../src/gameplay/dialogue";
-import { NPC } from "../../../src/gameplay/npc";
-import JO_AVATAR from "../assets/characters/jo/contact_icon.webp";
-import { DevModInterface } from "../../../src/modsystem";
-import { IconShape } from "../../../src/engine/gui";
+import { getEngine } from "../Engine/engine";
+import { Dialogue, DialogueSystem } from "../Engine/gameplay/dialogue";
+import { NPC } from "../Engine/gameplay/npc";
+import { DevModInterface } from "../Engine/modsystem";
 
 export default function Character() {
     const Jo = new NPC("Jo");

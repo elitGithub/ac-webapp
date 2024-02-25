@@ -1,15 +1,14 @@
-import { EngineBus, createEngineEvent, getEngine } from "../../../src/engine";
-import { BaseCharacter } from "../../../src/engine/coreentities/basecharacter";
-import { Transition_Scene } from "../../../src/engine/scene";
-import SceneTransitionFlags from "../../../src/engine/scene/models/scenetransitions";
+import { EngineBus, createEngineEvent, getEngine } from "../Engine/engine";
+import { Transition_Scene } from "../Engine/engine/scene";
+import SceneTransitionFlags from "../Engine/engine/scene/models/scenetransitions";
 import {
     Dialogue,
     DialogueChoice,
     DialogueSystem,
     START_DIALOGUE,
-} from "../../../src/gameplay/dialogue";
-import { ADVANCE_QUEST, QuestStep } from "../../../src/gameplay/quest";
-import { DevModInterface } from "../../../src/modsystem";
+} from "../Engine/gameplay/dialogue";
+import { ADVANCE_QUEST, QuestStep } from "../Engine/gameplay/quest";
+import { DevModInterface } from "../Engine/modsystem";
 import { mc } from "../characters";
 
 const day1_take2 = () => {
@@ -58,7 +57,7 @@ const day1_take2 = () => {
 
         if (loc && loc === "Homeroom") {
             return true;
-      
+
         }
         // console.log(DevModInterface.GAME.QUEST.FOCUSED?.questSteps);
 
@@ -72,7 +71,7 @@ const day1_take2 = () => {
         //     // DevModInterface.GAME.QUEST.startQuest("Tour de School");
         //     return true;
         // }
-    
+
         return false;
     }, "isabelle_volunteer");
 
@@ -388,7 +387,7 @@ const day1_take2 = () => {
     getEngine().getGame().dialogueSys.addDialogue(pass);
     getEngine().getGame().dialogueSys.addDialogue(lindseyfallingdialogue);
     getEngine().getGame().dialogueSys.addDialogue(helpherupdialogue);
-    
+
 };
 
 export default day1_take2;

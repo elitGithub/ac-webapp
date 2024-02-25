@@ -1,13 +1,10 @@
 import Asset from "../../../assets/locations/school/first_hall/kate.webp";
 
 import {
-    EngineBus,
-    createEngineEvent,
     getEngine,
-} from "../../../../../src/engine";
-import { Transition_Scene } from "../../../../../src/engine/scene/models";
-import { DevModInterface } from "../../../../../src/modsystem";
-import { Dialogue, DialogueSystem } from "../../../../../src/gameplay/dialogue";
+} from "../../../Engine/engine";
+import { DevModInterface } from "../../../Engine/modsystem";
+import { Dialogue, DialogueSystem } from "../../../Engine/gameplay/dialogue";
 import { mc } from "../../../characters";
 
 const Kate = await getEngine().createSimpleInteractable(
@@ -97,7 +94,7 @@ confrontsidekate.addDialogueEventAction(() => {
     DevModInterface.GAME.QUEST.getQuest("Tour de School")?.advanceQuestStep(true, "english_class");
 })
 
-// cibst 
+// cibst
 
 
 getEngine().getGame().getGameSystem<DialogueSystem>("SYS_DIALOGUE")!.addDialogue(confrontsidekate);

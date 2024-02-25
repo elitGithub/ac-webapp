@@ -1,11 +1,8 @@
 import Asset from "../../../assets/locations/school/ground_floor/lindsey.webp";
 
 import {
-    EngineBus,
-    createEngineEvent,
     getEngine,
-} from "../../../../../src/engine";
-import { Transition_Scene } from "../../../../../src/engine/scene/models";
+} from "../../../Engine/engine";
 
 const Lindsey = await getEngine().createSimpleInteractable(
     "school_lindsey",

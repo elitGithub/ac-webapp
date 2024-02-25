@@ -1,7 +1,6 @@
-import { EngineBus, createEngineEvent, getEngine } from "../../../../../src/engine";
-import { START_DIALOGUE } from "../../../../../src/gameplay/dialogue";
-import { WorldNPC } from "../../../../../src/gameplay/npc";
-import { DevModInterface } from "../../../../../src/modsystem";
+import { EngineBus, createEngineEvent } from "../../../Engine/engine";
+import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
+import { WorldNPC } from "../../../Engine/gameplay/npc";
 import JoCoffee from "../../../../assets/locations/home/kitchen/jo_coffee.webp";
 
 const kitchenJo = new WorldNPC("Jo", {

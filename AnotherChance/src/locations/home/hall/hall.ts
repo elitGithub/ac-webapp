@@ -2,13 +2,13 @@ import {
     EngineBus,
     createEngineEvent,
     getEngine,
-} from "../../../../../src/engine";
+} from "../../../Engine/engine";
 import {
     Prep_Scenes,
     Scene,
     Transition_Scene,
-} from "../../../../../src/engine/scene/models";
-import SceneTransitionFlags from "../../../../../src/engine/scene/models/scenetransitions";
+} from "../../../Engine/engine/scene";
+import SceneTransitionFlags from "../../../Engine/engine/scene/models/scenetransitions";
 import HomeHall from "../../../../assets/locations/home/hall/homehall.webp";
 import HomeHallDoor from "../../../../assets/locations/home/hall/door_right.webp";
 import HomeHallBathroomDoor from "../../../../assets/locations/home/hall/door_white.webp";

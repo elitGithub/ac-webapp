@@ -1,16 +1,5 @@
-import {
-	QuestSystem,
-	Quest,
-	QuestStep,
-	QuestState,
-	QuestConditional,
-	QuestObjective,
-} from "../../../src/gameplay/quest";
-
-import { EngineBus, getEngine } from "../../../src/engine";
-import { BaseCharacter } from "../../../src/engine/coreentities/basecharacter";
-import { Dialogue, DialogueChoice } from "../../../src/gameplay/dialogue";
-import { queueNamedAnimate } from "../../../src/engine/rendereffects";
+import { getEngine } from "../Engine/engine";
+import { Dialogue } from "../Engine/gameplay/dialogue";
 
 export function BedroomBedDial() {
 

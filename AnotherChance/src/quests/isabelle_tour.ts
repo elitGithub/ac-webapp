@@ -1,7 +1,7 @@
-import { getEngine } from "../../../src/engine";
-import { Dialogue, DialogueSystem } from "../../../src/gameplay/dialogue";
-import { QuestState, QuestStep } from "../../../src/gameplay/quest";
-import {DevModInterface} from "../../../src/modsystem";
+import { getEngine } from "../Engine/engine";
+import { Dialogue, DialogueSystem } from "../Engine/gameplay/dialogue";
+import { QuestState, QuestStep } from "../Engine/gameplay/quest";
+import {DevModInterface} from "../Engine/modsystem";
 import { mc } from "../characters";
 
 export default function Quest() {
@@ -49,13 +49,13 @@ export default function Quest() {
         return false;
     }, "confrontation_side_kate");
 
-    
+
     step5.createOutcome(() => {
         return false;
     }, "english_class");
 
     step6.createOutcome(() => {
-      
+
         // const mc = DevModInterface.GAME.CHARACTER.mc;
         // if (mc && mc['english_class_intro']) {
         //     DevModInterface.GAME.DIALOGUE.startDialogue("english_arrive");
@@ -79,7 +79,7 @@ export default function Quest() {
         return false;
     }, "crash");
 
-    
+
     step9.createOutcome(() => {
 
         return false;
@@ -120,7 +120,7 @@ export default function Quest() {
         "Sure, just got to pick up my locker key. Meet you upstairs, okay?",
         "All right! See you there."
     );
-    
+
     const headupstairs = new Dialogue(mc, "headupstairs");
     headupstairs.addDialogueLine(
         "Sure, let's head upstairs, then.",
