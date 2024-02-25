@@ -1,0 +1,16 @@
+{
+  "location": "intro",
+  "script": [
+    { "action": "phone_on" },
+    { "action": "ask", "text": "What is your name?", "assign": "mc.name" },
+    "Hello?",
+    "That's really funny...",
+    "Most people ghost me after I send them a picture. Ghosted after a name... that's a first.",
+    "Oh well, what's the point of staying awake, anyway?",
+    { "action": "phone_off" },
+    { "action": "music_off", "trans": "fadeout", "amount": 1.0 },
+    { "action": "scene", "name": "black" },
+    { "action": "pause", "amount": 3.0 },
+    { "action": "next", "name": "act_one" }
+  ]
+}

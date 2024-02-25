@@ -1,0 +1,14 @@
+{
+  "name": "Jo",
+  "schedule": [
+    {"h": [7,8], "location": "home_kitchen", "activity": "reading"},
+    {"h": [9,17], "location": "school_cafeteria", "activity": "coffee"},
+    {"h": [18,19], "location": "home_kitchen", "activity": "standing"}
+  ],
+  "poses": [
+    [
+      { "res": "b1glasses", "coord": [224,277] },
+      { "res": "b1white_panties", "coord": [224,277] }  
+    ]
+  ]
+}

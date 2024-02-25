@@ -1,0 +1,16 @@
+{
+  "script": [
+    { "action": "music", "name": "main_menu", "loopTimestamp": 8.0 },
+    { 
+      "action": "main_menu",
+      "buttons": [
+        { "label": "New Game", "name": "new" },
+        { "label": "Chapter Select", "name": "quick_start" },
+        { "label": "Tips & Tricks", "name": "how_to_play" },
+        { "label": "Load Game", "name": "load" },
+        { "label": "Settings", "name": "preferences" },
+        { "label": "Credits", "name": "credits" }
+      ]
+    }
+  ]
+}

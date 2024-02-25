@@ -1,0 +1,412 @@
+{
+  "name": "home_hall",
+  "title": "Hallway",
+  "parent": null,
+  "items": [
+    {
+      "name": "homehall",
+      "coord": [
+        0,
+        -2
+      ]
+    },
+    {
+      "name": "stairs",
+      "coord": [
+        82,
+        706
+      ]
+    },
+    {
+      "name": "hole",
+      "coord": [
+        620,
+        85
+      ]
+    },
+    {
+      "name": "door_right",
+      "coord": [
+        1572,
+        63
+      ]
+    },
+    {
+      "name": "door_white",
+      "coord": [
+        1359,
+        235
+      ]
+    },
+    {
+      "$e": "quest.flora_squid>=\"trail\" && quest.flora_squid.in_progress",
+      "values": [
+        {
+          "name": "trail_down",
+          "coord": [
+            379,
+            552
+          ]
+        },
+        {
+          "name": "trail_toilet",
+          "coord": [
+            1002,
+            552
+          ]
+        }
+      ]
+    },
+    {
+      "name": "door_center",
+      "coord": [
+        898,
+        287
+      ]
+    },
+    {
+      "name": "door_left",
+      "coord": [
+        440,
+        251
+      ]
+    },
+    {
+      "name": "back_poster",
+      "coord": [
+        937,
+        345
+      ]
+    },
+    {
+      "name": "stop",
+      "coord": [
+        1650,
+        320
+      ]
+    },
+    {
+      "name": "cleaning_supply",
+      "coord": [
+        1265,
+        352
+      ]
+    },
+    {
+      "name": "cabinet",
+      "coord": [
+        1089,
+        298
+      ]
+    },
+    {
+      "name": "shelves",
+      "coord": [
+        1439,
+        274
+      ]
+    },
+    {
+      "name": "candle",
+      "coord": [
+        1519,
+        348
+      ]
+    },
+    {
+      "name": "freshener",
+      "coord": [
+        1475,
+        340
+      ]
+    },
+    {
+      "name": "fire",
+      "coord": [
+        1517,
+        260
+      ]
+    },
+    {
+      "name": "salt_lamp",
+      "coord": [
+        1457,
+        224
+      ]
+    },
+    {
+      "name": "trophies",
+      "coord": [
+        1105,
+        312
+      ]
+    },
+    {
+      "name": "socket",
+      "coord": [
+        1503,
+        665
+      ]
+    },
+    {
+      "name": "coat_hanger",
+      "coord": [
+        642,
+        361
+      ]
+    },
+    {
+      "$e": "!($_table_taken)",
+      "values": [
+        {
+          "name": "table",
+          "coord": [
+            1345,
+            550
+          ]
+        }
+      ],
+      "and": [
+        {
+          "$e": "$_note",
+          "values": [
+            {
+              "name": "note",
+              "coord": [
+                1398,
+                556
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "!($_lamp_taken)",
+          "values": [
+            {
+              "name": "lamp",
+              "coord": [
+                1374,
+                448
+              ]
+            }
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "table_back",
+          "coord": [
+            684,
+            484
+          ]
+        },
+        {
+          "$e": "!($_lamp_taken)",
+          "values": [
+            {
+              "name": "lamp_ground",
+              "coord": [
+                1405,
+                638
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "umbrellas",
+      "coord": [
+        592,
+        457
+      ]
+    },
+    {
+      "$e": "!($_umbrella_taken)",
+      "values": [
+        {
+          "name": "blackumbrella",
+          "coord": [
+            624,
+            451
+          ]
+        }
+      ]
+    },
+    {
+      "name": "redumbrella",
+      "coord": [
+        598,
+        448
+      ]
+    },
+    {
+      "name": "shoes",
+      "coord": [
+        1441,
+        736
+      ]
+    },
+    {
+      "name": "bandaid",
+      "coord": [
+        1859,
+        568
+      ]
+    },
+    {
+      "$e": "!($_machete_taken)",
+      "values": [
+        {
+          "name": "sword",
+          "coord": [
+            715,
+            407
+          ]
+        }
+      ]
+    },
+    {
+      "name": "family",
+      "coord": [
+        739,
+        289
+      ]
+    },
+    {
+      "name": "sky",
+      "coord": [
+        1864,
+        123
+      ]
+    },
+    {
+      "name": "flowers",
+      "coord": [
+        320,
+        288
+      ]
+    },
+    {
+      "name": "handle",
+      "coord": [
+        0,
+        526
+      ]
+    },
+    {
+      "$e": "flora.at(\"home_hall\",\"texting\")",
+      "and": [
+        {
+          "$e": "!(flora.talking)",
+          "and": [
+            {
+              "$e": "$season==1",
+              "values": [
+                {
+                  "name": "flora",
+                  "coord": [
+                    166,
+                    360
+                  ]
+                }
+              ],
+              "or": [
+                {
+                  "$e": "$season==2",
+                  "values": [
+                    {
+                      "name": "flora_autumn",
+                      "coord": [
+                        167,
+                        360
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "and": [
+        {
+          "$e": "quest.flora_bonsai<=\"sugar\" && !((quest.kate_blowjob_dream==\"school\"orquest.mrsl_table==\"morning\"))",
+          "and": [
+            {
+              "$e": "!($_sugarcube1_taken)",
+              "values": [
+                {
+                  "name": "sugarcube1",
+                  "coord": [
+                    1456,
+                    773
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "!($_sugarcube2_taken)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!((quest.kate_blowjob_dream==\"school\"orquest.mrsl_table==\"morning\"))",
+      "and": [
+        {
+          "$e": "$_dollar1_spawned_today==True && !($_dollar1_taken_today)",
+          "values": [
+            {
+              "name": "dollar1",
+              "coord": [
+                1513,
+                727
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_dollar2_spawned_today==True && !($_dollar2_taken_today)",
+          "values": [
+            {
+              "name": "dollar2",
+              "coord": [
+                681,
+                428
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "!($_book_taken)",
+          "values": [
+            {
+              "name": "book",
+              "coord": [
+                994,
+                610
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_night",
+      "values": [
+        {
+          "name": "nightoverlay",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

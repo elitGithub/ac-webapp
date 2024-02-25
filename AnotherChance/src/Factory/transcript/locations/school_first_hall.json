@@ -1,0 +1,185 @@
+{
+  "name": "school_first_hall",
+  "title": "First Hall",
+  "parent": null,
+  "items": [
+    {
+      "name": "background",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "walk_right",
+      "coord": [
+        1637,
+        658
+      ]
+    },
+    {
+      "name": "walk_left",
+      "coord": [
+        0,
+        657
+      ]
+    },
+    {
+      "name": "cctv",
+      "coord": [
+        1276,
+        20
+      ]
+    },
+    {
+      "name": "electric",
+      "coord": [
+        1754,
+        265
+      ]
+    },
+    {
+      "$e": "$_electric_smoke_now",
+      "values": [
+        {
+          "name": "smoke",
+          "coord": [
+            1758,
+            314
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stairs",
+      "coord": [
+        1780,
+        610
+      ]
+    },
+    {
+      "name": "door",
+      "coord": [
+        194,
+        427
+      ]
+    },
+    {
+      "$e": "quest.isabelle_hurricane[\"scratching\"] && !(quest.isabelle_hurricane[\"darkness\"])",
+      "values": [
+        {
+          "name": "spinach_scratching",
+          "coord": [
+            213,
+            591
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.maxine_wine==\"locker\" && mc.owned_item(\"flora_poster\") && !(quest.maxine_wine[\"1f_hall_poster\"])",
+      "values": [
+        {
+          "name": "board",
+          "coord": [
+            66,
+            443
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "board",
+          "coord": [
+            66,
+            443
+          ]
+        },
+        {
+          "$e": "$season==1 && !(quest.jo_washed.in_progress)",
+          "and": [
+            {
+              "$e": "quest.maxine_wine[\"1f_hall_poster\"]",
+              "values": [
+                {
+                  "name": "flora_poster",
+                  "coord": [
+                    104,
+                    484
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bin",
+      "coord": [
+        77,
+        599
+      ]
+    },
+    {
+      "$e": "$season==1 && !(quest.jo_washed.in_progress)",
+      "and": [
+        {
+          "$e": "quest.lindsey_wrong[\"fountain_state\"]in(1,2,3,4)",
+          "values": [
+            {
+              "name": "water_fountain_gushing",
+              "coord": [
+                0,
+                482
+              ]
+            }
+          ],
+          "or": [
+            {
+              "$e": "quest.lindsey_wrong[\"fountain_state\"]==5",
+              "values": [
+                {
+                  "name": "water_fountain_hoodie",
+                  "coord": [
+                    0,
+                    542
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "water",
+          "coord": [
+            0,
+            525
+          ]
+        }
+      ]
+    },
+    {
+      "name": "plant",
+      "coord": [
+        1727,
+        520
+      ]
+    },
+    {
+      "$e": "(quest.kate_wickedin(\"costume\",\"party\")orquest.isabelle_dethroningin(\"trap\",\"revenge\",\"revenge_done\",\"panik\")orquest.lindsey_angelin(\"keycard\",\"off_limits\",\"phone_book\",\"lab_coat\",\"escape\"))",
+      "and": [
+        {
+          "$e": "$season==1 && !(quest.jo_washed.in_progress)",
+          "and": [
+            {
+              "$e": "quest.lindsey_motive>=\"power_cut\""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

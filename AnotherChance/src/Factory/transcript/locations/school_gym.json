@@ -1,0 +1,681 @@
+{
+  "name": "school_gym",
+  "title": "Gym",
+  "parent": null,
+  "items": [
+    {
+      "name": "gym",
+      "coord": [
+        -275,
+        0
+      ]
+    },
+    {
+      "name": "door_right",
+      "coord": [
+        1057,
+        271
+      ]
+    },
+    {
+      "name": "banner",
+      "coord": [
+        1304,
+        181
+      ]
+    },
+    {
+      "name": "bleachers",
+      "coord": [
+        0,
+        349
+      ]
+    },
+    {
+      "$e": "quest.jacklyn_romance==\"hide_and_seek\" && !($_ball_of_yarn_taken)",
+      "values": [
+        {
+          "name": "ball_of_yarn",
+          "coord": [
+            738,
+            681
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_lights_off",
+      "values": [
+        {
+          "name": "window_left_night",
+          "coord": [
+            0,
+            204
+          ]
+        },
+        {
+          "name": "window_right_night",
+          "coord": [
+            745,
+            289
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "window_left",
+          "coord": [
+            0,
+            204
+          ]
+        },
+        {
+          "name": "window_right",
+          "coord": [
+            745,
+            289
+          ]
+        }
+      ]
+    },
+    {
+      "name": "score_board",
+      "coord": [
+        388,
+        247
+      ]
+    },
+    {
+      "$e": "quest.maya_witch>=\"gym_class\"",
+      "values": [
+        {
+          "name": "score_board_text",
+          "coord": [
+            432,
+            290
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fence",
+      "coord": [
+        0,
+        259
+      ]
+    },
+    {
+      "name": "door_left",
+      "coord": [
+        156,
+        477
+      ]
+    },
+    {
+      "$e": "!(quest.jo_washed.in_progress)",
+      "values": [
+        {
+          "name": "signup",
+          "coord": [
+            237,
+            531
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bin",
+      "coord": [
+        93,
+        591
+      ]
+    },
+    {
+      "name": "vending_machine",
+      "coord": [
+        0,
+        515
+      ]
+    },
+    {
+      "$e": "!($_ladder_taken) || quest.jo_washed.in_progress",
+      "values": [
+        {
+          "name": "ladder",
+          "coord": [
+            1472,
+            364
+          ]
+        }
+      ]
+    },
+    {
+      "name": "backboard_top",
+      "coord": [
+        1617,
+        0
+      ]
+    },
+    {
+      "name": "backboard_bottom",
+      "coord": [
+        1739,
+        75
+      ]
+    },
+    {
+      "name": "ring_left",
+      "coord": [
+        106,
+        0
+      ]
+    },
+    {
+      "name": "net",
+      "coord": [
+        937,
+        473
+      ]
+    },
+    {
+      "name": "hoops",
+      "coord": [
+        17,
+        875
+      ]
+    },
+    {
+      "$e": "!(quest.jo_washed.in_progress)",
+      "and": [
+        {
+          "$e": "$_ball_7_shown==\"six_pointer\"",
+          "values": [
+            {
+              "name": "ball_7",
+              "coord": [
+                1789,
+                672
+              ]
+            }
+          ],
+          "or": [
+            {
+              "$e": "$_ball_7_shown",
+              "values": [
+                {
+                  "name": "ball_7",
+                  "coord": [
+                    1637,
+                    629
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ball_5",
+      "coord": [
+        1250,
+        704
+      ]
+    },
+    {
+      "$e": "!($_ball_3_hidden) || quest.jo_washed.in_progress",
+      "values": [
+        {
+          "name": "ball_3",
+          "coord": [
+            1073,
+            925
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ball_2",
+      "coord": [
+        175,
+        700
+      ]
+    },
+    {
+      "name": "ball_1",
+      "coord": [
+        67,
+        700
+      ]
+    },
+    {
+      "$e": "nurse.at(\"school_gym\",\"standing\")",
+      "and": [
+        {
+          "$e": "!(nurse.talking)",
+          "and": [
+            {
+              "$e": "$_exclusiveis0 || $_exclusive==\"nurse\"",
+              "values": [
+                {
+                  "name": "nurse",
+                  "coord": [
+                    1506,
+                    463
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "coord": [
+        1445,
+        768
+      ]
+    },
+    {
+      "$e": "quest.poolside_story==\"tryout\"",
+      "values": [
+        {
+          "name": "pool",
+          "coord": [
+            431,
+            676
+          ]
+        },
+        {
+          "name": "water",
+          "coord": [
+            455,
+            707
+          ]
+        }
+      ]
+    },
+    {
+      "name": "shorts",
+      "coord": [
+        1593,
+        814
+      ]
+    },
+    {
+      "name": "paddles",
+      "coord": [
+        1725,
+        813
+      ]
+    },
+    {
+      "$e": "$_lights_off",
+      "values": [
+        {
+          "name": "lights_off",
+          "coord": [
+            158,
+            33
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_light_smashed && !(quest.jo_washed.in_progress)",
+      "values": [
+        {
+          "name": "broken_light",
+          "coord": [
+            843,
+            55
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "light",
+          "coord": [
+            843,
+            57
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.jo_washed[\"kate_location\"]",
+      "and": [
+        {
+          "$e": "$_car_wash_sign_taken",
+          "values": [
+            {
+              "name": "car_wash_signs2",
+              "coord": [
+                717,
+                814
+              ]
+            }
+          ],
+          "else": [
+            {
+              "name": "car_wash_signs1",
+              "coord": [
+                524,
+                814
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(kate.talking)",
+      "and": [
+        {
+          "$e": "$_exclusiveis0 || $_exclusive==\"kate\"",
+          "and": [
+            {
+              "$e": "kate.at(\"school_gym\",\"standing\")",
+              "or": [
+                {
+                  "$e": "kate.at(\"school_gym\",\"car_wash_signs\")",
+                  "values": [
+                    {
+                      "name": "kate_car_wash_signs",
+                      "coord": [
+                        536,
+                        488
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "and": [
+                {
+                  "$e": "((kate.equipped_item(\"kate_cheerleader_top\")andkate.equipped_item(\"kate_cheerleader_skirt\"))orquest.maya_witch==\"gym_class\")",
+                  "values": [
+                    {
+                      "name": "kate_cheerleader",
+                      "coord": [
+                        1263,
+                        467
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "$season==1",
+                      "values": [
+                        {
+                          "name": "kate",
+                          "coord": [
+                            1263,
+                            467
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "isabelle.at(\"school_gym\",\"standing\")",
+      "and": [
+        {
+          "$e": "!(isabelle.talking)",
+          "and": [
+            {
+              "$e": "$_exclusiveis0 || $_exclusive==\"isabelle\"",
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "values": [
+                    {
+                      "name": "isabelle",
+                      "coord": [
+                        253,
+                        505
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "isabelle_autumn",
+                          "coord": [
+                            253,
+                            505
+                          ]
+                        }
+                      ],
+                      "and": [
+                        {
+                          "$e": "isabelle.equipped_item(\"isabelle_collar\")",
+                          "values": [
+                            {
+                              "name": "isabelle_collar",
+                              "coord": [
+                                269,
+                                540
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "lindsey.at(\"school_gym\",\"running\")",
+      "and": [
+        {
+          "$e": "!(lindsey.talking)",
+          "and": [
+            {
+              "$e": "$_exclusiveis0 || $_exclusive==\"lindsey\"",
+              "values": [
+                {
+                  "name": "lindsey",
+                  "coord": [
+                    737,
+                    497
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "mrsl.at(\"school_gym\",\"sitting\")",
+      "and": [
+        {
+          "$e": "!(mrsl.talking)",
+          "and": [
+            {
+              "$e": "$_exclusiveis0 || $_exclusive==\"mrsl\"",
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "values": [
+                    {
+                      "name": "mrsl",
+                      "coord": [
+                        522,
+                        474
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "mrsl_autumn",
+                          "coord": [
+                            522,
+                            474
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "maxine.at(\"school_gym\",\"standing\")",
+      "and": [
+        {
+          "$e": "!(maxine.talking)",
+          "and": [
+            {
+              "$e": "$_exclusiveis0 || $_exclusive==\"maxine\"",
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "values": [
+                    {
+                      "name": "maxine",
+                      "coord": [
+                        467,
+                        514
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "maxine_autumn",
+                          "coord": [
+                            467,
+                            514
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "maya.at(\"school_gym\",\"sitting\")",
+      "and": [
+        {
+          "$e": "!(maya.talking)",
+          "and": [
+            {
+              "$e": "$_exclusiveis0 || $_exclusive==\"maya\"",
+              "values": [
+                {
+                  "name": "maya_autumn",
+                  "coord": [
+                    861,
+                    350
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!((quest.kate_blowjob_dream==\"school\"orquest.jo_washed.in_progress))",
+      "and": [
+        {
+          "$e": "$_dollar1_spawned_today==True && !($_dollar1_taken_today)",
+          "values": [
+            {
+              "name": "dollar1",
+              "coord": [
+                132,
+                686
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_dollar2_spawned_today==True && !($_dollar2_taken_today)",
+          "values": [
+            {
+              "name": "dollar2",
+              "coord": [
+                1859,
+                822
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "!($_book_taken)",
+          "values": [
+            {
+              "name": "book",
+              "coord": [
+                1824,
+                741
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_magnet",
+      "values": [
+        {
+          "name": "magnet",
+          "coord": [
+            171,
+            767
+          ]
+        }
+      ]
+    },
+    {
+      "name": "overlay",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "$e": "$_lights_off",
+      "values": [
+        {
+          "name": "overlay_night",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

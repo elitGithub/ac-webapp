@@ -1,0 +1,207 @@
+{
+  "name": "school_bathroom",
+  "title": "Bathroom",
+  "parent": null,
+  "items": [
+    {
+      "name": "bg",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "urinal",
+      "coord": [
+        1447,
+        446
+      ]
+    },
+    {
+      "name": "sink",
+      "coord": [
+        1638,
+        640
+      ]
+    },
+    {
+      "name": "selfie_stick",
+      "coord": [
+        1274,
+        340
+      ]
+    },
+    {
+      "name": "stall_doors",
+      "coord": [
+        351,
+        98
+      ]
+    },
+    {
+      "name": "door",
+      "coord": [
+        1003,
+        275
+      ]
+    },
+    {
+      "$e": "quest.maxine_eggs==\"bathroom\"",
+      "values": [
+        {
+          "name": "broken_snow_globe",
+          "coord": [
+            1528,
+            471
+          ]
+        }
+      ]
+    },
+    {
+      "name": "shoes",
+      "coord": [
+        1545,
+        938
+      ]
+    },
+    {
+      "name": "cigarettes",
+      "coord": [
+        845,
+        982
+      ]
+    },
+    {
+      "name": "painting",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "$e": "!($_fork_taken) || quest.jo_washed.in_progress",
+      "and": [
+        {
+          "$e": "quest.jo_washed.in_progress",
+          "values": [
+            {
+              "name": "fork",
+              "coord": [
+                44,
+                289
+              ]
+            }
+          ],
+          "else": [
+            {
+              "name": "fork",
+              "coord": [
+                44,
+                289
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lockers",
+      "coord": [
+        624,
+        273
+      ]
+    },
+    {
+      "$e": "quest.maxine_eggs==\"bathroom\" || quest.lindsey_motivein(\"steal\",\"hide\")",
+      "values": [
+        {
+          "name": "locker1",
+          "coord": [
+            631,
+            279
+          ]
+        },
+        {
+          "name": "locker2",
+          "coord": [
+            754,
+            279
+          ]
+        },
+        {
+          "name": "locker3",
+          "coord": [
+            876,
+            279
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hot_air_dryer",
+      "coord": [
+        621,
+        210
+      ]
+    },
+    {
+      "name": "sinks_columns",
+      "coord": [
+        742,
+        7
+      ]
+    },
+    {
+      "name": "sinks",
+      "coord": [
+        743,
+        593
+      ]
+    },
+    {
+      "name": "mirror",
+      "coord": [
+        1525,
+        217
+      ]
+    },
+    {
+      "$e": "quest.flora_squid==\"bathroom\"",
+      "values": [
+        {
+          "name": "water_bottle",
+          "coord": [
+            772,
+            805
+          ]
+        }
+      ],
+      "and": [
+        {
+          "$e": "!(flora.talking)",
+          "values": [
+            {
+              "name": "flora",
+              "coord": [
+                220,
+                440
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "(($hour>=20andnotlindsey.talking)orquest.lindsey_motivein(\"steal\",\"hide\"))",
+      "values": [
+        {
+          "name": "nightoverlay",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

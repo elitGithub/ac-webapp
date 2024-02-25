@@ -1,0 +1,204 @@
+{
+  "name": "Bedroom",
+  "items": [
+    {
+      "name": "bedroom",
+      "coord": [0, -50]
+    },
+    {
+      "$e": "$_clean",
+      "values": [
+        {
+          "name": "colored_walls",
+          "coord": [0, 0]
+        },
+        {
+          "name": "painting",
+          "coord": [197,150]
+        }
+      ]
+    },
+    {
+      "$e": "$_clean && $_poster_removed",
+      "values": [
+        {
+          "name": "king_of_sweets_wall",
+          "coord": [162,102]
+        }
+      ]
+    },
+    {
+      "$e": "$_clean && $_king_of_sweets",
+      "values": [
+        {
+          "name": "king_of_sweets",
+          "coord": [214,152]
+        }
+      ]
+    },
+    {
+      "$e": "$_clean",
+      "values": [
+        {
+          "name": "closet_clean",
+          "coord": [943,332]
+        },
+        {
+          "name": "closet_clean2",
+          "coord": [1187,238]
+        },
+        {
+          "name": "carpet_clean",
+          "coord": [255,742]
+        }
+      ],
+      "revalues": [
+        {
+          "name": "closet",
+          "replace": "home_bedroom_closet",
+          "coord": [943,332]
+        },
+        {
+          "name": "carpet",
+          "coord": [255,742]
+        }
+      ]
+    },
+    {
+      "name": "door",
+      "coord": [736,406]
+    },
+    {
+      "$e": "$_clean",
+      "values": [
+        {
+          "name": "bed_clean",
+          "coord": [315,539]
+        }
+      ],
+      "revalues": [
+        {
+          "name": "bed",
+          "coord": [315,539]
+        }
+      ]
+    },
+    {
+      "name": "drawers",
+      "coord": [1419, 658]
+    },
+    {
+      "$e": "!$_flash_drive_taken",
+      "values": [
+        {
+          "name": "flash_drive",
+          "coord": [1511,650]
+        }
+      ]
+    },
+    {
+      "name": "bookshelve_left",
+      "coord": [135, 359]
+    },
+    {
+      "$e": "$_clean",
+      "values": [
+        {
+          "name": "tv_clean",
+          "coord": [148,628]
+        }
+      ],
+      "revalues": [
+        {
+          "name": "tv",
+          "coord": [148,628]
+        }
+      ]
+    },
+    {
+      "$e": "$_clean && !$_controller_taken",
+      "values": [
+        {
+          "name": "controller_clean",
+          "coord": [271,801]
+        }
+      ],
+      "revalues": [
+        {
+          "name": "controller",
+          "coord": [280,726]
+        }
+      ]
+    },
+    {
+      "name": "bookshelves_right",
+      "coord": [1330, 32]
+    },
+    {
+      "$e": "$_clean",
+      "values": [
+        {
+          "name": "desk_clean",
+          "coord": [1060,621]
+        }
+      ],
+      "revalues": [
+        {
+          "name": "desk",
+          "coord": [1060,564]
+        }
+      ]
+    },
+    {
+      "$e": "$_clean",
+      "values": [
+        {
+          "name": "ornamental_box",
+          "coord": [310,721]
+        }
+      ],
+      "revalues": [
+        {
+          "name": "alarm",
+          "coord": [305,704]
+        }
+      ]
+    },
+    {
+      "$e": "$_clean",
+      "values": [
+        {
+          "name": "table_lamp",
+          "coord": [1554,498]
+        }
+      ],
+      "revalues": [
+        {
+          "name": "statuettes",
+          "coord": [1534,469]
+        }
+      ]
+    },
+    {
+      "name": "small_pc",
+      "coord": [1143, 485]
+    },
+    {
+      "$e": "$_capture_card",
+      "values": [
+        {
+          "name": "capture_card_on",
+          "coord": [1158,502]
+        },
+        {
+          "name": "wire_vhs",
+          "coord": [1241,591]
+        }
+      ]
+    },
+    {
+      "name": "chair",
+      "coord": [1159, 600]
+    }
+  ]
+}

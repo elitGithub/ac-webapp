@@ -1,0 +1,299 @@
+{
+  "name": "school_hook_up_table",
+  "title": "Clubroom",
+  "parent": null,
+  "items": [
+    {
+      "name": "bg",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "$e": "self[\"router_connected\"]",
+      "values": [
+        {
+          "name": "router_connected",
+          "coord": [
+            514,
+            119
+          ]
+        }
+      ]
+    },
+    {
+      "name": "power_supply",
+      "coord": [
+        461,
+        417
+      ]
+    },
+    {
+      "$e": "self[\"interactive\"] && !(self[\"ass_object\"]==\"power_supply_cable\")",
+      "values": [
+        {
+          "name": "power_supply_cable",
+          "coord": [
+            675,
+            705
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(self[\"cable\"])",
+      "values": [
+        {
+          "name": "cable",
+          "coord": [
+            839,
+            129
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(self[\"vr_goggles\"])",
+      "values": [
+        {
+          "name": "vr_goggles",
+          "coord": [
+            1094,
+            131
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(self[\"ass_object\"]==\"watermelon\")",
+      "and": [
+        {
+          "$e": "self[\"watermelon_cut\"]",
+          "values": [
+            {
+              "name": "watermelon1",
+              "coord": [
+                1306,
+                264
+              ]
+            }
+          ],
+          "else": [
+            {
+              "name": "watermelon2",
+              "coord": [
+                1306,
+                264
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "self[\"interactive\"]",
+      "values": [
+        {
+          "name": "maxine2_body",
+          "coord": [
+            929,
+            386
+          ]
+        },
+        {
+          "name": "maxine2_panties",
+          "coord": [
+            935,
+            966
+          ]
+        },
+        {
+          "name": "maxine2_bra",
+          "coord": [
+            948,
+            429
+          ]
+        },
+        {
+          "name": "maxine2_top",
+          "coord": [
+            948,
+            425
+          ]
+        },
+        {
+          "name": "maxine2_shorts",
+          "coord": [
+            930,
+            1014
+          ]
+        },
+        {
+          "name": "maxine2_hat",
+          "coord": [
+            820,
+            152
+          ]
+        },
+        {
+          "name": "maxine2_necklace",
+          "coord": [
+            1049,
+            418
+          ]
+        },
+        {
+          "name": "maxine2_blouse",
+          "coord": [
+            944,
+            424
+          ]
+        },
+        {
+          "name": "maxine2_arms3_n",
+          "coord": [
+            901,
+            433
+          ]
+        },
+        {
+          "name": "maxine2_arms3_c",
+          "coord": [
+            900,
+            425
+          ]
+        }
+      ],
+      "and": [
+        {
+          "$e": "self[\"vr_goggles\"]",
+          "values": [
+            {
+              "name": "maxine2_vr_goggles",
+              "coord": [
+                833,
+                233
+              ]
+            }
+          ],
+          "else": [
+            {
+              "name": "maxine2_glasses",
+              "coord": [
+                881,
+                327
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "self[\"watermelon_slice\"]",
+          "values": [
+            {
+              "name": "maxine2_watermelon1",
+              "coord": [
+                863,
+                384
+              ]
+            },
+            {
+              "name": "maxine2_watermelon1b",
+              "coord": [
+                863,
+                384
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "self[\"cable\"]",
+          "values": [
+            {
+              "name": "maxine2_cable1",
+              "coord": [
+                1084,
+                535
+              ]
+            },
+            {
+              "name": "maxine2_cable2",
+              "coord": [
+                1097,
+                535
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "self[\"grab\"]",
+          "values": [
+            {
+              "name": "mc_right_hand1",
+              "coord": [
+                1071,
+                525
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "self[\"ass_object\"]==\"watermelon\"",
+          "values": [
+            {
+              "name": "mc_right_hand2",
+              "coord": [
+                1347,
+                568
+              ]
+            }
+          ],
+          "or": [
+            {
+              "$e": "self[\"ass_object\"]==\"watermelon_slice\"",
+              "values": [
+                {
+                  "name": "maxine2_watermelon4",
+                  "coord": [
+                    1097,
+                    549
+                  ]
+                },
+                {
+                  "name": "mc_right_hand3",
+                  "coord": [
+                    1153,
+                    559
+                  ]
+                }
+              ]
+            }
+          ],
+          "and": [
+            {
+              "$e": "self[\"watermelon_cut\"]",
+              "values": [
+                {
+                  "name": "maxine2_watermelon2",
+                  "coord": [
+                    1147,
+                    492
+                  ]
+                }
+              ],
+              "else": [
+                {
+                  "name": "maxine2_watermelon3",
+                  "coord": [
+                    1146,
+                    492
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

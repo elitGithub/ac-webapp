@@ -1,0 +1,690 @@
+{
+  "name": "home_bedroom",
+  "title": "Bedroom",
+  "parent": null,
+  "items": [
+    {
+      "name": "bedroom",
+      "coord": [
+        0,
+        -50
+      ]
+    },
+    {
+      "$e": "$_clean",
+      "values": [
+        {
+          "name": "colored_walls",
+          "coord": [
+            0,
+            0
+          ]
+        },
+        {
+          "name": "painting",
+          "coord": [
+            197,
+            150
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_clean)",
+      "and": [
+        {
+          "$e": "$_poster_removed",
+          "values": [
+            {
+              "name": "king_of_sweets_wall",
+              "coord": [
+                162,
+                102
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_king_of_sweets",
+          "values": [
+            {
+              "name": "king_of_sweets",
+              "coord": [
+                214,
+                152
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_clean",
+      "values": [
+        {
+          "name": "closet_clean",
+          "coord": [
+            943,
+            332
+          ]
+        },
+        {
+          "name": "closet2_clean",
+          "coord": [
+            1187,
+            238
+          ]
+        },
+        {
+          "name": "carpet_clean",
+          "coord": [
+            255,
+            742
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "closet",
+          "coord": [
+            943,
+            332
+          ]
+        },
+        {
+          "name": "carpet",
+          "coord": [
+            255,
+            742
+          ]
+        }
+      ]
+    },
+    {
+      "name": "door",
+      "coord": [
+        736,
+        406
+      ]
+    },
+    {
+      "$e": "$_clean",
+      "values": [
+        {
+          "name": "bed_clean",
+          "coord": [
+            315,
+            539
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "bed",
+          "coord": [
+            315,
+            539
+          ]
+        }
+      ]
+    },
+    {
+      "name": "drawers",
+      "coord": [
+        1419,
+        658
+      ]
+    },
+    {
+      "$e": "!($_flash_drive_taken)",
+      "values": [
+        {
+          "name": "flash_drive",
+          "coord": [
+            1511,
+            650
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bookshelve_left",
+      "coord": [
+        135,
+        359
+      ]
+    },
+    {
+      "$e": "$_clean",
+      "values": [
+        {
+          "name": "tv_clean",
+          "coord": [
+            148,
+            628
+          ]
+        }
+      ],
+      "and": [
+        {
+          "$e": "!($_controller_taken)",
+          "values": [
+            {
+              "name": "controller_clean",
+              "coord": [
+                271,
+                801
+              ]
+            }
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "tv",
+          "coord": [
+            148,
+            628
+          ]
+        },
+        {
+          "$e": "!($_controller_taken)",
+          "values": [
+            {
+              "name": "controller",
+              "coord": [
+                280,
+                726
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bookshelves_right",
+      "coord": [
+        1330,
+        32
+      ]
+    },
+    {
+      "$e": "$_clean",
+      "values": [
+        {
+          "name": "desk_clean",
+          "coord": [
+            1060,
+            621
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "desk",
+          "coord": [
+            1060,
+            564
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_clean",
+      "values": [
+        {
+          "name": "ornamental_box",
+          "coord": [
+            310,
+            721
+          ]
+        }
+      ],
+      "else": [
+        {
+          "$e": "quest.kate_blowjob_dreamin(\"flora_knocking\",\"open_door\",\"get_dressed\",\"school\",\"awake\",\"alarm\")",
+          "values": [
+            {
+              "name": "alarm",
+              "coord": [
+                305,
+                704
+              ]
+            }
+          ],
+          "or": [
+            {
+              "$e": "$_alarm==\"smashed\" || $_alarm==\"smashed_again\"",
+              "values": [
+                {
+                  "name": "alarm_broken",
+                  "coord": [
+                    306,
+                    698
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_clean",
+      "values": [
+        {
+          "name": "table_lamp",
+          "coord": [
+            1554,
+            498
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "statuettes",
+          "coord": [
+            1534,
+            469
+          ]
+        }
+      ]
+    },
+    {
+      "name": "small_pc",
+      "coord": [
+        1143,
+        485
+      ]
+    },
+    {
+      "$e": "$_capture_card",
+      "values": [
+        {
+          "name": "capture_card_on",
+          "coord": [
+            1158,
+            502
+          ]
+        },
+        {
+          "name": "wire_vhs",
+          "coord": [
+            1241,
+            591
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "and": [
+        {
+          "$e": "quest.flora_bonsai<=\"sugar\" && !((quest.kate_blowjob_dreamin(\"open_door\",\"get_dressed\",\"school\")orquest.mrsl_table==\"morning\"))",
+          "and": [
+            {
+              "$e": "!($_sugarcube5_taken)",
+              "values": [
+                {
+                  "name": "sugarcube5",
+                  "coord": [
+                    1118,
+                    679
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "!($_sugarcube4_taken)",
+              "values": [
+                {
+                  "name": "sugarcube4",
+                  "coord": [
+                    1646,
+                    319
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "!($_sugarcube3_taken)",
+              "values": [
+                {
+                  "name": "sugarcube3",
+                  "coord": [
+                    138,
+                    840
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_clean)",
+      "values": [
+        {
+          "name": "various",
+          "coord": [
+            725,
+            542
+          ]
+        }
+      ]
+    },
+    {
+      "name": "chair",
+      "coord": [
+        1159,
+        600
+      ]
+    },
+    {
+      "$e": "$_clean",
+      "values": [
+        {
+          "name": "sports_magazine",
+          "coord": [
+            77,
+            909
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "clothes",
+          "coord": [
+            897,
+            848
+          ]
+        },
+        {
+          "name": "porn_magazine",
+          "coord": [
+            77,
+            909
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_courage_badge",
+      "values": [
+        {
+          "name": "badge",
+          "coord": [
+            307,
+            435
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "0==1",
+      "values": [
+        {
+          "name": "tier1_painting",
+          "coord": [
+            581,
+            510
+          ]
+        },
+        {
+          "name": "tier2_painting",
+          "coord": [
+            581,
+            510
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_vhs",
+      "values": [
+        {
+          "name": "vhsplayer",
+          "coord": [
+            1353,
+            598
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "lindsey.at(\"home_bedroom\",\"sitting\")",
+      "and": [
+        {
+          "$e": "!(lindsey.talking)",
+          "values": [
+            {
+              "name": "lindsey",
+              "coord": [
+                465,
+                548
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "isabelle.at(\"home_bedroom\",\"standing\")",
+      "and": [
+        {
+          "$e": "!(isabelle.talking)",
+          "and": [
+            {
+              "$e": "$season==1",
+              "values": [
+                {
+                  "name": "isabelle",
+                  "coord": [
+                    901,
+                    411
+                  ]
+                }
+              ],
+              "or": [
+                {
+                  "$e": "$season==2",
+                  "values": [
+                    {
+                      "name": "isabelle_autumn",
+                      "coord": [
+                        898,
+                        411
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "maxine.at(\"home_bedroom\",\"ouija_board\")",
+      "values": [
+        {
+          "name": "ouijaboard",
+          "coord": [
+            471,
+            817
+          ]
+        }
+      ],
+      "and": [
+        {
+          "$e": "!(maxine.talking)",
+          "values": [
+            {
+              "name": "maxine",
+              "coord": [
+                526,
+                684
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_clean",
+      "values": [
+        {
+          "name": "potted_plant",
+          "coord": [
+            99,
+            725
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "pillow",
+          "coord": [
+            669,
+            722
+          ]
+        },
+        {
+          "name": "pizza_box",
+          "coord": [
+            475,
+            832
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "spinach.at(\"home_bedroom\",\"licking\")",
+      "and": [
+        {
+          "$e": "!(spinach.talking)",
+          "values": [
+            {
+              "name": "spinach",
+              "coord": [
+                629,
+                712
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!((quest.kate_blowjob_dreamin(\"open_door\",\"get_dressed\",\"school\")orquest.mrsl_table==\"morning\"))",
+      "and": [
+        {
+          "$e": "$_dollar1_spawned_today==True && !($_dollar1_taken_today)",
+          "values": [
+            {
+              "name": "dollar1",
+              "coord": [
+                350,
+                566
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_dollar2_spawned_today==True && !($_dollar2_taken_today)",
+          "values": [
+            {
+              "name": "dollar2",
+              "coord": [
+                1609,
+                521
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_d1ollar3_spawned_today==True && !($_dollar3_taken_today)",
+          "values": [
+            {
+              "name": "dollar3",
+              "coord": [
+                1765,
+                356
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "!($_book_taken)",
+          "values": [
+            {
+              "name": "book",
+              "coord": [
+                231,
+                416
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.jacklyn_romance>=\"suit_done\"",
+      "values": [
+        {
+          "name": "suit",
+          "coord": [
+            1221,
+            599
+          ]
+        }
+      ]
+    },
+    {
+      "name": "overlay",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "$e": "$_night",
+      "values": [
+        {
+          "name": "overlay_night",
+          "coord": [
+            -16,
+            -10
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_small_pc==\"google\"",
+      "values": [
+        {
+          "name": "small_pc_google",
+          "coord": [
+            1159,
+            502
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$_small_pc==\"wikipedia\"",
+          "values": [
+            {
+              "name": "small_pc_wikipedia",
+              "coord": [
+                1159,
+                502
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

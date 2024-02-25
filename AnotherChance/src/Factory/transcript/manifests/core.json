@@ -1,0 +1,23 @@
+{
+  "name": "core",
+  "assets": {
+    "core_atlas": "assets/images/spritesheets/core.satlas",
+    "music_alarm": "assets/audio/music/alarm.ogg",
+    "music_chopin": "assets/audio/music/chopin.ogg",
+    "music_epic_medieval": "assets/audio/music/epic_medieval.ogg",
+    "music_exciting_but_sweet": "assets/audio/music/exciting_but_sweet.ogg",
+    "music_fast_and_exciting": "assets/audio/music/fast_and_exciting.ogg",
+    "music_fast_but_dark": "assets/audio/music/fast_but_dark.ogg",
+    "music_home_theme": "assets/audio/music/home_theme.ogg",
+    "music_intro": "assets/audio/music/intro.ogg",
+    "music_main_menu": "assets/audio/music/main_menu.ogg",
+    "music_muffled_party_music": "assets/audio/music/muffled_party_music.ogg",
+    "music_outdoor_wind": "assets/audio/music/outdoor_wind.ogg",
+    "music_party_music": "assets/audio/music/party_music.ogg",
+    "music_ria_theme": "assets/audio/music/ria_theme.ogg",
+    "music_romantic": "assets/audio/music/romantic.ogg",
+    "music_school_theme": "assets/audio/music/school_theme.ogg",
+    "music_spontaneous": "assets/audio/music/spontaneous.ogg",
+    "music_sweet_and_romantic": "assets/audio/music/sweet_and_romantic.ogg"
+  }
+}

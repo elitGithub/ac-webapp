@@ -1,0 +1,810 @@
+{
+  "name": "home_kitchen",
+  "title": "Kitchen",
+  "parent": null,
+  "items": [
+    {
+      "name": "kitchen",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "$e": "$_night",
+      "values": [
+        {
+          "name": "nightwindow",
+          "coord": [
+            1160,
+            289
+          ]
+        }
+      ]
+    },
+    {
+      "name": "carpets",
+      "coord": [
+        241,
+        832
+      ]
+    },
+    {
+      "name": "furniture_03",
+      "coord": [
+        1028,
+        524
+      ]
+    },
+    {
+      "name": "closet",
+      "coord": [
+        1432,
+        183
+      ]
+    },
+    {
+      "name": "d3",
+      "coord": [
+        1457,
+        728
+      ]
+    },
+    {
+      "name": "d1",
+      "coord": [
+        1597,
+        684
+      ]
+    },
+    {
+      "name": "s1",
+      "coord": [
+        1507,
+        261
+      ]
+    },
+    {
+      "name": "cupboard",
+      "coord": [
+        966,
+        325
+      ]
+    },
+    {
+      "name": "c1",
+      "coord": [
+        1009,
+        327
+      ]
+    },
+    {
+      "name": "door",
+      "coord": [
+        175,
+        197
+      ]
+    },
+    {
+      "name": "stove",
+      "coord": [
+        497,
+        227
+      ]
+    },
+    {
+      "$e": "$_cooking_pot && !($_cooking_pot_taken)",
+      "values": [
+        {
+          "name": "cooking_pot",
+          "coord": [
+            707,
+            446
+          ]
+        },
+        {
+          "name": "stove_hotfix",
+          "coord": [
+            715,
+            533
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lights",
+      "coord": [
+        805,
+        93
+      ]
+    },
+    {
+      "name": "furniture_01",
+      "coord": [
+        362,
+        227
+      ]
+    },
+    {
+      "name": "d2",
+      "coord": [
+        444,
+        667
+      ]
+    },
+    {
+      "name": "mf",
+      "coord": [
+        831,
+        669
+      ]
+    },
+    {
+      "name": "clock",
+      "coord": [
+        689,
+        272
+      ]
+    },
+    {
+      "$e": "quest.kate_wicked[\"cheques\"] && !($_cheque_taken_today)",
+      "values": [
+        {
+          "name": "cheque",
+          "coord": [
+            270,
+            771
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "($_stones==1andnot$_stone_interacted_today) || ($_stones==2and$_stone_interacted_today)",
+          "values": [
+            {
+              "name": "stone",
+              "coord": [
+                305,
+                775
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.flora_cooking_chilli<\"return_phone\"",
+      "values": [
+        {
+          "name": "squid",
+          "coord": [
+            591,
+            301
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.flora_cooking_chilli.in_progress",
+      "and": [
+        {
+          "$e": "quest.flora_cooking_chilli[\"distraction_method\"]==\"red\"",
+          "values": [
+            {
+              "name": "smoke",
+              "coord": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "quest.flora_cooking_chilli>=\"return_phone\"",
+          "values": [
+            {
+              "name": "flora_pants",
+              "coord": [
+                1294,
+                873
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "quest.flora_cooking_chilli[\"distraction_method\"]==\"blue\"",
+          "values": [
+            {
+              "name": "burning_towel",
+              "coord": [
+                1221,
+                314
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "quest.flora_cooking_chilli>=\"return_phone\"",
+          "values": [
+            {
+              "name": "tipped_squid",
+              "coord": [
+                437,
+                789
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_sink_fire",
+      "values": [
+        {
+          "name": "burning_towel",
+          "coord": [
+            1221,
+            314
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_kettle==\"stove\"",
+      "values": [
+        {
+          "name": "kettle_stove",
+          "coord": [
+            745,
+            496
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$_kettle==\"lamp\"",
+          "values": [
+            {
+              "name": "kettle_lamp",
+              "coord": [
+                719,
+                430
+              ]
+            },
+            {
+              "name": "smokekettle",
+              "coord": [
+                595,
+                163
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "jo.at(\"home_kitchen\",\"reading\")",
+      "and": [
+        {
+          "$e": "!(jo.talking)",
+          "and": [
+            {
+              "$e": "$season==1",
+              "values": [
+                {
+                  "name": "jo_newspaper",
+                  "coord": [
+                    678,
+                    396
+                  ]
+                }
+              ],
+              "or": [
+                {
+                  "$e": "$season==2",
+                  "values": [
+                    {
+                      "name": "jo_newspaper_autumn",
+                      "coord": [
+                        678,
+                        396
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "flora.at(\"home_kitchen\",\"pain\")",
+      "and": [
+        {
+          "$e": "!(flora.talking)",
+          "values": [
+            {
+              "name": "florapain",
+              "coord": [
+                757,
+                386
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "flora.at(\"home_kitchen\",\"cooking_hat\")",
+      "and": [
+        {
+          "$e": "!(flora.talking)",
+          "and": [
+            {
+              "$e": "quest.flora_bonsai.in_progress",
+              "values": [
+                {
+                  "name": "florabandaidcook",
+                  "coord": [
+                    757,
+                    386
+                  ]
+                }
+              ],
+              "else": [
+                {
+                  "name": "flora",
+                  "coord": [
+                    757,
+                    371
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "counter",
+      "coord": [
+        575,
+        593
+      ]
+    },
+    {
+      "name": "various_back",
+      "coord": [
+        857,
+        476
+      ]
+    },
+    {
+      "$e": "!($_water_bottle_taken)",
+      "values": [
+        {
+          "name": "water_bottle",
+          "coord": [
+            819,
+            520
+          ]
+        }
+      ]
+    },
+    {
+      "name": "barstool_2",
+      "coord": [
+        1223,
+        626
+      ]
+    },
+    {
+      "name": "barstool_1",
+      "coord": [
+        1087,
+        639
+      ]
+    },
+    {
+      "$e": "!($_kettle)",
+      "values": [
+        {
+          "name": "kettle",
+          "coord": [
+            691,
+            521
+          ]
+        }
+      ]
+    },
+    {
+      "name": "various_front",
+      "coord": [
+        424,
+        482
+      ]
+    },
+    {
+      "$e": "$_croutons_activated",
+      "and": [
+        {
+          "$e": "!($_croutons_taken)",
+          "values": [
+            {
+              "name": "crouton",
+              "coord": [
+                1005,
+                569
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.flora_cooking_chilli==\"chop_onion\"",
+      "values": [
+        {
+          "name": "onion",
+          "coord": [
+            693,
+            574
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_whoo_sauce_taken)",
+      "values": [
+        {
+          "name": "sauce_left",
+          "coord": [
+            1087,
+            545
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_plant_right",
+      "values": [
+        {
+          "name": "plant_right",
+          "coord": [
+            1259,
+            528
+          ]
+        }
+      ],
+      "else": [
+        {
+          "$e": "quest.jacklyn_statement==\"ingredients\" || quest.jo_day==\"supplies\"",
+          "values": [
+            {
+              "name": "plant",
+              "coord": [
+                1058,
+                517
+              ]
+            }
+          ],
+          "else": [
+            {
+              "name": "plant",
+              "coord": [
+                1058,
+                517
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stairs",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "$e": "quest.flora_squid>=\"trail\" && quest.flora_squid.in_progress",
+      "values": [
+        {
+          "name": "water_trail",
+          "coord": [
+            0,
+            326
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.flora_cooking_chilli[\"distraction_method\"]==\"purple\"",
+      "values": [
+        {
+          "name": "spilled_flour",
+          "coord": [
+            863,
+            573
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "flora.at(\"home_kitchen\",\"eating\")",
+      "and": [
+        {
+          "$e": "!(flora.talking)",
+          "and": [
+            {
+              "$e": "quest.flora_bonsai.in_progress",
+              "and": [
+                {
+                  "$e": "quest.flora_bonsaiin(\"chef\",\"bake\",\"check\",\"sugar\")",
+                  "values": [
+                    {
+                      "name": "florabandaidnight",
+                      "coord": [
+                        1034,
+                        446
+                      ]
+                    }
+                  ],
+                  "else": [
+                    {
+                      "$e": "flora.equipped_item(\"flora_skirt\")",
+                      "values": [
+                        {
+                          "name": "florabandaid_skirt",
+                          "coord": [
+                            1034,
+                            446
+                          ]
+                        }
+                      ],
+                      "else": [
+                        {
+                          "name": "florabandaid",
+                          "coord": [
+                            1034,
+                            446
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "else": [
+                {
+                  "$e": "$season==1",
+                  "values": [
+                    {
+                      "name": "flora_sitting",
+                      "coord": [
+                        1034,
+                        446
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "flora_sitting_autumn",
+                          "coord": [
+                            1034,
+                            446
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "jo.at(\"home_kitchen\",\"standing\")",
+      "and": [
+        {
+          "$e": "!(jo.talking)",
+          "and": [
+            {
+              "$e": "$season==1",
+              "values": [
+                {
+                  "name": "jo_coffee",
+                  "coord": [
+                    787,
+                    359
+                  ]
+                }
+              ],
+              "or": [
+                {
+                  "$e": "$season==2",
+                  "values": [
+                    {
+                      "name": "jo_coffee_autumn",
+                      "coord": [
+                        787,
+                        359
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "jacklyn.at(\"home_kitchen\",\"standing\")",
+      "and": [
+        {
+          "$e": "!(jacklyn.talking)",
+          "values": [
+            {
+              "name": "jacklyn",
+              "coord": [
+                387,
+                373
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "lindsey.at(\"home_kitchen\",\"standing\")",
+      "and": [
+        {
+          "$e": "!(lindsey.talking)",
+          "values": [
+            {
+              "name": "lindsey",
+              "coord": [
+                1509,
+                375
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_package",
+      "values": [
+        {
+          "name": "package",
+          "coord": [
+            394,
+            516
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_lines_magnet && !(mc['package_due_today'])",
+      "values": [
+        {
+          "name": "package",
+          "coord": [
+            394,
+            516
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "home_computer[item+\"_ordered\"] && !(home_computer[item+\"_ordered_today\"]) && !(home_computer[item+\"_received\"])"
+    },
+    {
+      "$e": "!((quest.kate_blowjob_dream==\"school\"orquest.mrsl_table==\"morning\"))",
+      "and": [
+        {
+          "$e": "$_dollar1_spawned_today==True && !($_dollar1_taken_today)",
+          "values": [
+            {
+              "name": "dollar1",
+              "coord": [
+                389,
+                758
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_dollar2_spawned_today==True && !($_dollar2_taken_today)",
+          "values": [
+            {
+              "name": "dollar2",
+              "coord": [
+                129,
+                326
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_dollar3_spawned_today==True && !($_dollar3_taken_today)",
+          "values": [
+            {
+              "name": "dollar3",
+              "coord": [
+                1663,
+                355
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "and": [
+        {
+          "$e": "quest.flora_bonsai<=\"sugar\" && !((quest.kate_blowjob_dream==\"school\"orquest.mrsl_table==\"morning\"))",
+          "and": [
+            {
+              "$e": "!($_sugarcube8_taken)",
+              "values": [
+                {
+                  "name": "sugarcube8",
+                  "coord": [
+                    1271,
+                    614
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "!($_sugarcube9_taken)",
+              "values": [
+                {
+                  "name": "sugarcube9",
+                  "coord": [
+                    126,
+                    670
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "!($_sugarcube10_taken)",
+              "values": [
+                {
+                  "name": "sugarcube10",
+                  "coord": [
+                    1807,
+                    907
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_night",
+      "values": [
+        {
+          "name": "nightoverlay",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

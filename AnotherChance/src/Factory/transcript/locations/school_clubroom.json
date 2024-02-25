@@ -1,0 +1,476 @@
+{
+  "name": "school_clubroom",
+  "title": "Clubroom",
+  "parent": null,
+  "items": [
+    {
+      "name": "background",
+      "coord": [
+        -283,
+        0
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "or": [
+        {
+          "$e": "$season==2",
+          "and": [
+            {
+              "$e": "False",
+              "values": [
+                {
+                  "name": "window_autumn_night",
+                  "coord": [
+                    785,
+                    263
+                  ]
+                }
+              ],
+              "else": [
+                {
+                  "name": "window_autumn",
+                  "coord": [
+                    785,
+                    263
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "and": [
+        {
+          "$e": "False",
+          "values": [
+            {
+              "name": "window_night",
+              "coord": [
+                785,
+                263
+              ]
+            }
+          ],
+          "else": [
+            {
+              "name": "window",
+              "coord": [
+                785,
+                263
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_dollar1_spawned_today==True && !($_dollar1_taken_today)",
+      "values": [
+        {
+          "name": "dollar1",
+          "coord": [
+            645,
+            497
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_dollar2_spawned_today==True && !($_dollar2_taken_today)",
+      "values": [
+        {
+          "name": "dollar2",
+          "coord": [
+            1593,
+            1047
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.nurse_venting.started",
+      "or": [
+        {
+          "$e": "maxine.at(\"school_clubroom\",\"fishing\")"
+        }
+      ]
+    },
+    {
+      "name": "trash_can",
+      "coord": [
+        1352,
+        622
+      ]
+    },
+    {
+      "name": "worldmap",
+      "coord": [
+        1391,
+        522
+      ]
+    },
+    {
+      "name": "closet",
+      "coord": [
+        246,
+        76
+      ]
+    },
+    {
+      "name": "blackboard",
+      "coord": [
+        -19,
+        160
+      ]
+    },
+    {
+      "$e": "quest.isabelle_tour.finished && (quest.isabelle_over_kate.startedandnotquest.isabelle_over_kate.failed) && quest.clubroom_access>\"vent\" && ((maxine.at(\"school_clubroom\",\"fishing\")andnotquest.nurse_venting.started)orquest.nurse_venting.in_progress)",
+      "values": [
+        {
+          "name": "box",
+          "coord": [
+            -233,
+            650
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "box",
+          "coord": [
+            0,
+            624
+          ]
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "coord": [
+        459,
+        601
+      ]
+    },
+    {
+      "$e": "quest.isabelle_red.in_progress",
+      "values": [
+        {
+          "name": "note",
+          "coord": [
+            621,
+            776
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_books_moved",
+      "values": [
+        {
+          "name": "books",
+          "coord": [
+            802,
+            518
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "books",
+          "coord": [
+            931,
+            555
+          ]
+        }
+      ]
+    },
+    {
+      "name": "computer",
+      "coord": [
+        594,
+        542
+      ]
+    },
+    {
+      "name": "typewriter",
+      "coord": [
+        681,
+        592
+      ]
+    },
+    {
+      "$e": "!($_camera_taken)",
+      "values": [
+        {
+          "name": "camera",
+          "coord": [
+            900,
+            663
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bookshelf",
+      "coord": [
+        1474,
+        15
+      ]
+    },
+    {
+      "name": "chest",
+      "coord": [
+        1339,
+        718
+      ]
+    },
+    {
+      "name": "newspapers",
+      "coord": [
+        1582,
+        897
+      ]
+    },
+    {
+      "$e": "quest.maxine_lines.started && !(quest.maxine_lines.failed) && !($_locator_taken)",
+      "and": [
+        {
+          "$e": "quest.isabelle_tour.finished && (quest.isabelle_over_kate.startedandnotquest.isabelle_over_kate.failed) && quest.clubroom_access>\"vent\" && ((maxine.at(\"school_clubroom\",\"fishing\")andnotquest.nurse_venting.started)orquest.nurse_venting.in_progress)",
+          "values": [
+            {
+              "name": "locator",
+              "coord": [
+                11,
+                707
+              ]
+            }
+          ],
+          "else": [
+            {
+              "name": "locator",
+              "coord": [
+                243,
+                682
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "and": [
+        {
+          "$e": "$_doll",
+          "and": [
+            {
+              "$e": "$_doll==\"eyeless\"",
+              "values": [
+                {
+                  "name": "eyelessdoll",
+                  "coord": [
+                    1576,
+                    101
+                  ]
+                }
+              ],
+              "else": [
+                {
+                  "name": "doll",
+                  "coord": [
+                    1576,
+                    101
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_magnets",
+          "values": [
+            {
+              "name": "magnet_prison",
+              "coord": [
+                1550,
+                83
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_smoke",
+          "values": [
+            {
+              "name": "dollsmoke",
+              "coord": [
+                1491,
+                58
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_mirror",
+          "values": [
+            {
+              "name": "mirror",
+              "coord": [
+                835,
+                485
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_light",
+          "values": [
+            {
+              "name": "light",
+              "coord": [
+                845,
+                125
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(maxine.talking)",
+      "and": [
+        {
+          "$e": "maxine.at(\"school_clubroom\",\"sitting\")",
+          "values": [
+            {
+              "name": "chairback",
+              "coord": [
+                571,
+                743
+              ]
+            }
+          ],
+          "or": [
+            {
+              "$e": "maxine.at(\"school_clubroom\",\"fishing\")",
+              "values": [
+                {
+                  "name": "maxine_fishing",
+                  "coord": [
+                    260,
+                    433
+                  ]
+                },
+                {
+                  "name": "chairback",
+                  "coord": [
+                    571,
+                    743
+                  ]
+                }
+              ]
+            }
+          ],
+          "and": [
+            {
+              "$e": "$season==1",
+              "values": [
+                {
+                  "name": "maxine",
+                  "coord": [
+                    607,
+                    543
+                  ]
+                }
+              ],
+              "or": [
+                {
+                  "$e": "$season==2",
+                  "values": [
+                    {
+                      "name": "maxine_autumn",
+                      "coord": [
+                        607,
+                        543
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(spinach.talking)",
+      "and": [
+        {
+          "$e": "quest.spinach_seek>=\"play\" || $season>1",
+          "and": [
+            {
+              "$e": "spinach.at(\"school_clubroom\",\"playing\")",
+              "values": [
+                {
+                  "name": "cat_yarn",
+                  "coord": [
+                    1161,
+                    803
+                  ]
+                }
+              ],
+              "or": [
+                {
+                  "$e": "spinach.at(\"school_clubroom\",\"licking\")",
+                  "values": [
+                    {
+                      "name": "cat_lick",
+                      "coord": [
+                        1204,
+                        767
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "else": [
+            {
+              "$e": "spinach.at(\"school_clubroom\",\"hiding\")",
+              "values": [
+                {
+                  "name": "cat_hidden",
+                  "coord": [
+                    1362,
+                    610
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "overlay",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "$e": "False",
+      "values": [
+        {
+          "name": "overlay_night",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

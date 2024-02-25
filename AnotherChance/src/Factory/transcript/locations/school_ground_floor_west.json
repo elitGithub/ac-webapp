@@ -1,0 +1,609 @@
+{
+  "name": "school_ground_floor_west",
+  "title": "Admin Wing",
+  "parent": null,
+  "items": [
+    {
+      "name": "gfwhall",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "nursedoor",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "headmasterdoor",
+      "coord": [
+        498,
+        163
+      ]
+    },
+    {
+      "name": "lamp",
+      "coord": [
+        611,
+        0
+      ]
+    },
+    {
+      "name": "magazines",
+      "coord": [
+        695,
+        351
+      ]
+    },
+    {
+      "name": "bookshelf",
+      "coord": [
+        930,
+        279
+      ]
+    },
+    {
+      "name": "sofa_right",
+      "coord": [
+        1086,
+        398
+      ]
+    },
+    {
+      "name": "sofa_left",
+      "coord": [
+        796,
+        398
+      ]
+    },
+    {
+      "name": "table",
+      "coord": [
+        1306,
+        556
+      ]
+    },
+    {
+      "$e": "quest.jacklyn_romance==\"hide_and_seek\" && !($_ball_of_yarn_taken)",
+      "values": [
+        {
+          "name": "ball_of_yarn",
+          "coord": [
+            837,
+            441
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_lifted_glass && quest.flora_bonsai.in_progress",
+      "values": [
+        {
+          "name": "pot",
+          "coord": [
+            1344,
+            469
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "pot",
+          "coord": [
+            1344,
+            469
+          ]
+        }
+      ]
+    },
+    {
+      "name": "paintings",
+      "coord": [
+        271,
+        17
+      ]
+    },
+    {
+      "$e": "quest.maxine_wine==\"search\"",
+      "and": [
+        {
+          "$e": "quest.maxine_wine[\"hidden_stash_revealed\"]",
+          "values": [
+            {
+              "name": "sun_painting",
+              "coord": [
+                833,
+                243
+              ]
+            },
+            {
+              "name": "sun_painting_hidden_stash",
+              "coord": [
+                842,
+                259
+              ]
+            },
+            {
+              "name": "wine",
+              "coord": [
+                889,
+                280
+              ]
+            },
+            {
+              "name": "sun_painting_side",
+              "coord": [
+                771,
+                220
+              ]
+            }
+          ],
+          "else": [
+            {
+              "name": "sun_painting",
+              "coord": [
+                833,
+                243
+              ]
+            }
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "sun_painting",
+          "coord": [
+            833,
+            243
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "(quest.maxine_wine==\"locker\"andmc.owned_item(\"flora_poster\")andnotquest.maxine_wine[\"admin_wing_poster\"]orquest.lindsey_angel==\"phone_book\")",
+      "values": [
+        {
+          "name": "info",
+          "coord": [
+            1308,
+            15
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "info",
+          "coord": [
+            1308,
+            15
+          ]
+        },
+        {
+          "$e": "$season==1 && !(quest.jo_washed.in_progress)",
+          "and": [
+            {
+              "$e": "quest.maxine_wine[\"admin_wing_poster\"]",
+              "values": [
+                {
+                  "name": "flora_poster",
+                  "coord": [
+                    1595,
+                    166
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "aquarium",
+      "coord": [
+        241,
+        251
+      ]
+    },
+    {
+      "$e": "quest.flora_bonsai.in_progress",
+      "and": [
+        {
+          "$e": "quest.flora_bonsai>=\"vines\" && !(school_nurse_room[\"tree_done\"])",
+          "values": [
+            {
+              "name": "vines",
+              "coord": [
+                12,
+                40
+              ]
+            }
+          ],
+          "and": [
+            {
+              "$e": "$_lifted_glass",
+              "values": [
+                {
+                  "name": "glassdome_lifted",
+                  "coord": [
+                    1316,
+                    420
+                  ]
+                },
+                {
+                  "name": "glassvine_pot",
+                  "coord": [
+                    1269,
+                    431
+                  ]
+                }
+              ],
+              "else": [
+                {
+                  "name": "glassvine",
+                  "coord": [
+                    1269,
+                    431
+                  ]
+                },
+                {
+                  "name": "glassdome",
+                  "coord": [
+                    1297,
+                    449
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "$_lifted_glass",
+              "values": [
+                {
+                  "name": "stickynote_lifted",
+                  "coord": [
+                    1382,
+                    438
+                  ]
+                }
+              ],
+              "else": [
+                {
+                  "name": "stickynote",
+                  "coord": [
+                    1358,
+                    483
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_exclusive) || \"flora\"in$_exclusive",
+      "and": [
+        {
+          "$e": "!(flora.talking)",
+          "and": [
+            {
+              "$e": "flora.at(\"school_ground_floor_west\",\"standing\")",
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "flora_autumn",
+                          "coord": [
+                            421,
+                            277
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "and": [
+                    {
+                      "$e": "flora.equipped_item(\"flora_skirt\")",
+                      "values": [
+                        {
+                          "name": "flora_skirt",
+                          "coord": [
+                            419,
+                            277
+                          ]
+                        }
+                      ],
+                      "else": [
+                        {
+                          "name": "flora",
+                          "coord": [
+                            419,
+                            277
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "flora.at(\"school_ground_floor_west\",\"vines\")",
+              "values": [
+                {
+                  "name": "reaching_vine",
+                  "coord": [
+                    159,
+                    739
+                  ]
+                }
+              ],
+              "and": [
+                {
+                  "$e": "flora.equipped_item(\"flora_skirt\")",
+                  "values": [
+                    {
+                      "name": "flora_bandage_skirt",
+                      "coord": [
+                        419,
+                        277
+                      ]
+                    }
+                  ],
+                  "else": [
+                    {
+                      "name": "flora_bandage",
+                      "coord": [
+                        419,
+                        277
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_exclusive) || \"maxine\"in$_exclusive",
+      "and": [
+        {
+          "$e": "!(maxine.talking)",
+          "and": [
+            {
+              "$e": "maxine.at(\"school_ground_floor_west\",\"spying\")",
+              "values": [
+                {
+                  "name": "maxine_shadow",
+                  "coord": [
+                    1014,
+                    568
+                  ]
+                }
+              ],
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "values": [
+                    {
+                      "name": "maxine",
+                      "coord": [
+                        1018,
+                        0
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "maxine_autumn",
+                          "coord": [
+                            1017,
+                            0
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_exclusive) || \"isabelle\"in$_exclusive",
+      "and": [
+        {
+          "$e": "!(isabelle.talking)",
+          "and": [
+            {
+              "$e": "isabelle.at(\"school_ground_floor_west\",\"standing\")",
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "values": [
+                    {
+                      "name": "isabelle",
+                      "coord": [
+                        1201,
+                        309
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "isabelle_autumn",
+                          "coord": [
+                            1200,
+                            309
+                          ]
+                        }
+                      ],
+                      "and": [
+                        {
+                          "$e": "isabelle.equipped_item(\"isabelle_collar\")",
+                          "values": [
+                            {
+                              "name": "isabelle_collar",
+                              "coord": [
+                                1242,
+                                374
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_exclusive) || \"nurse\"in$_exclusive",
+      "and": [
+        {
+          "$e": "!(nurse.talking)",
+          "and": [
+            {
+              "$e": "nurse.at(\"school_ground_floor_west\",\"standing\")",
+              "values": [
+                {
+                  "name": "nurse",
+                  "coord": [
+                    842,
+                    284
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.kate_wicked==\"costume\" && !(quest.kate_wicked[\"own_costume\"])",
+      "values": [
+        {
+          "name": "mystery_box",
+          "coord": [
+            641,
+            582
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_exclusive) || \"spinach\"in$_exclusive",
+      "and": [
+        {
+          "$e": "!(spinach.talking)",
+          "and": [
+            {
+              "$e": "spinach.at(\"school_ground_floor_west\",\"running\")",
+              "values": [
+                {
+                  "name": "spinach",
+                  "coord": [
+                    839,
+                    489
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.lindsey_book[\"beaver\"]==5",
+      "values": [
+        {
+          "name": "beaver",
+          "coord": [
+            1154,
+            509
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(quest.jo_washed.in_progress)",
+      "and": [
+        {
+          "$e": "$_dollar1_spawned_today==True && !($_dollar1_taken_today)",
+          "values": [
+            {
+              "name": "dollar1",
+              "coord": [
+                381,
+                353
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_dollar2_spawned_today==True && !($_dollar2_taken_today)",
+          "values": [
+            {
+              "name": "dollar2",
+              "coord": [
+                1337,
+                202
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "!($_book_taken)",
+          "values": [
+            {
+              "name": "book",
+              "coord": [
+                1148,
+                442
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "(quest.kate_wickedin(\"costume\",\"party\")orquest.isabelle_dethroningin(\"trap\",\"revenge\",\"revenge_done\",\"panik\")orquest.lindsey_angelin(\"keycard\",\"off_limits\",\"phone_book\",\"lab_coat\",\"escape\"))",
+      "values": [
+        {
+          "name": "night_overlay",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "exit_arrow",
+      "coord": [
+        904,
+        921
+      ]
+    }
+  ]
+}

@@ -1,0 +1,797 @@
+{
+  "name": "school_nurse_room",
+  "title": "Nurse's Office",
+  "parent": null,
+  "items": [
+    {
+      "name": "nurse_wall",
+      "coord": [
+        -186,
+        0
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "values": [
+        {
+          "name": "outside",
+          "coord": [
+            77,
+            161
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$season==2",
+          "values": [
+            {
+              "name": "outside_autumn",
+              "coord": [
+                77,
+                162
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "(quest.kate_wickedin(\"costume\",\"party\")orquest.lindsey_angelin(\"keycard\",\"off_limits\",\"phone_book\",\"lab_coat\",\"escape\"))",
+      "values": [
+        {
+          "name": "outside_night",
+          "coord": [
+            79,
+            165
+          ]
+        }
+      ]
+    },
+    {
+      "name": "boobs_right",
+      "coord": [
+        1412,
+        287
+      ]
+    },
+    {
+      "name": "side_table",
+      "coord": [
+        1427,
+        501
+      ]
+    },
+    {
+      "name": "butt",
+      "coord": [
+        1259,
+        248
+      ]
+    },
+    {
+      "name": "rainbow",
+      "coord": [
+        1084,
+        369
+      ]
+    },
+    {
+      "name": "beach",
+      "coord": [
+        1071,
+        272
+      ]
+    },
+    {
+      "name": "bin",
+      "coord": [
+        958,
+        540
+      ]
+    },
+    {
+      "name": "clock",
+      "coord": [
+        907,
+        213
+      ]
+    },
+    {
+      "name": "drawing",
+      "coord": [
+        562,
+        302
+      ]
+    },
+    {
+      "$e": "!($_poster_torn)",
+      "values": [
+        {
+          "name": "boobs_left",
+          "coord": [
+            416,
+            263
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "(\"stuck\">quest.nurse_venting>\"ready\"orquest.nurse_venting==\"not_stuck\")",
+      "values": [
+        {
+          "name": "hole",
+          "coord": [
+            1195,
+            548
+          ]
+        },
+        {
+          "name": "open_vent",
+          "coord": [
+            1038,
+            579
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "quest.nurse_venting==\"stuck\"",
+          "values": [
+            {
+              "name": "hole",
+              "coord": [
+                1195,
+                548
+              ]
+            },
+            {
+              "name": "open_vent",
+              "coord": [
+                1038,
+                579
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "curtain",
+      "coord": [
+        52,
+        82
+      ]
+    },
+    {
+      "name": "door",
+      "coord": [
+        1813,
+        180
+      ]
+    },
+    {
+      "$e": "quest.nurse_venting>\"supplies\" && quest.nurse_venting.in_progress",
+      "values": [
+        {
+          "name": "bed_upside_down_shadow",
+          "coord": [
+            1038,
+            700
+          ]
+        },
+        {
+          "name": "bed_upside_down",
+          "coord": [
+            1218,
+            165
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "bed",
+          "coord": [
+            1097,
+            447
+          ]
+        }
+      ]
+    },
+    {
+      "name": "iron_bar",
+      "coord": [
+        1020,
+        185
+      ]
+    },
+    {
+      "$e": "$_curtain_off || kate.at(\"school_nurse_room\",\"sitting\") || quest.nurse_venting==\"stuck\" || quest.jo_washed.in_progress",
+      "values": [
+        {
+          "name": "curtain_open",
+          "coord": [
+            1652,
+            196
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "curtain_closed",
+          "coord": [
+            1030,
+            195
+          ]
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "coord": [
+        831,
+        276
+      ]
+    },
+    {
+      "name": "table",
+      "coord": [
+        377,
+        484
+      ]
+    },
+    {
+      "name": "bookshelf_center",
+      "coord": [
+        637,
+        248
+      ]
+    },
+    {
+      "name": "bookshelf_left",
+      "coord": [
+        0,
+        48
+      ]
+    },
+    {
+      "name": "misc",
+      "coord": [
+        410,
+        414
+      ]
+    },
+    {
+      "name": "medical_supplies",
+      "coord": [
+        490,
+        432
+      ]
+    },
+    {
+      "name": "weight",
+      "coord": [
+        340,
+        406
+      ]
+    },
+    {
+      "name": "desk",
+      "coord": [
+        0,
+        709
+      ]
+    },
+    {
+      "name": "stool",
+      "coord": [
+        889,
+        899
+      ]
+    },
+    {
+      "$e": "quest.lindsey_angel==\"keycard\" && !($_keycard_taken)",
+      "values": [
+        {
+          "name": "keycard",
+          "coord": [
+            951,
+            916
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_stethoscope_taken) || quest.jo_washed.in_progress",
+      "values": [
+        {
+          "name": "stethoscope",
+          "coord": [
+            283,
+            717
+          ]
+        }
+      ]
+    },
+    {
+      "name": "books_desk",
+      "coord": [
+        0,
+        597
+      ]
+    },
+    {
+      "name": "cup",
+      "coord": [
+        516,
+        615
+      ]
+    },
+    {
+      "name": "sticks",
+      "coord": [
+        560,
+        573
+      ]
+    },
+    {
+      "$e": "!((kate.at(\"school_nurse_room\",\"sitting\")orquest.kate_search_for_nurse.in_progress)) && (not$_lollipop_takenorquest.jo_washed.in_progress)",
+      "values": [
+        {
+          "name": "lollipop",
+          "coord": [
+            475,
+            556
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pot",
+      "coord": [
+        677,
+        656
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "and": [
+        {
+          "$e": "quest.flora_bonsai<\"water\" || quest.jo_washed.in_progress",
+          "values": [
+            {
+              "name": "bonsai",
+              "coord": [
+                623,
+                559
+              ]
+            }
+          ],
+          "or": [
+            {
+              "$e": "quest.flora_bonsai>=\"water\" && quest.flora_bonsai<\"attack\"",
+              "values": [
+                {
+                  "name": "midtree",
+                  "coord": [
+                    377,
+                    2
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_puddle_today",
+      "values": [
+        {
+          "name": "puddle",
+          "coord": [
+            622,
+            714
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_teddy_gone)",
+      "values": [
+        {
+          "name": "teddy",
+          "coord": [
+            191,
+            593
+          ]
+        }
+      ]
+    },
+    {
+      "name": "paper",
+      "coord": [
+        471,
+        733
+      ]
+    },
+    {
+      "$e": "!($_pen_taken) || quest.jo_washed.in_progress",
+      "values": [
+        {
+          "name": "pen",
+          "coord": [
+            614,
+            753
+          ]
+        }
+      ]
+    },
+    {
+      "name": "laptop",
+      "coord": [
+        0,
+        621
+      ]
+    },
+    {
+      "name": "below_desk",
+      "coord": [
+        245,
+        812
+      ]
+    },
+    {
+      "name": "chair_left",
+      "coord": [
+        8,
+        779
+      ]
+    },
+    {
+      "$e": "nurse[\"strike_book_activated\"] && !(quest.jo_washed.in_progress)",
+      "values": [
+        {
+          "name": "strikebook",
+          "coord": [
+            672,
+            735
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "kate.at(\"school_nurse_room\",\"sitting\")",
+      "and": [
+        {
+          "$e": "!(kate.talking)",
+          "and": [
+            {
+              "$e": "$season==1",
+              "values": [
+                {
+                  "name": "kate",
+                  "coord": [
+                    1232,
+                    381
+                  ]
+                }
+              ],
+              "or": [
+                {
+                  "$e": "$season==2",
+                  "values": [
+                    {
+                      "name": "kate_autumn",
+                      "coord": [
+                        1232,
+                        381
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(nurse.talking)",
+      "and": [
+        {
+          "$e": "nurse.at(\"school_nurse_room\",\"sitting\")",
+          "or": [
+            {
+              "$e": "nurse.at(\"school_nurse_room\",\"stuck\")",
+              "values": [
+                {
+                  "name": "nurse_stuck",
+                  "coord": [
+                    1188,
+                    539
+                  ]
+                },
+                {
+                  "name": "bed_upside_down_leg",
+                  "coord": [
+                    1218,
+                    668
+                  ]
+                }
+              ]
+            }
+          ],
+          "and": [
+            {
+              "$e": "nurse[\"strike_book_nude_office_today\"]",
+              "values": [
+                {
+                  "name": "nurse_strikebook",
+                  "coord": [
+                    914,
+                    425
+                  ]
+                }
+              ],
+              "else": [
+                {
+                  "$e": "$season==1",
+                  "values": [
+                    {
+                      "name": "nurse",
+                      "coord": [
+                        914,
+                        425
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "nurse_autumn",
+                          "coord": [
+                            913,
+                            402
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(quest.jo_washed.in_progress)",
+      "and": [
+        {
+          "$e": "$_dollar1_spawned_today==True && !($_dollar1_taken_today)",
+          "values": [
+            {
+              "name": "dollar1",
+              "coord": [
+                463,
+                833
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_dollar2_spawned_today==True && !($_dollar2_taken_today)",
+          "values": [
+            {
+              "name": "dollar2",
+              "coord": [
+                912,
+                275
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_dollar3_spawned_today==True && !($_dollar3_taken_today)",
+          "values": [
+            {
+              "name": "dollar3",
+              "coord": [
+                650,
+                301
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.flora_bonsai.in_progress",
+      "and": [
+        {
+          "$e": "quest.flora_bonsaiin(\"attack\",\"tinybigtree\") && !($_tree_done)",
+          "and": [
+            {
+              "$e": "$_tree"
+            },
+            {
+              "$e": "!(quest.flora_bonsai[\"flora_down\"])",
+              "values": [
+                {
+                  "name": "flora",
+                  "coord": [
+                    844,
+                    331
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "quest.flora_bonsai['r_vine_1']",
+              "else": [
+                {
+                  "name": "open_window",
+                  "coord": [
+                    136,
+                    514
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "!($_teddy_gone)",
+              "values": [
+                {
+                  "name": "teddy",
+                  "coord": [
+                    184,
+                    589
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "quest.flora_bonsai['a_vine_1']",
+              "and": [
+                {
+                  "$e": "!(quest.flora_bonsai[\"flora_down\"])"
+                }
+              ]
+            },
+            {
+              "$e": "quest.flora_bonsai['r_vine_5']"
+            },
+            {
+              "$e": "quest.flora_bonsai['r_vine_2']"
+            },
+            {
+              "$e": "quest.flora_bonsai['r_vine_3']"
+            },
+            {
+              "$e": "quest.flora_bonsai['a_vine_3']",
+              "and": [
+                {
+                  "$e": "!(quest.flora_bonsai[\"flora_down\"])"
+                }
+              ]
+            },
+            {
+              "$e": "quest.flora_bonsai['r_vine_4']"
+            },
+            {
+              "$e": "quest.flora_bonsai['a_vine_2']",
+              "and": [
+                {
+                  "$e": "!(quest.flora_bonsai[\"flora_down\"])"
+                }
+              ]
+            },
+            {
+              "$e": "quest.flora_bonsai['a_vine_5']",
+              "and": [
+                {
+                  "$e": "!(quest.flora_bonsai[\"flora_down\"])"
+                }
+              ],
+              "else": [
+                {
+                  "name": "book",
+                  "coord": [
+                    39,
+                    111
+                  ]
+                },
+                {
+                  "$e": "quest.flora_bonsai['a_vine_5_clutter']",
+                  "values": [
+                    {
+                      "name": "bookclutter",
+                      "coord": [
+                        56,
+                        117
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "quest.flora_bonsai['a_vine_4']",
+              "values": [
+                {
+                  "name": "game",
+                  "coord": [
+                    0,
+                    637
+                  ]
+                }
+              ],
+              "and": [
+                {
+                  "$e": "!(quest.flora_bonsai[\"flora_down\"])"
+                }
+              ],
+              "else": [
+                {
+                  "name": "tictactoe",
+                  "coord": [
+                    0,
+                    637
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "quest.flora_bonsai[\"flora_down\"] && !(quest.flora_bonsai[\"flora_free\"])",
+          "and": [
+            {
+              "$e": "quest.flora_bonsai['r_vine_5']",
+              "values": [
+                {
+                  "name": "flora_down",
+                  "coord": [
+                    855,
+                    566
+                  ]
+                }
+              ],
+              "else": [
+                {
+                  "name": "flora_down_cum",
+                  "coord": [
+                    855,
+                    566
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "overlay",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "$e": "(quest.kate_wickedin(\"costume\",\"party\")orquest.lindsey_angelin(\"keycard\",\"off_limits\",\"phone_book\",\"lab_coat\",\"escape\"))",
+      "values": [
+        {
+          "name": "overlay_night",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "initial",
+  "assets": {
+    "fonts_ComicHelvetic_Heavy": "assets/fonts/ComicHelvetic_Heavy.otf",
+    "fonts_ComicHelvetic_Light": "assets/fonts/ComicHelvetic_Light.otf",
+    "fonts_ComicHelvetic_Medium": "assets/fonts/ComicHelvetic_Medium.otf",
+    "fonts_DejaVuSans": "assets/fonts/DejaVuSans.ttf",
+    "fonts_dinomouse.regular": "assets/fonts/dinomouse.regular.otf",
+    "fonts_Fresca-Regular": "assets/fonts/Fresca-Regular.ttf",
+    "fonts_GothamHTF-Bold": "assets/fonts/GothamHTF-Bold.ttf",
+    "fonts_just-for-fun.regular": "assets/fonts/just-for-fun.regular.otf",
+    "fonts_MergedFont": "assets/fonts/MergedFont.ttf",
+    "fonts_MonkeyIsland": "assets/fonts/MonkeyIsland.ttf",
+    "fonts_NATURALTEXT-REGULAR_3": "assets/fonts/NATURALTEXT-REGULAR_3.OTF",
+    "fonts_NATURALTEXT2-REGULAR": "assets/fonts/NATURALTEXT2-REGULAR.OTF",
+    "initial_atlas": "assets/images/spritesheets/initial.satlas",
+    "music_main_menu": "assets/audio/music/main_menu.ogg"
+  }
+}

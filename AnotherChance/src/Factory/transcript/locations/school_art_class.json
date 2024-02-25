@@ -1,0 +1,787 @@
+{
+  "name": "school_art_class",
+  "title": "Art Class",
+  "parent": null,
+  "items": [
+    {
+      "name": "art_class",
+      "coord": [
+        -74,
+        -287
+      ]
+    },
+    {
+      "name": "shelf",
+      "coord": [
+        54,
+        214
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "and": [
+        {
+          "$e": "!($_brush_taken) || quest.jo_washed.in_progress",
+          "values": [
+            {
+              "name": "brush",
+              "coord": [
+                1721,
+                801
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "big_brush",
+      "coord": [
+        1729,
+        734
+      ]
+    },
+    {
+      "name": "door",
+      "coord": [
+        1080,
+        363
+      ]
+    },
+    {
+      "name": "supply_closet",
+      "coord": [
+        1515,
+        220
+      ]
+    },
+    {
+      "name": "paintings",
+      "coord": [
+        672,
+        270
+      ]
+    },
+    {
+      "name": "paintings_supply_closet",
+      "coord": [
+        1533,
+        270
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "and": [
+        {
+          "$e": "!($_discarded_art_3_taken) || quest.jo_washed.in_progress",
+          "values": [
+            {
+              "name": "discardedart_3",
+              "coord": [
+                1371,
+                854
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "!($_discarded_art_2_taken) || quest.jo_washed.in_progress",
+          "values": [
+            {
+              "name": "discardedart_2",
+              "coord": [
+                1161,
+                835
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "!($_discarded_art_1_taken) || quest.jo_washed.in_progress",
+          "values": [
+            {
+              "name": "discardedart_1",
+              "coord": [
+                87,
+                871
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "shadows",
+      "coord": [
+        368,
+        624
+      ]
+    },
+    {
+      "name": "easel_1",
+      "coord": [
+        920,
+        409
+      ]
+    },
+    {
+      "$e": "quest.jacklyn_sweets==\"artroom\" && quest.jacklyn_sweets[\"paper_removed\"]",
+      "values": [
+        {
+          "name": "easel_3_nopaper",
+          "coord": [
+            842,
+            422
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "quest.jacklyn_sweetsin(\"paint\",\"finaltouches\")",
+          "values": [
+            {
+              "name": "easel_3_artinprogress",
+              "coord": [
+                842,
+                422
+              ]
+            }
+          ],
+          "and": [
+            {
+              "$e": "school_art_in_progress[\"libation\"]",
+              "values": [
+                {
+                  "name": "easel_3_artinprogress_pepelepsi",
+                  "coord": [
+                    879,
+                    438
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "school_art_in_progress[\"suction\"]",
+              "values": [
+                {
+                  "name": "easel_3_artinprogress_lollipops",
+                  "coord": [
+                    892,
+                    513
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "school_art_in_progress[\"caramelization\"]",
+              "values": [
+                {
+                  "name": "easel_3_artinprogress_doughnuts",
+                  "coord": [
+                    929,
+                    485
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.jacklyn_romance==\"hide_and_seek\" && !($_ball_of_yarn_taken)",
+      "values": [
+        {
+          "name": "ball_of_yarn",
+          "coord": [
+            1452,
+            617
+          ]
+        }
+      ]
+    },
+    {
+      "name": "statue_right",
+      "coord": [
+        1404,
+        333
+      ]
+    },
+    {
+      "name": "statue_left",
+      "coord": [
+        610,
+        309
+      ]
+    },
+    {
+      "name": "chair5",
+      "coord": [
+        1537,
+        563
+      ]
+    },
+    {
+      "name": "chair4",
+      "coord": [
+        1236,
+        507
+      ]
+    },
+    {
+      "name": "chair3",
+      "coord": [
+        728,
+        704
+      ]
+    },
+    {
+      "$e": "$_chair2_moved",
+      "values": [
+        {
+          "name": "chair2_moved_shadow",
+          "coord": [
+            389,
+            683
+          ]
+        },
+        {
+          "name": "chair2_moved",
+          "coord": [
+            401,
+            561
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "chair2_shadow",
+          "coord": [
+            658,
+            668
+          ]
+        },
+        {
+          "name": "chair2",
+          "coord": [
+            650,
+            543
+          ]
+        }
+      ]
+    },
+    {
+      "name": "chair1",
+      "coord": [
+        356,
+        642
+      ]
+    },
+    {
+      "name": "easel_2",
+      "coord": [
+        1318,
+        414
+      ]
+    },
+    {
+      "$e": "!(quest.jo_washed.in_progress)",
+      "values": [
+        {
+          "name": "ship",
+          "coord": [
+            905,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_book_taken) && !(quest.jo_washed.in_progress)",
+      "values": [
+        {
+          "name": "book",
+          "coord": [
+            230,
+            472
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "0==1",
+      "values": [
+        {
+          "name": "ship_smashed",
+          "coord": [
+            897,
+            232
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$season==1 && !(quest.jo_washed.in_progress)",
+      "and": [
+        {
+          "$e": "$_easel_paint_buckets",
+          "values": [
+            {
+              "name": "paint_buckets",
+              "coord": [
+                829,
+                627
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(quest.kate_search_for_nurse[\"kate_found_wrappers\"])",
+      "and": [
+        {
+          "$e": "quest.kate_search_for_nurse.in_progress && quest.kate_search_for_nurse==\"start\"",
+          "and": [
+            {
+              "$e": "!($_candy7_taken)",
+              "values": [
+                {
+                  "name": "candy7",
+                  "coord": [
+                    1710,
+                    735
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "!($_candy6_taken)",
+              "values": [
+                {
+                  "name": "candy6",
+                  "coord": [
+                    1570,
+                    809
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "!($_candy5_taken)",
+              "values": [
+                {
+                  "name": "candy5",
+                  "coord": [
+                    1360,
+                    854
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "!($_candy3_taken)",
+              "values": [
+                {
+                  "name": "candy3",
+                  "coord": [
+                    1252,
+                    806
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "!($_candy1_taken)",
+              "values": [
+                {
+                  "name": "candy1",
+                  "coord": [
+                    1193,
+                    638
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(quest.lindsey_wrongin(\"lindseyart\",\"florahelp\",\"floralocker\",\"lindseyclothes\"))",
+      "and": [
+        {
+          "$e": "!($_exclusive) || \"kate\"in$_exclusive",
+          "and": [
+            {
+              "$e": "kate.at(\"school_art_class\",\"pose\")",
+              "and": [
+                {
+                  "$e": "!(kate.talking)",
+                  "values": [
+                    {
+                      "name": "kate",
+                      "coord": [
+                        849,
+                        408
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "!($_exclusive) || \"nurse\"in$_exclusive",
+          "and": [
+            {
+              "$e": "nurse.at(\"school_art_class\",\"pose\")",
+              "and": [
+                {
+                  "$e": "!(nurse.talking)",
+                  "values": [
+                    {
+                      "name": "nurse",
+                      "coord": [
+                        763,
+                        595
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "!($_exclusive) || \"mrsl\"in$_exclusive",
+          "and": [
+            {
+              "$e": "mrsl.at(\"school_art_class\",\"pose\")",
+              "and": [
+                {
+                  "$e": "!(mrsl.talking)",
+                  "values": [
+                    {
+                      "name": "mrsl",
+                      "coord": [
+                        506,
+                        372
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "!($_exclusive) || \"flora\"in$_exclusive",
+          "and": [
+            {
+              "$e": "flora.at(\"school_art_class\",\"selfie\")",
+              "and": [
+                {
+                  "$e": "!(flora.talking)",
+                  "and": [
+                    {
+                      "$e": "$season==1",
+                      "or": [
+                        {
+                          "$e": "$season==2",
+                          "values": [
+                            {
+                              "name": "flora_autumn",
+                              "coord": [
+                                656,
+                                345
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "and": [
+                        {
+                          "$e": "flora.equipped_item(\"flora_skirt\")",
+                          "values": [
+                            {
+                              "name": "flora_skirt",
+                              "coord": [
+                                656,
+                                345
+                              ]
+                            }
+                          ],
+                          "else": [
+                            {
+                              "name": "flora",
+                              "coord": [
+                                656,
+                                345
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "!($_exclusive) || \"isabelle\"in$_exclusive",
+          "and": [
+            {
+              "$e": "isabelle.at(\"school_art_class\",\"standing\")",
+              "and": [
+                {
+                  "$e": "!(isabelle.talking)",
+                  "and": [
+                    {
+                      "$e": "$season==1",
+                      "values": [
+                        {
+                          "name": "isabelle",
+                          "coord": [
+                            172,
+                            339
+                          ]
+                        }
+                      ],
+                      "or": [
+                        {
+                          "$e": "$season==2",
+                          "values": [
+                            {
+                              "name": "isabelle_autumn",
+                              "coord": [
+                                172,
+                                339
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "!($_exclusive) || \"jacklyn\"in$_exclusive",
+          "and": [
+            {
+              "$e": "!(jacklyn.talking)",
+              "and": [
+                {
+                  "$e": "jacklyn.at(\"school_art_class\",\"standing\")",
+                  "or": [
+                    {
+                      "$e": "jacklyn.at(\"school_art_class\",\"pose\")",
+                      "values": [
+                        {
+                          "name": "jacklyn_pose",
+                          "coord": [
+                            333,
+                            390
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "and": [
+                    {
+                      "$e": "$season==1",
+                      "or": [
+                        {
+                          "$e": "$season==2",
+                          "values": [
+                            {
+                              "name": "jacklyn_autumn",
+                              "coord": [
+                                365,
+                                393
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "and": [
+                        {
+                          "$e": "quest.jo_washed.in_progress && !(jacklyn.equipped_item(\"jacklyn_shirt\"))",
+                          "values": [
+                            {
+                              "name": "jacklyn_dream",
+                              "coord": [
+                                361,
+                                389
+                              ]
+                            }
+                          ],
+                          "else": [
+                            {
+                              "name": "jacklyn",
+                              "coord": [
+                                361,
+                                389
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "!($_exclusive) || \"spinach\"in$_exclusive",
+          "and": [
+            {
+              "$e": "spinach.at(\"school_art_class\",\"standing\")",
+              "or": [
+                {
+                  "$e": "spinach.at(\"school_art_class\",\"running\")",
+                  "and": [
+                    {
+                      "$e": "!(spinach.talking)",
+                      "values": [
+                        {
+                          "name": "cat_run",
+                          "coord": [
+                            1205,
+                            687
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "and": [
+                {
+                  "$e": "!(spinach.talking)",
+                  "values": [
+                    {
+                      "name": "cat_look",
+                      "coord": [
+                        1229,
+                        671
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_exclusive) || \"lindsey\"in$_exclusive",
+      "and": [
+        {
+          "$e": "!(lindsey.talking)",
+          "and": [
+            {
+              "$e": "lindsey.at(\"school_art_class\",\"naked\")",
+              "values": [
+                {
+                  "name": "lindseynaked",
+                  "coord": [
+                    1229,
+                    400
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "lindsey.at(\"school_art_class\",\"mcshirt\")",
+              "values": [
+                {
+                  "name": "lindseyshirt",
+                  "coord": [
+                    1229,
+                    400
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "lindsey.at(\"school_art_class\",\"standing\")",
+              "values": [
+                {
+                  "name": "lindsey",
+                  "coord": [
+                    1229,
+                    400
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(quest.jo_washed.in_progress)",
+      "and": [
+        {
+          "$e": "$_dollar1_spawned_today==True && !($_dollar1_taken_today)",
+          "values": [
+            {
+              "name": "dollar1",
+              "coord": [
+                253,
+                301
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_dollar2_spawned_today==True && !($_dollar2_taken_today)",
+          "values": [
+            {
+              "name": "dollar2",
+              "coord": [
+                814,
+                465
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_dollar3_spawned_today==True && !($_dollar3_taken_today)",
+          "values": [
+            {
+              "name": "dollar3",
+              "coord": [
+                1613,
+                256
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.isabelle_dethroning==\"revenge\" && !($_lights_on)",
+      "values": [
+        {
+          "name": "night_overlay",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

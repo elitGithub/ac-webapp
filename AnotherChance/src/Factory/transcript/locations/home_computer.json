@@ -1,0 +1,42 @@
+{
+  "name": "home_computer",
+  "title": "Bedroom",
+  "parent": null,
+  "items": [
+    {
+      "$e": "20>$hour>6",
+      "values": [
+        {
+          "name": "computer_day",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "computer_night",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "background",
+      "coord": [
+        322,
+        95
+      ]
+    },
+    {
+      "name": "exit_arrow",
+      "coord": [
+        933,
+        948
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4447 @@
+[
+  {
+    "name": "crab",
+    "title": "crab.name",
+    "isInteractable": true
+  },
+  {
+    "name": "maya",
+    "title": "maya.name",
+    "isInteractable": true
+  },
+  {
+    "name": "ancient_ring",
+    "title": "Ancient Ring",
+    "isInteractable": true
+  },
+  {
+    "name": "apple",
+    "title": "Apple",
+    "isInteractable": true
+  },
+  {
+    "name": "atlas_plugged",
+    "title": "\\\"Atlas Plugged, a Tale of Rails, Fails, and Fluffy Tails\\\"",
+    "isInteractable": true
+  },
+  {
+    "name": "bag_of_weed",
+    "title": "Bag of Weed",
+    "isInteractable": true
+  },
+  {
+    "name": "ball_of_yarn",
+    "title": "Ball of Yarn",
+    "isInteractable": true
+  },
+  {
+    "name": "ball_of_yarn_pink",
+    "title": "Pink Ball of Yarn",
+    "isInteractable": true
+  },
+  {
+    "name": "ball_of_yarn_red",
+    "title": "Red Ball of Yarn",
+    "isInteractable": true
+  },
+  {
+    "name": "ball_of_yarn_gray",
+    "title": "Gray Ball of Yarn",
+    "isInteractable": true
+  },
+  {
+    "name": "ball_of_yarn_yellow",
+    "title": "Yellow Ball of Yarn",
+    "isInteractable": true
+  },
+  {
+    "name": "ball_of_yarn_blue",
+    "title": "Blue Ball of Yarn",
+    "isInteractable": true
+  },
+  {
+    "name": "banana_milk",
+    "title": "Banana Milk",
+    "isInteractable": true
+  },
+  {
+    "name": "baseball",
+    "title": "Baseball",
+    "isInteractable": true
+  },
+  {
+    "name": "baseball_bat",
+    "title": "Baseball Bat",
+    "isInteractable": true
+  },
+  {
+    "name": "bayonets_etiquettes",
+    "title": "\\\"Bayonets & Etiquettes\\\"",
+    "isInteractable": true
+  },
+  {
+    "name": "beach_photo",
+    "title": "Beach Photo",
+    "isInteractable": true
+  },
+  {
+    "name": "beaver_carcass",
+    "title": "Beaver Carcass",
+    "isInteractable": true
+  },
+  {
+    "name": "beaver_pelt",
+    "title": "Beaver Pelt",
+    "isInteractable": true
+  },
+  {
+    "name": "bippity_boppity_bitch",
+    "title": "\\\"Bippity Boppity, Bitch: How to Spell\\nfor Dummies\\\" by Glinda B. Goode",
+    "isInteractable": true
+  },
+  {
+    "name": "body_oil",
+    "title": "Body Oil",
+    "isInteractable": true
+  },
+  {
+    "name": "book_of_the_dammed",
+    "title": "\\\"Book of the Dammed: the Beaver\\nEncyclopedia\\\" by J.J. Timberlake",
+    "isInteractable": true
+  },
+  {
+    "name": "bottle_of_soap",
+    "title": "Bottle of Soap",
+    "isInteractable": true
+  },
+  {
+    "name": "broken_cable",
+    "title": "Broken Cable",
+    "isInteractable": true
+  },
+  {
+    "name": "brush",
+    "title": "Paint Brush",
+    "isInteractable": true
+  },
+  {
+    "name": "buried_box",
+    "title": "Buried Box",
+    "isInteractable": true
+  },
+  {
+    "name": "cactus",
+    "title": "Cactus",
+    "isInteractable": true
+  },
+  {
+    "name": "cactus_in_a_pot",
+    "title": "Cactus in a Pot",
+    "isInteractable": true
+  },
+  {
+    "name": "cake_slice",
+    "title": "Slice of Cake",
+    "isInteractable": true
+  },
+  {
+    "name": "candle",
+    "title": "Candle",
+    "isInteractable": true
+  },
+  {
+    "name": "capture_card",
+    "title": "Capture Card",
+    "isInteractable": true
+  },
+  {
+    "name": "car_wash_sign",
+    "title": "Car Wash Sign",
+    "isInteractable": true
+  },
+  {
+    "name": "catch_thirty_four",
+    "title": "\\\"Catch 34, a Porno-Political Conflict\\\"",
+    "isInteractable": true
+  },
+  {
+    "name": "cat_tail",
+    "title": "Cat Tail",
+    "isInteractable": true
+  },
+  {
+    "name": "charger_cable",
+    "title": "Charger Cable",
+    "isInteractable": true
+  },
+  {
+    "name": "chocolate_heart",
+    "title": "Chocolate Heart",
+    "isInteractable": true
+  },
+  {
+    "name": "chopin_music_score",
+    "title": "Chopin Music Score",
+    "isInteractable": true
+  },
+  {
+    "name": "bolt",
+    "title": "Bolt",
+    "isInteractable": true
+  },
+  {
+    "name": "clean_laundry",
+    "title": "Clean Laundry",
+    "isInteractable": true
+  },
+  {
+    "name": "coffee_cup",
+    "title": "Coffee Cup",
+    "isInteractable": true
+  },
+  {
+    "name": "colored_paper",
+    "title": "Colored Papers",
+    "isInteractable": true
+  },
+  {
+    "name": "compromising_photo",
+    "title": "'s Compromising Photo",
+    "isInteractable": true
+  },
+  {
+    "name": "conductor_baton",
+    "title": "Conductor's Baton",
+    "isInteractable": true
+  },
+  {
+    "name": "confetti",
+    "title": "Confetti",
+    "isInteractable": true
+  },
+  {
+    "name": "cooking_pot",
+    "title": "Cooking Pot",
+    "isInteractable": true
+  },
+  {
+    "name": "costume_shop_voucher",
+    "title": "Costume Shop Voucher",
+    "isInteractable": true
+  },
+  {
+    "name": "courage_badge",
+    "title": "Courage Badge",
+    "isInteractable": true
+  },
+  {
+    "name": "croutons",
+    "title": "Croutons",
+    "isInteractable": true
+  },
+  {
+    "name": "cup_of_coffee",
+    "title": "Cup of Coffee",
+    "isInteractable": true
+  },
+  {
+    "name": "cutie_harlot",
+    "title": "Scarlet Starlet's Cutie-Harlot",
+    "isInteractable": true
+  },
+  {
+    "name": "damning_document",
+    "title": "Damning Document",
+    "isInteractable": true
+  },
+  {
+    "name": "diary_page",
+    "title": "Secret Diary Page",
+    "isInteractable": true
+  },
+  {
+    "name": "dirty_laundry",
+    "title": "Dirty Laundry",
+    "isInteractable": true
+  },
+  {
+    "name": "discarded_art1",
+    "title": "Discarded Art",
+    "isInteractable": true
+  },
+  {
+    "name": "discarded_art2",
+    "title": "Discarded Art",
+    "isInteractable": true
+  },
+  {
+    "name": "discarded_art3",
+    "title": "Discarded Art",
+    "isInteractable": true
+  },
+  {
+    "name": "dish_brush",
+    "title": "Dish Brush",
+    "isInteractable": true
+  },
+  {
+    "name": "dog_collar",
+    "title": "Dog Collar",
+    "isInteractable": true
+  },
+  {
+    "name": "doughnut",
+    "title": "Doughnut",
+    "isInteractable": true
+  },
+  {
+    "name": "electrical_tape",
+    "title": "Electrical Tape",
+    "isInteractable": true
+  },
+  {
+    "name": "empty_bottle",
+    "title": "Empty Bottle",
+    "isInteractable": true
+  },
+  {
+    "name": "empty_can",
+    "title": "Empty Can",
+    "isInteractable": true
+  },
+  {
+    "name": "eraser",
+    "title": "Eraser",
+    "isInteractable": true
+  },
+  {
+    "name": "fire_axe",
+    "title": "Fire Axe",
+    "isInteractable": true
+  },
+  {
+    "name": "fish",
+    "title": "Fish",
+    "isInteractable": true
+  },
+  {
+    "name": "fishing_hook",
+    "title": "Fishing Hook",
+    "isInteractable": true
+  },
+  {
+    "name": "fishing_line",
+    "title": "Fishing Line",
+    "isInteractable": true
+  },
+  {
+    "name": "fixed_cable",
+    "title": "Fixed Cable",
+    "isInteractable": true
+  },
+  {
+    "name": "flash_drive",
+    "title": "Flash Drive",
+    "isInteractable": true
+  },
+  {
+    "name": "flora_bracelet",
+    "title": "'s Bracelet",
+    "isInteractable": true
+  },
+  {
+    "name": "flora_phone",
+    "title": "'s Phone",
+    "isInteractable": true
+  },
+  {
+    "name": "flora_pin",
+    "title": "'s Pin",
+    "isInteractable": true
+  },
+  {
+    "name": "flora_poster",
+    "title": "'s Poster",
+    "isInteractable": true
+  },
+  {
+    "name": "frog",
+    "title": "Frog",
+    "isInteractable": true
+  },
+  {
+    "name": "frog_cage",
+    "title": "Frog Cage",
+    "isInteractable": true
+  },
+  {
+    "name": "full_letter",
+    "title": "A Letter and a Half",
+    "isInteractable": true
+  },
+  {
+    "name": "garden_hose",
+    "title": "Garden Hose",
+    "isInteractable": true
+  },
+  {
+    "name": "garlic",
+    "title": "Garlic",
+    "isInteractable": true
+  },
+  {
+    "name": "ghost_sheet",
+    "title": "Ghost Sheet",
+    "isInteractable": true
+  },
+  {
+    "name": "gigglypuff_leaves",
+    "title": "Gigglypuff Leaves",
+    "isInteractable": true
+  },
+  {
+    "name": "gigglypuff_leaves_corrupted",
+    "title": "Corrupted Gigglypuff Leaves",
+    "isInteractable": true
+  },
+  {
+    "name": "gigglypuff_seeds",
+    "title": "Gigglypuff Seeds",
+    "isInteractable": true
+  },
+  {
+    "name": "gigglypuff_tea",
+    "title": "Gigglypuff Tea",
+    "isInteractable": true
+  },
+  {
+    "name": "glass_shard",
+    "title": "Glass Shard",
+    "isInteractable": true
+  },
+  {
+    "name": "globe",
+    "title": "Globe",
+    "isInteractable": true
+  },
+  {
+    "name": "grappling_hook",
+    "title": "Grappling Hook",
+    "isInteractable": true
+  },
+  {
+    "name": "greasy_bolt",
+    "title": "Greasy Bolt",
+    "isInteractable": true
+  },
+  {
+    "name": "haggis_lunchbox",
+    "title": "Haggis Lunch Box",
+    "isInteractable": true
+  },
+  {
+    "name": "half_letter_1",
+    "title": "Half a Letter",
+    "isInteractable": true
+  },
+  {
+    "name": "half_letter_2",
+    "title": "Other Half of the Letter",
+    "isInteractable": true
+  },
+  {
+    "name": "handcuffs",
+    "title": "Handcuffs",
+    "isInteractable": true
+  },
+  {
+    "name": "hex_vex_and_texmex",
+    "title": "\\\"Hex, Vex, and TexMex: The Beginner Spellweaver's\\nTasty Guide and Recipe Book\\\" by Nicksy Steve",
+    "isInteractable": true
+  },
+  {
+    "name": "high_tech_lockpick",
+    "title": "High-Tech Lockpick",
+    "isInteractable": true
+  },
+  {
+    "name": "ice_tea",
+    "title": "Ice Tea",
+    "isInteractable": true
+  },
+  {
+    "name": "independence_day_decorations",
+    "title": "Independence Day Decorations",
+    "isInteractable": true
+  },
+  {
+    "name": "isabelle_box",
+    "title": "'s Box",
+    "isInteractable": true
+  },
+  {
+    "name": "isabelle_glasses_inv",
+    "title": "'s Glasses",
+    "isInteractable": true
+  },
+  {
+    "name": "isabelle_hair",
+    "title": "'s Hair",
+    "isInteractable": true
+  },
+  {
+    "name": "isabelle_panties_inv",
+    "title": "'s Panties",
+    "isInteractable": true
+  },
+  {
+    "name": "jacklyn_sweat",
+    "title": "'s Sweat",
+    "isInteractable": true
+  },
+  {
+    "name": "jo_secret_wine",
+    "title": "'s Secret Wine",
+    "isInteractable": true
+  },
+  {
+    "name": "kate_fashion_poster",
+    "title": "Kate's Fashion Poster",
+    "isInteractable": true
+  },
+  {
+    "name": "kate_hair",
+    "title": "'s Hair",
+    "isInteractable": true
+  },
+  {
+    "name": "kate_pills",
+    "title": "'s Pills",
+    "isInteractable": true
+  },
+  {
+    "name": "kate_socks_clean",
+    "title": "'s Clean Socks",
+    "isInteractable": true
+  },
+  {
+    "name": "kate_socks_dirty",
+    "title": "'s Dirty Socks",
+    "isInteractable": true
+  },
+  {
+    "name": "kate_wet_photo",
+    "title": "'s Soaked Photo",
+    "isInteractable": true
+  },
+  {
+    "name": "kettle",
+    "title": "Kettle",
+    "isInteractable": true
+  },
+  {
+    "name": "keycard",
+    "title": "Keycard",
+    "isInteractable": true
+  },
+  {
+    "name": "key_jo_room",
+    "title": "Key to \"+jo.name+\"'s Room",
+    "isInteractable": true
+  },
+  {
+    "name": "key_music_class",
+    "title": "Key to the Music Classroom",
+    "isInteractable": true
+  },
+  {
+    "name": "king_bard_album",
+    "title": "King's Bard Album",
+    "isInteractable": true
+  },
+  {
+    "name": "king_of_sweets",
+    "title": "King of Sweets",
+    "isInteractable": true
+  },
+  {
+    "name": "lab_coat",
+    "title": "Lab Coat",
+    "isInteractable": true
+  },
+  {
+    "name": "lamp",
+    "title": "Lamp",
+    "isInteractable": true
+  },
+  {
+    "name": "letter_for_jo",
+    "title": "Letter for ",
+    "isInteractable": true
+  },
+  {
+    "name": "letter_from_maxine",
+    "title": "Letter from ",
+    "isInteractable": true
+  },
+  {
+    "name": "leyline_locator",
+    "title": "Ley Line Locator",
+    "isInteractable": true
+  },
+  {
+    "name": "school_leyline_locator_exit",
+    "title": "Back",
+    "isInteractable": true
+  },
+  {
+    "name": "locator_button_1",
+    "title": "Blue Button",
+    "isInteractable": true
+  },
+  {
+    "name": "locator_button_2",
+    "title": "Red Button",
+    "isInteractable": true
+  },
+  {
+    "name": "locator_screen",
+    "title": "Leyline",
+    "isInteractable": true
+  },
+  {
+    "name": "lindsey_bag",
+    "title": "'s Bag",
+    "isInteractable": true
+  },
+  {
+    "name": "lindsey_bottle",
+    "title": "'s Bottle",
+    "isInteractable": true
+  },
+  {
+    "name": "locker_key",
+    "title": "Locker Key",
+    "isInteractable": true
+  },
+  {
+    "name": "lollipop",
+    "title": "Lollipop",
+    "isInteractable": true
+  },
+  {
+    "name": "lollipop_2",
+    "title": "Big Lollipop",
+    "isInteractable": true
+  },
+  {
+    "name": "love_potion_droplet",
+    "title": "Love Potion Droplet",
+    "isInteractable": true
+  },
+  {
+    "name": "machete",
+    "title": "Machete",
+    "isInteractable": true
+  },
+  {
+    "name": "magnet",
+    "title": "Magnet",
+    "isInteractable": true
+  },
+  {
+    "name": "makeshift_easel",
+    "title": "Makeshift Easel",
+    "isInteractable": true
+  },
+  {
+    "name": "marilyn_the_mason_drawing",
+    "title": "Marilyn the Mason Drawing",
+    "isInteractable": true
+  },
+  {
+    "name": "maxine_camera",
+    "title": "'s Camera",
+    "isInteractable": true
+  },
+  {
+    "name": "maxine_letter",
+    "title": "Letter to ",
+    "isInteractable": true
+  },
+  {
+    "name": "maxine_nude",
+    "title": "'s Nude",
+    "isInteractable": true
+  },
+  {
+    "name": "maxine_other_nude",
+    "title": "'s Other Nude",
+    "isInteractable": true
+  },
+  {
+    "name": "maya_schedule",
+    "title": "'s Schedule",
+    "isInteractable": true
+  },
+  {
+    "name": "meds",
+    "title": "Unassorted Meds",
+    "isInteractable": true
+  },
+  {
+    "name": "microplastics",
+    "title": "\\\"Microplastics: How Ocean Pollution\\nAffects Cthulhu\\\" by Luna Lovecraft",
+    "isInteractable": true
+  },
+  {
+    "name": "milk",
+    "title": "Milk",
+    "isInteractable": true
+  },
+  {
+    "name": "monkey_wrench",
+    "title": "Monkey Wrench",
+    "isInteractable": true
+  },
+  {
+    "name": "mop",
+    "title": "Janitor's Mop",
+    "isInteractable": true
+  },
+  {
+    "name": "mop2",
+    "title": "Mop",
+    "isInteractable": true
+  },
+  {
+    "name": "mrsl_brooch",
+    "title": "Mrs. Lichtenstein's Brooch",
+    "isInteractable": true
+  },
+  {
+    "name": "mug",
+    "title": "Mug",
+    "isInteractable": true
+  },
+  {
+    "name": "mysterious_coin",
+    "title": "Mysterious Coin",
+    "isInteractable": true
+  },
+  {
+    "name": "mysterious_medallion",
+    "title": "Mysterious Medallion",
+    "isInteractable": true
+  },
+  {
+    "name": "newspaper",
+    "title": "Newspaper",
+    "isInteractable": true
+  },
+  {
+    "name": "nurse_panties",
+    "title": "'s Panties",
+    "isInteractable": true
+  },
+  {
+    "name": "nurse_pen",
+    "title": "'s Pen",
+    "isInteractable": true
+  },
+  {
+    "name": "nymphoria_heartus",
+    "title": "Nymphoria Heartus",
+    "isInteractable": true
+  },
+  {
+    "name": "old_artwork",
+    "title": "Old Artwork",
+    "isInteractable": true
+  },
+  {
+    "name": "onion_slice",
+    "title": "Sliced Onion",
+    "isInteractable": true
+  },
+  {
+    "name": "package_gigglypuff_seeds",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "package_magnet",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "package_ball_of_yarn",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "package_stick",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "package_mrsl_brooch",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "package_nymphoria_heartus",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "package_venus_vagenis",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "package_bag_of_weed",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "package_beaver_pelt",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "package_baseball_bat",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "package_sleeping_pills",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "package_cutie_harlot",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "package_pig_mask",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "package_hex_vex_and_texmex",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "pad",
+    "title": "Pads",
+    "isInteractable": true
+  },
+  {
+    "name": "paint_buckets",
+    "title": "Paint Buckets",
+    "isInteractable": true
+  },
+  {
+    "name": "paint_jar",
+    "title": "Paint Jar",
+    "isInteractable": true
+  },
+  {
+    "name": "paper",
+    "title": "Paper",
+    "isInteractable": true
+  },
+  {
+    "name": "paper_star_blue",
+    "title": "Blue Star",
+    "isInteractable": true
+  },
+  {
+    "name": "paper_star_red",
+    "title": "Red Star",
+    "isInteractable": true
+  },
+  {
+    "name": "paper_star_green",
+    "title": "Green Star",
+    "isInteractable": true
+  },
+  {
+    "name": "paper_star_black",
+    "title": "Black Star",
+    "isInteractable": true
+  },
+  {
+    "name": "paper_star_gold",
+    "title": "Gold Star",
+    "isInteractable": true
+  },
+  {
+    "name": "pen",
+    "title": "Pen",
+    "isInteractable": true
+  },
+  {
+    "name": "pennants",
+    "title": "Pennants",
+    "isInteractable": true
+  },
+  {
+    "name": "pepelepsi",
+    "title": "Pepelepsi",
+    "isInteractable": true
+  },
+  {
+    "name": "permission_slip",
+    "title": "Permission Slip",
+    "isInteractable": true
+  },
+  {
+    "name": "picnic_blanket",
+    "title": "Picnic Blanket",
+    "isInteractable": true
+  },
+  {
+    "name": "piece_of_paper",
+    "title": "Piece of Paper",
+    "isInteractable": true
+  },
+  {
+    "name": "pig_mask",
+    "title": "Pig Mask",
+    "isInteractable": true
+  },
+  {
+    "name": "plant",
+    "title": "Plant",
+    "isInteractable": true
+  },
+  {
+    "name": "plastic_fork",
+    "title": "Plastic Fork",
+    "isInteractable": true
+  },
+  {
+    "name": "pocket_mirror",
+    "title": "Pocket Mirror",
+    "isInteractable": true
+  },
+  {
+    "name": "poisoned_apple",
+    "title": "Poisoned Apple",
+    "isInteractable": true
+  },
+  {
+    "name": "power_cable_red",
+    "title": "Red Cable",
+    "isInteractable": true
+  },
+  {
+    "name": "power_cable_blue",
+    "title": "Blue Cable",
+    "isInteractable": true
+  },
+  {
+    "name": "power_cable_yellow",
+    "title": "Yellow Cable",
+    "isInteractable": true
+  },
+  {
+    "name": "power_plower",
+    "title": "Power-Plower 3000",
+    "isInteractable": true
+  },
+  {
+    "name": "queen_rue",
+    "title": "Queen's Rue",
+    "isInteractable": true
+  },
+  {
+    "name": "red_paint",
+    "title": "Red Paint",
+    "isInteractable": true
+  },
+  {
+    "name": "rock",
+    "title": "Rock",
+    "isInteractable": true
+  },
+  {
+    "name": "rusty_key",
+    "title": "Rusty Key",
+    "isInteractable": true
+  },
+  {
+    "name": "safety_pin",
+    "title": "Safety Pin",
+    "isInteractable": true
+  },
+  {
+    "name": "salted_cola",
+    "title": "Salted Cola",
+    "isInteractable": true
+  },
+  {
+    "name": "saucer_eyed_doll",
+    "title": "The Saucer-Eyed Doll",
+    "isInteractable": true
+  },
+  {
+    "name": "secret_key",
+    "title": "Secret Key",
+    "isInteractable": true
+  },
+  {
+    "name": "secret_note",
+    "title": "Secret Note",
+    "isInteractable": true
+  },
+  {
+    "name": "seven_hp",
+    "title": "Seven HP",
+    "isInteractable": true
+  },
+  {
+    "name": "shovel",
+    "title": "Shovel",
+    "isInteractable": true
+  },
+  {
+    "name": "silver_paint",
+    "title": "Silver Paint",
+    "isInteractable": true
+  },
+  {
+    "name": "sleeping_pills",
+    "title": "Sleeping Pills",
+    "isInteractable": true
+  },
+  {
+    "name": "sliced_cable",
+    "title": "Sliced Cable",
+    "isInteractable": true
+  },
+  {
+    "name": "snow_globe",
+    "title": "Snow Globe",
+    "isInteractable": true
+  },
+  {
+    "name": "snow_white",
+    "title": "\\\"Snow White and the Seven Below-Average-Normal-Guys\\\"",
+    "isInteractable": true
+  },
+  {
+    "name": "soup_can",
+    "title": "Can of Soup",
+    "isInteractable": true
+  },
+  {
+    "name": "specialized_fuse_cable_replacement_tool",
+    "title": "Specialized Fuse Cable Replacement Tool",
+    "isInteractable": true
+  },
+  {
+    "name": "spice",
+    "title": "Spice",
+    "isInteractable": true
+  },
+  {
+    "name": "spiked_ice_tea",
+    "title": "Spiked Ice Tea",
+    "isInteractable": true
+  },
+  {
+    "name": "spinach",
+    "title": "spinach.name",
+    "isInteractable": true
+  },
+  {
+    "name": "sponges",
+    "title": "Sponges",
+    "isInteractable": true
+  },
+  {
+    "name": "spoon",
+    "title": "Spoon",
+    "isInteractable": true
+  },
+  {
+    "name": "spoonful_of_spice",
+    "title": "Spoonful of Spice",
+    "isInteractable": true
+  },
+  {
+    "name": "spray_banana_milk",
+    "title": "Banana Milk",
+    "isInteractable": true
+  },
+  {
+    "name": "spray_cap",
+    "title": "Spray Cap",
+    "isInteractable": true
+  },
+  {
+    "name": "spray_empty_bottle",
+    "title": "Empty Bottle",
+    "isInteractable": true
+  },
+  {
+    "name": "spray_pepelepsi",
+    "title": "Pepelepsi",
+    "isInteractable": true
+  },
+  {
+    "name": "spray_salted_cola",
+    "title": "Salted Cola",
+    "isInteractable": true
+  },
+  {
+    "name": "spray_seven_hp",
+    "title": "Seven HP",
+    "isInteractable": true
+  },
+  {
+    "name": "spray_strawberry_juice",
+    "title": "Strawberry Juice",
+    "isInteractable": true
+  },
+  {
+    "name": "spray_urine",
+    "title": "Spray Bottle of Urine",
+    "isInteractable": true
+  },
+  {
+    "name": "spray_water",
+    "title": "Water",
+    "isInteractable": true
+  },
+  {
+    "name": "stethoscope",
+    "title": "Stethoscope",
+    "isInteractable": true
+  },
+  {
+    "name": "stick",
+    "title": "Stick",
+    "isInteractable": true
+  },
+  {
+    "name": "stick_two",
+    "title": "Two Sticks",
+    "isInteractable": true
+  },
+  {
+    "name": "stick_three",
+    "title": "Three Sticks",
+    "isInteractable": true
+  },
+  {
+    "name": "strawberry_juice",
+    "title": "Strawberry Juice",
+    "isInteractable": true
+  },
+  {
+    "name": "string",
+    "title": "String",
+    "isInteractable": true
+  },
+  {
+    "name": "sugar_cube",
+    "title": "Sugar Cube",
+    "isInteractable": true
+  },
+  {
+    "name": "summer_wine",
+    "title": "Summer Wine",
+    "isInteractable": true
+  },
+  {
+    "name": "tide_pods",
+    "title": "Laundry Detergent",
+    "isInteractable": true
+  },
+  {
+    "name": "tissues",
+    "title": "Tissue",
+    "isInteractable": true
+  },
+  {
+    "name": "tubes_of_paint",
+    "title": "Tubes of Paint",
+    "isInteractable": true
+  },
+  {
+    "name": "tuning_fork",
+    "title": "Tuning Fork",
+    "isInteractable": true
+  },
+  {
+    "name": "tuning_hammer",
+    "title": "Tuning Hammer",
+    "isInteractable": true
+  },
+  {
+    "name": "umbrella",
+    "title": "Umbrella",
+    "isInteractable": true
+  },
+  {
+    "name": "vacuum_cleaner",
+    "title": "Vacuum Cleaner",
+    "isInteractable": true
+  },
+  {
+    "name": "vcr_tape",
+    "title": "HOT Box Set",
+    "isInteractable": true
+  },
+  {
+    "name": "venus_vagenis",
+    "title": "Venus Vagenis",
+    "isInteractable": true
+  },
+  {
+    "name": "vhs_player",
+    "title": "VHS Player",
+    "isInteractable": true
+  },
+  {
+    "name": "walkie_talkie",
+    "title": "Walkie-Talkie",
+    "isInteractable": true
+  },
+  {
+    "name": "water_bottle",
+    "title": "Water",
+    "isInteractable": true
+  },
+  {
+    "name": "wet_tissue",
+    "title": "Wet Tissue",
+    "isInteractable": true
+  },
+  {
+    "name": "whoo_sauce",
+    "title": "Whooshster™ Sauce",
+    "isInteractable": true
+  },
+  {
+    "name": "wrapper",
+    "title": "Candy Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "xcube_controller",
+    "title": "xCube Controller",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_basket_clothes",
+    "title": "Dirty Clothes",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_bathrobe",
+    "title": "Bathrobe",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_bathtub",
+    "title": "Bathtub",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_clothesline_full",
+    "title": "Washed Clothes",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_clothesline_empty",
+    "title": "Clothing Line",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_door",
+    "title": "Door",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_laundry_basket",
+    "title": "Laundry Basket",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_basket",
+    "title": "Laundry Basket",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_laundry1",
+    "title": "Laundry",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_laundry2",
+    "title": "Laundry",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_laundry3",
+    "title": "Laundry",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_laundry4",
+    "title": "Laundry",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_laundry5",
+    "title": "Laundry",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_laundry6",
+    "title": "Laundry",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_laundry7",
+    "title": "Laundry",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_laundry8",
+    "title": "Laundry",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_wet_laundry1",
+    "title": "Wet Laundry",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_wet_laundry2",
+    "title": "Wet Laundry",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_wet_laundry3",
+    "title": "Wet Laundry",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_wet_laundry4",
+    "title": "Wet Laundry",
+    "isInteractable": true
+  },
+  {
+    "name": "home_laundry_instructions",
+    "title": "Laundry Instructions",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_mirror",
+    "title": "Mirror",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_dollar2",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_dollar1",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_piss_puddles",
+    "title": "Piss Puddles",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_pocketmirror",
+    "title": "Pocket Mirror",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_poster",
+    "title": "",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_sink",
+    "title": "Sink",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_sugarcube6",
+    "title": "Sugar Cube",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_sugarcube7",
+    "title": "Sugar Cube",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_tissues",
+    "title": "Box of Tissues",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_toilet",
+    "title": "Toilet",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_garbage",
+    "title": "Trash Bin",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_clothes_sink",
+    "title": "Wet Clothes",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_water_overflow",
+    "title": "Water Overflowing",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bathroom_water_puddles",
+    "title": "Water Puddles",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_alarm",
+    "title": "Alarm",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_bed",
+    "title": "Bed",
+    "isInteractable": true
+  },
+  {
+    "name": "home_computer_exit_arrow",
+    "title": "Back",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_closet",
+    "title": "Closet",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_computer",
+    "title": "Computer",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_controller",
+    "title": "Controller",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_courage_badge",
+    "title": "Courage Badge",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_door",
+    "title": "Door",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_flash_drive",
+    "title": "Flash Drive",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_king_of_sweets",
+    "title": "King of Sweets",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_dollar3",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_dollar2",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_dollar1",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_book",
+    "title": "Book",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_ornamental_box",
+    "title": "Black Ornamental Box",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_porn_mag",
+    "title": "Porn Mag",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_sports_magazine",
+    "title": "Sports Magazine",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_sugarcube5",
+    "title": "Sugar Cube",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_sugarcube4",
+    "title": "Sugar Cube",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_sugarcube3",
+    "title": "Sugar Cube",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_suit",
+    "title": "Suit",
+    "isInteractable": true
+  },
+  {
+    "name": "home_bedroom_vhs_player",
+    "title": "VHS Player",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_room_fresh",
+    "title": "Air Freshner",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_bandid",
+    "title": "Bandaid",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_candle",
+    "title": "Candle",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_coat_hanger",
+    "title": "Coat Hanger",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_door_bathroom",
+    "title": "Bathroom",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_door_bedroom",
+    "title": "Bedroom",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_door_flora",
+    "title": "[flora]'s Room",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_door_mom",
+    "title": "[jo]'s Room",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_family",
+    "title": "Family Photo",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_hole",
+    "title": "Hole",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_lamp",
+    "title": "Lamp",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_sword",
+    "title": "Machete",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_dollar2",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_dollar1",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_book",
+    "title": "Book",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_note",
+    "title": "Note",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_painting_deco",
+    "title": "Paintings",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_back_poster",
+    "title": "Poster",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_stair_handle",
+    "title": "Railing",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_salt_lamp",
+    "title": "Salt Lamp",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_wall_cabinet",
+    "title": "Shelves",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_shoes",
+    "title": "Shoes",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_stairs",
+    "title": "Stairs",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_stop",
+    "title": "Stop Sign",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_cleaning_supply",
+    "title": "Storage Closet",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_sugarcube1",
+    "title": "Sugar Cube",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_sugarcube2",
+    "title": "Sugar Cube",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_table",
+    "title": "Table",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_trphy",
+    "title": "Trophies",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_trphy_cabnet",
+    "title": "Trophy Cabinet",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_umbrella",
+    "title": "Umbrella",
+    "isInteractable": true
+  },
+  {
+    "name": "home_hall_trail_down",
+    "title": "Wet Trail",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_burning_towel",
+    "title": "Burning Towel",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_c1",
+    "title": "Cupboard",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_cheque",
+    "title": "Cheque",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_cooking_pot",
+    "title": "Cooking Pot",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_crouton",
+    "title": "Croutons",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_d1",
+    "title": "Drawer",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_d2",
+    "title": "Drawer",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_d3",
+    "title": "Drawer",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_dollar1",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_dollar2",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_dollar3",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_door",
+    "title": "Door",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_fallen_squid",
+    "title": "Plushie",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_flora_pants",
+    "title": "[flora]'s Pants",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_kettle_counter",
+    "title": "Kettle",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_kettle_stove",
+    "title": "Kettle",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_mf",
+    "title": "Mini Fridge",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_onion",
+    "title": "Onion",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_package_gigglypuff_seeds",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_package_magnet",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_package_ball_of_yarn",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_package_stick",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_package_mrsl_brooch",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_package_nymphoria_heartus",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_package_venus_vagenis",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_package_bag_of_weed",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_package_beaver_pelt",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_package_baseball_bat",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_package_sleeping_pills",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_package_cutie_harlot",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_package_pig_mask",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_package_hex_vex_and_texmex",
+    "title": "Mysterious Package",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_plant_move",
+    "title": "Plant",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_s1",
+    "title": "Shelf",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_smoke",
+    "title": "Smoke",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_spilled_flour",
+    "title": "Spilled Flour",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_squid",
+    "title": "Plushie",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_stairs",
+    "title": "Stairs",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_stone",
+    "title": "Stones",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_stove",
+    "title": "Stove",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_sugarcube8",
+    "title": "Sugar Cube",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_sugarcube9",
+    "title": "Sugar Cube",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_sugarcube10",
+    "title": "Sugar Cube",
+    "isInteractable": true
+  },
+  {
+    "name": "kitchen_water_bottle",
+    "title": "Water Bottle",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_water_trail",
+    "title": "Wet Trail",
+    "isInteractable": true
+  },
+  {
+    "name": "home_kitchen_sauce_left",
+    "title": "Whooshster™ Sauce",
+    "isInteractable": true
+  },
+  {
+    "name": "hospital_door",
+    "title": "Door",
+    "isInteractable": true
+  },
+  {
+    "name": "hospital_exit_arrow",
+    "title": "Newfall Marina",
+    "isInteractable": true
+  },
+  {
+    "name": "hospital_glass_door",
+    "title": "Hospital Ward",
+    "isInteractable": true
+  },
+  {
+    "name": "hospital_left_poster",
+    "title": "Poster",
+    "isInteractable": true
+  },
+  {
+    "name": "hospital_plant",
+    "title": "Plant",
+    "isInteractable": true
+  },
+  {
+    "name": "hospital_right_poster",
+    "title": "Poster",
+    "isInteractable": true
+  },
+  {
+    "name": "hospital_sanitizer",
+    "title": "Sanitizer",
+    "isInteractable": true
+  },
+  {
+    "name": "marina_bubblegum_machine",
+    "title": "Bubblegum Machine",
+    "isInteractable": true
+  },
+  {
+    "name": "marina_codfather",
+    "title": "The Codfather",
+    "isInteractable": true
+  },
+  {
+    "name": "marina_exit_arrow",
+    "title": "Back",
+    "isInteractable": true
+  },
+  {
+    "name": "marina_filthy_oar",
+    "title": "Filthy Oar",
+    "isInteractable": true
+  },
+  {
+    "name": "marina_hospital",
+    "title": "Newfall Hospital",
+    "isInteractable": true
+  },
+  {
+    "name": "marina_pancake_brothel",
+    "title": "Tam's Pancake Brothel",
+    "isInteractable": true
+  },
+  {
+    "name": "marina_police_department",
+    "title": "Newfall Police Department",
+    "isInteractable": true
+  },
+  {
+    "name": "marina_prawn_star",
+    "title": "The Prawn Star",
+    "isInteractable": true
+  },
+  {
+    "name": "marina_sparks_plugs",
+    "title": "Sparks & Plugs",
+    "isInteractable": true
+  },
+  {
+    "name": "marina_tailor_aquarium",
+    "title": "Newfall Tailor & Aquarium",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_art_in_progress",
+    "title": "Art In Progress",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_in_progress_libation",
+    "title": "Libation",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_in_progress_suction",
+    "title": "Suction",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_in_progress_caramelization",
+    "title": "Caramelization",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_in_progress_exit_arrow",
+    "title": "Back",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_ball_of_yarn",
+    "title": "Yellow Ball of Yarn",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_brush",
+    "title": "Brush",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_candy1",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_candy3",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_candy5",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_candy6",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_candy7",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_chairs",
+    "title": "Chair",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_discardedart_3",
+    "title": "Discarded Art",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_discardedart_2",
+    "title": "Discarded Art",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_discardedart_1",
+    "title": "Discarded Art",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_door",
+    "title": "Door",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_easel_01",
+    "title": "Easel",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_easel_03",
+    "title": "Easel",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_easel_02",
+    "title": "Easel",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_dollar1",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_dollar2",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_dollar3",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_book",
+    "title": "Book",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_paint_brush",
+    "title": "Paint Brush",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_paint_buckets",
+    "title": "Paint Buckets",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_shelf",
+    "title": "Paint Shelf",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_statue_left",
+    "title": "Statue",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_statue_right",
+    "title": "Statue",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_supply_closet",
+    "title": "Supply Closet",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_wooden_ship",
+    "title": "Wooden Ship",
+    "isInteractable": true
+  },
+  {
+    "name": "school_art_class_wooden_ship_smashed",
+    "title": "test",
+    "isInteractable": true
+  },
+  {
+    "name": "school_bathroom_broken_snow_globe",
+    "title": "Broken Snow Globe",
+    "isInteractable": true
+  },
+  {
+    "name": "school_bathroom_cigarettes",
+    "title": "Cigarettes",
+    "isInteractable": true
+  },
+  {
+    "name": "school_bathroom_door",
+    "title": "Door",
+    "isInteractable": true
+  },
+  {
+    "name": "school_bathroom_fork",
+    "title": "Fork",
+    "isInteractable": true
+  },
+  {
+    "name": "school_bathroom_locker1",
+    "title": "Locker",
+    "isInteractable": true
+  },
+  {
+    "name": "school_bathroom_locker2",
+    "title": "Locker",
+    "isInteractable": true
+  },
+  {
+    "name": "school_bathroom_locker3",
+    "title": "Locker",
+    "isInteractable": true
+  },
+  {
+    "name": "school_bathroom_painting",
+    "title": "Painting",
+    "isInteractable": true
+  },
+  {
+    "name": "school_bathroom_selfie_stick",
+    "title": "Selfie Stick",
+    "isInteractable": true
+  },
+  {
+    "name": "school_bathroom_shoes",
+    "title": "Shoes",
+    "isInteractable": true
+  },
+  {
+    "name": "school_bathroom_shower1",
+    "title": "Shower",
+    "isInteractable": true
+  },
+  {
+    "name": "school_bathroom_shower2",
+    "title": "Shower",
+    "isInteractable": true
+  },
+  {
+    "name": "school_bathroom_sinks",
+    "title": "Sinks",
+    "isInteractable": true
+  },
+  {
+    "name": "school_bathroom_urinal",
+    "title": "Urinal",
+    "isInteractable": true
+  },
+  {
+    "name": "school_bathroom_water_bottle",
+    "title": "[lindsey]'s Water Bottle",
+    "isInteractable": true
+  },
+  {
+    "name": "school_cafeteria_exit",
+    "title": "Exit",
+    "isInteractable": true
+  },
+  {
+    "name": "school_cafeteria_coffee",
+    "title": "Coffee Machine",
+    "isInteractable": true
+  },
+  {
+    "name": "school_cafeteria_cooking_pot",
+    "title": "Cooking Pot",
+    "isInteractable": true
+  },
+  {
+    "name": "school_cafeteria_counter_left",
+    "title": "Food Counter",
+    "isInteractable": true
+  },
+  {
+    "name": "school_cafeteria_drink_machine",
+    "title": "Soda Machine",
+    "isInteractable": true
+  },
+  {
+    "name": "school_cafeteria_kitchen",
+    "title": "Kitchen",
+    "isInteractable": true
+  },
+  {
+    "name": "school_cafeteria_dollar1",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_cafeteria_dollar2",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_cafeteria_pastries",
+    "title": "Pastries",
+    "isInteractable": true
+  },
+  {
+    "name": "school_cafeteria_vending_back",
+    "title": "Vending Machine",
+    "isInteractable": true
+  },
+  {
+    "name": "school_cafeteria_vending_left",
+    "title": "Vending Machine",
+    "isInteractable": true
+  },
+  {
+    "name": "school_clubroom_chest",
+    "title": "[maxine]'s Chest",
+    "isInteractable": true
+  },
+  {
+    "name": "school_clubroom_computer",
+    "title": "Computer",
+    "isInteractable": true
+  },
+  {
+    "name": "school_clubroom_doll",
+    "title": "The Saucer-Eyed Doll",
+    "isInteractable": true
+  },
+  {
+    "name": "school_clubroom_eyelessdoll",
+    "title": "The Eyeless Doll",
+    "isInteractable": true
+  },
+  {
+    "name": "school_clubroom_dollar1",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_clubroom_dollar2",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_hook_up_table_power_supply",
+    "title": "Power Supply",
+    "isInteractable": true
+  },
+  {
+    "name": "school_hook_up_table_watermelon",
+    "title": "Watermelon",
+    "isInteractable": true
+  },
+  {
+    "name": "school_hook_up_table_watermelon_slice",
+    "title": "Watermelon Slice",
+    "isInteractable": true
+  },
+  {
+    "name": "school_hook_up_table_vr_goggles",
+    "title": "VR Goggles",
+    "isInteractable": true
+  },
+  {
+    "name": "school_hook_up_table_cable",
+    "title": "Cable",
+    "isInteractable": true
+  },
+  {
+    "name": "school_clubroom_locator",
+    "title": "Ley Line Locator",
+    "isInteractable": true
+  },
+  {
+    "name": "school_clubroom_note",
+    "title": "Note",
+    "isInteractable": true
+  },
+  {
+    "name": "school_clubroom_old_camera",
+    "title": "[maxine]'s Camera",
+    "isInteractable": true
+  },
+  {
+    "name": "school_clubroom_old_locker",
+    "title": "Old Locker",
+    "isInteractable": true
+  },
+  {
+    "name": "school_clubroom_papers",
+    "title": "Stack of Papers",
+    "isInteractable": true
+  },
+  {
+    "name": "school_clubroom_pile_of_books",
+    "title": "Pile of Books",
+    "isInteractable": true
+  },
+  {
+    "name": "school_clubroom_typewriter",
+    "title": "Typewriter",
+    "isInteractable": true
+  },
+  {
+    "name": "school_clubroom_vent",
+    "title": "Vent",
+    "isInteractable": true
+  },
+  {
+    "name": "school_clubroom_window",
+    "title": "Window",
+    "isInteractable": true
+  },
+  {
+    "name": "school_computer_room_cable_box",
+    "title": "Box of Cables",
+    "isInteractable": true
+  },
+  {
+    "name": "school_computer_room_dollar",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_computer_room_door",
+    "title": "Door",
+    "isInteractable": true
+  },
+  {
+    "name": "school_computer_room_light_switch",
+    "title": "Light Switch",
+    "isInteractable": true
+  },
+  {
+    "name": "school_computer_room_printer",
+    "title": "Printer",
+    "isInteractable": true
+  },
+  {
+    "name": "school_computer_room_projector",
+    "title": "Projector",
+    "isInteractable": true
+  },
+  {
+    "name": "school_computer_room_screen_left",
+    "title": "School Computer",
+    "isInteractable": true
+  },
+  {
+    "name": "school_computer_room_screen_mid_left",
+    "title": "School Computer",
+    "isInteractable": true
+  },
+  {
+    "name": "school_computer_room_screen_mid_right",
+    "title": "School Computer",
+    "isInteractable": true
+  },
+  {
+    "name": "school_computer_room_screen_right",
+    "title": "School Computer",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_back_desk",
+    "title": "Back Desk",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_back_desk_books",
+    "title": "Books",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_beanbag",
+    "title": "Beanbag",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_blackboard",
+    "title": "Blackboard",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_bookshelf",
+    "title": "Bookshelf",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_cactus",
+    "title": "Cactus",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_chair_front_right",
+    "title": "Chair",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_clock",
+    "title": "Clock",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_desks_1st_row",
+    "title": "Student Desks First Row",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_desk_four",
+    "title": "Student Desk",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_desk_one",
+    "title": "Student Desk",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_desk_three",
+    "title": "Student Desk",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_door",
+    "title": "Door",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_framed_quote_one",
+    "title": "Framed Quote",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_dollar1",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_dollar2",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_book",
+    "title": "Book",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_note",
+    "title": "Note",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_quote_01",
+    "title": "Framed Quote",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_quote_04",
+    "title": "Framed Quote",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_quote_06",
+    "title": "Framed Quote",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_quote_07",
+    "title": "Framed Quote",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_safe",
+    "title": "Safe",
+    "isInteractable": true
+  },
+  {
+    "name": "school_english_class_desk",
+    "title": "Teacher's Desk",
+    "isInteractable": true
+  },
+  {
+    "name": "school_entrance_baseball",
+    "title": "Baseball",
+    "isInteractable": true
+  },
+  {
+    "name": "school_entrance_beaver_ground",
+    "title": "Beaver",
+    "isInteractable": true
+  },
+  {
+    "name": "school_entrance_beaver_light",
+    "title": "Beaver",
+    "isInteractable": true
+  },
+  {
+    "name": "school_entrance_beaver_roof",
+    "title": "Beaver",
+    "isInteractable": true
+  },
+  {
+    "name": "school_entrance_bus",
+    "title": "Bus",
+    "isInteractable": true
+  },
+  {
+    "name": "school_entrance_bush",
+    "title": "Bush",
+    "isInteractable": true
+  },
+  {
+    "name": "school_entrance_bus_stop",
+    "title": "Bus Stop",
+    "isInteractable": true
+  },
+  {
+    "name": "school_entrance_car_wash",
+    "title": "Car Wash",
+    "isInteractable": true
+  },
+  {
+    "name": "school_entrance_clubroom_window",
+    "title": "Window",
+    "isInteractable": true
+  },
+  {
+    "name": "school_entrance_cropcircle",
+    "title": "Crops Circle",
+    "isInteractable": true
+  },
+  {
+    "name": "school_entrance_door",
+    "title": "Door",
+    "isInteractable": true
+  },
+  {
+    "name": "school_entrance_ladder",
+    "title": "Ladder",
+    "isInteractable": true
+  },
+  {
+    "name": "school_entrance_dollar1",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_entrance_dollar2",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_entrance_dollar3",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_entrance_path",
+    "title": "Path",
+    "isInteractable": true
+  },
+  {
+    "name": "school_entrance_right_path",
+    "title": "Path",
+    "isInteractable": true
+  },
+  {
+    "name": "school_entrance_rope",
+    "title": "Rope",
+    "isInteractable": true
+  },
+  {
+    "name": "school_entrance_spraycans",
+    "title": "Spraycans",
+    "isInteractable": true
+  },
+  {
+    "name": "school_entrance_window",
+    "title": "Window",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_backpack",
+    "title": "Backpack",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_board",
+    "title": "Bulletin Board",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_camera",
+    "title": "Camera",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_candy10",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_candy9",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_candy8",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_candy7",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_candy6",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_candy5",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_candy4",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_candy3",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_candy2",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_candy1",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_door",
+    "title": "Door",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_door_left",
+    "title": "Fine Arts Wing",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_door_right",
+    "title": "Sports Wing",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_kate_poster",
+    "title": "[kate]'s Fashion Poster",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_magnet",
+    "title": "Magnet",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_dollar1",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_dollar2",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_mop",
+    "title": "Janitor's Mop",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_newspaper",
+    "title": "Newspaper Stand",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_plant",
+    "title": "Plant",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_plant2",
+    "title": "Plant",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_power",
+    "title": "Fuse Box",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_red_paint",
+    "title": "Red Paint",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_stairs",
+    "title": "Stairs",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_bin",
+    "title": "Trash Bin",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_vending",
+    "title": "Vending Machine",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_water_fountain",
+    "title": "Water Fountain",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_water_fountain_hoodie",
+    "title": "Broken Water Fountain",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_water_puddle_6",
+    "title": "Puddle",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_water_puddle_5",
+    "title": "Puddle",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_water_puddle_4",
+    "title": "Puddle",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_water_puddle_3",
+    "title": "Puddle",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_water_puddle_2",
+    "title": "Puddle",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_water_puddle_1",
+    "title": "Puddle",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_water_puddles_squid",
+    "title": "Puddles",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_window",
+    "title": "Window",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_back",
+    "title": "Back",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_banner",
+    "title": "Banner",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_door_bathroom",
+    "title": "Bathroom",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_door_gym",
+    "title": "Gym",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_door_locker",
+    "title": "Locker Rooms",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_door_pool",
+    "title": "Pool",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_glowing_spiders",
+    "title": "Glowing Spiders",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_lights",
+    "title": "Lights",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_dollar1",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_dollar2",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_dollar3",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_book",
+    "title": "Book",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_notice_board",
+    "title": "Bulletin Board",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_front_poster",
+    "title": "Poster",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_pileofshoes",
+    "title": "Pile of Shoes",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_shoes11",
+    "title": "Shoes",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_shoes10",
+    "title": "Shoes",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_shoes9",
+    "title": "Shoes",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_shoes8",
+    "title": "Shoes",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_shoes7",
+    "title": "Shoes",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_shoes6",
+    "title": "Shoes",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_shoes5",
+    "title": "Shoes",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_shoes4",
+    "title": "Shoes",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_shoes3",
+    "title": "Shoes",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_shoes2",
+    "title": "Shoes",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_shoes1",
+    "title": "Shoes",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_shoe_rack",
+    "title": "Shoe Rack",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_swim_club_photos",
+    "title": "Swim Team Photos",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_trophy",
+    "title": "Football Trophy",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_trophy_case",
+    "title": "Trophy Case",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_vent",
+    "title": "Vent",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_east_vent_ajar",
+    "title": "Vent",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_bookshelf",
+    "title": "Bookcase",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_candy9",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_candy8",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_candy7",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_candy6",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_candy5",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_candy4",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_candy3",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_candy2",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_candy1",
+    "title": "Wrapper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_cello",
+    "title": "Sidney Starling's Cello",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_door_art",
+    "title": "Art Classroom",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_door_english",
+    "title": "English Classroom",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_door_library",
+    "title": "Library",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_door_music",
+    "title": "Music Classroom",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_easel",
+    "title": "Easel",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_back",
+    "title": "Back",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_glowing_spiders",
+    "title": "Glowing Spiders",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_magnet",
+    "title": "Magnet",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_dollar1",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_dollar2",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_dollar3",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_book",
+    "title": "Book",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_piano",
+    "title": "Piano",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_plant",
+    "title": "Plant",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_portrait_headmistress",
+    "title": "Portrait",
+    "isInteractable": true
+  },
+  {
+    "name": "school_first_hall_west_portrait_ria",
+    "title": "Portrait",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_bird1_ground",
+    "title": "Bird",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_bird1_drugged",
+    "title": "Bird",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_bird2_ground",
+    "title": "Bird",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_bird2_drugged",
+    "title": "Bird",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_bird3_ground",
+    "title": "Bird",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_bird3_drugged",
+    "title": "Bird",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_bird4_ground",
+    "title": "Bird",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_bird4_drugged",
+    "title": "Bird",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_bird5_ground",
+    "title": "Bird",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_bird5_drugged",
+    "title": "Bird",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_bird6_ground",
+    "title": "Bird",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_bird6_drugged",
+    "title": "Bird",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_birds_roof",
+    "title": "Birds",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_dead_beaver",
+    "title": "Beaver",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_dirt_patch",
+    "title": "Patch of Dirt",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_earth",
+    "title": "Agricultured Meadow",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_frog1",
+    "title": "Frog",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_frog2",
+    "title": "Frog",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_frog3",
+    "title": "Frog",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_frog4",
+    "title": "Frog",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_frog5",
+    "title": "Frog",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_grave",
+    "title": "Grave",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_hole",
+    "title": "Hole",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_house",
+    "title": "Creepy Hut",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_locker",
+    "title": "'s Locker",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_meadow",
+    "title": "Meadow",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_dollar1",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_dollar2",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_picnic",
+    "title": "Basket",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_river_lv3",
+    "title": "Stream",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_river_lv2",
+    "title": "Stream",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_river_lv1",
+    "title": "Stream",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_river_lv0",
+    "title": "Stream",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_road_left",
+    "title": "School Entrance",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_tire",
+    "title": "Car Tire",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_tombstone",
+    "title": "Grave",
+    "isInteractable": true
+  },
+  {
+    "name": "school_forest_glade_wood",
+    "title": "Beaver Dam",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_ball_of_yarn",
+    "title": "Pink Ball of Yarn",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_beaver",
+    "title": "Beaver",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_cafeteria_doors",
+    "title": "Cafeteria",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_couch",
+    "title": "Couch",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_computer_room_door",
+    "title": "Computer Room",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_science_class_door",
+    "title": "Science Classroom",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_exit_arrow",
+    "title": "Entrance",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_gf_w_corridor",
+    "title": "Admin Wing",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_guard_booth",
+    "title": "[guard]'s Booth",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_homeroom_door",
+    "title": "Homeroom",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_independence_day_decorations",
+    "title": "Independence Day Decorations",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_janitor_door",
+    "title": "Janitor's Closet",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_lockers_back",
+    "title": "Secret Locker",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_lockers_front_left",
+    "title": "Lockers",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_lockers_front_right",
+    "title": "Lockers",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_dollar",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_missing_locker",
+    "title": "Missing Locker",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_notice_board",
+    "title": "Bulletin Board",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_roof_stairs",
+    "title": "Roof Landing",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_stairs",
+    "title": "First Floor",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_wet_floor_sign_up",
+    "title": "Wet Floor Sign",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_wet_floor_sign_down",
+    "title": "Wet Floor Sign",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_aquarium",
+    "title": "Aquarium",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_back",
+    "title": "Entrance Hall",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_ball_of_yarn",
+    "title": "Gray Ball of Yarn",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_beaver",
+    "title": "Beaver",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_bookshelf",
+    "title": "Bookshelf",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_door_nurse",
+    "title": "[nurse]'s Office",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_glassdome",
+    "title": "Glass Dome",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_sun_painting",
+    "title": "Sun Painting",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_sun_painting_side",
+    "title": "Sun Painting",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_wine",
+    "title": "Summer Wine",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_info",
+    "title": "Bulletin Board",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_magazines",
+    "title": "Magazine Stand",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_dollar1",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_dollar2",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_book",
+    "title": "Book",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_mystery_box",
+    "title": "Mystery Box",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_plant",
+    "title": "Plant",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_pot",
+    "title": "Plant",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_principal_door",
+    "title": "Principal's Office",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_sofa_right",
+    "title": "Chair",
+    "isInteractable": true
+  },
+  {
+    "name": "school_ground_floor_west_vines",
+    "title": "Vines",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_backboard",
+    "title": "Basketball Hoop",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_balls",
+    "title": "Ball",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_ball_of_yarn",
+    "title": "Blue Ball of Yarn",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_bleachers",
+    "title": "Bleachers",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_car_wash_signs",
+    "title": "Car Wash Signs",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_door_left",
+    "title": "Left Door",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_exit",
+    "title": "Door",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_short",
+    "title": "Gym Shorts",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_hula_hoop",
+    "title": "Hula Hoop",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_ladder",
+    "title": "Ladder",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_light",
+    "title": "Light",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_magnet",
+    "title": "Magnet",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_dollar1",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_dollar2",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_book",
+    "title": "Book",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_ping_pong_paddle",
+    "title": "Ping Pong Paddle",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_pool",
+    "title": "Kiddie Pool",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_score_board",
+    "title": "Score Board",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_signup_list",
+    "title": "Sign-Up List",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_trash_bin",
+    "title": "Trash Bin",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_vending_machine",
+    "title": "Vending Machine",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_volley_net",
+    "title": "Volleyball Net",
+    "isInteractable": true
+  },
+  {
+    "name": "school_gym_window",
+    "title": "Window",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_ball_of_yarn",
+    "title": "Ball of Yarn",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_basketball_hoop",
+    "title": "Basketball Hoop",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_blackboard",
+    "title": "Blackboard",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_bookshelf",
+    "title": "Bookshelf",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_cup_left",
+    "title": "Coffee Cup",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_cup_right",
+    "title": "Coffee Cup",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_cup_middle",
+    "title": "Coffee Cup",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_door",
+    "title": "Door",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_eraser",
+    "title": "Eraser",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_globe",
+    "title": "Globe",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_globe_ball",
+    "title": "Globe",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_dollar1",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_dollar2",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_dollar3",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_book",
+    "title": "Book",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_notice_board",
+    "title": "Bulletin Board",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_no_globe",
+    "title": "Globe Holder",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_rope",
+    "title": "Rope",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_school_bench",
+    "title": "Table",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_teacher_desk",
+    "title": "Teacher's Desk",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_trash_can",
+    "title": "Trash Can",
+    "isInteractable": true
+  },
+  {
+    "name": "school_homeroom_window",
+    "title": "Window",
+    "isInteractable": true
+  },
+  {
+    "name": "school_locker_lunchfinal",
+    "title": "Lunch Box",
+    "isInteractable": true
+  },
+  {
+    "name": "school_locker_todo",
+    "title": "To Do list",
+    "isInteractable": true
+  },
+  {
+    "name": "school_locker_back",
+    "title": "Ground Floor",
+    "isInteractable": true
+  },
+  {
+    "name": "school_locker_isabelle_box",
+    "title": "Box of Chocolates",
+    "isInteractable": true
+  },
+  {
+    "name": "school_locker_kate_soaked",
+    "title": "[kate]'s Soaked Photo",
+    "isInteractable": true
+  },
+  {
+    "name": "school_locker_flora_posters",
+    "title": "[flora]'s Posters",
+    "isInteractable": true
+  },
+  {
+    "name": "school_locker_maxine_nude",
+    "title": "[maxine]'s Nude",
+    "isInteractable": true
+  },
+  {
+    "name": "school_locker_lindsey_dancing",
+    "title": "[lindsey] Dancing Photo",
+    "isInteractable": true
+  },
+  {
+    "name": "school_secret_locker_hole",
+    "title": "Darkness",
+    "isInteractable": true
+  },
+  {
+    "name": "school_secret_locker_locker",
+    "title": "",
+    "isInteractable": true
+  },
+  {
+    "name": "school_secret_locker_eye",
+    "title": "???",
+    "isInteractable": true
+  },
+  {
+    "name": "school_secret_locker_panel2",
+    "title": "Loose Panel",
+    "isInteractable": true
+  },
+  {
+    "name": "school_secret_locker_panel1",
+    "title": "",
+    "isInteractable": true
+  },
+  {
+    "name": "school_secret_locker_spiderweb",
+    "title": "Spider Web",
+    "isInteractable": true
+  },
+  {
+    "name": "school_secret_locker_secret_note",
+    "title": "Secret Note",
+    "isInteractable": true
+  },
+  {
+    "name": "school_secret_locker_coin",
+    "title": "Mysterious Coin",
+    "isInteractable": true
+  },
+  {
+    "name": "school_secret_locker_key",
+    "title": "Mysterious Key",
+    "isInteractable": true
+  },
+  {
+    "name": "school_secret_locker_jacklyn_hand_unscrew",
+    "title": "",
+    "isInteractable": true
+  },
+  {
+    "name": "school_music_class_cabinet",
+    "title": "Cabinet",
+    "isInteractable": true
+  },
+  {
+    "name": "school_music_class_top_compartment",
+    "title": "Cabinet (top compartment)",
+    "isInteractable": true
+  },
+  {
+    "name": "school_music_class_middle_compartment",
+    "title": "Cabinet (middle compartment)",
+    "isInteractable": true
+  },
+  {
+    "name": "school_music_class_bottom_compartment",
+    "title": "Cabinet (bottom compartment)",
+    "isInteractable": true
+  },
+  {
+    "name": "school_music_class_door",
+    "title": "Door",
+    "isInteractable": true
+  },
+  {
+    "name": "school_music_class_glass_case",
+    "title": "Sidney Starling's Debut Album",
+    "isInteractable": true
+  },
+  {
+    "name": "school_music_class_gramophone",
+    "title": "Gramophone",
+    "isInteractable": true
+  },
+  {
+    "name": "school_music_class_statue",
+    "title": "Statue",
+    "isInteractable": true
+  },
+  {
+    "name": "school_music_class_stereo_system",
+    "title": "Stereo System",
+    "isInteractable": true
+  },
+  {
+    "name": "school_music_class_teacher_podium",
+    "title": "Teacher's Podium",
+    "isInteractable": true
+  },
+  {
+    "name": "school_music_class_triangle",
+    "title": "Triangle",
+    "isInteractable": true
+  },
+  {
+    "name": "school_music_class_violin",
+    "title": "Disassembled Violin",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_bed",
+    "title": "Bed",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_bonsai",
+    "title": "Bonsai Tree",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_boobs_left",
+    "title": "Non Sexual Anatomical Poster",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_boobs_right",
+    "title": "Non Sexual Anatomical Poster",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_books",
+    "title": "Books",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_butt",
+    "title": "Non Sexual Anatomical Poster",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_chair_left",
+    "title": "Chair",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_curtain_closed",
+    "title": "Curtain",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_curtain_open",
+    "title": "Curtain",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_desk",
+    "title": "Desk",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_door",
+    "title": "Door",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_drawing",
+    "title": "Obscene Poster",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_keycard",
+    "title": "Keycard",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_laptop",
+    "title": "Laptop",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_lollipop",
+    "title": "Lollipop",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_lollipop_jar",
+    "title": "Lollipop jar",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_medical_supplies",
+    "title": "Medical Supplies",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_dollar1",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_dollar2",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_dollar3",
+    "title": "Money",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_outside",
+    "title": "",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_pen",
+    "title": "[nurse]'s Pen",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_skeleton",
+    "title": "Skeleton",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_steth",
+    "title": "Stethoscope",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_strikebook",
+    "title": "Strike Book",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_table",
+    "title": "Table",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_teddy",
+    "title": "Teddy",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_bin",
+    "title": "Trash Bin",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_vent",
+    "title": "Vent",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_vines_flora_torso_vine",
+    "title": "Thirsty Vine",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_vines_tictactoe",
+    "title": "",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_vines_flora_rightarm_vine",
+    "title": "Kinky Vine",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_vines_flora_rightboob_vine",
+    "title": "",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_vines_sleepvine",
+    "title": "Sleepy Vine",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_vines_laptop_vine",
+    "title": "Nerdy Vine",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_vines_game",
+    "title": "",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_vines_teddy_vine",
+    "title": "Cuddly Vine",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_vines_flora_rightleg_vine",
+    "title": "Hungry Vine",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_vines_poster_vine",
+    "title": "Naughty Vine",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_vines_drugged_vine",
+    "title": "",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_vines_flora_leftleg_vine",
+    "title": "Lazy Vine",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_vines_flora_leftarm_vine",
+    "title": "Adventurous Vine",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_vines_book",
+    "title": "",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_vines_bookclutter",
+    "title": "",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_vines_bookvine",
+    "title": "Literate Vine",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_weight",
+    "title": "Weight",
+    "isInteractable": true
+  },
+  {
+    "name": "school_nurse_room_window",
+    "title": "Window",
+    "isInteractable": true
+  },
+  {
+    "name": "school_park_bench",
+    "title": "Park Bench",
+    "isInteractable": true
+  },
+  {
+    "name": "school_park_butterflies",
+    "title": "Butterflies",
+    "isInteractable": true
+  },
+  {
+    "name": "school_park_exit_arrow",
+    "title": "School Entrance",
+    "isInteractable": true
+  },
+  {
+    "name": "school_park_football",
+    "title": "Football",
+    "isInteractable": true
+  },
+  {
+    "name": "school_park_kite",
+    "title": "Kites",
+    "isInteractable": true
+  },
+  {
+    "name": "school_park_left_bush",
+    "title": "Bush",
+    "isInteractable": true
+  },
+  {
+    "name": "school_park_left_tree",
+    "title": "Tree",
+    "isInteractable": true
+  },
+  {
+    "name": "school_park_no_swimming_sign",
+    "title": "\\\"No Swimming\\\" Sign",
+    "isInteractable": true
+  },
+  {
+    "name": "school_park_pond",
+    "title": "Pond",
+    "isInteractable": true
+  },
+  {
+    "name": "school_park_road_to_newfall",
+    "title": "Road to Newfall",
+    "isInteractable": true
+  },
+  {
+    "name": "school_principal_office_apocalyptic_road_painting",
+    "title": "Painting",
+    "isInteractable": true
+  },
+  {
+    "name": "school_principal_office_board",
+    "title": "Board",
+    "isInteractable": true
+  },
+  {
+    "name": "school_principal_office_brick",
+    "title": "Glass Case",
+    "isInteractable": true
+  },
+  {
+    "name": "school_principal_office_computer",
+    "title": "Computer",
+    "isInteractable": true
+  },
+  {
+    "name": "school_principal_office_door",
+    "title": "Door",
+    "isInteractable": true
+  },
+  {
+    "name": "school_principal_office_flora_desk",
+    "title": "Photo of [flora]",
+    "isInteractable": true
+  },
+  {
+    "name": "school_principal_office_flora_desk_smashed",
+    "title": "Photo of [flora]",
+    "isInteractable": true
+  },
+  {
+    "name": "school_principal_office_flora_wall",
+    "title": "Photo of [flora]",
+    "isInteractable": true
+  },
+  {
+    "name": "school_principal_office_framed_diploma",
+    "title": "Framed Diploma",
+    "isInteractable": true
+  },
+  {
+    "name": "school_principal_office_framed_quote",
+    "title": "Framed Quote",
+    "isInteractable": true
+  },
+  {
+    "name": "school_principal_office_papers",
+    "title": "Stack of Papers",
+    "isInteractable": true
+  },
+  {
+    "name": "school_principal_office_plant",
+    "title": "Plant",
+    "isInteractable": true
+  },
+  {
+    "name": "school_principal_office_principal_desk",
+    "title": "Principal's Desk",
+    "isInteractable": true
+  },
+  {
+    "name": "school_principal_office_shelves",
+    "title": "Shelves",
+    "isInteractable": true
+  },
+  {
+    "name": "school_principal_office_swimming_medal",
+    "title": "Swimming Medal",
+    "isInteractable": true
+  },
+  {
+    "name": "school_roof_door",
+    "title": "Door",
+    "isInteractable": true
+  },
+  {
+    "name": "school_roof_garden_hose",
+    "title": "Garden Hose",
+    "isInteractable": true
+  },
+  {
+    "name": "school_roof_greenhouse",
+    "title": "Greenhouse",
+    "isInteractable": true
+  },
+  {
+    "name": "school_roof_ladder",
+    "title": "Ladder",
+    "isInteractable": true
+  },
+  {
+    "name": "school_roof_megaphone",
+    "title": "Megaphone",
+    "isInteractable": true
+  },
+  {
+    "name": "school_roof_note",
+    "title": "Note",
+    "isInteractable": true
+  },
+  {
+    "name": "school_roof_plants_left",
+    "title": "Plants",
+    "isInteractable": true
+  },
+  {
+    "name": "school_roof_plants_right",
+    "title": "Plants",
+    "isInteractable": true
+  },
+  {
+    "name": "school_roof_telescope",
+    "title": "Telescope",
+    "isInteractable": true
+  },
+  {
+    "name": "school_roof_landing_calendar",
+    "title": "Calendar",
+    "isInteractable": true
+  },
+  {
+    "name": "school_roof_landing_cans",
+    "title": "Cans",
+    "isInteractable": true
+  },
+  {
+    "name": "school_roof_landing_door",
+    "title": "Door",
+    "isInteractable": true
+  },
+  {
+    "name": "school_roof_landing_exit_arrow",
+    "title": "Entrance Hall",
+    "isInteractable": true
+  },
+  {
+    "name": "school_roof_landing_fire_axe",
+    "title": "Fire Axe Case\"ifschool_roof_landing[\"fire_axe_taken\"]else\"Fire Axe",
+    "isInteractable": true
+  },
+  {
+    "name": "school_roof_landing_lindsey_hoodie",
+    "title": "[lindsey]'s Hoodie",
+    "isInteractable": true
+  },
+  {
+    "name": "school_roof_landing_plant",
+    "title": "Plant",
+    "isInteractable": true
+  },
+  {
+    "name": "school_roof_landing_spider_web",
+    "title": "Spider Web",
+    "isInteractable": true
+  },
+  {
+    "name": "school_roof_landing_toilet_paper",
+    "title": "Toilet Paper",
+    "isInteractable": true
+  },
+  {
+    "name": "school_science_class_abacus",
+    "title": "Abacus",
+    "isInteractable": true
+  },
+  {
+    "name": "school_science_class_aquarium",
+    "title": "Aquarium",
+    "isInteractable": true
+  },
+  {
+    "name": "school_science_class_blackboard",
+    "title": "Blackboard",
+    "isInteractable": true
+  },
+  {
+    "name": "school_science_class_bookcase",
+    "title": "Bookcase",
+    "isInteractable": true
+  },
+  {
+    "name": "school_science_class_calculator",
+    "title": "Mr. Clarence's Calculator",
+    "isInteractable": true
+  },
+  {
+    "name": "school_science_class_door",
+    "title": "Door",
+    "isInteractable": true
+  },
+  {
+    "name": "school_science_class_lab_coat",
+    "title": "Lab Coat",
+    "isInteractable": true
+  },
+  {
+    "name": "school_science_class_left_terrarium",
+    "title": "Terrarium",
+    "isInteractable": true
+  },
+  {
+    "name": "school_science_class_poster_of_max_planck",
+    "title": "Poster of Max Planck",
+    "isInteractable": true
+  },
+  {
+    "name": "school_science_class_right_terrarium",
+    "title": "Terrarium",
+    "isInteractable": true
+  },
+  {
+    "name": "school_science_class_solar_system_model",
+    "title": "Solar System Model",
+    "isInteractable": true
+  },
+  {
+    "name": "school_science_class_speakers",
+    "title": "Speakers",
+    "isInteractable": true
+  },
+  {
+    "name": "school_science_class_supply_cabinet",
+    "title": "Supply Cabinet",
+    "isInteractable": true
+  }
+]

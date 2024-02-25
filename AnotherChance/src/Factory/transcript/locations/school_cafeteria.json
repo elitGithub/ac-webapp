@@ -1,0 +1,891 @@
+{
+  "name": "school_cafeteria",
+  "title": "Cafeteria",
+  "parent": null,
+  "items": [
+    {
+      "name": "security",
+      "coord": [
+        1662,
+        203
+      ]
+    },
+    {
+      "name": "wall",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "$e": "(quest.isabelle_dethroning==\"dinner\"and$hour==19) || quest.isabelle_dethroningin(\"trap\",\"revenge_done\") || quest.isabelle_dethroning[\"kitchen_shenanigans_replay\"]",
+      "values": [
+        {
+          "name": "night_windows",
+          "coord": [
+            0,
+            197
+          ]
+        }
+      ]
+    },
+    {
+      "name": "door",
+      "coord": [
+        1396,
+        270
+      ]
+    },
+    {
+      "$e": "quest.isabelle_dethroning[\"kitchen_shenanigans\"]",
+      "values": [
+        {
+          "name": "kitchen_wall",
+          "coord": [
+            436,
+            219
+          ]
+        },
+        {
+          "name": "kitchen",
+          "coord": [
+            416,
+            310
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "kitchen",
+          "coord": [
+            416,
+            310
+          ]
+        }
+      ]
+    },
+    {
+      "name": "counterright",
+      "coord": [
+        1380,
+        498
+      ]
+    },
+    {
+      "name": "coffee",
+      "coord": [
+        1423,
+        432
+      ]
+    },
+    {
+      "name": "bread",
+      "coord": [
+        1491,
+        429
+      ]
+    },
+    {
+      "name": "plate",
+      "coord": [
+        1449,
+        473
+      ]
+    },
+    {
+      "name": "salad",
+      "coord": [
+        1483,
+        523
+      ]
+    },
+    {
+      "name": "drink",
+      "coord": [
+        1563,
+        420
+      ]
+    },
+    {
+      "$e": "$_fire",
+      "values": [
+        {
+          "name": "fire",
+          "coord": [
+            1692,
+            456
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$_fire_spread",
+          "values": [
+            {
+              "name": "fire_spread",
+              "coord": [
+                1565,
+                370
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_burns",
+      "values": [
+        {
+          "name": "burns",
+          "coord": [
+            1642,
+            444
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_smoke_this_scene",
+      "values": [
+        {
+          "name": "smoke",
+          "coord": [
+            1532,
+            279
+          ]
+        }
+      ]
+    },
+    {
+      "name": "counterleft",
+      "coord": [
+        434,
+        454
+      ]
+    },
+    {
+      "name": "table",
+      "coord": [
+        499,
+        410
+      ]
+    },
+    {
+      "name": "pastries",
+      "coord": [
+        433,
+        364
+      ]
+    },
+    {
+      "$e": "quest.isabelle_stolenin(\"outnuts\",\"nonuts\")",
+      "values": [
+        {
+          "name": "no_donuts",
+          "coord": [
+            435,
+            404
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "maya.at(\"school_cafeteria\",\"kicking\")",
+      "and": [
+        {
+          "$e": "!(maya.talking)",
+          "and": [
+            {
+              "$e": "!($_exclusive) || \"maya\"in$_exclusive",
+              "values": [
+                {
+                  "name": "maya_autumn",
+                  "coord": [
+                    1028,
+                    386
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vendingback",
+      "coord": [
+        882,
+        317
+      ]
+    },
+    {
+      "name": "vendingleft",
+      "coord": [
+        164,
+        268
+      ]
+    },
+    {
+      "$e": "isabelle.at(\"school_cafeteria\",\"dinner\")",
+      "and": [
+        {
+          "$e": "!(isabelle.talking)",
+          "and": [
+            {
+              "$e": "!($_exclusive) || \"isabelle\"in$_exclusive",
+              "values": [
+                {
+                  "name": "isabelle_dinner",
+                  "coord": [
+                    1365,
+                    348
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "chair_h2",
+      "coord": [
+        798,
+        446
+      ]
+    },
+    {
+      "name": "chair_h1",
+      "coord": [
+        691,
+        467
+      ]
+    },
+    {
+      "name": "table_h",
+      "coord": [
+        755,
+        479
+      ]
+    },
+    {
+      "name": "chair_q2",
+      "coord": [
+        720,
+        482
+      ]
+    },
+    {
+      "name": "chair_q1",
+      "coord": [
+        572,
+        516
+      ]
+    },
+    {
+      "name": "table_q",
+      "coord": [
+        663,
+        533
+      ]
+    },
+    {
+      "name": "chair_f1",
+      "coord": [
+        617,
+        538
+      ]
+    },
+    {
+      "name": "chair_f2",
+      "coord": [
+        394,
+        583
+      ]
+    },
+    {
+      "name": "table_f",
+      "coord": [
+        530,
+        608
+      ]
+    },
+    {
+      "name": "chair_e2",
+      "coord": [
+        451,
+        632
+      ]
+    },
+    {
+      "name": "chair_e1",
+      "coord": [
+        136,
+        703
+      ]
+    },
+    {
+      "name": "table_e",
+      "coord": [
+        329,
+        739
+      ]
+    },
+    {
+      "name": "chair_d2",
+      "coord": [
+        1089,
+        467
+      ]
+    },
+    {
+      "name": "table_d",
+      "coord": [
+        1012,
+        479
+      ]
+    },
+    {
+      "name": "chair_d1",
+      "coord": [
+        1062,
+        480
+      ]
+    },
+    {
+      "name": "chair_c2",
+      "coord": [
+        1154,
+        516
+      ]
+    },
+    {
+      "name": "table_c",
+      "coord": [
+        1041,
+        533
+      ]
+    },
+    {
+      "name": "chair_c1",
+      "coord": [
+        1108,
+        535
+      ]
+    },
+    {
+      "name": "chair_b1",
+      "coord": [
+        1239,
+        583
+      ]
+    },
+    {
+      "name": "table_b",
+      "coord": [
+        1079,
+        608
+      ]
+    },
+    {
+      "name": "chair_b2",
+      "coord": [
+        1173,
+        607
+      ]
+    },
+    {
+      "name": "chair_a2",
+      "coord": [
+        1398,
+        703
+      ]
+    },
+    {
+      "name": "table_a",
+      "coord": [
+        1153,
+        739
+      ]
+    },
+    {
+      "name": "chair_a1",
+      "coord": [
+        1280,
+        729
+      ]
+    },
+    {
+      "$e": "(($season==1andnot$_cooking_pot_taken)orquest.jo_washed.in_progressor(quest.maya_spell==\"container\"andnotquest.flora_cooking_chilli.finished))",
+      "values": [
+        {
+          "name": "pot",
+          "coord": [
+            517,
+            350
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "guard.at(\"school_cafeteria\",\"standing\")",
+      "and": [
+        {
+          "$e": "!(guard.talking)",
+          "and": [
+            {
+              "$e": "!($_exclusive) || \"guard\"in$_exclusive",
+              "values": [
+                {
+                  "name": "guard",
+                  "coord": [
+                    511,
+                    334
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "nurse.at(\"school_cafeteria\",\"standing\")",
+      "and": [
+        {
+          "$e": "!(nurse.talking)",
+          "and": [
+            {
+              "$e": "!($_exclusive) || \"nurse\"in$_exclusive",
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "values": [
+                    {
+                      "name": "nurse",
+                      "coord": [
+                        473,
+                        348
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "nurse_autumn",
+                          "coord": [
+                            475,
+                            344
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "jo.at(\"school_cafeteria\",\"coffee\")",
+      "and": [
+        {
+          "$e": "!(jo.talking)",
+          "and": [
+            {
+              "$e": "!($_exclusive) || \"jo\"in$_exclusive",
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "values": [
+                    {
+                      "name": "jo",
+                      "coord": [
+                        1389,
+                        325
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "jo_autumn",
+                          "coord": [
+                            1391,
+                            329
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "kate.at(\"school_cafeteria\",\"sitting\")",
+      "and": [
+        {
+          "$e": "!(kate.talking)",
+          "and": [
+            {
+              "$e": "!($_exclusive) || \"kate\"in$_exclusive",
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "values": [
+                    {
+                      "name": "kate",
+                      "coord": [
+                        1248,
+                        586
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "kate_autumn",
+                          "coord": [
+                            1261,
+                            590
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "isabelle.at(\"school_cafeteria\",\"sitting\")",
+      "and": [
+        {
+          "$e": "!(isabelle.talking)",
+          "and": [
+            {
+              "$e": "!($_exclusive) || \"isabelle\"in$_exclusive",
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "values": [
+                    {
+                      "name": "isabelle",
+                      "coord": [
+                        1115,
+                        420
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "isabelle_autumn",
+                          "coord": [
+                            1122,
+                            424
+                          ]
+                        }
+                      ],
+                      "and": [
+                        {
+                          "$e": "isabelle.equipped_item(\"isabelle_collar\")",
+                          "values": [
+                            {
+                              "name": "isabelle_collar",
+                              "coord": [
+                                1165,
+                                466
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "flora.at(\"school_cafeteria\",\"eating\")",
+      "and": [
+        {
+          "$e": "!(flora.talking)",
+          "and": [
+            {
+              "$e": "!($_exclusive) || \"flora\"in$_exclusive",
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "flora_autumn",
+                          "coord": [
+                            474,
+                            509
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "and": [
+                    {
+                      "$e": "flora.equipped_item(\"flora_skirt\")",
+                      "values": [
+                        {
+                          "name": "flora_skirt",
+                          "coord": [
+                            463,
+                            502
+                          ]
+                        }
+                      ],
+                      "else": [
+                        {
+                          "name": "flora",
+                          "coord": [
+                            463,
+                            502
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "lindsey.at(\"school_cafeteria\",\"walking\")",
+      "and": [
+        {
+          "$e": "!(lindsey.talking)",
+          "and": [
+            {
+              "$e": "!($_exclusive) || \"lindsey\"in$_exclusive",
+              "values": [
+                {
+                  "name": "lindsey",
+                  "coord": [
+                    879,
+                    354
+                  ]
+                }
+              ],
+              "and": [
+                {
+                  "$e": "$_mmm_doughnuts==True",
+                  "values": [
+                    {
+                      "name": "mmm_doughnuts",
+                      "coord": [
+                        930,
+                        0
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "maxine.at(\"school_cafeteria\",\"sitting\")",
+      "or": [
+        {
+          "$e": "maxine.at(\"school_cafeteria\",\"newspaper\")",
+          "and": [
+            {
+              "$e": "!(maxine.talking)",
+              "and": [
+                {
+                  "$e": "!($_exclusive) || \"maxine\"in$_exclusive",
+                  "values": [
+                    {
+                      "name": "maxine_newspaper",
+                      "coord": [
+                        798,
+                        417
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "and": [
+        {
+          "$e": "!(maxine.talking)",
+          "and": [
+            {
+              "$e": "!($_exclusive) || \"maxine\"in$_exclusive",
+              "values": [
+                {
+                  "name": "maxine",
+                  "coord": [
+                    1234,
+                    551
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "spinach.at(\"school_cafeteria\",\"sitting\")",
+      "and": [
+        {
+          "$e": "!(spinach.talking)",
+          "and": [
+            {
+              "$e": "!($_exclusive) || \"spinach\"in$_exclusive",
+              "values": [
+                {
+                  "name": "spinach",
+                  "coord": [
+                    1122,
+                    554
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "jacklyn.at(\"school_cafeteria\",\"sitting\")",
+      "and": [
+        {
+          "$e": "!(jacklyn.talking)",
+          "and": [
+            {
+              "$e": "!($_exclusive) || \"jacklyn\"in$_exclusive",
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "values": [
+                    {
+                      "name": "jacklyn",
+                      "coord": [
+                        196,
+                        543
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "jacklyn_autumn",
+                          "coord": [
+                            196,
+                            543
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(quest.jo_washed.in_progress)",
+      "and": [
+        {
+          "$e": "$_dollar1_spawned_today==True && !($_dollar1_taken_today)",
+          "values": [
+            {
+              "name": "dollar1",
+              "coord": [
+                1497,
+                482
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_dollar2_spawned_today==True && !($_dollar2_taken_today)",
+          "values": [
+            {
+              "name": "dollar2",
+              "coord": [
+                375,
+                484
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "(quest.isabelle_dethroning==\"dinner\"and$hour==19) || quest.isabelle_dethroningin(\"trap\",\"revenge_done\") || quest.isabelle_dethroning[\"kitchen_shenanigans_replay\"]",
+      "values": [
+        {
+          "name": "independence_day_banners",
+          "coord": [
+            0,
+            0
+          ]
+        },
+        {
+          "name": "independence_day_balloons",
+          "coord": [
+            21,
+            372
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.isabelle_dethroning==\"revenge_done\" && quest.isabelle_dethroning[\"fly_to_the_moon\"]",
+      "values": [
+        {
+          "name": "night_overlay",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

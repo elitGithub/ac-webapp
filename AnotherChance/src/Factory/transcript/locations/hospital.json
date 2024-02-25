@@ -1,0 +1,105 @@
+{
+  "name": "hospital",
+  "title": "Newfall Hospital",
+  "parent": null,
+  "items": [
+    {
+      "name": "background",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "left_poster",
+      "coord": [
+        911,
+        265
+      ]
+    },
+    {
+      "name": "door",
+      "coord": [
+        1074,
+        381
+      ]
+    },
+    {
+      "name": "right_poster",
+      "coord": [
+        1248,
+        387
+      ]
+    },
+    {
+      "name": "cabinets",
+      "coord": [
+        1417,
+        353
+      ]
+    },
+    {
+      "name": "glass_door",
+      "coord": [
+        283,
+        41
+      ]
+    },
+    {
+      "name": "sanitizer",
+      "coord": [
+        1265,
+        552
+      ]
+    },
+    {
+      "name": "desk_chairs",
+      "coord": [
+        1332,
+        550
+      ]
+    },
+    {
+      "name": "receptionists",
+      "coord": [
+        1364,
+        494
+      ]
+    },
+    {
+      "name": "pcs",
+      "coord": [
+        1452,
+        485
+      ]
+    },
+    {
+      "name": "left_plant",
+      "coord": [
+        -14,
+        642
+      ]
+    },
+    {
+      "name": "middle_plant",
+      "coord": [
+        865,
+        511
+      ]
+    },
+    {
+      "name": "overlay",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "exit_arrow",
+      "coord": [
+        907,
+        924
+      ]
+    }
+  ]
+}

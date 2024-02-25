@@ -1,0 +1,58 @@
+{
+  "script": [
+    { "action": "sound", "name": "phone_vibrate" },
+    "There my phone goes again, taunting me with a flicker of hope.",
+    "Well... better check the latest promotional message from my dear mobile carrier...",
+    { "action": "message", "value": "I know what you did last weekend.", "contact": "hidden_number" },
+    "Who the hell is this?",
+    "Hmm... hidden number.",
+    "It's probably some idiot claiming to have a webcam recording of me masturbating.",
+    "Sorry, man. No money. No friends. No one who cares.",
+    "All I have is a need for human interaction and this UNO reverse card...",
+    { 
+      "action": "menu", 
+      "target": "phone",
+      "options": [
+        "And what was that?",
+        "Budget horror much?",
+        "I've already repressed it."
+      ] 
+    },
+    { "action": "message", "value": "The answer is... absolutely nothing." },
+    { "action": "message", "value": "Who is this? Also, that's not true!", "contact": "mc" },
+    { "action": "message", "value": "Completing Castlevania for the 167th time and attempting to make an origami cat out of an old pizza box doesn't count.", "contact": "hidden_number" },
+    "Shit. That's odd, but I did tweet that. Always thought my three followers were bots.",
+    { 
+      "action": "menu", 
+      "options": [
+        "How do you know this?",
+        "Who the hell are you?",
+        "It was a pretty good origami cat, though. Right?"
+      ]
+    },
+    { "action": "message", "value": "Doesn't matter. You're lazy and self-destructive." },
+    { "action": "message", "value": "That's why you're here now, contemplating your failures." },
+    { "action": "message", "value": "You've had no significant impact on anyone's life. [flora] hates you. You have no special talents. You've never even had an interesting science fair project!" },
+    { "action": "message", "value": "Some of it is bad luck. Most of it is your own doing." },
+    { "action": "message", "value": "I've never seen anyone make so many poor choices in life. It saddens me." },
+    { 
+      "action": "menu", 
+      "options": [
+        { "value": "[jo], is that you?", "reply": "No, I'm not. But I have something to tell you about those choices. Something life-changing!" },
+        { "value": "Is this the NSA? I can explain the browser history...", "reply": "No. But I have something to tell you about those choices. Something life-changing!" },
+        { "value": "And all those choices have led me to you. Are you the woman I've been waiting for all my life?", "reply": "No, I'm not. But I have something to tell you about those choices. Something life-changing!" }
+      ]
+    },
+    { "action": "message", "value": "All you need to do is tell me your name." },
+    { 
+      "action": "menu", 
+      "options": [
+        { "value": "I asked first!", "reply": "My name isn't important. If you want to know what I have to say, tell me yours." },
+        { "value": "Are you also after my credit card number? You're going to be disappointed.", "reply": "What? No! If you want to know what I have to say, tell me your name." },
+        { "value": "Hold up. Are you a Nigerian prince, by any chance?", "reply": "What? No! If you want to know what I have to say, tell me your name." }
+      ]
+    },
+    "It's probably a scammer, but what do I have to lose?",
+    { "action": "next", "name": "intro_enter_name" }
+  ]
+}

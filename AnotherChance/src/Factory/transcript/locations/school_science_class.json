@@ -1,0 +1,218 @@
+{
+  "name": "school_science_class",
+  "title": "Science Class",
+  "parent": null,
+  "items": [
+    {
+      "name": "background",
+      "coord": [
+        0,
+        -42
+      ]
+    },
+    {
+      "name": "posters",
+      "coord": [
+        6,
+        442
+      ]
+    },
+    {
+      "name": "max_planck",
+      "coord": [
+        1407,
+        474
+      ]
+    },
+    {
+      "$e": "(quest.lindsey_angelin(\"keycard\",\"off_limits\",\"phone_book\",\"lab_coat\",\"escape\")or(quest.maya_spellin(\"midnight\",\"busted\",\"statue\")and$hour==20)orquest.maya_spell==\"spell\")",
+      "values": [
+        {
+          "name": "windows_night",
+          "coord": [
+            1553,
+            178
+          ]
+        }
+      ]
+    },
+    {
+      "name": "aquarium",
+      "coord": [
+        1518,
+        611
+      ]
+    },
+    {
+      "name": "closet",
+      "coord": [
+        231,
+        368
+      ]
+    },
+    {
+      "name": "sink",
+      "coord": [
+        0,
+        595
+      ]
+    },
+    {
+      "name": "cabinet",
+      "coord": [
+        0,
+        323
+      ]
+    },
+    {
+      "name": "bookcase",
+      "coord": [
+        113,
+        340
+      ]
+    },
+    {
+      "name": "door",
+      "coord": [
+        626,
+        435
+      ]
+    },
+    {
+      "$e": "((quest.maya_spellnotin(\"midnight\",\"busted\",\"paint\",\"statue\",\"spell\")andnot$_lab_coat_taken)or(quest.maya_spellin(\"midnight\",\"busted\",\"paint\",\"statue\",\"spell\")andnot(mc.owned_item(\"lab_coat\")orquest.maya_spell[\"lab_coat_taken\"])))",
+      "values": [
+        {
+          "name": "lab_coat",
+          "coord": [
+            571,
+            502
+          ]
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "coord": [
+        858,
+        483
+      ]
+    },
+    {
+      "$e": "cyberia.talking",
+      "values": [
+        {
+          "name": "speakers_active",
+          "coord": [
+            904,
+            375
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "speakers",
+          "coord": [
+            929,
+            388
+          ]
+        }
+      ]
+    },
+    {
+      "name": "blackboard",
+      "coord": [
+        938,
+        454
+      ]
+    },
+    {
+      "name": "roll_up",
+      "coord": [
+        1025,
+        411
+      ]
+    },
+    {
+      "name": "tv",
+      "coord": [
+        1288,
+        548
+      ]
+    },
+    {
+      "name": "teacher_desk",
+      "coord": [
+        847,
+        565
+      ]
+    },
+    {
+      "name": "calculator",
+      "coord": [
+        1067,
+        629
+      ]
+    },
+    {
+      "name": "abacus",
+      "coord": [
+        1213,
+        597
+      ]
+    },
+    {
+      "name": "papers",
+      "coord": [
+        1166,
+        621
+      ]
+    },
+    {
+      "name": "desks",
+      "coord": [
+        103,
+        668
+      ]
+    },
+    {
+      "name": "left_terrarium",
+      "coord": [
+        357,
+        713
+      ]
+    },
+    {
+      "name": "right_terrarium",
+      "coord": [
+        1039,
+        676
+      ]
+    },
+    {
+      "name": "solar_system",
+      "coord": [
+        866,
+        769
+      ]
+    },
+    {
+      "name": "overlay",
+      "coord": [
+        1,
+        889
+      ]
+    },
+    {
+      "$e": "(quest.lindsey_angelin(\"keycard\",\"off_limits\",\"phone_book\",\"lab_coat\",\"escape\")or(quest.maya_spellin(\"midnight\",\"busted\",\"statue\")and$hour==20)orquest.maya_spell==\"spell\")",
+      "values": [
+        {
+          "name": "overlay_night",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

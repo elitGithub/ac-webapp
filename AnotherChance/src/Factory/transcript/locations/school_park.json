@@ -1,0 +1,341 @@
+{
+  "name": "school_park",
+  "title": "Park",
+  "parent": null,
+  "items": [
+    {
+      "$e": "quest.lindsey_angel==\"hospital\"",
+      "values": [
+        {
+          "name": "sky_night",
+          "coord": [
+            -469,
+            -56
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$season==1",
+          "values": [
+            {
+              "name": "sky",
+              "coord": [
+                0,
+                -5
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "values": [
+        {
+          "name": "back_grass",
+          "coord": [
+            0,
+            275
+          ]
+        },
+        {
+          "name": "back_trees",
+          "coord": [
+            155,
+            106
+          ]
+        },
+        {
+          "name": "grass",
+          "coord": [
+            0,
+            514
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$season==2",
+          "values": [
+            {
+              "name": "back_grass_autumn",
+              "coord": [
+                0,
+                275
+              ]
+            },
+            {
+              "name": "back_trees_autumn",
+              "coord": [
+                155,
+                106
+              ]
+            },
+            {
+              "name": "grass_autumn",
+              "coord": [
+                0,
+                514
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "kite",
+      "coord": [
+        1218,
+        64
+      ]
+    },
+    {
+      "name": "no_swimming_sign",
+      "coord": [
+        528,
+        543
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "values": [
+        {
+          "name": "left_tree",
+          "coord": [
+            493,
+            233
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$season==2",
+          "values": [
+            {
+              "name": "left_tree_autumn",
+              "coord": [
+                493,
+                233
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "left_bench",
+      "coord": [
+        746,
+        602
+      ]
+    },
+    {
+      "name": "pond",
+      "coord": [
+        0,
+        704
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "values": [
+        {
+          "name": "left_grass",
+          "coord": [
+            850,
+            779
+          ]
+        },
+        {
+          "name": "left_bush",
+          "coord": [
+            1000,
+            826
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$season==2",
+          "values": [
+            {
+              "name": "left_grass_autumn",
+              "coord": [
+                850,
+                779
+              ]
+            },
+            {
+              "name": "left_bush_autumn",
+              "coord": [
+                1000,
+                826
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "right_bench",
+      "coord": [
+        1390,
+        666
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "values": [
+        {
+          "name": "right_bush",
+          "coord": [
+            1651,
+            919
+          ]
+        },
+        {
+          "name": "front_tree",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$season==2",
+          "values": [
+            {
+              "name": "right_bush_autumn",
+              "coord": [
+                1651,
+                919
+              ]
+            },
+            {
+              "name": "front_tree_autumn",
+              "coord": [
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "butterflies",
+      "coord": [
+        319,
+        526
+      ]
+    },
+    {
+      "name": "swing",
+      "coord": [
+        232,
+        0
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "values": [
+        {
+          "name": "front_bush",
+          "coord": [
+            1784,
+            583
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$season==2",
+          "values": [
+            {
+              "name": "front_bush_autumn",
+              "coord": [
+                1784,
+                583
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "((not$_exclusiveor\"flora\"in$_exclusive)andflora.at(\"school_park\",\"standing\")andnotflora.talking)",
+      "and": [
+        {
+          "$e": "flora.equipped_item(\"flora_skirt\")",
+          "values": [
+            {
+              "name": "flora_skirt",
+              "coord": [
+                1134,
+                446
+              ]
+            }
+          ],
+          "else": [
+            {
+              "name": "flora",
+              "coord": [
+                1134,
+                446
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$season==2",
+      "values": [
+        {
+          "name": "leaves_autumn",
+          "coord": [
+            0,
+            578
+          ]
+        }
+      ]
+    },
+    {
+      "name": "football",
+      "coord": [
+        1609,
+        970
+      ]
+    },
+    {
+      "$e": "quest.lindsey_angel==\"hospital\"",
+      "values": [
+        {
+          "name": "overlay_night",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "overlay",
+          "coord": [
+            0,
+            -25
+          ]
+        }
+      ]
+    },
+    {
+      "name": "exit_arrow",
+      "coord": [
+        904,
+        921
+      ]
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "name": "school_art_in_progress",
+  "title": "Art Class",
+  "parent": null,
+  "items": [
+    {
+      "name": "canvas",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "sketch_libation",
+      "coord": [
+        180,
+        0
+      ]
+    },
+    {
+      "$e": "self[\"libation\"]",
+      "values": [
+        {
+          "name": "libation",
+          "coord": [
+            136,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sketch_suction",
+      "coord": [
+        207,
+        40
+      ]
+    },
+    {
+      "$e": "self[\"suction\"]",
+      "values": [
+        {
+          "name": "suction",
+          "coord": [
+            289,
+            542
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sketch_caramelization",
+      "coord": [
+        699,
+        0
+      ]
+    },
+    {
+      "$e": "self[\"caramelization\"]",
+      "values": [
+        {
+          "name": "caramelization",
+          "coord": [
+            908,
+            342
+          ]
+        }
+      ]
+    },
+    {
+      "name": "exit_arrow",
+      "coord": [
+        907,
+        974
+      ]
+    }
+  ]
+}

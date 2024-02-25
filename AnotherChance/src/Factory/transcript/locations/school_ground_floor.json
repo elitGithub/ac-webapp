@@ -1,0 +1,80 @@
+{
+  "name": "school_ground_floor",
+  "title": "Entrance Hall",
+  "parent": null,
+  "items": [
+    {
+      "name": "background",
+      "coord": [
+        -12,
+        -119
+      ]
+    },
+    {
+      "$e": "$season==2",
+      "values": [
+        {
+          "name": "window_autumn",
+          "coord": [
+            881,
+            426
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "(quest.kate_wickedin(\"costume\",\"party\")orquest.isabelle_dethroningin(\"trap\",\"revenge\",\"revenge_done\",\"panik\",\"fly_to_the_moon\")orquest.kate_stepping==\"fly_to_the_moon\"orquest.lindsey_angelin(\"keycard\",\"off_limits\",\"phone_book\",\"lab_coat\",\"escape\")orquest.maya_spell==\"spell\")",
+      "values": [
+        {
+          "name": "window_night",
+          "coord": [
+            881,
+            426
+          ]
+        }
+      ]
+    },
+    {
+      "name": "computer_room",
+      "coord": [
+        232,
+        273
+      ]
+    },
+    {
+      "name": "main_stairs",
+      "coord": [
+        741,
+        486
+      ]
+    },
+    {
+      "name": "science_class",
+      "coord": [
+        1656,
+        273
+      ]
+    },
+    {
+      "$e": "quest.isabelle_tour<\"cafeteria\"",
+      "values": [
+        {
+          "name": "roof_stairs_left",
+          "coord": [
+            558,
+            175
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "roof_stairs_left",
+          "coord": [
+            558,
+            175
+          ]
+        }
+      ]
+    }
+  ]
+}

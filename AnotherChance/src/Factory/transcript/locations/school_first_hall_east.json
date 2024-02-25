@@ -1,0 +1,671 @@
+{
+  "name": "school_first_hall_east",
+  "title": "Sports Wing",
+  "parent": null,
+  "items": [
+    {
+      "name": "1fecorridor",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "$e": "(quest.kate_wickedin(\"costume\",\"party\")orquest.isabelle_dethroningin(\"revenge\",\"revenge_done\",\"panik\")orquest.lindsey_angelin(\"keycard\",\"off_limits\",\"phone_book\",\"lab_coat\",\"escape\"))",
+      "values": [
+        {
+          "name": "night_window",
+          "coord": [
+            0,
+            38
+          ]
+        }
+      ]
+    },
+    {
+      "name": "locker_sign",
+      "coord": [
+        1762,
+        0
+      ]
+    },
+    {
+      "name": "locker_door",
+      "coord": [
+        1722,
+        105
+      ]
+    },
+    {
+      "name": "bathroom_sign",
+      "coord": [
+        1390,
+        160
+      ]
+    },
+    {
+      "name": "bathroom",
+      "coord": [
+        1390,
+        225
+      ]
+    },
+    {
+      "name": "pool_sign",
+      "coord": [
+        1187,
+        247
+      ]
+    },
+    {
+      "name": "pool",
+      "coord": [
+        1172,
+        280
+      ]
+    },
+    {
+      "name": "gym_sign",
+      "coord": [
+        929,
+        280
+      ]
+    },
+    {
+      "name": "gym",
+      "coord": [
+        873,
+        307
+      ]
+    },
+    {
+      "$e": "$_vent_open && !(quest.jo_washed.in_progress)",
+      "values": [
+        {
+          "name": "openvent",
+          "coord": [
+            1455,
+            18
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "vent",
+          "coord": [
+            1512,
+            18
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "(quest.kate_wickedin(\"costume\",\"party\")orquest.isabelle_dethroningin(\"revenge\",\"revenge_done\",\"panik\")orquest.lindsey_angelin(\"keycard\",\"off_limits\",\"phone_book\",\"lab_coat\",\"escape\"))",
+      "values": [
+        {
+          "name": "lamp_off",
+          "coord": [
+            663,
+            0
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "lamp",
+          "coord": [
+            663,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "banner",
+      "coord": [
+        861,
+        0
+      ]
+    },
+    {
+      "name": "shoesbox",
+      "coord": [
+        1238,
+        481
+      ]
+    },
+    {
+      "$e": "sum([$_shoe1,$_shoe2,$_shoe3,$_shoe4,$_shoe5,$_shoe6,$_shoe7,$_shoe8,$_shoe9,$_shoe10,$_shoe11])==1",
+      "values": [
+        {
+          "name": "pileofshoes1",
+          "coord": [
+            1512,
+            573
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "sum([$_shoe1,$_shoe2,$_shoe3,$_shoe4,$_shoe5,$_shoe6,$_shoe7,$_shoe8,$_shoe9,$_shoe10,$_shoe11])==2",
+          "values": [
+            {
+              "name": "pileofshoes1",
+              "coord": [
+                1512,
+                573
+              ]
+            },
+            {
+              "name": "pileofshoes2",
+              "coord": [
+                1511,
+                543
+              ]
+            },
+            {
+              "name": "pileofshoes3",
+              "coord": [
+                1518,
+                528
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_shoe11)",
+      "values": [
+        {
+          "name": "shoes11",
+          "coord": [
+            1541,
+            643
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_shoe10)",
+      "values": [
+        {
+          "name": "shoes10",
+          "coord": [
+            1538,
+            690
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_shoe9)",
+      "values": [
+        {
+          "name": "shoes9",
+          "coord": [
+            1508,
+            721
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_shoe8)",
+      "values": [
+        {
+          "name": "shoes8",
+          "coord": [
+            1475,
+            657
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_shoe7)",
+      "values": [
+        {
+          "name": "shoes7",
+          "coord": [
+            1443,
+            723
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_shoe6)",
+      "values": [
+        {
+          "name": "shoes6",
+          "coord": [
+            1297,
+            582
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_shoe5)",
+      "values": [
+        {
+          "name": "shoes5",
+          "coord": [
+            1279,
+            570
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_shoe4)",
+      "values": [
+        {
+          "name": "shoes4",
+          "coord": [
+            1278,
+            542
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_shoe3)",
+      "values": [
+        {
+          "name": "shoes3",
+          "coord": [
+            1263,
+            585
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_shoe2)",
+      "values": [
+        {
+          "name": "shoes2",
+          "coord": [
+            1263,
+            507
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_shoe1)",
+      "values": [
+        {
+          "name": "shoes1",
+          "coord": [
+            1245,
+            522
+          ]
+        }
+      ]
+    },
+    {
+      "name": "photos",
+      "coord": [
+        1278,
+        222
+      ]
+    },
+    {
+      "$e": "quest.maxine_wine==\"locker\" && mc.owned_item(\"flora_poster\") && !(quest.maxine_wine[\"sports_wing_poster\"])",
+      "values": [
+        {
+          "name": "board",
+          "coord": [
+            1417,
+            303
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "board",
+          "coord": [
+            1417,
+            303
+          ]
+        },
+        {
+          "$e": "$season==1 && !(quest.jo_washed.in_progress)",
+          "and": [
+            {
+              "$e": "quest.maxine_wine[\"sports_wing_poster\"]",
+              "values": [
+                {
+                  "name": "flora_poster",
+                  "coord": [
+                    1437,
+                    320
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "poster",
+      "coord": [
+        1779,
+        297
+      ]
+    },
+    {
+      "name": "trophycase",
+      "coord": [
+        275,
+        122
+      ]
+    },
+    {
+      "name": "trophies",
+      "coord": [
+        494,
+        197
+      ]
+    },
+    {
+      "$e": "$_newspaper && !(quest.jo_washed.in_progress)",
+      "values": [
+        {
+          "name": "newspaper",
+          "coord": [
+            514,
+            337
+          ]
+        }
+      ]
+    },
+    {
+      "name": "glass",
+      "coord": [
+        496,
+        161
+      ]
+    },
+    {
+      "name": "trophy",
+      "coord": [
+        528,
+        75
+      ]
+    },
+    {
+      "$e": "!((quest.kate_blowjob_dream==\"school\"orquest.jo_washed.in_progress))",
+      "and": [
+        {
+          "$e": "$_dollar1_spawned_today==True && !($_dollar1_taken_today)"
+        },
+        {
+          "$e": "$_dollar2_spawned_today==True && !($_dollar2_taken_today)",
+          "values": [
+            {
+              "name": "dollar2",
+              "coord": [
+                492,
+                737
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_dollar3_spawned_today==True && !($_dollar3_taken_today)",
+          "values": [
+            {
+              "name": "dollar3",
+              "coord": [
+                1547,
+                676
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "!($_book_taken)",
+          "values": [
+            {
+              "name": "book",
+              "coord": [
+                238,
+                780
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(kate.talking)",
+      "and": [
+        {
+          "$e": "kate.at(\"school_first_hall_east\",\"sitting\")",
+          "and": [
+            {
+              "$e": "!($_exclusive) || $_exclusive==\"kate\"",
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "values": [
+                    {
+                      "name": "kate",
+                      "coord": [
+                        1359,
+                        414
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "kate_autumn",
+                          "coord": [
+                            1364,
+                            419
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(mrsl.talking)",
+      "and": [
+        {
+          "$e": "mrsl.at(\"school_first_hall_east\",\"standing\")",
+          "and": [
+            {
+              "$e": "!($_exclusive) || $_exclusive==\"mrsl\"",
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "values": [
+                    {
+                      "name": "mrsl",
+                      "coord": [
+                        814,
+                        348
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "mrsl_autumn",
+                          "coord": [
+                            814,
+                            348
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(lindsey.talking)",
+      "and": [
+        {
+          "$e": "lindsey.at(\"school_first_hall_east\",\"stretching\")",
+          "and": [
+            {
+              "$e": "!($_exclusive) || $_exclusive==\"lindsey\"",
+              "values": [
+                {
+                  "name": "lindsey",
+                  "coord": [
+                    664,
+                    267
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(flora.talking)",
+      "and": [
+        {
+          "$e": "flora.at(\"school_first_hall_east\",\"standing\")",
+          "and": [
+            {
+              "$e": "!($_exclusive) || $_exclusive==\"flora\"",
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "flora_autumn",
+                          "coord": [
+                            1056,
+                            342
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "and": [
+                    {
+                      "$e": "flora.equipped_item(\"flora_skirt\")",
+                      "values": [
+                        {
+                          "name": "flora_skirt",
+                          "coord": [
+                            1052,
+                            339
+                          ]
+                        }
+                      ],
+                      "else": [
+                        {
+                          "name": "flora",
+                          "coord": [
+                            1052,
+                            339
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "($hour>=20orquest.kate_wickedin(\"costume\",\"party\")orquest.isabelle_dethroningin(\"revenge\",\"revenge_done\",\"panik\")orquest.lindsey_angelin(\"keycard\",\"off_limits\",\"phone_book\",\"lab_coat\",\"escape\"))",
+      "values": [
+        {
+          "name": "nightoverlay",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.kate_wickedin(\"costume\",\"party\")",
+      "values": [
+        {
+          "name": "glowing_spiders",
+          "coord": [
+            1458,
+            154
+          ]
+        }
+      ],
+      "and": [
+        {
+          "$e": "sum([$_shoe1,$_shoe2,$_shoe3,$_shoe4,$_shoe5,$_shoe6,$_shoe7,$_shoe8,$_shoe9,$_shoe10,$_shoe11])==7",
+          "values": [
+            {
+              "name": "night_pileofshoes11",
+              "coord": [
+                1516,
+                354
+              ]
+            }
+          ],
+          "or": [
+            {
+              "$e": "sum([$_shoe1,$_shoe2,$_shoe3,$_shoe4,$_shoe5,$_shoe6,$_shoe7,$_shoe8,$_shoe9,$_shoe10,$_shoe11])==8",
+              "values": [
+                {
+                  "name": "night_pileofshoes11",
+                  "coord": [
+                    1516,
+                    354
+                  ]
+                },
+                {
+                  "name": "night_pileofshoes12",
+                  "coord": [
+                    1511,
+                    332
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "exit_arrow",
+      "coord": [
+        904,
+        921
+      ]
+    }
+  ]
+}

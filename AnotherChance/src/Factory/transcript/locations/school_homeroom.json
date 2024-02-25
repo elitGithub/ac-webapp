@@ -1,0 +1,632 @@
+{
+  "name": "school_homeroom",
+  "title": "Homeroom",
+  "parent": null,
+  "items": [
+    {
+      "name": "sky",
+      "coord": [
+        -12,
+        -19
+      ]
+    },
+    {
+      "name": "trash",
+      "coord": [
+        1135,
+        669
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "values": [
+        {
+          "name": "window_1",
+          "coord": [
+            0,
+            49
+          ]
+        },
+        {
+          "name": "window_2",
+          "coord": [
+            411,
+            278
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$season==2",
+          "values": [
+            {
+              "name": "window_1_autumn",
+              "coord": [
+                0,
+                49
+              ]
+            },
+            {
+              "name": "window_2_autumn",
+              "coord": [
+                411,
+                278
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.kate_wickedin(\"costume\",\"party\")",
+      "values": [
+        {
+          "name": "window_1_night",
+          "coord": [
+            0,
+            269
+          ]
+        },
+        {
+          "name": "window_2_night",
+          "coord": [
+            414,
+            395
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "(($_ropeorquest.kate_wickedin(\"costume\",\"party\"))andnot(quest.mrsl_tablein(\"morning\",\"hide\")orquest.jo_washed.in_progressor(quest.maya_witch==\"meet_up\"and$hournotinquest.maya_witch[\"absurd_timeframe\"]andquest.maya_witch[\"pulled_up\"])))",
+      "and": [
+        {
+          "$e": "quest.kate_wickedin(\"costume\",\"party\")",
+          "values": [
+            {
+              "name": "rope",
+              "coord": [
+                221,
+                337
+              ]
+            }
+          ],
+          "else": [
+            {
+              "name": "rope",
+              "coord": [
+                221,
+                337
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.maxine_wine==\"locker\" && mc.owned_item(\"flora_poster\") && !(quest.maxine_wine[\"homeroom_poster\"])",
+      "values": [
+        {
+          "name": "notice_board",
+          "coord": [
+            1206,
+            449
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "notice_board",
+          "coord": [
+            1206,
+            449
+          ]
+        },
+        {
+          "$e": "$season==1 && !(quest.jo_washed.in_progress)",
+          "and": [
+            {
+              "$e": "quest.maxine_wine[\"homeroom_poster\"]",
+              "values": [
+                {
+                  "name": "flora_poster",
+                  "coord": [
+                    1252,
+                    501
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "clock",
+      "coord": [
+        686,
+        410
+      ]
+    },
+    {
+      "name": "flag",
+      "coord": [
+        1525,
+        398
+      ]
+    },
+    {
+      "name": "basket",
+      "coord": [
+        1514,
+        295
+      ]
+    },
+    {
+      "name": "closet",
+      "coord": [
+        1657,
+        363
+      ]
+    },
+    {
+      "name": "door",
+      "coord": [
+        1407,
+        452
+      ]
+    },
+    {
+      "name": "blackboard",
+      "coord": [
+        791,
+        409
+      ]
+    },
+    {
+      "name": "desk",
+      "coord": [
+        802,
+        581
+      ]
+    },
+    {
+      "$e": "quest.isabelle_haggis[\"got_globe\"] && !(quest.jo_washed.in_progress)",
+      "values": [
+        {
+          "name": "no_globe",
+          "coord": [
+            607,
+            529
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "globe",
+          "coord": [
+            607,
+            529
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "spinach.at(\"school_homeroom\",\"running\")",
+      "and": [
+        {
+          "$e": "!(spinach.talking)",
+          "and": [
+            {
+              "$e": "!($_exclusive) || $_exclusive==\"spinach\"",
+              "values": [
+                {
+                  "name": "spinach",
+                  "coord": [
+                    423,
+                    790
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "desks_front",
+      "coord": [
+        351,
+        697
+      ]
+    },
+    {
+      "name": "desks_back",
+      "coord": [
+        88,
+        755
+      ]
+    },
+    {
+      "name": "cup_desk",
+      "coord": [
+        1073,
+        755
+      ]
+    },
+    {
+      "$e": "$_floor_globe && !(quest.jo_washed.in_progress)",
+      "values": [
+        {
+          "name": "globe_ball",
+          "coord": [
+            1469,
+            851
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(($_ball_of_yarn_takenorquest.mrsl_tablein(\"morning\",\"hide\")or(quest.fall_in_newfall.in_progressandquest.fall_in_newfall<\"stick_around\"))) || quest.jo_washed.in_progress",
+      "values": [
+        {
+          "name": "yarn",
+          "coord": [
+            179,
+            723
+          ]
+        }
+      ]
+    },
+    {
+      "name": "chairs",
+      "coord": [
+        44,
+        687
+      ]
+    },
+    {
+      "$e": "quest.isabelle_haggis.in_progress && quest.isabelle_haggis>=\"puzzle\"",
+      "and": [
+        {
+          "$e": "quest.isabelle_haggis[\"table_eraser\"]",
+          "values": [
+            {
+              "name": "eraser",
+              "coord": [
+                1179,
+                768
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "quest.isabelle_haggis[\"table_cup\"]isnotNone",
+          "and": [
+            {
+              "$e": "quest.isabelle_haggis[\"table_cup\"]>=1",
+              "values": [
+                {
+                  "name": "cup_left",
+                  "coord": [
+                    1112,
+                    724
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "quest.isabelle_haggis[\"table_cup\"]>=2",
+              "values": [
+                {
+                  "name": "cup_right",
+                  "coord": [
+                    1229,
+                    721
+                  ]
+                }
+              ]
+            },
+            {
+              "$e": "quest.isabelle_haggis[\"table_cup\"]==3",
+              "values": [
+                {
+                  "name": "cup_middle",
+                  "coord": [
+                    1174,
+                    733
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "mrsl.at(\"school_homeroom\",\"sitting\")",
+      "and": [
+        {
+          "$e": "!(mrsl.talking)",
+          "and": [
+            {
+              "$e": "!($_exclusive) || $_exclusive==\"mrsl\"",
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "values": [
+                    {
+                      "name": "mrsl",
+                      "coord": [
+                        889,
+                        523
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "mrsl_autumn",
+                          "coord": [
+                            889,
+                            523
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "maya.at(\"school_homeroom\",\"sitting\")",
+      "and": [
+        {
+          "$e": "!(maya.talking)",
+          "and": [
+            {
+              "$e": "!($_exclusive) || $_exclusive==\"maya\"",
+              "values": [
+                {
+                  "name": "maya_autumn",
+                  "coord": [
+                    104,
+                    623
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "isabelle.at(\"school_homeroom\",\"sitting\")",
+      "and": [
+        {
+          "$e": "!(isabelle.talking)",
+          "and": [
+            {
+              "$e": "!($_exclusive) || $_exclusive==\"isabelle\"",
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "values": [
+                    {
+                      "name": "isabelle",
+                      "coord": [
+                        609,
+                        611
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "isabelle_autumn",
+                          "coord": [
+                            609,
+                            612
+                          ]
+                        }
+                      ],
+                      "and": [
+                        {
+                          "$e": "isabelle.equipped_item(\"isabelle_collar\")",
+                          "values": [
+                            {
+                              "name": "isabelle_collar",
+                              "coord": [
+                                640,
+                                698
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "kate.at(\"school_homeroom\",\"sitting\")",
+      "and": [
+        {
+          "$e": "!(kate.talking)",
+          "and": [
+            {
+              "$e": "!($_exclusive) || $_exclusive==\"kate\"",
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "values": [
+                    {
+                      "name": "kate",
+                      "coord": [
+                        1329,
+                        494
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "kate_autumn",
+                          "coord": [
+                            1329,
+                            494
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_book_taken) && !((quest.mrsl_tablein(\"morning\",\"hide\")orquest.jo_washed.in_progress))",
+      "values": [
+        {
+          "name": "book",
+          "coord": [
+            1671,
+            457
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "flora.at(\"school_homeroom\",\"sitting\")",
+      "and": [
+        {
+          "$e": "!(flora.talking)",
+          "and": [
+            {
+              "$e": "!($_exclusive) || $_exclusive==\"flora\"",
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "flora_autumn",
+                          "coord": [
+                            1659,
+                            447
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "and": [
+                    {
+                      "$e": "flora.equipped_item(\"flora_skirt\")",
+                      "values": [
+                        {
+                          "name": "flora_skirt",
+                          "coord": [
+                            1659,
+                            447
+                          ]
+                        }
+                      ],
+                      "else": [
+                        {
+                          "name": "flora",
+                          "coord": [
+                            1659,
+                            447
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!((quest.mrsl_tablein(\"morning\",\"hide\")orquest.jo_washed.in_progress))",
+      "and": [
+        {
+          "$e": "$_dollar1_spawned_today==True && !($_dollar1_taken_today)",
+          "values": [
+            {
+              "name": "dollar1",
+              "coord": [
+                498,
+                748
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_dollar2_spawned_today==True && !($_dollar2_taken_today)",
+          "values": [
+            {
+              "name": "dollar2",
+              "coord": [
+                1221,
+                556
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_dollar3_spawned_today==True && !($_dollar3_taken_today)",
+          "values": [
+            {
+              "name": "dollar3",
+              "coord": [
+                1573,
+                314
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "overlay",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "$e": "quest.kate_wickedin(\"costume\",\"party\")",
+      "values": [
+        {
+          "name": "overlay_night",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

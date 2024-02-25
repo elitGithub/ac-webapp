@@ -1,0 +1,126 @@
+{
+  "name": "school_computer_room",
+  "title": "Computer Room",
+  "parent": null,
+  "items": [
+    {
+      "name": "wall_ceiling_floor",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "lamptop",
+      "coord": [
+        134,
+        0
+      ]
+    },
+    {
+      "name": "door",
+      "coord": [
+        1647,
+        200
+      ]
+    },
+    {
+      "name": "doorframe",
+      "coord": [
+        1620,
+        178
+      ]
+    },
+    {
+      "name": "posterleft",
+      "coord": [
+        0,
+        147
+      ]
+    },
+    {
+      "name": "boardmid",
+      "coord": [
+        344,
+        296
+      ]
+    },
+    {
+      "name": "clock",
+      "coord": [
+        710,
+        229
+      ]
+    },
+    {
+      "name": "board_left",
+      "coord": [
+        0,
+        319
+      ]
+    },
+    {
+      "name": "paper_wall_right",
+      "coord": [
+        1470,
+        366
+      ]
+    },
+    {
+      "name": "paper_wall_left",
+      "coord": [
+        202,
+        349
+      ]
+    },
+    {
+      "name": "light_switch",
+      "coord": [
+        1576,
+        481
+      ]
+    },
+    {
+      "name": "teacher_chair",
+      "coord": [
+        166,
+        505
+      ]
+    },
+    {
+      "name": "teacher_table",
+      "coord": [
+        105,
+        561
+      ]
+    },
+    {
+      "name": "cable_box",
+      "coord": [
+        1111,
+        296
+      ]
+    },
+    {
+      "name": "cabinet_right",
+      "coord": [
+        1113,
+        356
+      ]
+    },
+    {
+      "name": "old_machine",
+      "coord": [
+        1121,
+        383
+      ]
+    },
+    {
+      "name": "shelf_left",
+      "coord": [
+        0,
+        622
+      ]
+    }
+  ]
+}

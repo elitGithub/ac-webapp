@@ -1,0 +1,145 @@
+{
+  "name": "school_locker",
+  "title": "Locker",
+  "parent": null,
+  "items": [
+    {
+      "name": "locker",
+      "coord": [
+        -140,
+        0
+      ]
+    },
+    {
+      "name": "lunchfinal",
+      "coord": [
+        731,
+        824
+      ]
+    },
+    {
+      "name": "post",
+      "coord": [
+        783,
+        367
+      ]
+    },
+    {
+      "$e": "!($_chocolate_box_got) && quest.isabelle_buried==\"getbox\"",
+      "values": [
+        {
+          "name": "chocolate",
+          "coord": [
+            1059,
+            728
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pen",
+      "coord": [
+        792,
+        382
+      ]
+    },
+    {
+      "name": "todo",
+      "coord": [
+        1130,
+        931
+      ]
+    },
+    {
+      "$e": "quest.kate_over_isabelle.finished",
+      "values": [
+        {
+          "name": "isabelle",
+          "coord": [
+            1075,
+            141
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.isabelle_over_kate.finished",
+      "values": [
+        {
+          "name": "kate",
+          "coord": [
+            1075,
+            141
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.lindsey_piano[\"lindsey_dancing_photo\"]",
+      "values": [
+        {
+          "name": "lindsey_dancing",
+          "coord": [
+            1454,
+            557
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.lindsey_wrong[\"kate_wet_photo\"]",
+      "values": [
+        {
+          "name": "katesoaked",
+          "coord": [
+            1523,
+            434
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "False",
+      "values": [
+        {
+          "name": "maxine",
+          "coord": [
+            1470,
+            330
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.maxine_wine.finished && !($_maxine_nude_taken)",
+      "values": [
+        {
+          "name": "maxinewrist",
+          "coord": [
+            1470,
+            315
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.maxine_wine==\"locker\" && !($_flora_posters_taken)",
+      "values": [
+        {
+          "name": "posters",
+          "coord": [
+            1021,
+            655
+          ]
+        }
+      ]
+    },
+    {
+      "name": "exit_arrow",
+      "coord": [
+        400,
+        921
+      ]
+    }
+  ]
+}

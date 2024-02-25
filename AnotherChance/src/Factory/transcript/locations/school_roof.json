@@ -1,0 +1,256 @@
+{
+  "name": "school_roof",
+  "title": "Roof",
+  "parent": null,
+  "items": [
+    {
+      "$e": "(isabelle[\"roof\"]and$hourin(18,19)and$season==1) || $_isabelle_kiss_today",
+      "and": [
+        {
+          "$e": "$season==1",
+          "values": [
+            {
+              "name": "sky_sunset",
+              "coord": [
+                -995,
+                -323
+              ]
+            }
+          ],
+          "or": [
+            {
+              "$e": "$season==2",
+              "values": [
+                {
+                  "name": "sky_autumn_sunset",
+                  "coord": [
+                    -995,
+                    -323
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "else": [
+        {
+          "$e": "$season==1",
+          "values": [
+            {
+              "name": "sky",
+              "coord": [
+                -995,
+                -323
+              ]
+            }
+          ],
+          "or": [
+            {
+              "$e": "$season==2",
+              "values": [
+                {
+                  "name": "sky_autumn",
+                  "coord": [
+                    -995,
+                    -323
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "background",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "$e": "$season==2",
+      "values": [
+        {
+          "name": "plants_middle_autumn",
+          "coord": [
+            722,
+            907
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_garden_hose_taken)",
+      "values": [
+        {
+          "name": "garden_hose",
+          "coord": [
+            1201,
+            730
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "values": [
+        {
+          "name": "plants_left",
+          "coord": [
+            1348,
+            531
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$season==2",
+          "values": [
+            {
+              "name": "plants_left_autumn",
+              "coord": [
+                1348,
+                531
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "door",
+      "coord": [
+        137,
+        431
+      ]
+    },
+    {
+      "name": "megaphone",
+      "coord": [
+        324,
+        90
+      ]
+    },
+    {
+      "name": "greenhouse",
+      "coord": [
+        1415,
+        244
+      ]
+    },
+    {
+      "$e": "quest.isabelle_red.in_progress && quest.isabelle_red>=\"greenhouse\"",
+      "values": [
+        {
+          "name": "note",
+          "coord": [
+            1525,
+            558
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "values": [
+        {
+          "name": "plants_right",
+          "coord": [
+            1778,
+            875
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$season==2",
+          "values": [
+            {
+              "name": "plants_right_autumn",
+              "coord": [
+                1778,
+                875
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "maxine.at(\"school_roof\",\"standing\")",
+      "and": [
+        {
+          "$e": "!(maxine.talking)",
+          "values": [
+            {
+              "name": "maxine",
+              "coord": [
+                1505,
+                482
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_telescope_moved && !(quest.jo_washed.in_progress)",
+      "values": [
+        {
+          "name": "telescope_left",
+          "coord": [
+            410,
+            490
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "telescope_right",
+          "coord": [
+            1301,
+            431
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "isabelle.at(\"school_roof\",\"standing\")",
+      "and": [
+        {
+          "$e": "!(isabelle.talking)",
+          "values": [
+            {
+              "name": "isabelle",
+              "coord": [
+                799,
+                387
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "benches",
+      "coord": [
+        469,
+        747
+      ]
+    },
+    {
+      "$e": "(isabelle[\"roof\"]and$hourin(18,19)and$season==1) || $_isabelle_kiss_today",
+      "values": [
+        {
+          "name": "sunset_overlay",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+{
+  "name": "marina",
+  "title": "Newfall Marina",
+  "parent": null,
+  "items": [
+    {
+      "$e": "$season==1",
+      "values": [
+        {
+          "name": "background",
+          "coord": [
+            -26,
+            0
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$season==2",
+          "values": [
+            {
+              "name": "background_autumn",
+              "coord": [
+                -26,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.lindsey_angel==\"hospital\"",
+      "values": [
+        {
+          "name": "background_night",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "miscellaneous",
+      "coord": [
+        532,
+        12
+      ]
+    },
+    {
+      "name": "hospital",
+      "coord": [
+        691,
+        192
+      ]
+    },
+    {
+      "$e": "quest.lindsey_angel==\"hospital\"",
+      "values": [
+        {
+          "name": "hospital_lights",
+          "coord": [
+            790,
+            257
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tailor_aquarium",
+      "coord": [
+        889,
+        441
+      ]
+    },
+    {
+      "name": "pancake_brothel",
+      "coord": [
+        658,
+        237
+      ]
+    },
+    {
+      "name": "police_department",
+      "coord": [
+        740,
+        297
+      ]
+    },
+    {
+      "name": "sparks_plugs",
+      "coord": [
+        236,
+        0
+      ]
+    },
+    {
+      "name": "prawn_star",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "filthy_oar",
+      "coord": [
+        1301,
+        656
+      ]
+    },
+    {
+      "name": "codfather",
+      "coord": [
+        1401,
+        721
+      ]
+    },
+    {
+      "name": "naughtilus",
+      "coord": [
+        1512,
+        913
+      ]
+    },
+    {
+      "name": "crab",
+      "coord": [
+        1765,
+        905
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "values": [
+        {
+          "name": "pots",
+          "coord": [
+            215,
+            543
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$season==2",
+          "values": [
+            {
+              "name": "pots_autumn",
+              "coord": [
+                215,
+                543
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bubblegum_machine",
+      "coord": [
+        399,
+        573
+      ]
+    },
+    {
+      "name": "tables",
+      "coord": [
+        220,
+        656
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "values": [
+        {
+          "name": "plants",
+          "coord": [
+            194,
+            637
+          ]
+        },
+        {
+          "name": "tree",
+          "coord": [
+            1133,
+            0
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$season==2",
+          "values": [
+            {
+              "name": "plants_autumn",
+              "coord": [
+                194,
+                637
+              ]
+            },
+            {
+              "name": "tree_autumn",
+              "coord": [
+                1133,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "boardwalk",
+      "coord": [
+        0,
+        597
+      ]
+    },
+    {
+      "$e": "$season==2",
+      "values": [
+        {
+          "name": "pile_of_leaves",
+          "coord": [
+            528,
+            724
+          ]
+        }
+      ]
+    },
+    {
+      "name": "i_scream",
+      "coord": [
+        -6,
+        420
+      ]
+    }
+  ]
+}

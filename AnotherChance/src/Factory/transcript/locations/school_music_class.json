@@ -1,0 +1,199 @@
+{
+  "name": "school_music_class",
+  "title": "Music Class",
+  "parent": null,
+  "items": [
+    {
+      "$e": "quest.kate_wicked==\"party\"",
+      "values": [
+        {
+          "name": "background_party",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "background",
+          "coord": [
+            0,
+            0
+          ]
+        },
+        {
+          "name": "platform",
+          "coord": [
+            456,
+            548
+          ]
+        },
+        {
+          "name": "speakers",
+          "coord": [
+            587,
+            188
+          ]
+        },
+        {
+          "$e": "quest.piano_tuning>\"cabinet\" && !((quest.isabelle_red==\"cabinet\"orquest.jo_washed.in_progress))",
+          "values": [
+            {
+              "name": "cabinet",
+              "coord": [
+                258,
+                151
+              ]
+            },
+            {
+              "name": "top_compartment",
+              "coord": [
+                383,
+                214
+              ]
+            },
+            {
+              "name": "middle_compartment",
+              "coord": [
+                383,
+                337
+              ]
+            },
+            {
+              "name": "bottom_compartment",
+              "coord": [
+                383,
+                449
+              ]
+            }
+          ],
+          "else": [
+            {
+              "name": "cabinet",
+              "coord": [
+                258,
+                151
+              ]
+            }
+          ]
+        },
+        {
+          "name": "podium",
+          "coord": [
+            927,
+            398
+          ]
+        },
+        {
+          "name": "door",
+          "coord": [
+            1718,
+            155
+          ]
+        },
+        {
+          "name": "glass_case",
+          "coord": [
+            1703,
+            578
+          ]
+        },
+        {
+          "name": "table",
+          "coord": [
+            1310,
+            524
+          ]
+        },
+        {
+          "name": "stereo_system",
+          "coord": [
+            1433,
+            516
+          ]
+        },
+        {
+          "name": "gramophone",
+          "coord": [
+            1316,
+            467
+          ]
+        },
+        {
+          "name": "violin",
+          "coord": [
+            1452,
+            596
+          ]
+        },
+        {
+          "name": "guitar",
+          "coord": [
+            1011,
+            174
+          ]
+        },
+        {
+          "name": "disco_ball",
+          "coord": [
+            793,
+            0
+          ]
+        },
+        {
+          "name": "triangle",
+          "coord": [
+            840,
+            0
+          ]
+        },
+        {
+          "name": "bookcase",
+          "coord": [
+            6,
+            111
+          ]
+        },
+        {
+          "name": "chairs",
+          "coord": [
+            0,
+            519
+          ]
+        },
+        {
+          "name": "michael_jackson_statue",
+          "coord": [
+            846,
+            520
+          ]
+        },
+        {
+          "$e": "lindsey.at(\"school_music_class\",\"standing\")",
+          "and": [
+            {
+              "$e": "!(lindsey.talking)",
+              "values": [
+                {
+                  "name": "lindsey",
+                  "coord": [
+                    1158,
+                    748
+                  ]
+                },
+                {
+                  "name": "lindsey_chair",
+                  "coord": [
+                    1150,
+                    930
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

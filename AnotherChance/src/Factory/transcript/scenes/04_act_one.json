@@ -1,0 +1,11 @@
+{
+  "script": [
+    { "action": "scene", "location": "bedroom" },
+    { "action": "hud_hide" },
+    { "action": "music", "name": "alarm.ogg" },
+    "Ugh, why the fuck is the alarm going off? I haven't set one in years.",
+    "That dream was a good one, too. Obviously, something had to ruin it for me...",
+    "This thing is driving me nuts!",
+    { "action": "quest", "name": "smash_or_pass" }
+  ]
+}

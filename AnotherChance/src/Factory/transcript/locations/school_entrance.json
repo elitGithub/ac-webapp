@@ -1,0 +1,636 @@
+{
+  "name": "school_entrance",
+  "title": "Newfall High",
+  "parent": null,
+  "items": [
+    {
+      "$e": "$season==1",
+      "values": [
+        {
+          "name": "sky",
+          "coord": [
+            0,
+            0
+          ]
+        },
+        {
+          "name": "trees",
+          "coord": [
+            -108,
+            151
+          ]
+        },
+        {
+          "name": "school",
+          "coord": [
+            0,
+            55
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$season==2",
+          "values": [
+            {
+              "name": "sky_autumn",
+              "coord": [
+                0,
+                0
+              ]
+            },
+            {
+              "name": "trees_autumn",
+              "coord": [
+                -108,
+                151
+              ]
+            },
+            {
+              "name": "school_autumn",
+              "coord": [
+                0,
+                71
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "($_night_skyor(quest.maxine_hookin(\"dig\",\"night\")andnot19>$hour>6)orquest.kate_wicked==\"costume\"or((quest.kate_stepping.finishedorquest.isabelle_dethroning.finished)andnotquest.jo_washed.started)orquest.jo_washed==\"fundraiser_over\"orquest.lindsey_angelin(\"escape\",\"hospital\"))",
+      "values": [
+        {
+          "name": "sky_night",
+          "coord": [
+            0,
+            0
+          ]
+        },
+        {
+          "name": "trees_night",
+          "coord": [
+            36,
+            151
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.isabelle_haggis>=\"escape\" && !((quest.jacklyn_statement==\"statement\"or((quest.kate_stepping.finishedorquest.isabelle_dethroning.finished)andnotquest.jo_washed.started)orquest.jo_washed.in_progress))",
+      "values": [
+        {
+          "name": "window",
+          "coord": [
+            530,
+            652
+          ]
+        }
+      ]
+    },
+    {
+      "name": "path",
+      "coord": [
+        6,
+        685
+      ]
+    },
+    {
+      "name": "right_path",
+      "coord": [
+        1770,
+        671
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "values": [
+        {
+          "name": "bush",
+          "coord": [
+            73,
+            647
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$season==2",
+          "values": [
+            {
+              "name": "bush_autumn",
+              "coord": [
+                73,
+                647
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "door",
+      "coord": [
+        890,
+        696
+      ]
+    },
+    {
+      "name": "carport",
+      "coord": [
+        1510,
+        627
+      ]
+    },
+    {
+      "$e": "!(flora.talking)",
+      "and": [
+        {
+          "$e": "flora.at(\"school_entrance\",\"standing\")",
+          "values": [
+            {
+              "name": "flora",
+              "coord": [
+                131,
+                732
+              ]
+            }
+          ],
+          "or": [
+            {
+              "$e": "flora.at(\"school_entrance\",\"car_wash\")",
+              "values": [
+                {
+                  "name": "flora_car_wash",
+                  "coord": [
+                    1527,
+                    753
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(quest.jo_washed.in_progress)",
+      "values": [
+        {
+          "name": "bus",
+          "coord": [
+            1557,
+            703
+          ]
+        }
+      ],
+      "and": [
+        {
+          "$e": "$_bus_jacklyn",
+          "values": [
+            {
+              "name": "bus_jacklyn",
+              "coord": [
+                1559,
+                703
+              ]
+            }
+          ],
+          "or": [
+            {
+              "$e": "$_bus_love",
+              "values": [
+                {
+                  "name": "bus_love",
+                  "coord": [
+                    1559,
+                    703
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(jacklyn.talking)",
+      "and": [
+        {
+          "$e": "jacklyn.at(\"school_entrance\",\"standing\")",
+          "and": [
+            {
+              "$e": "$season==1",
+              "values": [
+                {
+                  "name": "jacklyn",
+                  "coord": [
+                    1518,
+                    751
+                  ]
+                }
+              ],
+              "or": [
+                {
+                  "$e": "$season==2",
+                  "values": [
+                    {
+                      "name": "jacklyn_autumn",
+                      "coord": [
+                        1518,
+                        751
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_window_shortcut && !((quest.jacklyn_statement==\"statement\"orquest.maxine_hook==\"night\"orquest.kate_wicked==\"costume\"or((quest.kate_stepping.finishedorquest.isabelle_dethroning.finished)andnotquest.jo_washed.started)orquest.jo_washed.in_progress))",
+      "values": [
+        {
+          "name": "ladder",
+          "coord": [
+            511,
+            673
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.kate_wicked==\"costume\" && $_rope",
+      "values": [
+        {
+          "name": "rope",
+          "coord": [
+            484,
+            597
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(spinach.talking)",
+      "and": [
+        {
+          "$e": "spinach.at(\"school_entrance\",\"standing\")",
+          "values": [
+            {
+              "name": "spinach",
+              "coord": [
+                371,
+                779
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(lindsey.talking)",
+      "and": [
+        {
+          "$e": "lindsey.at(\"school_entrance\",\"sitting\")",
+          "values": [
+            {
+              "name": "lindsey",
+              "coord": [
+                533,
+                904
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.berb_fight>=\"chase\" && !(($_baseball_picked_uporquest.jo_washed.in_progress))",
+      "values": [
+        {
+          "name": "baseball",
+          "coord": [
+            545,
+            800
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.lindsey_book==\"beaver\"",
+      "and": [
+        {
+          "$e": "quest.lindsey_book[\"beaver\"]==1",
+          "values": [
+            {
+              "name": "wbeaver1",
+              "coord": [
+                117,
+                888
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "quest.lindsey_book[\"beaver\"]==2",
+          "values": [
+            {
+              "name": "wbeaver2",
+              "coord": [
+                685,
+                1024
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "quest.lindsey_book[\"beaver\"]==3",
+          "values": [
+            {
+              "name": "wbeaver_3",
+              "coord": [
+                1358,
+                884
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.jo_washed.in_progress",
+      "values": [
+        {
+          "name": "buckets_and_towels",
+          "coord": [
+            1588,
+            810
+          ]
+        }
+      ],
+      "and": [
+        {
+          "$e": "quest.jo_washed!=\"fundraiser_over\"",
+          "values": [
+            {
+              "name": "cars",
+              "coord": [
+                1652,
+                794
+              ]
+            }
+          ]
+        }
+      ],
+      "else": [
+        {
+          "$e": "quest.jacklyn_statement==\"statement\" || $_bus_jacklyn || $_bus_lust || $_bus_love",
+          "and": [
+            {
+              "$e": "$season==1",
+              "values": [
+                {
+                  "name": "spraycans",
+                  "coord": [
+                    1592,
+                    873
+                  ]
+                }
+              ],
+              "or": [
+                {
+                  "$e": "$season==2",
+                  "values": [
+                    {
+                      "name": "spraycans_autumn",
+                      "coord": [
+                        1592,
+                        873
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(berb.talking)",
+      "and": [
+        {
+          "$e": "berb.at(\"school_entrance\",\"roof\")",
+          "or": [
+            {
+              "$e": "berb.at(\"school_entrance\",\"ground\")",
+              "values": [
+                {
+                  "name": "beaver_ground",
+                  "coord": [
+                    567,
+                    786
+                  ]
+                }
+              ]
+            }
+          ],
+          "and": [
+            {
+              "$e": "quest.lindsey_book.ended",
+              "values": [
+                {
+                  "name": "beaver_roof",
+                  "coord": [
+                    567,
+                    313
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!((quest.kate_blowjob_dream==\"school\"orquest.mrsl_table==\"morning\"orquest.jo_washed.in_progress))",
+      "and": [
+        {
+          "$e": "$_dollar1_spawned_today==True && !($_dollar1_taken_today)",
+          "values": [
+            {
+              "name": "dollar1",
+              "coord": [
+                1109,
+                891
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_dollar2_spawned_today==True && !($_dollar2_taken_today)",
+          "values": [
+            {
+              "name": "dollar2",
+              "coord": [
+                1759,
+                907
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_dollar3_spawned_today==True && !($_dollar3_taken_today)",
+          "values": [
+            {
+              "name": "dollar3",
+              "coord": [
+                308,
+                758
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_crop || $_crop_today",
+          "values": [
+            {
+              "name": "cropcircle",
+              "coord": [
+                1436,
+                950
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "leftmost_lamp",
+      "coord": [
+        468,
+        604
+      ]
+    },
+    {
+      "name": "left_lamp",
+      "coord": [
+        790,
+        616
+      ]
+    },
+    {
+      "name": "right_lamp",
+      "coord": [
+        1038,
+        615
+      ]
+    },
+    {
+      "name": "rightmost_lamp",
+      "coord": [
+        1321,
+        604
+      ]
+    },
+    {
+      "$e": "($_night_skyor(quest.maxine_hookin(\"dig\",\"night\")andnot19>$hour>6)orquest.kate_wicked==\"costume\"or((quest.kate_stepping.finishedorquest.isabelle_dethroning.finished)andnotquest.jo_washed.started)orquest.jo_washed==\"fundraiser_over\"orquest.lindsey_angelin(\"escape\",\"hospital\"))",
+      "values": [
+        {
+          "name": "nightoverlay",
+          "coord": [
+            -10,
+            70
+          ]
+        },
+        {
+          "name": "attic_window_light",
+          "coord": [
+            221,
+            308
+          ]
+        },
+        {
+          "name": "right_window_light",
+          "coord": [
+            1380,
+            665
+          ]
+        },
+        {
+          "name": "leftmost_lamp_light",
+          "coord": [
+            409,
+            586
+          ]
+        },
+        {
+          "name": "left_lamp_light",
+          "coord": [
+            758,
+            607
+          ]
+        },
+        {
+          "name": "right_lamp_light",
+          "coord": [
+            1006,
+            607
+          ]
+        },
+        {
+          "name": "rightmost_lamp_light",
+          "coord": [
+            1261,
+            586
+          ]
+        }
+      ],
+      "and": [
+        {
+          "$e": "quest.kate_wicked==\"costume\"",
+          "or": [
+            {
+              "$e": "$_window_shortcut && !((quest.jacklyn_statement==\"statement\"orquest.maxine_hook==\"night\"or((quest.kate_stepping.finishedorquest.isabelle_dethroning.finished)andnotquest.jo_washed.started)orquest.jo_washed.in_progress))",
+              "values": [
+                {
+                  "name": "left_window_light",
+                  "coord": [
+                    538,
+                    663
+                  ]
+                }
+              ]
+            }
+          ],
+          "and": [
+            {
+              "$e": "$_rope",
+              "values": [
+                {
+                  "name": "clubroom_window_light_open",
+                  "coord": [
+                    530,
+                    504
+                  ]
+                }
+              ],
+              "else": [
+                {
+                  "name": "clubroom_window_light",
+                  "coord": [
+                    530,
+                    513
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "name": "school_roof_landing",
+  "title": "Roof Landing",
+  "parent": null,
+  "items": [
+    {
+      "name": "background",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "plant",
+      "coord": [
+        0,
+        528
+      ]
+    },
+    {
+      "name": "wall_sign",
+      "coord": [
+        77,
+        447
+      ]
+    },
+    {
+      "name": "painting",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "web",
+      "coord": [
+        227,
+        0
+      ]
+    },
+    {
+      "name": "door",
+      "coord": [
+        411,
+        30
+      ]
+    },
+    {
+      "$e": "quest.isabelle_dethroningin(\"revenge_done\",\"panik\",\"fly_to_the_moon\") || quest.kate_stepping==\"fly_to_the_moon\"",
+      "values": [
+        {
+          "name": "lindsey_hoodie",
+          "coord": [
+            1294,
+            537
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.jo_washed.in_progress",
+      "values": [
+        {
+          "name": "calendar",
+          "coord": [
+            809,
+            316
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "(quest.kate_wickedin(\"costume\",\"party\")orquest.isabelle_dethroningin(\"trap\",\"revenge\",\"revenge_done\",\"panik\",\"fly_to_the_moon\")orquest.kate_stepping==\"fly_to_the_moon\"or((quest.kate_stepping.finishedorquest.isabelle_dethroning.finished)andnotquest.jo_washed.started)orquest.lindsey_angelin(\"keycard\",\"off_limits\",\"phone_book\",\"lab_coat\",\"escape\"))",
+          "and": [
+            {
+              "$e": "$_axe_hole==1",
+              "values": [
+                {
+                  "name": "axe_hole1_night",
+                  "coord": [
+                    810,
+                    317
+                  ]
+                }
+              ],
+              "or": [
+                {
+                  "$e": "$_axe_hole==2",
+                  "values": [
+                    {
+                      "name": "axe_hole2_night",
+                      "coord": [
+                        810,
+                        317
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "locker",
+      "coord": [
+        1308,
+        816
+      ]
+    },
+    {
+      "name": "cans",
+      "coord": [
+        1378,
+        712
+      ]
+    },
+    {
+      "name": "toilet_paper",
+      "coord": [
+        1526,
+        801
+      ]
+    },
+    {
+      "$e": "$_fire_axe_taken && !(quest.jo_washed.in_progress)",
+      "values": [
+        {
+          "name": "no_fire_axe",
+          "coord": [
+            1608,
+            94
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "fire_axe",
+          "coord": [
+            1608,
+            94
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "(quest.kate_wickedin(\"costume\",\"party\")orquest.isabelle_dethroningin(\"trap\",\"revenge\",\"revenge_done\",\"panik\",\"fly_to_the_moon\")orquest.kate_stepping==\"fly_to_the_moon\"or((quest.kate_stepping.finishedorquest.isabelle_dethroning.finished)andnotquest.jo_washed.started)orquest.lindsey_angelin(\"keycard\",\"off_limits\",\"phone_book\",\"lab_coat\",\"escape\"))",
+      "values": [
+        {
+          "name": "overlay_night",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "exit_arrow",
+      "coord": [
+        904,
+        921
+      ]
+    }
+  ]
+}

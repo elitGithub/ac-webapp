@@ -1,0 +1,141 @@
+{
+  "name": "school_leyline_locator",
+  "title": "Leyline Locator",
+  "parent": null,
+  "items": [
+    {
+      "$e": "quest.maxine_lines['leyline_location']",
+      "and": [
+        {
+          "$e": "$locations[quest.maxine_lines['leyline_location']]['magnet']"
+        },
+        {
+          "$e": "$locations[quest.maxine_lines['leyline_location']]['leyline_v2']"
+        }
+      ]
+    },
+    {
+      "$e": "quest.maxine_lines[\"lll_charged\"]==\"off\"",
+      "values": [
+        {
+          "name": "screen",
+          "coord": [
+            580,
+            140
+          ]
+        }
+      ]
+    },
+    {
+      "name": "back",
+      "coord": [
+        580,
+        140
+      ]
+    },
+    {
+      "$e": "quest.maxine_lines[\"lll_charged\"]==\"off\"",
+      "values": [
+        {
+          "name": "g1",
+          "coord": [
+            580,
+            140
+          ]
+        },
+        {
+          "name": "g2",
+          "coord": [
+            580,
+            140
+          ]
+        },
+        {
+          "name": "g3",
+          "coord": [
+            580,
+            140
+          ]
+        }
+      ],
+      "else": [
+        {
+          "$e": "quest.maxine_lines['leyline_light_3']==\"yellow\"",
+          "values": [
+            {
+              "name": "y3",
+              "coord": [
+                580,
+                140
+              ]
+            }
+          ],
+          "else": [
+            {
+              "name": "r3",
+              "coord": [
+                580,
+                140
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "quest.maxine_lines['leyline_light_2']==\"yellow\"",
+          "values": [
+            {
+              "name": "y2",
+              "coord": [
+                580,
+                140
+              ]
+            }
+          ],
+          "else": [
+            {
+              "name": "r2",
+              "coord": [
+                580,
+                140
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "quest.maxine_lines['leyline_light_1']==\"yellow\"",
+          "values": [
+            {
+              "name": "y1",
+              "coord": [
+                580,
+                140
+              ]
+            }
+          ],
+          "else": [
+            {
+              "name": "r1",
+              "coord": [
+                580,
+                140
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.maxine_lines<\"magnetic\""
+    },
+    {
+      "$e": "quest.maxine_lines<\"finalnode\""
+    },
+    {
+      "name": "arrow_down",
+      "coord": [
+        1750,
+        1000
+      ]
+    }
+  ]
+}

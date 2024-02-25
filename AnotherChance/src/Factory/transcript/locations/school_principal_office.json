@@ -1,0 +1,161 @@
+{
+  "name": "school_principal_office",
+  "title": "Principal's Office",
+  "parent": null,
+  "items": [
+    {
+      "name": "background",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "shelves",
+      "coord": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "framed_diploma_bottom",
+      "coord": [
+        525,
+        315
+      ]
+    },
+    {
+      "name": "framed_diploma_top",
+      "coord": [
+        525,
+        162
+      ]
+    },
+    {
+      "name": "window",
+      "coord": [
+        721,
+        80
+      ]
+    },
+    {
+      "name": "board",
+      "coord": [
+        1232,
+        157
+      ]
+    },
+    {
+      "name": "swimming_medal",
+      "coord": [
+        1277,
+        287
+      ]
+    },
+    {
+      "name": "brick",
+      "coord": [
+        1388,
+        430
+      ]
+    },
+    {
+      "name": "apocalyptic_road_painting",
+      "coord": [
+        1607,
+        57
+      ]
+    },
+    {
+      "name": "framed_quote",
+      "coord": [
+        1612,
+        305
+      ]
+    },
+    {
+      "name": "flora_wall",
+      "coord": [
+        1693,
+        290
+      ]
+    },
+    {
+      "name": "plant",
+      "coord": [
+        1571,
+        478
+      ]
+    },
+    {
+      "name": "door",
+      "coord": [
+        1774,
+        81
+      ]
+    },
+    {
+      "name": "desk",
+      "coord": [
+        604,
+        398
+      ]
+    },
+    {
+      "name": "papers",
+      "coord": [
+        696,
+        493
+      ]
+    },
+    {
+      "$e": "$_flora_photo_smashed",
+      "values": [
+        {
+          "name": "flora_desk_smashed",
+          "coord": [
+            828,
+            566
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "flora_desk",
+          "coord": [
+            819,
+            522
+          ]
+        }
+      ]
+    },
+    {
+      "name": "computer",
+      "coord": [
+        966,
+        423
+      ]
+    },
+    {
+      "name": "cup",
+      "coord": [
+        1024,
+        558
+      ]
+    },
+    {
+      "name": "chairs",
+      "coord": [
+        527,
+        662
+      ]
+    },
+    {
+      "name": "overlay",
+      "coord": [
+        0,
+        0
+      ]
+    }
+  ]
+}

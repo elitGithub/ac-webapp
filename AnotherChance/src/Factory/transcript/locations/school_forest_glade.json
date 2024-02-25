@@ -1,0 +1,1174 @@
+{
+  "name": "school_forest_glade",
+  "title": "Forest",
+  "parent": null,
+  "items": [
+    {
+      "$e": "quest.isabelle_buriedin(\"bury\",\"dig\",\"funeral\") || (quest.maxine_hook==\"dig\"andnot19>$hour>6) || (quest.jo_day==\"picnic\"and$hour==19)",
+      "values": [
+        {
+          "name": "sky_sunset",
+          "coord": [
+            -149,
+            0
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$season==1",
+          "values": [
+            {
+              "name": "sky",
+              "coord": [
+                -149,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "values": [
+        {
+          "name": "trees",
+          "coord": [
+            0,
+            183
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$season==2",
+          "values": [
+            {
+              "name": "trees_autumn",
+              "coord": [
+                0,
+                183
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "road_left",
+      "coord": [
+        0,
+        591
+      ]
+    },
+    {
+      "name": "road_right",
+      "coord": [
+        1529,
+        654
+      ]
+    },
+    {
+      "$e": "!($_farm)",
+      "and": [
+        {
+          "$e": "$season==1",
+          "values": [
+            {
+              "name": "meadow",
+              "coord": [
+                797,
+                630
+              ]
+            }
+          ],
+          "or": [
+            {
+              "$e": "$season==2",
+              "values": [
+                {
+                  "name": "meadow_autumn",
+                  "coord": [
+                    797,
+                    630
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "house",
+      "coord": [
+        419,
+        390
+      ]
+    },
+    {
+      "$e": "$season==1",
+      "values": [
+        {
+          "name": "bushes",
+          "coord": [
+            0,
+            518
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$season==2",
+          "values": [
+            {
+              "name": "bushes_autumn",
+              "coord": [
+                0,
+                518
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_pollution==3",
+      "values": [
+        {
+          "name": "river_lv3",
+          "coord": [
+            0,
+            734
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "$_pollution==2",
+          "values": [
+            {
+              "name": "river_lv2",
+              "coord": [
+                0,
+                734
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.isabelle_hurricanein(\"call_isabelle\",\"call_maxine\") && quest.isabelle_hurricane[\"locker\"]",
+      "values": [
+        {
+          "name": "locker",
+          "coord": [
+            134,
+            644
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$season==2",
+      "and": [
+        {
+          "$e": "$_pollution==3",
+          "values": [
+            {
+              "name": "leafpile_lvl3",
+              "coord": [
+                -20,
+                633
+              ]
+            }
+          ],
+          "else": [
+            {
+              "name": "leafpile_lvl0",
+              "coord": [
+                -20,
+                633
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_farm",
+      "values": [
+        {
+          "name": "earth",
+          "coord": [
+            797,
+            630
+          ]
+        }
+      ],
+      "and": [
+        {
+          "$e": "$_farm==\"dry\"",
+          "values": [
+            {
+              "name": "dry",
+              "coord": [
+                797,
+                630
+              ]
+            }
+          ],
+          "or": [
+            {
+              "$e": "$_farm==\"wet\"",
+              "values": [
+                {
+                  "name": "watered",
+                  "coord": [
+                    797,
+                    630
+                  ]
+                }
+              ],
+              "and": [
+                {
+                  "$e": "!($_canal)",
+                  "values": [
+                    {
+                      "name": "watercanal_lvl0",
+                      "coord": [
+                        842,
+                        642
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_canal",
+      "and": [
+        {
+          "$e": "$_pollution==3",
+          "values": [
+            {
+              "name": "watercanal_lvl3",
+              "coord": [
+                842,
+                642
+              ]
+            }
+          ],
+          "else": [
+            {
+              "name": "watercanal_lvl0",
+              "coord": [
+                842,
+                642
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stone",
+      "coord": [
+        910,
+        641
+      ]
+    },
+    {
+      "name": "stones",
+      "coord": [
+        237,
+        665
+      ]
+    },
+    {
+      "$e": "$_canal",
+      "and": [
+        {
+          "$e": "$_pollution==3"
+        }
+      ]
+    },
+    {
+      "$e": "quest.jo_potted.in_progress",
+      "and": [
+        {
+          "$e": "quest.jo_potted==\"small\"",
+          "values": [
+            {
+              "name": "small_sprouts",
+              "coord": [
+                835,
+                639
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "quest.jo_potted==\"medium\"",
+          "values": [
+            {
+              "name": "medium_sprouts",
+              "coord": [
+                820,
+                642
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "quest.jo_potted==\"big\"",
+          "values": [
+            {
+              "name": "big_sprouts",
+              "coord": [
+                820,
+                621
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wood",
+      "coord": [
+        873,
+        743
+      ]
+    },
+    {
+      "name": "mushrooms",
+      "coord": [
+        1369,
+        921
+      ]
+    },
+    {
+      "$e": "quest.isabelle_buried[\"hole_state\"]==0",
+      "values": [
+        {
+          "name": "tire",
+          "coord": [
+            78,
+            893
+          ]
+        }
+      ],
+      "or": [
+        {
+          "$e": "quest.isabelle_buried[\"hole_state\"]==1",
+          "values": [
+            {
+              "name": "hole",
+              "coord": [
+                58,
+                870
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stump",
+      "coord": [
+        267,
+        590
+      ]
+    },
+    {
+      "name": "duck",
+      "coord": [
+        665,
+        786
+      ]
+    },
+    {
+      "$e": "!($_pollution==3)",
+      "values": [
+        {
+          "name": "dragonfly",
+          "coord": [
+            1180,
+            807
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trap",
+      "coord": [
+        1381,
+        635
+      ]
+    },
+    {
+      "name": "ant",
+      "coord": [
+        972,
+        656
+      ]
+    },
+    {
+      "name": "ants",
+      "coord": [
+        999,
+        662
+      ]
+    },
+    {
+      "name": "egg",
+      "coord": [
+        0,
+        671
+      ]
+    },
+    {
+      "$e": "quest.jo_day>=\"supplies\" && quest.jo_day.in_progress",
+      "and": [
+        {
+          "$e": "$_picnic_blanket",
+          "values": [
+            {
+              "name": "picnic_blanket",
+              "coord": [
+                367,
+                1026
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_picnic_blanket || $_jo_secret_wine || $_cactus_in_a_pot",
+          "values": [
+            {
+              "name": "basket",
+              "coord": [
+                540,
+                994
+              ]
+            }
+          ],
+          "else": [
+            {
+              "name": "basket",
+              "coord": [
+                540,
+                994
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_cactus_in_a_pot",
+          "values": [
+            {
+              "name": "cactus_in_a_pot",
+              "coord": [
+                739,
+                1012
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_jo_secret_wine",
+          "and": [
+            {
+              "$e": "$_love_potion_droplet",
+              "values": [
+                {
+                  "name": "spiked_wine",
+                  "coord": [
+                    490,
+                    929
+                  ]
+                }
+              ],
+              "else": [
+                {
+                  "name": "jo_secret_wine",
+                  "coord": [
+                    490,
+                    929
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "else": [
+        {
+          "name": "basket_shadow",
+          "coord": [
+            486,
+            1053
+          ]
+        },
+        {
+          "name": "basket",
+          "coord": [
+            540,
+            994
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(berb.talking)",
+      "and": [
+        {
+          "$e": "berb.at(\"school_forest_glade\",\"river\")",
+          "or": [
+            {
+              "$e": "berb.at(\"school_forest_glade\",\"ground\")",
+              "and": [
+                {
+                  "$e": "berb[\"scalped\"]",
+                  "values": [
+                    {
+                      "name": "tombstone",
+                      "coord": [
+                        689,
+                        854
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "berb[\"dead\"]",
+                      "values": [
+                        {
+                          "name": "dead_beaver",
+                          "coord": [
+                            749,
+                            900
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "and": [
+            {
+              "$e": "!($_pollution)",
+              "values": [
+                {
+                  "name": "beaver_river_lvl0",
+                  "coord": [
+                    754,
+                    792
+                  ]
+                }
+              ],
+              "or": [
+                {
+                  "$e": "$_pollution==1",
+                  "values": [
+                    {
+                      "name": "beaver_river_lvl1",
+                      "coord": [
+                        754,
+                        792
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_wrappers",
+      "values": [
+        {
+          "name": "candy8",
+          "coord": [
+            1229,
+            858
+          ]
+        },
+        {
+          "name": "candy7",
+          "coord": [
+            1591,
+            892
+          ]
+        },
+        {
+          "name": "candy6",
+          "coord": [
+            1512,
+            873
+          ]
+        },
+        {
+          "name": "candy5",
+          "coord": [
+            1108,
+            851
+          ]
+        },
+        {
+          "name": "candy4",
+          "coord": [
+            1059,
+            811
+          ]
+        },
+        {
+          "name": "candy3",
+          "coord": [
+            876,
+            867
+          ]
+        },
+        {
+          "name": "candy_hat",
+          "coord": [
+            755,
+            829
+          ]
+        },
+        {
+          "name": "candy2",
+          "coord": [
+            593,
+            768
+          ]
+        },
+        {
+          "name": "candy1",
+          "coord": [
+            284,
+            760
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_birds",
+      "and": [
+        {
+          "$e": "$_birds[0]==\"roof\"",
+          "values": [
+            {
+              "name": "bird1_roof",
+              "coord": [
+                582,
+                361
+              ]
+            }
+          ],
+          "or": [
+            {
+              "$e": "$_birds[0]==\"ground\"",
+              "values": [
+                {
+                  "name": "bird1_ground",
+                  "coord": [
+                    826,
+                    671
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_birds[1]==\"roof\"",
+          "values": [
+            {
+              "name": "bird2_roof",
+              "coord": [
+                548,
+                395
+              ]
+            }
+          ],
+          "or": [
+            {
+              "$e": "$_birds[1]==\"ground\"",
+              "values": [
+                {
+                  "name": "bird2_ground",
+                  "coord": [
+                    1114,
+                    632
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_birds[2]==\"roof\"",
+          "values": [
+            {
+              "name": "bird3_roof",
+              "coord": [
+                549,
+                418
+              ]
+            }
+          ],
+          "or": [
+            {
+              "$e": "$_birds[2]==\"ground\"",
+              "values": [
+                {
+                  "name": "bird3_ground",
+                  "coord": [
+                    799,
+                    626
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_birds[3]==\"roof\"",
+          "values": [
+            {
+              "name": "bird4_roof",
+              "coord": [
+                624,
+                356
+              ]
+            }
+          ],
+          "or": [
+            {
+              "$e": "$_birds[3]==\"ground\"",
+              "values": [
+                {
+                  "name": "bird4_ground",
+                  "coord": [
+                    1180,
+                    636
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_birds[4]==\"roof\"",
+          "values": [
+            {
+              "name": "bird5_roof",
+              "coord": [
+                672,
+                392
+              ]
+            }
+          ],
+          "or": [
+            {
+              "$e": "$_birds[4]==\"ground\"",
+              "values": [
+                {
+                  "name": "bird5_ground",
+                  "coord": [
+                    823,
+                    597
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_birds[5]==\"roof\"",
+          "values": [
+            {
+              "name": "bird6_roof",
+              "coord": [
+                690,
+                417
+              ]
+            }
+          ],
+          "or": [
+            {
+              "$e": "$_birds[5]==\"ground\"",
+              "values": [
+                {
+                  "name": "bird6_ground",
+                  "coord": [
+                    562,
+                    678
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(nurse.talking)",
+      "and": [
+        {
+          "$e": "nurse.at(\"school_forest_glade\",\"sitting\")",
+          "and": [
+            {
+              "$e": "!($_exclusive) || $_exclusive==\"nurse\"",
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "values": [
+                    {
+                      "name": "nurse",
+                      "coord": [
+                        1521,
+                        719
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "nurse_autumn",
+                          "coord": [
+                            1531,
+                            716
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(isabelle.talking)",
+      "and": [
+        {
+          "$e": "isabelle.at(\"school_forest_glade\",\"standing\")",
+          "and": [
+            {
+              "$e": "!($_exclusive) || $_exclusive==\"isabelle\"",
+              "and": [
+                {
+                  "$e": "$season==1",
+                  "values": [
+                    {
+                      "name": "isabelle",
+                      "coord": [
+                        344,
+                        443
+                      ]
+                    }
+                  ],
+                  "or": [
+                    {
+                      "$e": "$season==2",
+                      "values": [
+                        {
+                          "name": "isabelle_autumn",
+                          "coord": [
+                            357,
+                            450
+                          ]
+                        }
+                      ],
+                      "and": [
+                        {
+                          "$e": "isabelle.equipped_item(\"isabelle_collar\")",
+                          "values": [
+                            {
+                              "name": "isabelle_collar",
+                              "coord": [
+                                418,
+                                524
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(maxine.talking)",
+      "and": [
+        {
+          "$e": "maxine.at(\"school_forest_glade\",\"standing\")",
+          "and": [
+            {
+              "$e": "!($_exclusive) || $_exclusive==\"maxine\"",
+              "values": [
+                {
+                  "name": "maxine",
+                  "coord": [
+                    519,
+                    441
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(flora.talking)",
+      "and": [
+        {
+          "$e": "quest.flora_squid==\"forest_glade\" && quest.flora_squid[\"polluted_stream\"]",
+          "and": [
+            {
+              "$e": "!($_exclusive) || $_exclusive==\"flora\"",
+              "values": [
+                {
+                  "name": "flora",
+                  "coord": [
+                    1353,
+                    739
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.flora_squid[\"tree_monster\"]",
+      "values": [
+        {
+          "name": "big_tree",
+          "coord": [
+            1011,
+            251
+          ]
+        },
+        {
+          "name": "forest_vines",
+          "coord": [
+            1243,
+            422
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.maya_spell==\"frogs\"",
+      "and": [
+        {
+          "$e": "\"timmy\"notinquest.maya_spell[\"frogs_caught\"]",
+          "and": [
+            {
+              "$e": "quest.maya_spell[\"frog_hops\"]==1",
+              "values": [
+                {
+                  "name": "frog1a",
+                  "coord": [
+                    342,
+                    718
+                  ]
+                }
+              ],
+              "or": [
+                {
+                  "$e": "quest.maya_spell[\"frog_hops\"]==2",
+                  "values": [
+                    {
+                      "name": "frog1b",
+                      "coord": [
+                        146,
+                        765
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "\"jimmy\"notinquest.maya_spell[\"frogs_caught\"]",
+          "and": [
+            {
+              "$e": "quest.maya_spell[\"frog_hops\"]==1",
+              "values": [
+                {
+                  "name": "frog2a",
+                  "coord": [
+                    473,
+                    643
+                  ]
+                }
+              ],
+              "or": [
+                {
+                  "$e": "quest.maya_spell[\"frog_hops\"]==2",
+                  "values": [
+                    {
+                      "name": "frog2b",
+                      "coord": [
+                        613,
+                        532
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "\"slimmy\"notinquest.maya_spell[\"frogs_caught\"]",
+          "and": [
+            {
+              "$e": "quest.maya_spell[\"frog_hops\"]==1",
+              "values": [
+                {
+                  "name": "frog3a",
+                  "coord": [
+                    1250,
+                    785
+                  ]
+                }
+              ],
+              "or": [
+                {
+                  "$e": "quest.maya_spell[\"frog_hops\"]==2",
+                  "values": [
+                    {
+                      "name": "frog3b",
+                      "coord": [
+                        1348,
+                        619
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "\"tammy\"notinquest.maya_spell[\"frogs_caught\"]",
+          "and": [
+            {
+              "$e": "quest.maya_spell[\"frog_hops\"]==1",
+              "values": [
+                {
+                  "name": "frog4a",
+                  "coord": [
+                    1445,
+                    989
+                  ]
+                }
+              ],
+              "or": [
+                {
+                  "$e": "quest.maya_spell[\"frog_hops\"]==2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "\"frank\"notinquest.maya_spell[\"frogs_caught\"]",
+          "and": [
+            {
+              "$e": "quest.maya_spell[\"frog_hops\"]==1",
+              "values": [
+                {
+                  "name": "frog5a",
+                  "coord": [
+                    1707,
+                    790
+                  ]
+                }
+              ],
+              "or": [
+                {
+                  "$e": "quest.maya_spell[\"frog_hops\"]==2",
+                  "values": [
+                    {
+                      "name": "frog5b",
+                      "coord": [
+                        1834,
+                        845
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_dollar1_spawned_today==True && !($_dollar1_taken_today)",
+      "values": [
+        {
+          "name": "dollar1",
+          "coord": [
+            626,
+            1046
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "$_dollar2_spawned_today==True && !($_dollar2_taken_today)",
+      "values": [
+        {
+          "name": "dollar2",
+          "coord": [
+            996,
+            844
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.isabelle_buriedin(\"bury\",\"dig\",\"funeral\") || (quest.maxine_hook==\"dig\"andnot19>$hour>6) || (quest.jo_day==\"picnic\"and$hour==19)",
+      "values": [
+        {
+          "name": "sunsetoverlay",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

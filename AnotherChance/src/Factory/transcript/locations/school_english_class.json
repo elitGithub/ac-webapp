@@ -1,0 +1,384 @@
+{
+  "name": "school_english_class",
+  "title": "English Class",
+  "parent": null,
+  "items": [
+    {
+      "name": "english_classroom",
+      "coord": [
+        -74,
+        -287
+      ]
+    },
+    {
+      "name": "quotes_shadow",
+      "coord": [
+        217,
+        91
+      ]
+    },
+    {
+      "name": "quote05",
+      "coord": [
+        1187,
+        170
+      ]
+    },
+    {
+      "name": "quote04",
+      "coord": [
+        1015,
+        260
+      ]
+    },
+    {
+      "name": "quote03",
+      "coord": [
+        1031,
+        178
+      ]
+    },
+    {
+      "name": "quote02",
+      "coord": [
+        381,
+        142
+      ]
+    },
+    {
+      "name": "blackboard",
+      "coord": [
+        558,
+        144
+      ]
+    },
+    {
+      "name": "chalk",
+      "coord": [
+        873,
+        322
+      ]
+    },
+    {
+      "$e": "quest.isabelle_red.in_progress && quest.isabelle_red>=\"black_note\"",
+      "values": [
+        {
+          "name": "note",
+          "coord": [
+            887,
+            318
+          ]
+        }
+      ]
+    },
+    {
+      "name": "plackard",
+      "coord": [
+        653,
+        70
+      ]
+    },
+    {
+      "name": "furniture_back",
+      "coord": [
+        285,
+        383
+      ]
+    },
+    {
+      "name": "beanbag",
+      "coord": [
+        0,
+        368
+      ]
+    },
+    {
+      "name": "door",
+      "coord": [
+        1595,
+        169
+      ]
+    },
+    {
+      "name": "furniture_right",
+      "coord": [
+        1712,
+        365
+      ]
+    },
+    {
+      "name": "bookshelf",
+      "coord": [
+        1291,
+        177
+      ]
+    },
+    {
+      "name": "safe",
+      "coord": [
+        1397,
+        287
+      ]
+    },
+    {
+      "name": "chair_back",
+      "coord": [
+        1057,
+        401
+      ]
+    },
+    {
+      "$e": "!(lindsey.talking)",
+      "and": [
+        {
+          "$e": "lindsey.at(\"school_english_class\",\"standing\")",
+          "values": [
+            {
+              "name": "lindsey",
+              "coord": [
+                1244,
+                232
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "desks_shadow",
+      "coord": [
+        285,
+        608
+      ]
+    },
+    {
+      "name": "desk4",
+      "coord": [
+        1314,
+        565
+      ]
+    },
+    {
+      "name": "desk3",
+      "coord": [
+        1078,
+        594
+      ]
+    },
+    {
+      "name": "desk2",
+      "coord": [
+        779,
+        631
+      ]
+    },
+    {
+      "name": "desk1",
+      "coord": [
+        398,
+        676
+      ]
+    },
+    {
+      "name": "chair_right",
+      "coord": [
+        1704,
+        567
+      ]
+    },
+    {
+      "name": "table_back",
+      "coord": [
+        1057,
+        775
+      ]
+    },
+    {
+      "name": "books",
+      "coord": [
+        1153,
+        832
+      ]
+    },
+    {
+      "name": "cabinet",
+      "coord": [
+        863,
+        391
+      ]
+    },
+    {
+      "name": "teacher_chair",
+      "coord": [
+        625,
+        404
+      ]
+    },
+    {
+      "name": "teacher_desk",
+      "coord": [
+        496,
+        407
+      ]
+    },
+    {
+      "$e": "!($_cactus_taken) || quest.jo_washed.in_progress",
+      "and": [
+        {
+          "$e": "quest.lindsey_motive==\"lure\" || quest.jo_day==\"supplies\"",
+          "values": [
+            {
+              "name": "cactus",
+              "coord": [
+                514,
+                346
+              ]
+            }
+          ],
+          "else": [
+            {
+              "name": "cactus",
+              "coord": [
+                514,
+                346
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "desks_front",
+      "coord": [
+        297,
+        509
+      ]
+    },
+    {
+      "name": "chair_left",
+      "coord": [
+        30,
+        764
+      ]
+    },
+    {
+      "name": "clock",
+      "coord": [
+        55,
+        161
+      ]
+    },
+    {
+      "$e": "!(isabelle.talking)",
+      "and": [
+        {
+          "$e": "isabelle.at(\"school_english_class\",\"sitting\")",
+          "values": [
+            {
+              "name": "couch_isabelle",
+              "coord": [
+                119,
+                427
+              ]
+            }
+          ],
+          "and": [
+            {
+              "$e": "$season==1",
+              "values": [
+                {
+                  "name": "isabelle",
+                  "coord": [
+                    121,
+                    398
+                  ]
+                }
+              ],
+              "or": [
+                {
+                  "$e": "$season==2",
+                  "values": [
+                    {
+                      "name": "isabelle_autumn",
+                      "coord": [
+                        120,
+                        398
+                      ]
+                    }
+                  ],
+                  "and": [
+                    {
+                      "$e": "isabelle.equipped_item(\"isabelle_collar\")",
+                      "values": [
+                        {
+                          "name": "isabelle_collar",
+                          "coord": [
+                            143,
+                            458
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!(quest.jo_washed.in_progress)",
+      "and": [
+        {
+          "$e": "$_dollar1_spawned_today==True && !($_dollar1_taken_today)",
+          "values": [
+            {
+              "name": "dollar1",
+              "coord": [
+                394,
+                372
+              ]
+            }
+          ]
+        },
+        {
+          "$e": "$_dollar2_spawned_today==True && !($_dollar2_taken_today)",
+          "values": [
+            {
+              "name": "dollar2",
+              "coord": [
+                972,
+                459
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "!($_book_taken) && !(quest.jo_washed.in_progress)",
+      "values": [
+        {
+          "name": "book",
+          "coord": [
+            1853,
+            369
+          ]
+        }
+      ]
+    },
+    {
+      "$e": "quest.isabelle_dethroning==\"revenge\"",
+      "values": [
+        {
+          "name": "night_overlay",
+          "coord": [
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}
