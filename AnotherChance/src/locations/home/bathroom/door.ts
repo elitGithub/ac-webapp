@@ -7,7 +7,7 @@ import { Transition_Scene } from "../../../Engine/engine/scene";
 import SceneTransitionFlags from "../../../Engine/engine/scene/models/scenetransitions";
 import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
 import { QuestState } from "../../../Engine/gameplay/quest";
-import BathRoomDoor from "../../../../assets/locations/home/bathroom/door.webp";
+import BathRoomDoor from "../../../../public/assets/images/locations/home/bathroom/door.webp";
 
 const bathroomToHallDoor = await getEngine().createSimpleInteractable(
     "bathroom_door",

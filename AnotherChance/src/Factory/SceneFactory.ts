@@ -1,5 +1,5 @@
-import { Scene } from "../Engine/engine/scene";
-import { getEngine } from "../Engine/engine";
+import { Prep_Scenes, Scene } from "../Engine/engine/scene";
+import { createEngineEvent, EngineBus, getEngine } from "../Engine/engine";
 import { DecisionTree } from "./DecisionTree.ts";
 import { ConfigConditionsEvaluator } from "./helpers/ConfigConditionsEvaluator.ts";
 import { InteractionsBuilder } from "./helpers/InteractionsBuilder.ts";
@@ -7,19 +7,19 @@ import { Sprite } from "pixi.js";
 
 export class SceneFactory {
     private interactionsBuilder: InteractionsBuilder;
-    public scenesToLoad: Scene[] = [];
-    private engine;
+    public scenesToLoad: string[] = [];
+    public scenesToPrep: Scene[] = [];
+
     constructor(private decisionTree: DecisionTree) {
         this.interactionsBuilder = new InteractionsBuilder();
-        this.engine = getEngine();
     }
 
     public async loadScenes(scenes: string[] = []) {
-        scenes.map(async (scene) => {
-            const module = await import(`./configFiles/${ scene }.js`);
+        const loadPromises = scenes.map(async (scene) => {
+            const module = await import(`./schematics/LocationSchematics/${ scene }.js`);
             const configuration = module?.configuration;
             if (!configuration) {
-                throw new Error('Scene not');
+                throw new Error('Scene not found');
             }
             this.decisionTree.setDefaultStateForScene(scene, configuration.stateVariables);
 
@@ -33,7 +33,7 @@ export class SceneFactory {
                     if (asset.actions) {
                         sceneItem = await this.interactionsBuilder.setUpSceneItem(asset);
                     } else {
-                        sceneItem =  Sprite.from(asset.src);
+                        sceneItem = Sprite.from(asset.src);
                     }
                     if (!sceneItem) {
                         return;
@@ -42,6 +42,7 @@ export class SceneFactory {
                     const baseWidth = size.x;
                     const baseHeight = size.y;
                     if (!asset.position || !asset.position[0]) {
+                        console.log('asset does not have position', asset.name);
                         console.log(asset);
                         console.log(asset.position);
                     }
@@ -49,13 +50,22 @@ export class SceneFactory {
                     let yRatio = asset.position[1] / baseHeight;
                     let { x, y } = getEngine().SPR(xRatio, yRatio);
                     sceneItem.setTransform(x, y);
+                    console.log(sceneItem);
                     sceneObject.addSceneObject(sceneItem);
                 }
-                this.scenesToLoad.push(sceneObject);
             });
+            this.scenesToPrep.push(sceneObject);
+            this.scenesToLoad.push(scene);
         });
 
-        this.engine.getScene().addScenes(this.scenesToLoad)
+        return Promise.all(loadPromises).then(() => {
+            EngineBus.emit(
+                Prep_Scenes,
+                createEngineEvent(Prep_Scenes, {
+                    scenes: this.scenesToPrep,
+                }),
+            );
+        });
     }
 
 }

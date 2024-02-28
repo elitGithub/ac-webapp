@@ -2,9 +2,9 @@ import {
     EngineBus,
     createEngineEvent,
     getEngine,
-} from "../../../../../src/engine";
-import { START_DIALOGUE } from "../../../../../src/gameplay/dialogue";
-import BedroomBed from "../../../../assets/locations/home/bedroom/bed.webp";
+} from "../../../Engine/engine";
+import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
+import BedroomBed from "../../../../public/assets/images/locations/home/bedroom/bed.webp";
 
 const BedroomBedInt = await getEngine().createSimpleInteractable(
     "bedroom_bed",

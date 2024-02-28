@@ -4,7 +4,7 @@ import {
 } from "../../../Engine/engine";
 import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
 import { WorldNPC } from "../../../Engine/gameplay/npc";
-import Jo from "../../../../assets/locations/home/kitchen/jo_newspaper.webp";
+import Jo from "../../../../public/assets/images/locations/home/kitchen/jo_newspaper.webp";
 
 const joreading = new WorldNPC("Jo", {
     source: Jo,

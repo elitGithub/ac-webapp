@@ -1,7 +1,7 @@
 import { getEngine } from "../Engine/engine";
 import { HudElement } from "../Engine/engine/gui";
 import { Text } from "pixi.js";
-import bg from "./../assets/ui/notification/message_bg.webp"
+import bg from "./../public/assets/images/ui/notification/message_bg.webp"
 
 export class SaveButton extends HudElement {
 

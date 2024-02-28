@@ -2,10 +2,10 @@ import {
     EngineBus,
     createEngineEvent,
     getEngine,
-} from "../../../../../src/engine";
-import { START_DIALOGUE } from "../../../../../src/gameplay/dialogue";
-import { WorldNPC } from "../../../../../src/gameplay/npc";
-import BedroomIsabelleSprite from "../../../../assets/locations/home/bedroom/isabelle.webp";
+} from "../../../Engine/engine";
+import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
+import { WorldNPC } from "../../../Engine/gameplay/npc";
+import BedroomIsabelleSprite from "../../../../public/assets/images/locations/home/bedroom/isabelle.webp";
 
 const bedroomIsabelle = new WorldNPC("Isabelle", {
     source: BedroomIsabelleSprite,

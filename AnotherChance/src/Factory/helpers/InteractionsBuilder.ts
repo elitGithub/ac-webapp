@@ -18,7 +18,7 @@ export class InteractionsBuilder {
         };
         actions.forEach((action: any) => {
             if (action.go) {
-                interaction = this.setupGoAction(action.go.name, action.go);
+                interaction = this.setupGoAction(asset.name, action.go);
             } else if (action.interact) {
                 // For simplicity, assuming all non-'go' actions use setupInteractAction
                 interaction = this.setupInteractAction(action.interact);
@@ -34,12 +34,12 @@ export class InteractionsBuilder {
 
 
     private setupGoAction(name: string, goConfig: any) {
-        console.log(name);
         const { to, condition } = goConfig;
         let handler = () => {};
-        if (!condition || this.meetsCondition('go', condition)) {
+        if (this.meetsCondition('go', condition)) {
+            console.log('MEETS CONDITIONS?!', name);
             handler = () => {
-                console.log('interact with: go');
+                console.log('interact with: go', name);
                 EngineBus.emit(
                     Transition_Scene,
                     createEngineEvent(Transition_Scene, {
@@ -50,7 +50,7 @@ export class InteractionsBuilder {
             }
         }
         return {
-            action: 'interact,',
+            action: 'interact',
             handler,
         };
     }
@@ -73,7 +73,7 @@ export class InteractionsBuilder {
             }
         }
         return {
-            action: 'interact,',
+            action: 'interact',
             handler,
         };
     }
@@ -82,7 +82,9 @@ export class InteractionsBuilder {
     private meetsCondition(dependsOn: string, condition: any): boolean {
         // Retrieve current quest system state
         const questSys = this.engine.getGame().questSys;
-
+        if (!Object.keys(condition).length) {
+            return true;
+        }
         // Example condition checks
         switch (dependsOn) {
             case 'focusedQuest':

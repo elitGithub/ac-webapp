@@ -52,15 +52,6 @@ createNamedAnimate(
     true
 );
 
-const div = document.createElement("div");
-const app = document.getElementById("app");
-if (app) {
-    app.append(div);
-} else {
-    document.body.append(div);
-}
-getEngine().getRender().attachRendererTo(div);
-
 
 //
 DevModInterface.loadModResource(await import("./characters/index"));
@@ -80,7 +71,7 @@ DevModInterface.loadModResource(await import("./quests/kateoverisabelle"));
 DevModInterface.loadModResource(await import("./quests/isabelleoverkate"));
 
 
-anotherChance.loader.loadScenes(['Bedroom', 'Bathroom']);
+
 // anotherChance.loader.emitPrepScenes();
 // Home
 // await import("./locations/home/bathroom/bathroom");
@@ -98,8 +89,17 @@ anotherChance.loader.loadScenes(['Bedroom', 'Bathroom']);
 // await import("./locations/school/firsthalleast/firsthalleast");
 // await import("./locations/school/gym/gym");
 
-if (getEngine().getScene().scenesLoaded) {
-    console.log('MY NAME IS?');
+
+(async () => {
+    const div = document.createElement("div");
+    const app = document.getElementById("app");
+    if (app) {
+        app.append(div);
+    } else {
+        document.body.append(div);
+    }
+    getEngine().getRender().attachRendererTo(div);
+    await anotherChance.loader.loadScenes(['Bedroom', 'Bathroom']);
     EngineBus.emit(
         Transition_Scene,
         createEngineEvent(Transition_Scene, {
@@ -107,4 +107,4 @@ if (getEngine().getScene().scenesLoaded) {
             sceneTransition: SceneTransitionFlags.ST_FADE,
         })
     );
-}
+})()

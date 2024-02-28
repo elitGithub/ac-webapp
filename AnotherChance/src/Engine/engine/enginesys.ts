@@ -80,7 +80,7 @@ export class Engine {
 
         Engine.Render = new RenderSystem(Engine.defaultConfig);
         Engine.Animation = new AnimationSystem();
-        Engine.Scene = new SceneSystem();
+        Engine.Scene = SceneSystem.getInstance();
         Engine.Input = new InputSystem();
         Engine.Assets = new AssetSystem();
         Engine.Hud = new HudSystem();
@@ -106,14 +106,14 @@ export class Engine {
 
     static loop(dt: DOMHighResTimeStamp) {
         Engine.ticker.update(dt);
-       
+
         Engine.Input.update(dt);
         Engine.Ent.update(dt);
         Engine.Scene.update(dt);
         Engine.Animation.update(dt);
         Engine.Render.update(dt);
         Engine.Hud.update(dt);
-        
+
         if (Engine.Game) {
             Engine.Game.update(dt);
         }
@@ -121,6 +121,8 @@ export class Engine {
     }
 
     static async createSimpleInteractable(name: string, action: BaseInteractableAction, texture: IRenderableResource) {
+        console.log('created interactable', name);
+        console.log('created interactable action', action);
         const asset = await getEngine().getAssets().loadTexture(texture);
         return new BaseInteractable(asset?.texture, name, action);
     }
@@ -194,11 +196,11 @@ export class Engine {
         if (save.game) {
             Engine.Game.loadState?.(save.game);
         }
-        
+
         if (save.ent) {
             Engine.Ent.loadState?.(save.ent);
         }
-        
+
         if (save.animation) {
             Engine.Animation.loadState?.(save.animation);
         }

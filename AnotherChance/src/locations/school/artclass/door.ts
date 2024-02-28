@@ -1,4 +1,4 @@
-import Door from "../../../../assets/locations/school/art_class/door.webp";
+import Door from "../../../../public/assets/images/locations/school/art_class/door.webp";
 import SceneTransitionFlags from "../../../Engine/engine/scene/models/scenetransitions";
 import {
     EngineBus,

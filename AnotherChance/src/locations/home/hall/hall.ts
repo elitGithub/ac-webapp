@@ -9,10 +9,10 @@ import {
     Transition_Scene,
 } from "../../../Engine/engine/scene";
 import SceneTransitionFlags from "../../../Engine/engine/scene/models/scenetransitions";
-import HomeHall from "../../../../assets/locations/home/hall/homehall.webp";
-import HomeHallDoor from "../../../../assets/locations/home/hall/door_right.webp";
-import HomeHallBathroomDoor from "../../../../assets/locations/home/hall/door_white.webp";
-import HomeHallStairs from "../../../../assets/locations/home/hall/stairs.webp";
+import HomeHall from "../../../../public/assets/images/locations/home/hall/homehall.webp";
+import HomeHallDoor from "../../../../public/assets/images/locations/home/hall/door_right.webp";
+import HomeHallBathroomDoor from "../../../../public/assets/images/locations/home/hall/door_white.webp";
+import HomeHallStairs from "../../../../public/assets/images/locations/home/hall/stairs.webp";
 
 const HomeHallScene = new Scene("Hall", { source: HomeHall });
 

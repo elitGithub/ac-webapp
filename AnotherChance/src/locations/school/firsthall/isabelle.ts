@@ -1,4 +1,4 @@
-import Asset from "../../../assets/locations/school/first_hall/isabelle.webp";
+import Asset from "../../../public/assets/images/locations/school/first_hall/isabelle.webp";
 
 import {
     getEngine,

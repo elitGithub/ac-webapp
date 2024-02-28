@@ -1,9 +1,9 @@
 import { Sprite, Graphics, Container, Text } from "pixi.js";
 import { HudElement } from "../Engine/engine/gui";
 import { getEngine } from "../Engine/engine";
-import EnergyBarBorder from "./../assets/ui/hud/bar_border_energy.webp";
-import EnergyBarBack from "./../assets/ui/hud/bar_back_energy.webp";
-import EnergyBarFront from "./../assets/ui/hud/bar_front_energy.webp";
+import EnergyBarBorder from "../../public/assets/images/ui/hud/bar_border_energy.webp";
+import EnergyBarBack from "../../public/assets/images/ui/hud/bar_back_energy.webp";
+import EnergyBarFront from "../../public/assets/images/ui/hud/bar_front_energy.webp";
 
 export class EnergyHudElement extends HudElement {
 

@@ -4,7 +4,7 @@ import {
 import { Dialogue, DialogueSystem } from "../../../Engine/gameplay/dialogue";
 import { WorldNPC } from "../../../Engine/gameplay/npc";
 import { DevModInterface } from "../../../Engine/modsystem";
-import MrslAsset from "../../../../assets/locations/school/homeroom/mrsl.webp";
+import MrslAsset from "../../../../public/assets/images/locations/school/homeroom/mrsl.webp";
 import { mc } from "../../../characters";
 
 const Mrsl = new WorldNPC("Mrsl", {

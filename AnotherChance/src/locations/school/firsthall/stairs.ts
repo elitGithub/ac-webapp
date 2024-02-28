@@ -1,4 +1,4 @@
-import Asset from "../../../../assets/locations/school/first_hall/stairs.webp";
+import Asset from "../../../../public/assets/images/locations/school/first_hall/stairs.webp";
 import SceneTransitionFlags from "../../../Engine/engine/scene/models/scenetransitions";
 import {
     EngineBus,

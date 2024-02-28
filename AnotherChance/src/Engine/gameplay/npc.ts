@@ -8,7 +8,7 @@ import { DialogueMode } from "./dialogue";
 import { BaseInteractable } from "../engine/coreentities";
 import { IRenderableResource } from "../framework/graphics";
 
-enum BodyPart {
+export enum BodyPart {
     BODY,
     FACE,
     ARMS,
@@ -59,7 +59,7 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
     worldRepresentatives: BaseInteractable[];
 
     // TODO: move this into a dynamic loader as well.
-    constructor(displayName: string, assetsBase: string ="AnotherChance/src/assets") {
+    constructor(displayName: string, assetsBase: string ="AnotherChance/public/assets/images") {
         super(displayName);
         this.assetsBase = assetsBase;
         this.manifest = {};
@@ -186,10 +186,13 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
     private findAssets(regexp: string|RegExp, store: Object) {
         const matchingAssets: {name: string, path: string}[] = [];
         for (const key of Object.keys(store)) {
+            // @ts-ignore
             if (typeof store[key] === "object") {
+                // @ts-ignore
                 matchingAssets.push(...this.findAssets(regexp, store[key]));
             }
             else if (key.match(regexp)) {
+                // @ts-ignore
                 matchingAssets.push({name: key.split(".")[0], path: store[key]});
             }
         }
@@ -447,7 +450,7 @@ export class WorldNPC extends BaseInteractable {
     displayedSprite?: Sprite;
     sprites: Map<string, Sprite>;
     constructor(displayName: string, defaultSprite: IRenderableResource, npc?: NPC) {
-        super(undefined, "world_"+displayName);
+        super(undefined, "world_"+displayName, () => {});
         this.addAction({action: "interact", handler: this.enterDialogue.bind(this)});
         this.npcName = displayName;
         this.npc = npc;

@@ -1,4 +1,4 @@
-import Door from "../../../../assets/locations/school/ground_floor/homeroom.webp";
+import Door from "../../../../public/assets/images/locations/school/ground_floor/homeroom.webp";
 import SceneTransitionFlags from "../../../Engine/engine/scene/models/scenetransitions";
 import {
     EngineBus,
@@ -14,7 +14,7 @@ const HomeroomDoor = await getEngine().createSimpleInteractable(
     {
         action: "interact",
         handler: () => {
-            const q = DevModInterface.GAME.QUEST.getQuest("Day_1,_Take_2")?.getCurrentQuestStep();
+            const q = DevModInterface.GAME.QUEST?.getQuest("Day_1,_Take_2")?.getCurrentQuestStep();
             if (q.questStepId === "entered") {
                 EngineBus.emit(
                     START_DIALOGUE,

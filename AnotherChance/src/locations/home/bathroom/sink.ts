@@ -4,7 +4,7 @@ import {
     getEngine,
 } from "../../../Engine/engine";
 import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
-import Sink from "../../../../assets/locations/home/bathroom/sink.webp";
+import Sink from "../../../../public/assets/images/locations/home/bathroom/sink.webp";
 
 const sink = await getEngine().createSimpleInteractable(
     "bathroom_sink",

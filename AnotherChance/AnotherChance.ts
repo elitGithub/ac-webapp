@@ -9,9 +9,9 @@ import { DialogueSystem } from "./src/Engine/gameplay/dialogue";
 import { QuestSystem } from "./src/Engine/gameplay/quest";
 import { createEngineEvent, EngineBus, getEngine } from "./src/Engine/engine";
 import { Reload_Scene } from "./src/Engine/engine/scene";
-import QuestGuideButton from "./assets/ui/hud/btn_quest_guide.webp";
-import ChoiceBg from "./assets/ui/dialog/choice.webp";
-import SayFrameBg from "./assets/ui/dialog/frame_say_bg.webp";
+import QuestGuideButton from "./public/assets/images/ui/hud/btn_quest_guide.webp";
+import ChoiceBg from "./public/assets/images/ui/dialog/choice.webp";
+import SayFrameBg from "./public/assets/images/ui/dialog/frame_say_bg.webp";
 import { SceneFactory } from "./src/Factory/SceneFactory.ts";
 import { Hoverable } from "./src/Engine/engine/gui";
 

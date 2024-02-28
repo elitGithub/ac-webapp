@@ -1,6 +1,6 @@
 import { Graphics, Sprite, Text } from "pixi.js";
-import ModalTitleBg from "../assets/ui/notification/modal_frame_title.webp";
-import QuestModalBg from "../assets/ui/notification/modal_frame_quest.webp";
+import ModalTitleBg from "../../public/assets/images/ui/notification/modal_frame_title.webp";
+import QuestModalBg from "../../public/assets/images/ui/notification/modal_frame_quest.webp";
 import { NotificationHud } from "../Engine/gameplay/misc/notifhud.ts";
 import { QUEST_COMPLETED,
     QUEST_FAILED, QUEST_STARTED, QUEST_STEP_STARTED, QuestListener, QuestUpdateEvent, subscribeToQuestEvents } from "../Engine/gameplay/quest";

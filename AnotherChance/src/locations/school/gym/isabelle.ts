@@ -1,14 +1,11 @@
-import Asset from "../../../assets/locations/school/gym/isabelle.webp";
+import Asset from "../../../public/assets/images/locations/school/gym/isabelle.webp";
 
 import {
-    EngineBus,
-    createEngineEvent,
     getEngine,
-} from "../../../../../src/engine";
-import { Transition_Scene } from "../../../../../src/engine/scene/models";
-import { DevModInterface } from "../../../../../src/modsystem";
-import { Dialogue, DialogueSystem } from "../../../../../src/gameplay/dialogue";
-import { isabelle, mc } from "../../../characters";
+} from "../../../Engine/engine";
+import { DevModInterface } from "../../../Engine/modsystem";
+import { Dialogue, DialogueSystem } from "../../../Engine/gameplay/dialogue";
+import { mc } from "../../../characters";
 
 const Isabelle = await getEngine().createSimpleInteractable(
     "gym_isabelle",

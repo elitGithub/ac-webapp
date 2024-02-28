@@ -1,6 +1,6 @@
 import { EngineBus, createEngineEvent } from "../../../Engine/engine";
 import { Prep_Scenes, Scene } from "../../../Engine/engine/scene";
-import GroundFloor from "../../../../assets/locations/school/ground_floor/background.webp";
+import GroundFloor from "../../../../public/assets/images/locations/school/ground_floor/background.webp";
 
 import HomeroomDoor from "./homeroomdoor";
 import SchoolExitArrow from "./exit";

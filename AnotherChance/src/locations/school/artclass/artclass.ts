@@ -1,6 +1,6 @@
 import { EngineBus, createEngineEvent } from "../../../Engine/engine";
 import { Prep_Scenes, Scene } from "../../../Engine/engine/scene";
-import Bg from "../../../../assets/locations/school/art_class/art_class.webp";
+import Bg from "../../../../public/assets/images/locations/school/art_class/art_class.webp";
 import ArtDoorOut from "./door";
 import IsabelleArt from "./isabelle";
 

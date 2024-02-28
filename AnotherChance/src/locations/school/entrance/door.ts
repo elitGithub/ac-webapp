@@ -1,4 +1,4 @@
-import Door from "../../../../assets/locations/school/entrance/door.webp";
+import Door from "../../../../public/assets/images/locations/school/entrance/door.webp";
 import {
     EngineBus,
     createEngineEvent,

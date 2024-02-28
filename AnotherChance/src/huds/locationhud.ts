@@ -1,7 +1,7 @@
 import { Sprite, Text } from "pixi.js";
 import { getEngine } from "../Engine/engine";
 import { HudElement } from "../Engine/engine/gui";
-import LocationButton from "./../assets/ui/hud/btn_map.webp";
+import LocationButton from "../../public/assets/images/ui/hud/btn_map.webp";
 
 export class LocationHudElement extends HudElement {
     icon!: Sprite;

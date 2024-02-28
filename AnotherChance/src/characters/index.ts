@@ -1,6 +1,6 @@
-import { BaseCharacter } from "../../../src/engine/coreentities/basecharacter";
+import { MainCharacter } from "./MainCharacter.ts";
 
-export const mc = null
+export const mc = new MainCharacter();
 // export const jo = new BaseCharacter("Joasdasd");
 // export const mrsl = new BaseCharacter("MrsLasdasd");
 // // export const isabelle = new BaseCharacter("Isabelle");

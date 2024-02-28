@@ -1,4 +1,4 @@
-import Bus from "../../../../assets/locations/school/entrance/bus.webp";
+import Bus from "../../../../public/assets/images/locations/school/entrance/bus.webp";
 import SceneTransitionFlags from "../../../Engine/engine/scene/models/scenetransitions";
 import {
     EngineBus,

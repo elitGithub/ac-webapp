@@ -2,9 +2,9 @@ import {
     EngineBus,
     createEngineEvent,
     getEngine,
-} from "../../../../../src/engine";
-import { START_DIALOGUE } from "../../../../../src/gameplay/dialogue";
-import BedroomAlarm from "../../../../assets/locations/home/bedroom/alarm.webp";
+} from "../../../Engine/engine";
+import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
+import BedroomAlarm from "../../../../public/assets/images/locations/home/bedroom/alarm.webp";
 
 const BedroomAlarmInt = await getEngine().createSimpleInteractable(
     "bedroomAlarmClock",

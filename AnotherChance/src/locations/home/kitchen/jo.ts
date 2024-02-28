@@ -1,7 +1,7 @@
 import { EngineBus, createEngineEvent } from "../../../Engine/engine";
 import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
 import { WorldNPC } from "../../../Engine/gameplay/npc";
-import JoCoffee from "../../../../assets/locations/home/kitchen/jo_coffee.webp";
+import JoCoffee from "../../../../public/assets/images/locations/home/kitchen/jo_coffee.webp";
 
 const kitchenJo = new WorldNPC("Jo", {
     source: JoCoffee,

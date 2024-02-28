@@ -1,4 +1,4 @@
-import HomeHallStair from "../../../../assets/locations/home/kitchen/stairs.webp";
+import HomeHallStair from "../../../../public/assets/images/locations/home/kitchen/stairs.webp";
 import SceneTransitionFlags from "../../../Engine/engine/scene/models/scenetransitions";
 import {
     EngineBus,

@@ -1,4 +1,4 @@
-import ExitArrow from "../../../../assets/locations/school/ground_floor/arrow_down.webp";
+import ExitArrow from "../../../../public/assets/images/locations/school/ground_floor/arrow_down.webp";
 import SceneTransitionFlags from "../../../Engine/engine/scene/models/scenetransitions";
 import {
     EngineBus,

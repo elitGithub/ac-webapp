@@ -1,6 +1,6 @@
 import { EngineBus, createEngineEvent } from "../../../Engine/engine";
 import { Prep_Scenes, Scene } from "../../../Engine/engine/scene";
-import HomeKitchen from "../../../../assets/locations/home/kitchen/kitchen.webp";
+import HomeKitchen from "../../../../public/assets/images/locations/home/kitchen/kitchen.webp";
 import kitchenJo from "./jo";
 import StairsToHall from "./stairs";
 import KitchenDoor from "./door";

@@ -1,5 +1,5 @@
-import { getEngine } from "../../../../../src/engine";
-import BedroomTV from "../../../../assets/locations/home/bedroom/tv.webp";
+import { getEngine } from "../../../Engine/engine";
+import BedroomTV from "../../../../public/assets/images/locations/home/bedroom/tv.webp";
 
 const BedroomTVInt = await getEngine().createSimpleInteractable(
     "bedroom_tv",

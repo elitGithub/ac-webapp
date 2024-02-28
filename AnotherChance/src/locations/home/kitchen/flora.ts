@@ -4,7 +4,7 @@ import {
 } from "../../../Engine/engine";
 import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
 import { WorldNPC } from "../../../Engine/gameplay/npc";
-import Flora from "../../../../assets/locations/home/kitchen/flora_sitting.webp";
+import Flora from "../../../../public/assets/images/locations/home/kitchen/flora_sitting.webp";
 
 const kitchenFlora = new WorldNPC("Flora", {
     source: Flora,

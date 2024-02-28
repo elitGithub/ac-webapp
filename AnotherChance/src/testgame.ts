@@ -13,10 +13,10 @@ import { QuestNotifHud } from "./huds/questnotifhud";
 import { SaveButton } from "./huds/savebutton";
 import { TimeHudElement } from "./huds/timehud";
 
-import SayFrameBg from "./assets/ui/dialog/frame_say_bg.webp";
-import ChoiceBg from "./assets/ui/dialog/choice.webp";
-import ChoiceHoverBg from "./assets/ui/dialog/choice_hover.webp";
-import QuestGuideButton from "./assets/ui/hud/btn_quest_guide.webp";
+import SayFrameBg from "./public/assets/images/ui/dialog/frame_say_bg.webp";
+import ChoiceBg from "./public/assets/images/ui/dialog/choice.webp";
+import ChoiceHoverBg from "./public/assets/images/ui/dialog/choice_hover.webp";
+import QuestGuideButton from "./public/assets/images/ui/hud/btn_quest_guide.webp";
 
 export class TestGame extends BaseGame {
 

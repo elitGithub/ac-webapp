@@ -1,7 +1,7 @@
 import { Sprite, Text } from "pixi.js";
 import { getEngine } from "../Engine/engine";
 import { HudElement } from "../Engine/engine/gui";
-import TimeButton from "./../assets/ui/hud/btn_time.webp";
+import TimeButton from "../../public/assets/images/ui/hud/btn_time.webp";
 
 export class TimeHudElement extends HudElement {
     icon!: Sprite;

@@ -1,6 +1,6 @@
 import { EngineBus, createEngineEvent } from "../../../Engine/engine";
 import { Prep_Scenes, Scene } from "../../../Engine/engine/scene";
-import School from "../../../../assets/locations/school/entrance/school.webp";
+import School from "../../../../public/assets/images/locations/school/entrance/school.webp";
 import SchoolEntranceDoor from "./door";
 import SchoolBus from "./bus";
 

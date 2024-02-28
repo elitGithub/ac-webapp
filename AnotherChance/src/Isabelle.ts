@@ -1,6 +1,6 @@
 import { getEngine } from "./Engine/engine";
 import { Dialogue } from "./Engine/gameplay/dialogue";
-import { NPC } from "./Engine/gameplay/npc";
+import { BodyPart, NPC } from "./Engine/gameplay/npc";
 import { DevModInterface } from "./Engine/modsystem";
 
 export default function SmashorPassQuest() {
@@ -8,7 +8,7 @@ export default function SmashorPassQuest() {
     const isabelle = new NPC("Isabelle");
     isabelle.setDefaultPosition(104,131);
     isabelle.addNamedBodyPartOverride("body1", {x: 110, y: 124});
-    isabelle.addBodyPartOverride('face_confident',{x: 192, y: 217})
+    isabelle.addBodyPartOverride(BodyPart.FACE,{x: 192, y: 217})
     isabelle.addPose('confident',function(npc:NPC){
         npc.changeExpression('face_confident')
         // npc.changeBody(1)

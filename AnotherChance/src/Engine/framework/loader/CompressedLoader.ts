@@ -1,4 +1,5 @@
-import * as Pako from "pako";
+import * as Pako from 'pako';
+
 const BROWSER = window;
 
 export class GZipLoader {
@@ -20,19 +21,16 @@ export class GZipLoader {
                 return this.cache.get(source)!;
             }
             return this.Cache(await this.decompress(new CompressedAsset(new URL(source))));
-        }
-        else if (source instanceof URL) {
+        } else if (source instanceof URL) {
             if (this.cache.has(source.href)) {
                 return this.cache.get(source.href)!;
             }
 
             return this.Cache(await this.decompress(new CompressedAsset(source)));
-        }
-        else if (source instanceof CompressedAsset) {
+        } else if (source instanceof CompressedAsset) {
             if (source.decompressedSource) {
                 return source;
-            }
-            else {
+            } else {
                 if (this.cache.has(source.originalSource.href)) {
                     return this.cache.get(source.originalSource.href)!;
                 }
@@ -41,7 +39,7 @@ export class GZipLoader {
             }
         }
 
-        throw new Error(`${typeof source} is invalid argument for GZipLoader.load.`);
+        throw new Error(`${ typeof source } is invalid argument for GZipLoader.load.`);
     }
 
     private createURL(blob: Blob) {

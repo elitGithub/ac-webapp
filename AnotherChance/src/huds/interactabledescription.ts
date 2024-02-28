@@ -1,8 +1,8 @@
 import { Sprite, Text} from "pixi.js";
 import { getEngine } from "../Engine/engine";
 import { Popup } from "../Engine/engine/gui";
-import LabelTitleBg from "./../assets/ui/frame_objname_gold.webp";
-import LabelBodyBg from "./../assets/ui/frame_popup.webp";
+import LabelTitleBg from "./../public/assets/images/ui/frame_objname_gold.webp";
+import LabelBodyBg from "./../public/assets/images/ui/frame_popup.webp";
 
 export class InteractableDescription extends Popup {
     displayName: string;

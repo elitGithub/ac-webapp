@@ -1,4 +1,4 @@
-import Asset from "../../../../assets/locations/school/ground_floor/guard_booth.webp";
+import Asset from "../../../../public/assets/images/locations/school/ground_floor/guard_booth.webp";
 import {
     getEngine,
 } from "../../../Engine/engine";

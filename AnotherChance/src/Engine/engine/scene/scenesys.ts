@@ -1,14 +1,24 @@
-import { EngineBus, EngineSystem, IEngineEvent, createEngineEvent, getEngine } from "../enginesys";
-import { Animation } from "../rendereffects";
-import { Scene } from "./models";
+import { createEngineEvent, EngineBus, EngineSystem, getEngine, IEngineEvent } from "../enginesys";
+import {
+    Animation,
+    AnimationListener,
+    createNamedAnimate,
+    queueNamedAnimate,
+    Render_Clear_Animate
+} from "../rendereffects";
+import {
+    Load_Scene,
+    Prep_Scenes,
+    Reload_Scene,
+    Scene,
+    SCENE_CHANGED,
+    SCENE_TRANSITIONED,
+    Transition_Scene
+} from "./models";
 import SceneTransitionFlags from "./models/scenetransitions";
-import { createNamedAnimate, queueNamedAnimate } from "../rendereffects";
-import { AnimationListener } from "../rendereffects";
-import { Load_Scene, Prep_Scenes, Reload_Scene, SCENE_CHANGED, SCENE_TRANSITIONED, Transition_Scene } from "./models";
 import { RENDER_STAGE_CHANGE } from "../render/models";
 import TweenShape from "../../framework/animations/tween/models/tweenshape";
 import { onSceneOutChildren } from "../../core/util";
-import { Render_Clear_Animate } from "../rendereffects";
 
 export class SceneSystem implements EngineSystem, AnimationListener {
 
@@ -21,8 +31,9 @@ export class SceneSystem implements EngineSystem, AnimationListener {
     transitioningTo: string;
     transitionType: SceneTransitionFlags;
     public scenesLoaded: boolean = false;
+    private static instance: SceneSystem | null = null;
 
-    constructor() {
+    private constructor() {
         this.sceneReady = false;
         this.scenes = [];
         this.pendingSceneChange = false;
@@ -39,15 +50,18 @@ export class SceneSystem implements EngineSystem, AnimationListener {
         //There will be a config for scene transitions soon
         const ease = new TweenShape(0, 0.1, 0.15, 1);
         createNamedAnimate(SceneTransitionFlags[SceneTransitionFlags.ST_FADE], "alpha", false, 0, ease);
-        createNamedAnimate(SceneTransitionFlags[SceneTransitionFlags.ST_FADE]+"_REVERSE", "alpha", false, 1, ease);
+        createNamedAnimate(SceneTransitionFlags[SceneTransitionFlags.ST_FADE] + "_REVERSE", "alpha", false, 1, ease);
+    }
+
+    public static getInstance() {
+        if (!(SceneSystem.instance instanceof SceneSystem)) {
+            SceneSystem.instance = new SceneSystem();
+        }
+        return SceneSystem.instance;
     }
 
     addScene(scene: Scene) {
         this.scenes.push(scene);
-    }
-
-    addScenes(scenes: Scene[]) {
-        scenes.forEach(scene => this.scenes.push(scene));
     }
 
     sceneByName(name: string) {
@@ -85,14 +99,11 @@ export class SceneSystem implements EngineSystem, AnimationListener {
 
         if (transition === SceneTransitionFlags.ST_FADE) {
             queueNamedAnimate(this.currentScene, SceneTransitionFlags[SceneTransitionFlags.ST_FADE], 1000);
-        }
-        else if (transition === SceneTransitionFlags.ST_LINES) {
+        } else if (transition === SceneTransitionFlags.ST_LINES) {
             queueNamedAnimate(this.currentScene, SceneTransitionFlags[SceneTransitionFlags.ST_LINES], 1000);
-        }
-        else if (transition === SceneTransitionFlags.ST_ROTATE) {
+        } else if (transition === SceneTransitionFlags.ST_ROTATE) {
             queueNamedAnimate(this.currentScene, SceneTransitionFlags[SceneTransitionFlags.ST_ROTATE], 1000);
-        }
-        else if (transition === SceneTransitionFlags.ST_ZOOM) {
+        } else if (transition === SceneTransitionFlags.ST_ZOOM) {
             queueNamedAnimate(this.currentScene, SceneTransitionFlags[SceneTransitionFlags.ST_ZOOM], 1000);
         }
 
@@ -103,24 +114,24 @@ export class SceneSystem implements EngineSystem, AnimationListener {
 
     private _loadScene(scene: Scene, transitioning: boolean) {
         getEngine().getRender().prepareRenderable(scene)
-        .then(() => {
-            if (!transitioning) {
-                if (this.currentScene) {
-                    this.transitioningFrom = this.currentScene.name;
+            .then(() => {
+                if (!transitioning) {
+                    if (this.currentScene) {
+                        this.transitioningFrom = this.currentScene.name;
+                    }
+                    this.currentScene = scene;
+                    this.toggleSceneInteractivity(true);
+                    this.pendingSceneChange = true;
                 }
-                this.currentScene = scene;
-                this.toggleSceneInteractivity(true);
-                this.pendingSceneChange = true;
-            }
 
-            this.sceneReady = false;
-        });
+                this.sceneReady = false;
+            });
     }
 
     loadScene(name: string) {
         const scene = this.scenes.find(s => s.name === name);
         if (!scene) {
-            throw new Error("SceneSys: Could not find scene: "+name);
+            throw new Error("SceneSys: Could not find scene: " + name);
         }
         this._loadScene(scene, false);
     }
@@ -128,7 +139,7 @@ export class SceneSystem implements EngineSystem, AnimationListener {
     loadSceneWithTransition(name: string, transitions: SceneTransitionFlags) {
         const scene = this.scenes.find(s => s.name === name);
         if (!scene) {
-            throw new Error("SceneSys: Could not find scene: "+name);
+            throw new Error("SceneSys: Could not find scene: " + name);
         }
 
         this._loadScene(scene, true);
@@ -157,7 +168,7 @@ export class SceneSystem implements EngineSystem, AnimationListener {
             this.currentScene.alpha = 0;
         }
 
-        queueNamedAnimate(this.currentScene, SceneTransitionFlags[this.transitionType]+"_REVERSE", 1000);
+        queueNamedAnimate(this.currentScene, SceneTransitionFlags[this.transitionType] + "_REVERSE", 1000);
     }
 
     protected onSceneTransitionEnter() {
@@ -172,13 +183,12 @@ export class SceneSystem implements EngineSystem, AnimationListener {
     }
 
     onAnimationsFinish(animation: Animation) {
-        if (this.transitioning && ((animation.name === SceneTransitionFlags[this.transitionType]) || animation.name === SceneTransitionFlags[this.transitionType]+"_REVERSE")) {
+        if (this.transitioning && ((animation.name === SceneTransitionFlags[this.transitionType]) || animation.name === SceneTransitionFlags[this.transitionType] + "_REVERSE")) {
             if (animation.target.name === this.transitioningTo) {
                 this.onSceneTransitionEnter();
                 this.sceneReady = true;
-                EngineBus.emit(SCENE_TRANSITIONED, createEngineEvent(SCENE_TRANSITIONED, {scene: this.currentScene?.name}));
-            }
-            else {
+                EngineBus.emit(SCENE_TRANSITIONED, createEngineEvent(SCENE_TRANSITIONED, { scene: this.currentScene?.name }));
+            } else {
                 this.onSceneTransitionExit();
             }
         }
@@ -190,18 +200,12 @@ export class SceneSystem implements EngineSystem, AnimationListener {
             scenes.map(scene => {
                 this.addScene(scene);
             });
-
-            console.log(this.scenes);
-            this.scenesLoaded = true;
-        }
-        else if (engineEvent.event === Load_Scene) {
+        } else if (engineEvent.event === Load_Scene) {
             this.loadScene((engineEvent as any)["sceneName"]);
-        }
-        else if (engineEvent.event === Transition_Scene) {
+        } else if (engineEvent.event === Transition_Scene) {
             const loadSceneEvent = engineEvent as any;
             this.loadSceneWithTransition(loadSceneEvent["sceneName"], loadSceneEvent["sceneTransition"]);
-        }
-        else if (engineEvent.event === Reload_Scene) {
+        } else if (engineEvent.event === Reload_Scene) {
             if (this.pendingSceneChange || this.transitioning) {
                 return;
             }
@@ -222,11 +226,14 @@ export class SceneSystem implements EngineSystem, AnimationListener {
             if (!this.transitioning) {
                 this.sceneReady = true;
             }
-            EngineBus.emit(SCENE_CHANGED, createEngineEvent(SCENE_CHANGED, {previousScene: this.transitioningFrom, scene: this.currentScene?.name}));
+            EngineBus.emit(SCENE_CHANGED, createEngineEvent(SCENE_CHANGED, {
+                previousScene: this.transitioningFrom,
+                scene: this.currentScene?.name
+            }));
 
             if (!this.transitioning) {
                 //If it is a non transiitioning scene change, need to fire this so transition listeners know the scene has fully loaded.
-                EngineBus.emit(SCENE_TRANSITIONED, createEngineEvent(SCENE_TRANSITIONED, {scene: this.currentScene?.name}));
+                EngineBus.emit(SCENE_TRANSITIONED, createEngineEvent(SCENE_TRANSITIONED, { scene: this.currentScene?.name }));
             }
         }
     }
@@ -239,7 +246,7 @@ export class SceneSystem implements EngineSystem, AnimationListener {
             const stateCurrentScene = this.sceneByName(data.currentScene.name);
             if (data.currentScene.name && stateCurrentScene) {
                 if (this.currentScene && this.transitioning) {
-                    EngineBus.emit(Render_Clear_Animate, createEngineEvent(Render_Clear_Animate, {target: this.currentScene}));
+                    EngineBus.emit(Render_Clear_Animate, createEngineEvent(Render_Clear_Animate, { target: this.currentScene }));
                 }
                 this.onSceneTransitionEnter(); //clear transitions flags
                 this.loadScene(data.currentScene.name);

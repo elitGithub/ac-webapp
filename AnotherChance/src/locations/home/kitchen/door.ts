@@ -1,4 +1,4 @@
-import Door from "../../../../assets/locations/home/kitchen/door.webp";
+import Door from "../../../../public/assets/images/locations/home/kitchen/door.webp";
 import {
     EngineBus,
     createEngineEvent,
@@ -14,9 +14,9 @@ const KitchenDoor = await getEngine().createSimpleInteractable(
         handler: () => {
             if (
                 getEngine()
-                    .getGame()
-                    .questSys.findByTitle("Back to School Special")
-                    .getCurrentQuestStep().questStepId === "ready_to_leave"
+                    ?.getGame()
+                    ?.questSys?.findByTitle("Back to School Special")
+                    ?.getCurrentQuestStep()?.questStepId === "ready_to_leave"
             ) {
                 EngineBus.emit(
                     START_DIALOGUE,

@@ -1,6 +1,6 @@
-import { EngineBus, createEngineEvent } from "../../../../../src/engine";
-import { Prep_Scenes, Scene } from "../../../../../src/engine/scene";
-import Bedroom from "../../../../assets/locations/home/bedroom/bedroom.webp";
+import { EngineBus, createEngineEvent } from "../../../Engine/engine";
+import { Prep_Scenes, Scene } from "../../../Engine/engine/scene";
+import Bedroom from "../../../../public/assets/images/locations/home/bedroom/bedroom.webp";
 import BedroomAlarmInt from "./alarm";
 import BedroomBedInt from "./bed";
 import BedroomBedCloset from "./closet";

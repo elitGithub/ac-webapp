@@ -2,11 +2,10 @@ import {
     EngineBus,
     createEngineEvent,
     getEngine,
-} from "../../../../../src/engine";
-import { START_DIALOGUE } from "../../../../../src/gameplay/dialogue";
-import { QuestState } from "../../../../../src/gameplay/quest";
-import { DevModInterface } from "../../../../../src/modsystem";
-import Closet from "../../../../assets/locations/home/bedroom/closet.webp";
+} from "../../../Engine/engine";
+import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
+import { QuestState } from "../../../Engine/gameplay/quest";
+import Closet from "../../../../public/assets/locations/home/bedroom/closet.webp";
 
 const BedroomBedCloset = await getEngine().createSimpleInteractable(
     "bedroom_closet",
@@ -15,7 +14,7 @@ const BedroomBedCloset = await getEngine().createSimpleInteractable(
         handler: () => {
             if (
                 getEngine().getGame().questSys.findByTitle("Dress to the Nine")
-                    .state === QuestState.IN_PROGRESS
+                    ?.state === QuestState.IN_PROGRESS
             ) {
                 EngineBus.emit(
                     START_DIALOGUE,

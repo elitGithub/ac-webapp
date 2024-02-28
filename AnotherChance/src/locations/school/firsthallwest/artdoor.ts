@@ -1,4 +1,4 @@
-import Door from "../../../../assets/locations/school/first_hall_west/art.webp";
+import Door from "../../../../public/assets/images/locations/school/first_hall_west/art.webp";
 import SceneTransitionFlags from "../../../Engine/engine/scene/models/scenetransitions";
 import {
     EngineBus,

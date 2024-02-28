@@ -50,6 +50,7 @@ export default function Character() {
         "Did she say that [flora] is here? It's been years since we last spoke."
     );
     JoKitchenQuestReading.addDialogueEventAction(() => {
+        // @ts-ignore
         DevModInterface.GAME.ENT['world_Jo_Reading'] = true;
     })
 

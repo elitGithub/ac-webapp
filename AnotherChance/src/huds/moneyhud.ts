@@ -1,7 +1,7 @@
 import { Sprite, Text } from "pixi.js";
 import { getEngine } from "../Engine/engine";
 import { HudElement } from "../Engine/engine/gui";
-import MoneyIcon from "./../assets/ui/hud/icon_money.webp";
+import MoneyIcon from "../../public/assets/images/ui/hud/icon_money.webp";
 
 export class MoneyHudElement extends HudElement {
     icon!: Sprite;

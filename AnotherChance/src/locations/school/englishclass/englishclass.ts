@@ -1,6 +1,6 @@
 import { EngineBus, createEngineEvent } from "../../../Engine/engine";
 import { Prep_Scenes, Scene } from "../../../Engine/engine/scene";
-import Bg from "../../../../assets/locations/school/english_class/english_classroom.webp";
+import Bg from "../../../../public/assets/images/locations/school/english_class/english_classroom.webp";
 import IsabellCouch from "./isabellereading";
 
 

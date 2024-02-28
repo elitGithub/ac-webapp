@@ -4,7 +4,7 @@ import {
     getEngine,
 } from "../../../Engine/engine";
 import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
-import BathroomToilet from "../../../../assets/locations/home/bathroom/toilet.webp";
+import BathroomToilet from "../../../../public/assets/images/locations/home/bathroom/toilet.webp";
 
 const bathroomToilet = await getEngine().createSimpleInteractable(
     "bathroom_toilet",
