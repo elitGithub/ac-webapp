@@ -7,7 +7,7 @@ import {
 } from "../../../Engine/engine";
 import { Transition_Scene } from "../../../Engine/engine/scene";
 
-const ArtDoorOut = await getEngine().createSimpleInteractable(
+const ArtDoorOut = await getEngine().createSimpleIntractable(
     "art_door_out",
     {
         action: "interact",

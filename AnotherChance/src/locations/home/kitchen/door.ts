@@ -7,7 +7,7 @@ import {
 import { QuestState } from "../../../Engine/gameplay/quest";
 import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
 
-const KitchenDoor = await getEngine().createSimpleInteractable(
+const KitchenDoor = await getEngine().createSimpleIntractable(
     "kitchen_door",
     {
         action: "interact",

@@ -10,6 +10,7 @@ export interface IScene {
 export class Scene extends Container implements IScene {
     name: string;
     background?: Sprite;
+    lastZindex = 1;
 
     constructor(name: string, baseTexture?: IRenderableResource) {
         super();
@@ -26,14 +27,15 @@ export class Scene extends Container implements IScene {
                     this.background.setTransform(pos.x, pos.y);
                     this.addChild(this.background);
                 }
-            });    
+            });
         }
 
         this.eventMode = "passive";
     }
 
     addSceneObject(sceneObject: Container) {
-        sceneObject.zIndex = 1;
+        console.log('#############################3', sceneObject);
+        sceneObject.zIndex = this.lastZindex++;
         this.addChild(sceneObject);
     }
 

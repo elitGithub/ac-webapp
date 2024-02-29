@@ -8,7 +8,7 @@ import {
 import { Transition_Scene } from "../../../Engine/engine/scene";
 import { DevModInterface } from "../../../Engine/modsystem";
 
-const WalkToLeft = await getEngine().createSimpleInteractable(
+const WalkToLeft = await getEngine().createSimpleIntractable(
     "walktoleft",
     {
         action: "interact",

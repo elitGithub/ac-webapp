@@ -1,7 +1,7 @@
 import { getEngine } from "../../../Engine/engine";
 import BedroomTV from "../../../../public/assets/images/locations/home/bedroom/tv.webp";
 
-const BedroomTVInt = await getEngine().createSimpleInteractable(
+const BedroomTVInt = await getEngine().createSimpleIntractable(
     "bedroom_tv",
     {
         action: "interact",

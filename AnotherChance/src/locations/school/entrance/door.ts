@@ -6,7 +6,7 @@ import {
 } from "../../../Engine/engine";
 import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
 
-const SchoolEntranceDoor = await getEngine().createSimpleInteractable(
+const SchoolEntranceDoor = await getEngine().createSimpleIntractable(
     "entrance_door",
     {
         action: "interact",

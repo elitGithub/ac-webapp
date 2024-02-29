@@ -9,7 +9,7 @@ import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
 import { QuestState } from "../../../Engine/gameplay/quest";
 import BathRoomDoor from "../../../../public/assets/images/locations/home/bathroom/door.webp";
 
-const bathroomToHallDoor = await getEngine().createSimpleInteractable(
+const bathroomToHallDoor = await getEngine().createSimpleIntractable(
     "bathroom_door",
     {
         action: "interact",

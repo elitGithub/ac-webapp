@@ -16,9 +16,17 @@ export interface LoadedTextureAsset {
 export class AssetSystem implements EngineSystem {
 
     assetLoader: AssetLoader;
+    private static instance: AssetSystem | null = null;
 
     constructor() {
         this.assetLoader = new AssetLoader();
+    }
+
+    public static getInstance() {
+        if (!(AssetSystem.instance instanceof AssetSystem)) {
+            AssetSystem.instance = new AssetSystem();
+        }
+        return AssetSystem.instance;
     }
 
     async loadTexture(resource: IRenderableResource) {

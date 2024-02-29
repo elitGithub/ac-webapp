@@ -5,7 +5,7 @@ import {
 } from "../../../Engine/engine";
 import { DevModInterface } from "../../../Engine/modsystem";
 
-const Isabelle = await getEngine().createSimpleInteractable(
+const Isabelle = await getEngine().createSimpleIntractable(
     "school_isabelle",
     {
         action: "interact",

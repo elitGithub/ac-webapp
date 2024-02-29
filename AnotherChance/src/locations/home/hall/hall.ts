@@ -16,7 +16,7 @@ import HomeHallStairs from "../../../../public/assets/images/locations/home/hall
 
 const HomeHallScene = new Scene("Hall", { source: HomeHall });
 
-const HallToBedroomDoor = await getEngine().createSimpleSceneInteractable(
+const HallToBedroomDoor = await getEngine().createSimpleSceneIntractable(
     "hall_door",
     {
         action: "interact",
@@ -38,7 +38,7 @@ HallToBedroomDoor.setTransform(1512, 63);
 
 //Bathroom Door
 
-const HallToBathroomDoor = await getEngine().createSimpleSceneInteractable(
+const HallToBathroomDoor = await getEngine().createSimpleSceneIntractable(
     "HallToBathroomDoor",
     {
         action: "interact",
@@ -58,7 +58,7 @@ const HallToBathroomDoor = await getEngine().createSimpleSceneInteractable(
 );
 HallToBathroomDoor.setTransform(1328, 235);
 
-const HomeHallKitchenStairs = await getEngine().createSimpleSceneInteractable(
+const HomeHallKitchenStairs = await getEngine().createSimpleSceneIntractable(
     "hall_stairs",
     {
         action: "interact",

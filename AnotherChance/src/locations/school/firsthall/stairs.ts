@@ -7,7 +7,7 @@ import {
 } from "../../../Engine/engine";
 import { Transition_Scene } from "../../../Engine/engine/scene";
 
-const StairstoGroundHall = await getEngine().createSimpleInteractable(
+const StairstoGroundHall = await getEngine().createSimpleIntractable(
     "to_ground_stairs",
     {
         action: "interact",

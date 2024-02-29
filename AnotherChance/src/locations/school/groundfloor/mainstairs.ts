@@ -5,7 +5,7 @@ import {
 // import { DevModInterface } from "../../../Engine/modsystem";
 // import { QuestState } from "../../../Engine/gameplay/quest";
 
-const MainStairs = await getEngine().createSimpleInteractable(
+const MainStairs = await getEngine().createSimpleIntractable(
     "main_stairs",
     {
         action: "interact",

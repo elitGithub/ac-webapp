@@ -7,7 +7,7 @@ import { DevModInterface } from "../../../Engine/modsystem";
 import { Dialogue, DialogueSystem } from "../../../Engine/gameplay/dialogue";
 import {  mc } from "../../../characters";
 
-const IsabellCouch = await getEngine().createSimpleInteractable(
+const IsabellCouch = await getEngine().createSimpleIntractable(
     "english_class_isabelle_couch",
     {
         action: "interact",

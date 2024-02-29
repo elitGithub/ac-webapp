@@ -6,7 +6,7 @@ import {
 import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
 import BedroomBed from "../../../../public/assets/images/locations/home/bedroom/bed.webp";
 
-const BedroomBedInt = await getEngine().createSimpleInteractable(
+const BedroomBedInt = await getEngine().createSimpleIntractable(
     "bedroom_bed",
     {
         action: "interact",

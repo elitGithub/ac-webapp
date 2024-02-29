@@ -7,7 +7,7 @@ import { DevModInterface } from "../../../Engine/modsystem";
 import { Dialogue, DialogueSystem } from "../../../Engine/gameplay/dialogue";
 import { mc } from "../../../characters";
 
-const Kate = await getEngine().createSimpleInteractable(
+const Kate = await getEngine().createSimpleIntractable(
     "firsthall_kate",
     {
         action: "interact",

@@ -426,6 +426,7 @@ export class NPC extends BaseCharacter implements AnimationListener, DialogueMod
         }
     }
 
+    // @ts-ignore
     onAnimationsFinish(animation: Animation) {
         /*if (this.transitioning && animation.target === this) {
             if (this.transitioningTo) {
@@ -450,6 +451,7 @@ export class WorldNPC extends BaseInteractable {
     displayedSprite?: Sprite;
     sprites: Map<string, Sprite>;
     constructor(displayName: string, defaultSprite: IRenderableResource, npc?: NPC) {
+        // @ts-ignore
         super(undefined, "world_"+displayName, () => {});
         this.addAction({action: "interact", handler: this.enterDialogue.bind(this)});
         this.npcName = displayName;

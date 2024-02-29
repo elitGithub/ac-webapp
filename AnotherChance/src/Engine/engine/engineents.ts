@@ -11,21 +11,23 @@ export class EntitySystem implements EngineSystem {
 
     addEntityToList(entity: BaseEntity) {
         if (this.ents.has(entity)) {
+            console.log(`Already exists ${ entity }`);
             return;
         }
 
-        for(const name of this.ents.values()) {
+        for (const name of this.ents.values()) {
             if (name === entity.name) {
-                console.error(`Tried to add entity named ${name} but its name matches an existing entity.`)
+                console.error(`Tried to add entity named ${ name } but its name matches an existing entity.`)
                 return;
             }
         }
 
+        console.log(`${ entity.name } added to ents`)
         this.ents.set(entity, entity.name);
     }
 
     findEntityByName(name: string) {
-        for(const [ent, entName] of this.ents.entries()) {
+        for (const [ent, entName] of this.ents.entries()) {
             if (entName === name) {
                 return ent;
             }
@@ -46,8 +48,7 @@ export class EntitySystem implements EngineSystem {
     removeEntityFromList(entity?: BaseEntity, name?: string) {
         if (entity) {
             this.ents.delete(entity);
-        }
-        else if (name) {
+        } else if (name) {
             const ent = this.findEntityByName(name);
             if (ent) {
                 this.ents.delete(ent);

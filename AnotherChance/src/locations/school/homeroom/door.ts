@@ -10,7 +10,7 @@ import { Dialogue, DialogueSystem } from "../../../Engine/gameplay/dialogue";
 import { mc } from "../../../characters";
 import { DevModInterface } from "../../../Engine/modsystem";
 
-const HomeroomDoor = await getEngine().createSimpleInteractable(
+const HomeroomDoor = await getEngine().createSimpleIntractable(
     "homeroom_exit",
     {
         action: "interact",

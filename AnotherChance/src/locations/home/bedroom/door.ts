@@ -7,7 +7,7 @@ import { Transition_Scene } from "../../../Engine/engine/scene";
 import SceneTransitionFlags from "../../../Engine/engine/scene/models";
 import { DevModInterface } from "../../../Engine/modsystem";
 
-const BedroomDoorInt = await getEngine().createSimpleInteractable(
+const BedroomDoorInt = await getEngine().createSimpleIntractable(
     "bedroom_door",
     {
         action: "interact",

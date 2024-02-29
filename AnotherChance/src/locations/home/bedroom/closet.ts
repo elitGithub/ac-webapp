@@ -7,7 +7,7 @@ import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
 import { QuestState } from "../../../Engine/gameplay/quest";
 import Closet from "../../../../public/assets/locations/home/bedroom/closet.webp";
 
-const BedroomBedCloset = await getEngine().createSimpleInteractable(
+const BedroomBedCloset = await getEngine().createSimpleIntractable(
     "bedroom_closet",
     {
         action: "interact",

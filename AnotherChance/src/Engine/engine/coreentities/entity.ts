@@ -1,6 +1,7 @@
 import { IDestroyOptions, Sprite, Texture } from "pixi.js";
 import { Scene } from "../scene";
 import { getEngine } from "..";
+import { onSceneOutChildren } from "../../core/util";
 
 export interface BaseEntity {
     name: string;
@@ -35,10 +36,8 @@ export class RenderableEntity extends Sprite implements BaseEntity {
 
         this.on("pointerover", this.onPointerHover.bind(this));
         this.on("pointerout", this.onPointerHoverEnd.bind(this));
-
         getEngine().getEnt().addEntityToList(this);
     }
-
     onPointerPress(event: any) {
         console.log(event);
     }
@@ -64,7 +63,9 @@ export class RenderableEntity extends Sprite implements BaseEntity {
     }
 
     onSceneOut(scene: Scene): void {
-        console.log(scene);
+        this.onPointerHoverEnd(undefined);
+        this.eventMode = "none";
+        onSceneOutChildren(this.children, scene);
     }
 
     destroyEntity(destroyTextures?: boolean): void {

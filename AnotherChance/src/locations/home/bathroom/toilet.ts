@@ -6,7 +6,7 @@ import {
 import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
 import BathroomToilet from "../../../../public/assets/images/locations/home/bathroom/toilet.webp";
 
-const bathroomToilet = await getEngine().createSimpleInteractable(
+const bathroomToilet = await getEngine().createSimpleIntractable(
     "bathroom_toilet",
     {
         action: "interact",

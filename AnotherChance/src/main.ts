@@ -2,7 +2,7 @@ import { createEngineEvent, Engine, EngineBus, getEngine } from './Engine/engine
 import { createNamedAnimate } from './Engine/engine/rendereffects';
 import TweenShape from './Engine/framework/animations/tween/models/tweenshape';
 import { DevModInterface } from './Engine/modsystem';
-import { SceneFactory } from "./Factory/SceneFactory.ts";
+import { Factory } from "./Factory/Factory.ts";
 import { DecisionTree } from "./Factory/DecisionTree.ts";
 import { AnotherChance } from "../AnotherChance.ts";
 import { Transition_Scene } from "./Engine/engine/scene";
@@ -11,8 +11,8 @@ import SceneTransitionFlags from "./Engine/engine/scene/models";
 Engine.init();
 
 const anotherChance = new AnotherChance(undefined);
-const loader = new SceneFactory(new DecisionTree());
-anotherChance.loader = loader;
+const factory = new Factory(new DecisionTree());
+anotherChance.factory = factory;
 Engine.setGame(anotherChance);
 
 createNamedAnimate(
@@ -99,7 +99,7 @@ DevModInterface.loadModResource(await import("./quests/isabelleoverkate"));
         document.body.append(div);
     }
     getEngine().getRender().attachRendererTo(div);
-    await anotherChance.loader.loadScenes(['Bedroom', 'Bathroom']);
+    await anotherChance.factory.buildLocationFromSchematics(['Bedroom', 'Bathroom']);
     EngineBus.emit(
         Transition_Scene,
         createEngineEvent(Transition_Scene, {

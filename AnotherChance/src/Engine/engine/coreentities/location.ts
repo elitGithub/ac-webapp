@@ -1,6 +1,6 @@
 import { getEngine } from "..";
 import { IRenderableResource } from "../../framework/graphics";
-import { Scene } from "../scene/models";
+import { Scene } from "../scene";
 import { LocationNode } from "./locationnode";
 
 export class Location extends Scene {
@@ -11,7 +11,7 @@ export class Location extends Scene {
         super(name, texture);
         this.locationNodes = [];
     }
-    
+
     addLocationNode(locationNode: LocationNode) {
         this.locationNodes.push(locationNode);
         this.addChild(locationNode);

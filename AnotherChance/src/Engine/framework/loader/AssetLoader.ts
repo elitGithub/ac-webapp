@@ -7,7 +7,7 @@ export interface AssetManifest {
         name: string;
         srcs: string;
     }];
-};
+}
 
 class AssetLoader {
 

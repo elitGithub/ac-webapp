@@ -18,7 +18,12 @@ export class BaseInteractable extends RenderableEntity {
 
     constructor(baseTexture: Texture, name: string, action: BaseInteractableAction) {
         super(baseTexture, name);
-        this.actions = [action] || [{action: "interact", handler: () => {console.log(`HI HI, interact with ${name}`)}}];
+        this.actions = [action] || [{
+            action: "interact",
+            handler: () => {
+                console.log(`HI HI, interact with ${ name }`)
+            }
+        }];
         if (action) {
             this.actions.push(action);
         }
@@ -40,8 +45,7 @@ export class BaseInteractable extends RenderableEntity {
 
             if (biAction.handler) {
                 biAction.handler(this);
-            }
-            else {
+            } else {
                 deleteActions.push(i);
             }
         }
@@ -57,10 +61,12 @@ export class BaseInteractable extends RenderableEntity {
         onSceneOutChildren(this.children, scene);
     }
 
+    // @ts-ignore
     onPointerPress(event: any) {
 
     }
 
+    // @ts-ignore
     onPointerRelease(event: any) {
         if (!this.canInteract) {
             return;
@@ -69,17 +75,19 @@ export class BaseInteractable extends RenderableEntity {
         this.invokeAction("interact");
     }
 
+    // @ts-ignore
     onPointerClick(event: any) {
 
     }
 
+    // @ts-ignore
     onPointerCancel(event: any) {
 
     }
 
+    // @ts-ignore
     onPointerHover(event: any) {
-        if (this.hoverHighlight)
-        {
+        if (this.hoverHighlight) {
             //Should probably save the state of the blendmode so we can revert back to it in case the blendmode was not normal.
             this.blendMode = BLEND_MODES.SCREEN;
         }
@@ -89,6 +97,7 @@ export class BaseInteractable extends RenderableEntity {
         }
     }
 
+    // @ts-ignore
     onPointerHoverEnd(event: any) {
         this.blendMode = BLEND_MODES.NORMAL;
         if (this.label) {
@@ -100,26 +109,6 @@ export class BaseInteractable extends RenderableEntity {
         this.label = label;
         let labelX = 0;
         let labelY = 0;
-        /* if (this.position.x - label.width > 0) {
-            labelX = this.position.x - label.width;
-        }
-        else if (this.position.x + label.width < getEngine().getRender().renderer.getDimensions().x) {
-            labelX = this.position.x + label.width;
-        }
-        else {
-            labelX = this.position.x;
-        }
-
-        if (this.position.y - label.height > 0) {
-            labelY = this.position.y - label.height;
-        }
-        else if (this.position.y + label.height < getEngine().getRender().renderer.getDimensions().y) {
-            labelY = this.position.y + label.height;
-        }
-        else {
-            labelY = this.position.y;
-        } */
-
         this.label.position.set(labelX, labelY);
         this.addChild(label);
     }
@@ -154,6 +143,7 @@ export class BaseInteractable extends RenderableEntity {
         const baseTex = this.texture.baseTexture;
         const res = baseTex.resolution;
 
+        // @ts-ignore
         if (!baseTex.hitmap) {
             //generate hitmap
             if (!genHitmap(baseTex, 255)) {
@@ -162,6 +152,7 @@ export class BaseInteractable extends RenderableEntity {
 
         }
 
+        // @ts-ignore
         const hitmap = baseTex.hitmap;
 
         // console.log(hitmap)

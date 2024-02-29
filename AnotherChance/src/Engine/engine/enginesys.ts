@@ -15,8 +15,9 @@ import { Scene, SceneSystem } from "./scene";
 import { Sprite, Ticker, utils } from "pixi.js";
 import { EntitySystem } from "./engineents";
 import { HoverableSprite } from "./gui/models/HoverableSprite.ts";
+import { NamedSprite } from "./coreentities/NamedSprite.ts";
 
-let DEBUG = false;
+let DEBUG = true;
 
 export type IEngineEvent = {
     eventId: string;
@@ -82,7 +83,7 @@ export class Engine {
         Engine.Animation = new AnimationSystem();
         Engine.Scene = SceneSystem.getInstance();
         Engine.Input = new InputSystem();
-        Engine.Assets = new AssetSystem();
+        Engine.Assets = AssetSystem.getInstance();
         Engine.Hud = new HudSystem();
         Engine.Ent = new EntitySystem();
 
@@ -120,19 +121,26 @@ export class Engine {
         requestAnimationFrame(Engine.loop);
     }
 
-    static async createSimpleInteractable(name: string, action: BaseInteractableAction, texture: IRenderableResource) {
-        console.log('created interactable', name);
-        console.log('created interactable action', action);
+    static async createSimpleIntractable(name: string, action: BaseInteractableAction, texture: IRenderableResource) {
         const asset = await getEngine().getAssets().loadTexture(texture);
         return new BaseInteractable(asset?.texture, name, action);
     }
 
-    static async createSimpleSceneInteractable(name: string, action: BaseInteractableAction, texture: IRenderableResource, attach: Scene) {
-        const interactable = await getEngine().createSimpleInteractable(name, action, texture);
-        if (attach) {
-            attach.addSceneObject(interactable);
+    static async createSceneItem(name: string, texture: IRenderableResource, action?: BaseInteractableAction) {
+        const asset = await getEngine().getAssets().loadTexture(texture);
+        if (!action) {
+            return new NamedSprite(asset?.texture, name);
         }
-        return interactable;
+        return new BaseInteractable(asset?.texture, name, action);
+    }
+
+
+    static async createSimpleSceneIntractable(name: string, action: BaseInteractableAction, texture: IRenderableResource, attach?: Scene) {
+        const intractable = await Engine.createSimpleIntractable(name, action, texture);
+        if (attach) {
+            attach.addSceneObject(intractable);
+        }
+        return intractable;
     }
 
     static async createSimpleSprite(texture: IRenderableResource) {
@@ -227,9 +235,10 @@ export function getEngine() {
         getGame: () => Engine.Game as BaseGame,
         getHud: () => Engine.Hud as HudSystem,
         getEnt: () => Engine.Ent as EntitySystem,
-        createSimpleInteractable: Engine.createSimpleInteractable,
-        createSimpleSceneInteractable: Engine.createSimpleSceneInteractable,
+        createSimpleIntractable: Engine.createSimpleIntractable,
+        createSimpleSceneIntractable: Engine.createSimpleSceneIntractable,
         createSimpleSprite: Engine.createSimpleSprite,
+        createSceneItem: Engine.createSceneItem,
         createHoverAbleSprite: Engine.createHoverAbleSprite,
         SPR: Engine.screenPositionByRatio,
         resolve: Engine.resolve,

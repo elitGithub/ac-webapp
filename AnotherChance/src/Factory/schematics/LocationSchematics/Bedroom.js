@@ -7,8 +7,10 @@ export const configuration = {
     'alarm': 'beeping',
     'flash_drive_taken': false,
     'clean': false,
+    'courage_badge': false,
     'poster_removed': false,
     'king_of_sweets': false,
+    'capture_card': false,
     'night': false,
     'small_pc': null,
     'dollar1_spawned_today': false,
@@ -81,6 +83,49 @@ export const configuration = {
        *             return       */
     },
     {
+      name: 'bed',
+      conditionType: 'simple',
+      conditions: [
+        {
+          clean: true,
+          src: `${locationSource}/home/bedroom/bed_clean.webp`,
+        },
+        {
+          clean: false,
+          src: `${locationSource}/home/bedroom/bed.webp`,
+        },
+      ],
+      position: [315, 533],
+      actions: [
+        {
+          interact: {
+            dependsOn: 'focusedQuest', // In quest system -> focusedQuest
+            condition: {
+              focusedOn: ['kate_blowjob_dream'],
+              focusedQuestStep: ['open_door'],
+            },
+            event: 'home_bedroom_door_interact_kate_blowjob_dream_open_door',
+            name: 'Open Door'
+          }
+        }
+      ]
+    },
+    {
+      name: 'carpet',
+      conditionType: 'simple',
+      conditions: [
+        {
+          clean: true,
+          src: `${locationSource}/home/bedroom/carpet_clean.webp`,
+        },
+        {
+          clean: false,
+          src: `${locationSource}/home/bedroom/carpet_clean.webp`,
+        },
+      ],
+      position: [255, 742]
+    },
+    {
       name: 'drawers',
       conditionType: 'simple',
       conditions: {},
@@ -113,13 +158,13 @@ export const configuration = {
       name: 'king_of_sweets_wall',
       conditionType: 'simple',
       conditions: { clean: false, poster_removed: true },
-      src: `AnotherChance/src/public/assets/images//locations/home/bedroom/king_of_sweets_wall.webp`,
+      src: `AnotherChance/public/assets/images/locations/home/bedroom/king_of_sweets_wall.webp`,
       position: [162, 102]
     },
     {
       name: 'king_of_sweets_poster',
       conditionType: 'simple',
-      conditions: { king_of_sweets: true },
+      conditions: { clean: false, king_of_sweets: true },
       src: `${locationSource}/home/bedroom/king_of_sweets.webp`,
       position: [214, 152]
     },
@@ -139,41 +184,26 @@ export const configuration = {
       position: [1187, 238]
     },
     {
+      name: 'capture_card_on',
+      conditionType: 'simple',
+      conditions: { capture_card: true },
+      src: `${locationSource}/home/bedroom/capture_card_on.webp`,
+      position: [1158,502]
+      //         scene.append([(1158,502),"home bedroom capture_card_on",("home_bedroom_computer",0,-17)])
+    },
+    {
+      name: 'wire_vhs',
+      conditionType: 'simple',
+      conditions: { capture_card: true },
+      src: `${locationSource}/home/bedroom/wire_vhs.webp`,
+      position: [1241,591]
+    },
+    {
       name: 'closet',
       conditions: { clean: false },
       conditionType: 'simple',
       src: `${locationSource}/home/bedroom/closet.webp`,
       position: [943, 332]
-    },
-    {
-      name: 'bed',
-      conditionType: 'simple',
-      conditions: [
-        {
-          clean: true,
-          src: `${locationSource}/home/bedroom/bed_clean.webp`,
-        },
-        {
-          clean: false,
-          src: `${locationSource}/home/bedroom/bed.webp`,
-        },
-      ],
-      position: [315, 533]
-    },
-    // Carpet variations based on cleanliness
-    {
-      name: 'carpet_clean',
-      conditions: { clean: true },
-      conditionType: 'simple',
-      src: `${locationSource}/home/bedroom/carpet_clean.webp`,
-      position: [255, 742]
-    },
-    {
-      name: 'carpet',
-      conditions: { clean: false },
-      conditionType: 'simple',
-      src: `${locationSource}/home/bedroom/carpet.webp`,
-      position: [255, 742]
     },
     // Desk variations based on cleanliness
     {
@@ -189,6 +219,34 @@ export const configuration = {
       conditionType: 'simple',
       src: `${locationSource}/home/bedroom/desk.webp`,
       position: [1060, 564]
+    },
+    {
+      name: 'sports_magazine',
+      conditions: { clean: true },
+      conditionType: 'simple',
+      src: `${locationSource}/home/bedroom/sports_magazine.webp`,
+      position: [77,909]
+    },
+    {
+      name: 'clothes',
+      conditions: { clean: false },
+      conditionType: 'simple',
+      src: `${locationSource}/home/bedroom/clothes.webp`,
+      position: [897,848]
+    },
+    {
+      name: 'porn_magazine',
+      conditions: { clean: false },
+      conditionType: 'simple',
+      src: `${locationSource}/home/bedroom/porn_magazine.webp`,
+      position: [77,909]
+    },
+    {
+      name: 'badge',
+      conditions: { courage_badge: true },
+      conditionType: 'simple',
+      src: `${locationSource}/home/bedroom/badge.webp`,
+      position: [307,435]
     },
     // TV and controller, variations based on cleanliness and if the controller is taken
     {
@@ -219,33 +277,57 @@ export const configuration = {
       src: `${locationSource}/home/bedroom/controller.webp`,
       position: [280, 726]
     },
+    {
+      name: 'ornamental_box',
+      conditionType: 'simple',
+      conditions: { clean: false },
+      src: `${locationSource}/home/bedroom/ornamental_box.webp`,
+      position: [310, 721]
+    },
     // Alarm condition based on quest progress and cleanliness
     {
-      name: 'alarm',
-      conditionType: 'complex',
-      conditions: [
+      "name": "alarm",
+      "conditionType": "complex",
+      "conditions": [
         {
+          // Ornamental box condition when clean
           clean: true,
           needQuest: false,
+          questNames: [],
+          questIn: [],
+          stateVariables: [],
           src: `${locationSource}/home/bedroom/ornamental_box.webp`,
           position: [310, 721]
         },
         {
+          // Alarm condition based on quest progress when not clean
           clean: false,
           needQuest: true,
-          questNames: ['kate_blowjob_dream'],
-          questIn: ['flora_knocking', 'open_door', 'get_dressed', 'school', 'awake', 'alarm'],
-          stateVariables: [{ alarm: ['beeping', 'off'] }],
+          questNames: ["kate_blowjob_dream"],
+          questIn: ["flora_knocking", "open_door", "get_dressed", "school", "awake", "alarm"],
+          stateVariables: [],
           src: `${locationSource}/home/bedroom/alarm.webp`,
           position: [305, 704]
         },
         {
+          // Alarm broken condition based on alarm state when not clean and quest not in specific states
           clean: false,
           needQuest: false,
-          questIn: ['flora_knocking', 'open_door', 'get_dressed', 'school', 'awake', 'alarm'],
-          stateVariables: [{ alarm: ['smashed', 'smashed_again'] }],
+          questNames: [],
+          questIn: [],
+          stateVariables: [{"alarm": ["smashed", "smashed_again"]}],
           src: `${locationSource}/home/bedroom/alarm_broken.webp`,
           position: [306, 698]
+        },
+        {
+          // Default alarm condition when none of the above conditions are met
+          clean: false,
+          needQuest: false,
+          questNames: [],
+          questIn: [],
+          stateVariables: [],
+          src: `${locationSource}/home/bedroom/alarm.webp`,
+          position: [305, 704]
         }
       ]
     },
@@ -263,7 +345,7 @@ export const configuration = {
       src: `${locationSource}/home/bedroom/bookshelves_right.webp`,
       position: [1330, 32]
     },
-    // Additional assets like table lamp, statuettes, and small_pc always present
+    // Additional assets like a table lamp, statuettes, and small_pc always present
     {
       name: 'table_lamp',
       conditionType: 'simple',
@@ -286,6 +368,13 @@ export const configuration = {
       conditions: {},
       src: `${locationSource}/home/bedroom/small_pc.webp`,
       position: [1143, 485]
+    },
+    {
+      name: 'chair',
+      conditions: { },
+      conditionType: 'simple',
+      src: `${locationSource}/home/bedroom/chair.webp`,
+      position: [1159,600]
     },
     // Sugarcubes visible under certain quest conditions
     {
@@ -343,27 +432,6 @@ export const configuration = {
       conditions: { clean: true },
       src: `${locationSource}/home/bedroom/potted_plant.webp`,
       position: [99, 725]
-    },
-    {
-      name: 'pillow',
-      conditionType: 'simple',
-      conditions: { clean: false },
-      src: `${locationSource}/home/bedroom/pillow.webp`,
-      position: [669, 722]
-    },
-    {
-      name: 'pizza_box',
-      conditionType: 'simple',
-      conditions: { clean: false },
-      src: `${locationSource}/home/bedroom/pizza_box.webp`,
-      position: [475, 832]
-    },
-    {
-      name: 'spinach',
-      conditionType: 'simple',
-      conditions: { spinach_licking: true, spinach_talking: false },
-      src: `${locationSource}/home/bedroom/spinach.webp`, // TODO this is actually complex conditions
-      position: [629, 712]
     },
     {
       name: 'dollar1',
@@ -428,6 +496,35 @@ export const configuration = {
       conditionType: 'simple',
       src: `${locationSource}/home/bedroom/flash_drive.webp`,
       position: [1511, 650]
+    },
+    {
+      name: 'various',
+      conditions: { clean: false },
+      conditionType: 'simple',
+      src: `${locationSource}/home/bedroom/various.webp`,
+      position: [725,542]
+    },
+
+    {
+      name: 'pillow',
+      conditionType: 'simple',
+      conditions: { clean: false },
+      src: `${locationSource}/home/bedroom/pillow.webp`,
+      position: [669, 722]
+    },
+    {
+      name: 'pizza_box',
+      conditionType: 'simple',
+      conditions: { clean: false },
+      src: `${locationSource}/home/bedroom/pizza_box.webp`,
+      position: [475, 832]
+    },
+    {
+      name: 'spinach',
+      conditionType: 'simple',
+      conditions: { spinach_licking: true, spinach_talking: false },
+      src: `${locationSource}/home/bedroom/spinach.webp`, // TODO this is actually complex conditions
+      position: [629, 712]
     },
   ]
 }

@@ -12,7 +12,7 @@ import { Reload_Scene } from "./src/Engine/engine/scene";
 import QuestGuideButton from "./public/assets/images/ui/hud/btn_quest_guide.webp";
 import ChoiceBg from "./public/assets/images/ui/dialog/choice.webp";
 import SayFrameBg from "./public/assets/images/ui/dialog/frame_say_bg.webp";
-import { SceneFactory } from "./src/Factory/SceneFactory.ts";
+import { Factory } from "./src/Factory/Factory.ts";
 import { Hoverable } from "./src/Engine/engine/gui";
 
 export class AnotherChance extends BaseGame {
@@ -25,7 +25,7 @@ export class AnotherChance extends BaseGame {
     questModalHud: QuestNotifHud;
     dialogueSys: DialogueSystem;
     questSys: QuestSystem;
-    loader!: SceneFactory;
+    factory!: Factory;
 
     constructor(opts: any) {
         super(opts);

@@ -6,7 +6,7 @@ import { Dialogue, DialogueSystem } from "../../../Engine/gameplay/dialogue";
 import { DevModInterface } from "../../../Engine/modsystem";
 import { mc } from "../../../characters";
 
-const GuardBoot = await getEngine().createSimpleInteractable(
+const GuardBoot = await getEngine().createSimpleIntractable(
     "guard_boot",
     {
         action: "interact",

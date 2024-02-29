@@ -7,7 +7,7 @@ import {
 } from "../../../Engine/engine";
 import { Transition_Scene } from "../../../Engine/engine/scene";
 
-const SchoolExitArrow = await getEngine().createSimpleInteractable(
+const SchoolExitArrow = await getEngine().createSimpleIntractable(
     "school_exit",
     {
         action: "interact",

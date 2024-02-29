@@ -9,7 +9,7 @@ import { Transition_Scene } from "../../../Engine/engine/scene";
 import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
 import { DevModInterface } from "../../../Engine/modsystem";
 
-const HomeroomDoor = await getEngine().createSimpleInteractable(
+const HomeroomDoor = await getEngine().createSimpleIntractable(
     "homeroom_door",
     {
         action: "interact",

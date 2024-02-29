@@ -6,7 +6,7 @@ import {
 import { START_DIALOGUE } from "../../../Engine/gameplay/dialogue";
 import BedroomAlarm from "../../../../public/assets/images/locations/home/bedroom/alarm.webp";
 
-const BedroomAlarmInt = await getEngine().createSimpleInteractable(
+const BedroomAlarmInt = await getEngine().createSimpleIntractable(
     "bedroomAlarmClock",
     {
         action: "interact",

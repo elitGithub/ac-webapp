@@ -7,7 +7,7 @@ import {
 } from "../../../Engine/engine";
 import { Transition_Scene } from "../../../Engine/engine/scene";
 
-const SchoolBus = await getEngine().createSimpleInteractable(
+const SchoolBus = await getEngine().createSimpleIntractable(
     "entrance_bus",
     {
         action: "interact",

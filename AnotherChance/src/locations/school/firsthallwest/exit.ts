@@ -7,7 +7,7 @@ import {
 } from "../../../Engine/engine";
 import { Transition_Scene } from "../../../Engine/engine/scene";
 
-const HallWestExit = await getEngine().createSimpleInteractable(
+const HallWestExit = await getEngine().createSimpleIntractable(
     "west_hall_exit",
     {
         action: "interact",

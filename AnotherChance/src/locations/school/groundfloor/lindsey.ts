@@ -4,7 +4,7 @@ import {
     getEngine,
 } from "../../../Engine/engine";
 
-const Lindsey = await getEngine().createSimpleInteractable(
+const Lindsey = await getEngine().createSimpleIntractable(
     "school_lindsey",
     {
         action: "interact",
