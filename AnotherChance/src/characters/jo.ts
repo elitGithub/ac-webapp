@@ -18,6 +18,7 @@ export default function Character() {
     testDialogue.addDialogueLine("%POSE% confident", "Hey hawt stuff.", "%EXPRESSION% face_flirty", "Want to come to bed tonight?");
     testDialogue.addChoice("Yes", false);
     const choiceNo = testDialogue.addChoice("No");
+    console.log(choiceNo);
     // choiceNo.addIcon({source: JO_AVATAR}, IconShape.CIRCLE, 100);
     getEngine().getGame().getGameSystem<DialogueSystem>("SYS_DIALOGUE")!.addDialogue(testDialogue);
 

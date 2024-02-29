@@ -22,7 +22,6 @@ export class EntitySystem implements EngineSystem {
             }
         }
 
-        console.log(`${ entity.name } added to ents`)
         this.ents.set(entity, entity.name);
     }
 

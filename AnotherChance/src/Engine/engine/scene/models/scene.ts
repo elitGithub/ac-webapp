@@ -34,7 +34,6 @@ export class Scene extends Container implements IScene {
     }
 
     addSceneObject(sceneObject: Container) {
-        console.log('#############################3', sceneObject);
         sceneObject.zIndex = this.lastZindex++;
         this.addChild(sceneObject);
     }

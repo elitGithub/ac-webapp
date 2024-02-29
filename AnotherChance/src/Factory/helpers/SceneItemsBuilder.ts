@@ -10,10 +10,6 @@ export class SceneItemsBuilder {
         this.engine = getEngine();
     }
 
-    // public async createLocationItems(asset: any) {
-    //     return await this.createSceneItem(asset);
-    // }
-
     public async createLocationItems(asset: any) {
         const { actions } = asset;
         if (!actions) {
@@ -49,7 +45,6 @@ export class SceneItemsBuilder {
         let handler = () => {
         };
         if (this.meetsCondition('go', condition)) {
-            console.log('MEETS CONDITIONS?!', name);
             handler = () => {
                 console.log('interact with: go', name);
                 EngineBus.emit(

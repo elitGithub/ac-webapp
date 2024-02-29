@@ -28,12 +28,12 @@ export class Factory {
             // TODO: set state variables from DecisionTree.
             const evaluator = new ConfigConditionsEvaluator(this.decisionTree.state, configuration.stateVariables);
             const sceneObject = new Location(configuration.title, { source: configuration.background });
-            const sceneAssetsList = [];
             configuration.dynamicAssets.map(async (asset: any) => {
-                // TODO: add type to config - if its interactable, if not, etc.
                 if (evaluator.evaluate(asset)) {
-                    sceneAssetsList.push({key: asset.name, source: asset.src});
                     let sceneItem = await this.interactionsBuilder.createLocationItems(asset);
+                    if (asset.name === 'alarm') {
+                        console.log(sceneItem);
+                    }
                     if (!sceneItem) {
                         console.log(`${ asset.name } item failed to create a sprite`);
                         return;

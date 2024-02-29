@@ -1,8 +1,7 @@
 import { StateVariables } from "./types.ts";
 
 export class ConfigConditionsEvaluator {
-    constructor(private playerDecisions: any, private state: StateVariables) {
-    }
+    constructor(private playerDecisions: any, private state: StateVariables) {}
 
     public evaluate(item: any): boolean {
         if (!('conditionType' in item)) {
@@ -12,9 +11,7 @@ export class ConfigConditionsEvaluator {
 
         switch (item.conditionType) {
             case 'simple':
-                // Ensure conditions are in an array for uniform processing
-                const conditionsArray = Array.isArray(item.conditions) ? item.conditions : [item.conditions];
-                return this.evaluateConditionsArray(conditionsArray, item);
+                return this.evaluateSimpleConditions(item.conditions, item);
             case 'complex':
                 return this.evaluateComplexConditions(item.conditions, item);
             default:
@@ -22,13 +19,26 @@ export class ConfigConditionsEvaluator {
         }
     }
 
-    evaluateConditionsArray(conditions: Array<any>, item: any): boolean {
-        if (conditions.length === 0) {
-            return true; // No conditions means always show
+    private evaluateSimpleConditions(conditions: any, item: any): boolean {
+        if (Array.isArray(conditions)) {
+            for (const condition of conditions) {
+                if (this.evaluateSingleCondition(condition)) {
+                    this.updateAssetProperties(item, condition);
+                    return true;
+                }
+            }
+        } else {
+            if (this.evaluateSingleCondition(conditions)) {
+                this.updateAssetProperties(item, conditions);
+                return true;
+            }
         }
+        return false;
+    }
 
+    private evaluateComplexConditions(conditions: any[], item: any): boolean {
         for (const condition of conditions) {
-            if (this.evaluateSingleCondition(condition)) {
+            if (this.evaluateComplexCondition(condition)) {
                 this.updateAssetProperties(item, condition);
                 return true;
             }
@@ -36,38 +46,55 @@ export class ConfigConditionsEvaluator {
         return false;
     }
 
-    evaluateSingleCondition(condition: any): boolean {
-        // Check if 'needQuest' exists and log it
-        if ('needQuest' in condition) {
-            console.log(`Condition includes 'needQuest':`, condition);
-            // TODO: add the checks for quests.
+    private evaluateComplexCondition(condition: any): boolean {
+        if (condition.needQuest) {
+            // Placeholder: replace with actual quest checking logic
+            const questName = false; //condition.questNames.find(questName => QuestSystem.isActiveQuest(questName));
+            if (!questName /*|| !condition.questIn.includes(QuestSystem.getCurrentStep(questName))*/) {
+                return false;
+            }
         }
 
-        return Object.entries(condition).every(([key, value]) => {
-            // Skip non-evaluation keys like 'src'
-            if (['src', 'position', 'needQuest'].includes(key)) return true;
+        return condition.stateVariables.every((stateCondition: any) =>
+            this.evaluateStateCondition(stateCondition)
+        );
+    }
 
-            let decisionValue = key in this.playerDecisions ? this.playerDecisions[key] : this.state[key];
-            if (Array.isArray(value)) {
-                return value.includes(decisionValue);
-            } else {
-                return decisionValue === value;
-            }
+    private evaluateSingleCondition(condition: any): boolean {
+        return Object.entries(condition).every(([key, value]) => {
+            if (['src', 'position', 'needQuest', 'questNames', 'questIn'].includes(key)) return true;
+            return this.evaluateStateCondition({ [key]: value });
         });
     }
 
-    evaluateComplexConditions(conditions: Array<any>, item: any): boolean {
-        // This assumes that complex conditions are already properly handled as an array
-        for (const condition of conditions) {
-            const isVisible = this.evaluateConditionsArray([condition], item); // Wrap condition in array for consistency
-            if (isVisible) {
-                return true; // The first matching condition updates the item and returns true
-            }
-        }
-        return false; // If no conditions match
+    private evaluateStateCondition(condition: any): boolean {
+        return Object.entries(condition).every(([key, value]) => {
+            const decisionValue = this.playerDecisions[key] !== undefined ? this.playerDecisions[key] : this.state[key];
+            return this.compareValueAndDecision(value, decisionValue);
+        });
     }
 
-    updateAssetProperties(item: any, condition: any) {
+    private compareValueAndDecision(value: any, decisionValue: any): boolean {
+        if (Array.isArray(value)) {
+            return value.includes(decisionValue) || value.some(val => typeof val === 'object' ? this.compareComplexValue(decisionValue, val) : decisionValue === val);
+        } else if (typeof value === 'object' && value !== null) {
+            return this.compareComplexValue(decisionValue, value);
+        } else {
+            return decisionValue === value;
+        }
+    }
+
+    private compareComplexValue(decisionValue: any, conditionValue: any): boolean {
+        if (typeof conditionValue === 'object' && conditionValue !== null) {
+            return Object.entries(conditionValue).every(([condKey, condVal]) => {
+                return decisionValue[condKey] === condVal;
+            });
+        } else {
+            return decisionValue === conditionValue;
+        }
+    }
+
+    private updateAssetProperties(item: any, condition: any) {
         if (condition.src) {
             item.src = condition.src;
         }
